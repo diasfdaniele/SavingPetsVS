@@ -19,7 +19,26 @@ namespace SavingPets
 
         private void btnAnimais_Click(object sender, EventArgs e)
         {
+            CadastroAnimal janela = new CadastroAnimal();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
 
+        private void btnOcorrencia_Click(object sender, EventArgs e)
+        {
+            Ocorrencia janela = new Ocorrencia();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void btnTutores_Click(object sender, EventArgs e)
+        {
+            Tutores janela = new Tutores();
+            Hide();
+            janela.ShowDialog();
+            Show();
         }
     }
 }

@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroAnimal.Designer.cs">
+      <DependentUpon>CadastroAnimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ocorrencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ocorrencia.Designer.cs">
+      <DependentUpon>Ocorrencia.cs</DependentUpon>
     </Compile>
     <Compile Include="TelaInicial.cs">
       <SubType>Form</SubType>
@@ -66,8 +78,20 @@
     <Compile Include="TelaLogin.Designer.cs">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tutores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tutores.Designer.cs">
+      <DependentUpon>Tutores.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CadastroAnimal.resx">
+      <DependentUpon>CadastroAnimal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ocorrencia.resx">
+      <DependentUpon>Ocorrencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>
@@ -83,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tutores.resx">
+      <DependentUpon>Tutores.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -57,7 +57,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 166);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 217);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(290, 231);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -67,7 +67,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(604, 166);
+            this.pictureBox2.Location = new System.Drawing.Point(596, 217);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(290, 231);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -77,7 +77,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(900, 166);
+            this.pictureBox4.Location = new System.Drawing.Point(890, 217);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(290, 231);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -87,7 +87,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(308, 166);
+            this.pictureBox3.Location = new System.Drawing.Point(300, 217);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(290, 231);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -101,7 +101,7 @@
             this.btnAnimais.FlatAppearance.BorderSize = 0;
             this.btnAnimais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnimais.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnimais.Location = new System.Drawing.Point(12, 413);
+            this.btnAnimais.Location = new System.Drawing.Point(3, 464);
             this.btnAnimais.Name = "btnAnimais";
             this.btnAnimais.Size = new System.Drawing.Size(290, 36);
             this.btnAnimais.TabIndex = 5;
@@ -116,12 +116,13 @@
             this.btnTutores.FlatAppearance.BorderSize = 0;
             this.btnTutores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTutores.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTutores.Location = new System.Drawing.Point(308, 413);
+            this.btnTutores.Location = new System.Drawing.Point(300, 464);
             this.btnTutores.Name = "btnTutores";
             this.btnTutores.Size = new System.Drawing.Size(290, 36);
             this.btnTutores.TabIndex = 6;
             this.btnTutores.Text = "TUTORES";
             this.btnTutores.UseVisualStyleBackColor = false;
+            this.btnTutores.Click += new System.EventHandler(this.btnTutores_Click);
             // 
             // btnProcesso
             // 
@@ -130,7 +131,7 @@
             this.btnProcesso.FlatAppearance.BorderSize = 0;
             this.btnProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcesso.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcesso.Location = new System.Drawing.Point(604, 413);
+            this.btnProcesso.Location = new System.Drawing.Point(596, 464);
             this.btnProcesso.Name = "btnProcesso";
             this.btnProcesso.Size = new System.Drawing.Size(290, 36);
             this.btnProcesso.TabIndex = 7;
@@ -144,12 +145,13 @@
             this.btnOcorrencia.FlatAppearance.BorderSize = 0;
             this.btnOcorrencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOcorrencia.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOcorrencia.Location = new System.Drawing.Point(900, 413);
+            this.btnOcorrencia.Location = new System.Drawing.Point(890, 464);
             this.btnOcorrencia.Name = "btnOcorrencia";
             this.btnOcorrencia.Size = new System.Drawing.Size(290, 36);
             this.btnOcorrencia.TabIndex = 8;
             this.btnOcorrencia.Text = "OCORRÊNCIAS";
             this.btnOcorrencia.UseVisualStyleBackColor = false;
+            this.btnOcorrencia.Click += new System.EventHandler(this.btnOcorrencia_Click);
             // 
             // MenuPrincipal
             // 
@@ -157,7 +159,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1199, 749);
+            this.ClientSize = new System.Drawing.Size(1184, 749);
             this.Controls.Add(this.btnOcorrencia);
             this.Controls.Add(this.btnProcesso);
             this.Controls.Add(this.btnTutores);
