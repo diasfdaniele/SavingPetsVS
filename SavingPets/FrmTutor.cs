@@ -10,21 +10,24 @@ using System.Windows.Forms;
 
 namespace SavingPets
 {
-    public partial class TelaLogin : Form
+    public partial class FrmTutor : Form
     {
-        public TelaLogin()
+        public FrmTutor()
         {
             InitializeComponent();
         }
 
-        private void TelaLogin_Load(object sender, EventArgs e)
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
-
+            FrmMenu janela = new FrmMenu();
+            Hide();
+            janela.ShowDialog();
+            Show();
         }
 
-        private void btnEntrar_Click(object sender, EventArgs e)
+        private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            MenuPrincipal janela = new MenuPrincipal();
+            FrmMenu janela = new FrmMenu();
             Hide();
             janela.ShowDialog();
             Show();

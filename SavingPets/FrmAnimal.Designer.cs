@@ -1,6 +1,6 @@
 ﻿namespace SavingPets
 {
-    partial class CadastroAnimal
+    partial class FrmAnimal
     {
         /// <summary>
         /// Required designer variable.
@@ -60,6 +60,7 @@
             this.txtHistorico = new System.Windows.Forms.TextBox();
             this.btnCadAnimal = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -413,12 +414,13 @@
             this.btnCadAnimal.FlatAppearance.BorderSize = 0;
             this.btnCadAnimal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadAnimal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadAnimal.Location = new System.Drawing.Point(232, 551);
+            this.btnCadAnimal.Location = new System.Drawing.Point(170, 553);
             this.btnCadAnimal.Name = "btnCadAnimal";
             this.btnCadAnimal.Size = new System.Drawing.Size(115, 35);
             this.btnCadAnimal.TabIndex = 12;
             this.btnCadAnimal.Text = "Cadastrar";
             this.btnCadAnimal.UseVisualStyleBackColor = false;
+            this.btnCadAnimal.Click += new System.EventHandler(this.btnCadAnimal_Click);
             // 
             // label8
             // 
@@ -430,12 +432,28 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "AAANO - Associação Amigos dos Animais de Nova Odessa";
             // 
-            // CadastroAnimal
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVoltar.FlatAppearance.BorderSize = 0;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(300, 553);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(115, 35);
+            this.btnVoltar.TabIndex = 14;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // FrmAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(564, 641);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnCadAnimal);
             this.Controls.Add(this.groupBox5);
@@ -450,7 +468,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "CadastroAnimal";
+            this.Name = "FrmAnimal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Novo Animal";
             this.groupBox1.ResumeLayout(false);
@@ -502,5 +520,6 @@
         private System.Windows.Forms.TextBox txtHistorico;
         private System.Windows.Forms.Button btnCadAnimal;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

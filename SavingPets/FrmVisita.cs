@@ -10,32 +10,29 @@ using System.Windows.Forms;
 
 namespace SavingPets
 {
-    public partial class MenuPrincipal : Form
+    public partial class FrmVisita : Form
     {
-        public MenuPrincipal()
+        public FrmVisita()
         {
             InitializeComponent();
         }
 
-        private void btnAnimais_Click(object sender, EventArgs e)
+        private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            CadastroAnimal janela = new CadastroAnimal();
+            FrmMenu janela = new FrmMenu();
             Hide();
             janela.ShowDialog();
             Show();
         }
 
-        private void btnOcorrencia_Click(object sender, EventArgs e)
+        private void btnLimpar_Click(object sender, EventArgs e)
         {
-            Ocorrencia janela = new Ocorrencia();
-            Hide();
-            janela.ShowDialog();
-            Show();
+
         }
 
-        private void btnTutores_Click(object sender, EventArgs e)
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
-            Tutores janela = new Tutores();
+            FrmMenu janela = new FrmMenu();
             Hide();
             janela.ShowDialog();
             Show();

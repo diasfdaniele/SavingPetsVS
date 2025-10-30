@@ -1,6 +1,6 @@
 ﻿namespace SavingPets
 {
-    partial class Tutores
+    partial class FrmTutor
     {
         /// <summary>
         /// Required designer variable.
@@ -59,7 +59,8 @@
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnCadAnimal = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -371,28 +372,45 @@
             this.label15.TabIndex = 35;
             this.label15.Text = "AAANO - Associação Amigos dos Animais de Nova Odessa";
             // 
-            // btnCadAnimal
+            // btnCadastrar
             // 
-            this.btnCadAnimal.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnCadAnimal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadAnimal.FlatAppearance.BorderSize = 0;
-            this.btnCadAnimal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadAnimal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadAnimal.Location = new System.Drawing.Point(224, 553);
-            this.btnCadAnimal.Name = "btnCadAnimal";
-            this.btnCadAnimal.Size = new System.Drawing.Size(115, 35);
-            this.btnCadAnimal.TabIndex = 34;
-            this.btnCadAnimal.Text = "Cadastrar";
-            this.btnCadAnimal.UseVisualStyleBackColor = false;
+            this.btnCadastrar.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCadastrar.FlatAppearance.BorderSize = 0;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Location = new System.Drawing.Point(165, 549);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(115, 35);
+            this.btnCadastrar.TabIndex = 34;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // Tutores
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVoltar.FlatAppearance.BorderSize = 0;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(294, 549);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(115, 35);
+            this.btnVoltar.TabIndex = 36;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // FrmTutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(564, 641);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.btnCadAnimal);
+            this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txtCidade);
@@ -421,9 +439,9 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Tutores";
+            this.Name = "FrmTutor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tutores";
+            this.Text = "Cadastro de tutores";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -464,6 +482,7 @@
         private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnCadAnimal;
+        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }

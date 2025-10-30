@@ -10,31 +10,23 @@ using System.Windows.Forms;
 
 namespace SavingPets
 {
-    public partial class FrmPrincipal : Form
+    public partial class FrmInicial : Form
     {
-        public FrmPrincipal()
+        public FrmInicial()
         {
             InitializeComponent();
 
-            //Comandos para deixar os label com plano de fundo do picturebox
+            //Comandos para deixar os label com plano de fundo do picturebox (imagem de fundo)
             label1.Parent = pictureBox1;
             label2.Parent = pictureBox1;
             label3.Parent = pictureBox1;
 
-            label1.BackColor = Color.Transparent;
-            label2.BackColor = Color.Transparent;
-            label3.BackColor = Color.Transparent;
-
         }
 
-        private void FrmPrincipal_Load(object sender, EventArgs e)
-        {
-            
-        }
-
+        //Evento de clique do botão Login
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            TelaLogin janela = new TelaLogin();
+            FrmLogin janela = new FrmLogin();
             Hide();
             janela.ShowDialog();
             Show();

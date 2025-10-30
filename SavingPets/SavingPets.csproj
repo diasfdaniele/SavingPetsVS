@@ -46,55 +46,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CadastroAnimal.cs">
+    <Compile Include="FrmAnimal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CadastroAnimal.Designer.cs">
-      <DependentUpon>CadastroAnimal.cs</DependentUpon>
+    <Compile Include="FrmAnimal.Designer.cs">
+      <DependentUpon>FrmAnimal.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuPrincipal.cs">
+    <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuPrincipal.Designer.cs">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ocorrencia.cs">
+    <Compile Include="FrmOcorrencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ocorrencia.Designer.cs">
-      <DependentUpon>Ocorrencia.cs</DependentUpon>
+    <Compile Include="FrmOcorrencia.Designer.cs">
+      <DependentUpon>FrmOcorrencia.cs</DependentUpon>
     </Compile>
-    <Compile Include="TelaInicial.cs">
+    <Compile Include="FrmVisita.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaInicial.Designer.cs">
-      <DependentUpon>TelaInicial.cs</DependentUpon>
+    <Compile Include="FrmVisita.Designer.cs">
+      <DependentUpon>FrmVisita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInicial.Designer.cs">
+      <DependentUpon>FrmInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TelaLogin.cs">
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaLogin.Designer.cs">
-      <DependentUpon>TelaLogin.cs</DependentUpon>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tutores.cs">
+    <Compile Include="FrmTutor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tutores.Designer.cs">
-      <DependentUpon>Tutores.cs</DependentUpon>
+    <Compile Include="FrmTutor.Designer.cs">
+      <DependentUpon>FrmTutor.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CadastroAnimal.resx">
-      <DependentUpon>CadastroAnimal.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAnimal.resx">
+      <DependentUpon>FrmAnimal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuPrincipal.resx">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ocorrencia.resx">
-      <DependentUpon>Ocorrencia.cs</DependentUpon>
+    <EmbeddedResource Include="FrmOcorrencia.resx">
+      <DependentUpon>FrmOcorrencia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TelaInicial.resx">
-      <DependentUpon>TelaInicial.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVisita.resx">
+      <DependentUpon>FrmVisita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInicial.resx">
+      <DependentUpon>FrmInicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,11 +114,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TelaLogin.resx">
-      <DependentUpon>TelaLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tutores.resx">
-      <DependentUpon>Tutores.cs</DependentUpon>
+    <EmbeddedResource Include="FrmTutor.resx">
+      <DependentUpon>FrmTutor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

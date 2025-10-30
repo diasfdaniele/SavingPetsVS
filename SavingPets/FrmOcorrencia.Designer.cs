@@ -1,6 +1,6 @@
 ﻿namespace SavingPets
 {
-    partial class Ocorrencia
+    partial class FrmOcorrencia
     {
         /// <summary>
         /// Required designer variable.
@@ -29,22 +29,23 @@
         private void InitializeComponent()
         {
             this.label8 = new System.Windows.Forms.Label();
-            this.rbNaoCastrado = new System.Windows.Forms.RadioButton();
-            this.rbCastrado = new System.Windows.Forms.RadioButton();
+            this.rbMedia = new System.Windows.Forms.RadioButton();
+            this.rbBaixa = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnCadAnimal = new System.Windows.Forms.Button();
+            this.rbAlta = new System.Windows.Forms.RadioButton();
+            this.btnCadastrarOcorrencia = new System.Windows.Forms.Button();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdTutor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtData = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.txtIdOcorrencia = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtProvidencia = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,35 +59,35 @@
             this.label8.TabIndex = 27;
             this.label8.Text = "AAANO - Associação Amigos dos Animais de Nova Odessa";
             // 
-            // rbNaoCastrado
+            // rbMedia
             // 
-            this.rbNaoCastrado.AutoSize = true;
-            this.rbNaoCastrado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNaoCastrado.Location = new System.Drawing.Point(90, 20);
-            this.rbNaoCastrado.Name = "rbNaoCastrado";
-            this.rbNaoCastrado.Size = new System.Drawing.Size(64, 21);
-            this.rbNaoCastrado.TabIndex = 1;
-            this.rbNaoCastrado.TabStop = true;
-            this.rbNaoCastrado.Text = "Media";
-            this.rbNaoCastrado.UseVisualStyleBackColor = true;
+            this.rbMedia.AutoSize = true;
+            this.rbMedia.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMedia.Location = new System.Drawing.Point(90, 20);
+            this.rbMedia.Name = "rbMedia";
+            this.rbMedia.Size = new System.Drawing.Size(64, 21);
+            this.rbMedia.TabIndex = 1;
+            this.rbMedia.TabStop = true;
+            this.rbMedia.Text = "Media";
+            this.rbMedia.UseVisualStyleBackColor = true;
             // 
-            // rbCastrado
+            // rbBaixa
             // 
-            this.rbCastrado.AutoSize = true;
-            this.rbCastrado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCastrado.Location = new System.Drawing.Point(6, 20);
-            this.rbCastrado.Name = "rbCastrado";
-            this.rbCastrado.Size = new System.Drawing.Size(58, 21);
-            this.rbCastrado.TabIndex = 0;
-            this.rbCastrado.TabStop = true;
-            this.rbCastrado.Text = "Baixa";
-            this.rbCastrado.UseVisualStyleBackColor = true;
+            this.rbBaixa.AutoSize = true;
+            this.rbBaixa.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbBaixa.Location = new System.Drawing.Point(6, 20);
+            this.rbBaixa.Name = "rbBaixa";
+            this.rbBaixa.Size = new System.Drawing.Size(58, 21);
+            this.rbBaixa.TabIndex = 0;
+            this.rbBaixa.TabStop = true;
+            this.rbBaixa.Text = "Baixa";
+            this.rbBaixa.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.radioButton1);
-            this.groupBox5.Controls.Add(this.rbNaoCastrado);
-            this.groupBox5.Controls.Add(this.rbCastrado);
+            this.groupBox5.Controls.Add(this.rbAlta);
+            this.groupBox5.Controls.Add(this.rbMedia);
+            this.groupBox5.Controls.Add(this.rbBaixa);
             this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(179, 249);
             this.groupBox5.Name = "groupBox5";
@@ -95,19 +96,32 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Gravidade:";
             // 
-            // btnCadAnimal
+            // rbAlta
             // 
-            this.btnCadAnimal.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnCadAnimal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadAnimal.FlatAppearance.BorderSize = 0;
-            this.btnCadAnimal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadAnimal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadAnimal.Location = new System.Drawing.Point(239, 379);
-            this.btnCadAnimal.Name = "btnCadAnimal";
-            this.btnCadAnimal.Size = new System.Drawing.Size(115, 35);
-            this.btnCadAnimal.TabIndex = 26;
-            this.btnCadAnimal.Text = "Cadastrar";
-            this.btnCadAnimal.UseVisualStyleBackColor = false;
+            this.rbAlta.AutoSize = true;
+            this.rbAlta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAlta.Location = new System.Drawing.Point(173, 20);
+            this.rbAlta.Name = "rbAlta";
+            this.rbAlta.Size = new System.Drawing.Size(51, 21);
+            this.rbAlta.TabIndex = 2;
+            this.rbAlta.TabStop = true;
+            this.rbAlta.Text = "Alta";
+            this.rbAlta.UseVisualStyleBackColor = true;
+            // 
+            // btnCadastrarOcorrencia
+            // 
+            this.btnCadastrarOcorrencia.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnCadastrarOcorrencia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCadastrarOcorrencia.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarOcorrencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarOcorrencia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarOcorrencia.Location = new System.Drawing.Point(179, 377);
+            this.btnCadastrarOcorrencia.Name = "btnCadastrarOcorrencia";
+            this.btnCadastrarOcorrencia.Size = new System.Drawing.Size(115, 35);
+            this.btnCadastrarOcorrencia.TabIndex = 26;
+            this.btnCadastrarOcorrencia.Text = "Cadastrar";
+            this.btnCadastrarOcorrencia.UseVisualStyleBackColor = false;
+            this.btnCadastrarOcorrencia.Click += new System.EventHandler(this.btnCadastrarOcorrencia_Click);
             // 
             // txtDescricao
             // 
@@ -158,16 +172,6 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Registro de Ocorrências";
             // 
-            // txtData
-            // 
-            this.txtData.AcceptsReturn = true;
-            this.txtData.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtData.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtData.Location = new System.Drawing.Point(179, 220);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(245, 23);
-            this.txtData.TabIndex = 29;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -177,18 +181,6 @@
             this.label9.Size = new System.Drawing.Size(128, 17);
             this.label9.TabIndex = 28;
             this.label9.Text = "Data do Ocorrido:";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(173, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(51, 21);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Alta";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // txtIdOcorrencia
             // 
@@ -229,30 +221,55 @@
             this.label5.TabIndex = 32;
             this.label5.Text = "Providência tomada:";
             // 
-            // Ocorrencia
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(179, 222);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(245, 20);
+            this.dateTimePicker1.TabIndex = 34;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVoltar.FlatAppearance.BorderSize = 0;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Location = new System.Drawing.Point(309, 377);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(115, 35);
+            this.btnVoltar.TabIndex = 35;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // FrmOcorrencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(564, 641);
+            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtProvidencia);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtIdOcorrencia);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtData);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.btnCadAnimal);
+            this.Controls.Add(this.btnCadastrarOcorrencia);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtIdTutor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Ocorrencia";
+            this.Name = "FrmOcorrencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ocorrencia";
+            this.Text = "Registro de Ocorrências";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmOcorrencia_FormClosed);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -263,21 +280,22 @@
         #endregion
 
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton rbNaoCastrado;
-        private System.Windows.Forms.RadioButton rbCastrado;
+        private System.Windows.Forms.RadioButton rbMedia;
+        private System.Windows.Forms.RadioButton rbBaixa;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button btnCadAnimal;
+        private System.Windows.Forms.Button btnCadastrarOcorrencia;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdTutor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtData;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbAlta;
         private System.Windows.Forms.TextBox txtIdOcorrencia;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtProvidencia;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }
