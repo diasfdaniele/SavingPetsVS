@@ -130,6 +130,51 @@ namespace SavingPets
             Show();
         }
 
-       
+        private void consultarTutorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarTutor janela = new FrmGerenciarTutor();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void cmsAnimais_Opening(object sender, CancelEventArgs e)
+        {
+            
+        }
+
+        private void consultarAnimalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarAnimal janela = new FrmGerenciarAnimal();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void cmsAdocao_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void consultarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarProcessoAdotivo janela = new FrmGerenciarProcessoAdotivo();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void cmsOcorrencia_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void consultarOcorrênciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarOcorrencias janela = new FrmGerenciarOcorrencias();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
     }
 }

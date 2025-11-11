@@ -76,18 +76,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(440, 17);
+            this.label1.Location = new System.Drawing.Point(587, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(314, 44);
+            this.label1.Size = new System.Drawing.Size(401, 56);
             this.label1.TabIndex = 0;
             this.label1.Text = "MENU PRINCIPAL";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(334, 125);
+            this.pictureBox1.Location = new System.Drawing.Point(445, 154);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(256, 203);
+            this.pictureBox1.Size = new System.Drawing.Size(341, 250);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -95,9 +97,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(334, 376);
+            this.pictureBox2.Location = new System.Drawing.Point(445, 463);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(256, 203);
+            this.pictureBox2.Size = new System.Drawing.Size(341, 250);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
@@ -105,9 +108,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(614, 376);
+            this.pictureBox4.Location = new System.Drawing.Point(819, 463);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(256, 203);
+            this.pictureBox4.Size = new System.Drawing.Size(341, 250);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
@@ -115,9 +119,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(614, 125);
+            this.pictureBox3.Location = new System.Drawing.Point(819, 154);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(256, 203);
+            this.pictureBox3.Size = new System.Drawing.Size(341, 250);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
@@ -129,9 +134,10 @@
             this.btnAnimais.FlatAppearance.BorderSize = 0;
             this.btnAnimais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnimais.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnimais.Location = new System.Drawing.Point(334, 325);
+            this.btnAnimais.Location = new System.Drawing.Point(445, 400);
+            this.btnAnimais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAnimais.Name = "btnAnimais";
-            this.btnAnimais.Size = new System.Drawing.Size(256, 36);
+            this.btnAnimais.Size = new System.Drawing.Size(341, 44);
             this.btnAnimais.TabIndex = 5;
             this.btnAnimais.Text = "ANIMAIS";
             this.btnAnimais.UseVisualStyleBackColor = false;
@@ -144,9 +150,10 @@
             this.btnTutores.FlatAppearance.BorderSize = 0;
             this.btnTutores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTutores.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTutores.Location = new System.Drawing.Point(614, 325);
+            this.btnTutores.Location = new System.Drawing.Point(819, 400);
+            this.btnTutores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTutores.Name = "btnTutores";
-            this.btnTutores.Size = new System.Drawing.Size(256, 36);
+            this.btnTutores.Size = new System.Drawing.Size(341, 44);
             this.btnTutores.TabIndex = 6;
             this.btnTutores.Text = "TUTORES";
             this.btnTutores.UseVisualStyleBackColor = false;
@@ -159,9 +166,10 @@
             this.btnProcesso.FlatAppearance.BorderSize = 0;
             this.btnProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcesso.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcesso.Location = new System.Drawing.Point(334, 579);
+            this.btnProcesso.Location = new System.Drawing.Point(445, 713);
+            this.btnProcesso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProcesso.Name = "btnProcesso";
-            this.btnProcesso.Size = new System.Drawing.Size(256, 36);
+            this.btnProcesso.Size = new System.Drawing.Size(341, 44);
             this.btnProcesso.TabIndex = 7;
             this.btnProcesso.Text = "PROCESSO ADOTIVO";
             this.btnProcesso.UseVisualStyleBackColor = false;
@@ -174,9 +182,10 @@
             this.btnOcorrencia.FlatAppearance.BorderSize = 0;
             this.btnOcorrencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOcorrencia.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOcorrencia.Location = new System.Drawing.Point(614, 578);
+            this.btnOcorrencia.Location = new System.Drawing.Point(819, 711);
+            this.btnOcorrencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOcorrencia.Name = "btnOcorrencia";
-            this.btnOcorrencia.Size = new System.Drawing.Size(256, 36);
+            this.btnOcorrencia.Size = new System.Drawing.Size(341, 44);
             this.btnOcorrencia.TabIndex = 8;
             this.btnOcorrencia.Text = "OCORRÊNCIAS";
             this.btnOcorrencia.UseVisualStyleBackColor = false;
@@ -186,37 +195,40 @@
             // 
             this.cmsAnimais.BackColor = System.Drawing.Color.LightGray;
             this.cmsAnimais.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsAnimais.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsAnimais.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarAnimalToolStripMenuItem,
             this.consultarAnimalToolStripMenuItem,
             this.editarAnimalToolStripMenuItem,
             this.excluirAnimalToolStripMenuItem});
             this.cmsAnimais.Name = "cmsAnimais";
-            this.cmsAnimais.Size = new System.Drawing.Size(204, 100);
+            this.cmsAnimais.Size = new System.Drawing.Size(240, 108);
+            this.cmsAnimais.Opening += new System.ComponentModel.CancelEventHandler(this.cmsAnimais_Opening);
             // 
             // cadastrarAnimalToolStripMenuItem
             // 
             this.cadastrarAnimalToolStripMenuItem.Name = "cadastrarAnimalToolStripMenuItem";
-            this.cadastrarAnimalToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
+            this.cadastrarAnimalToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
             this.cadastrarAnimalToolStripMenuItem.Text = "Cadastrar animal";
             this.cadastrarAnimalToolStripMenuItem.Click += new System.EventHandler(this.cadastrarAnimalToolStripMenuItem_Click);
             // 
             // consultarAnimalToolStripMenuItem
             // 
             this.consultarAnimalToolStripMenuItem.Name = "consultarAnimalToolStripMenuItem";
-            this.consultarAnimalToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
+            this.consultarAnimalToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
             this.consultarAnimalToolStripMenuItem.Text = "Consultar animal";
+            this.consultarAnimalToolStripMenuItem.Click += new System.EventHandler(this.consultarAnimalToolStripMenuItem_Click);
             // 
             // editarAnimalToolStripMenuItem
             // 
             this.editarAnimalToolStripMenuItem.Name = "editarAnimalToolStripMenuItem";
-            this.editarAnimalToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
+            this.editarAnimalToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
             this.editarAnimalToolStripMenuItem.Text = "Editar animal";
             // 
             // excluirAnimalToolStripMenuItem
             // 
             this.excluirAnimalToolStripMenuItem.Name = "excluirAnimalToolStripMenuItem";
-            this.excluirAnimalToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
+            this.excluirAnimalToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
             this.excluirAnimalToolStripMenuItem.Text = "Excluir animal";
             // 
             // btnMenuAnimais
@@ -226,9 +238,10 @@
             this.btnMenuAnimais.FlatAppearance.BorderSize = 0;
             this.btnMenuAnimais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuAnimais.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuAnimais.Location = new System.Drawing.Point(555, 325);
+            this.btnMenuAnimais.Location = new System.Drawing.Point(740, 400);
+            this.btnMenuAnimais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMenuAnimais.Name = "btnMenuAnimais";
-            this.btnMenuAnimais.Size = new System.Drawing.Size(35, 36);
+            this.btnMenuAnimais.Size = new System.Drawing.Size(47, 44);
             this.btnMenuAnimais.TabIndex = 10;
             this.btnMenuAnimais.Text = "☰";
             this.btnMenuAnimais.UseVisualStyleBackColor = false;
@@ -241,9 +254,10 @@
             this.btnMenuTutor.FlatAppearance.BorderSize = 0;
             this.btnMenuTutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuTutor.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuTutor.Location = new System.Drawing.Point(835, 324);
+            this.btnMenuTutor.Location = new System.Drawing.Point(1113, 399);
+            this.btnMenuTutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMenuTutor.Name = "btnMenuTutor";
-            this.btnMenuTutor.Size = new System.Drawing.Size(35, 36);
+            this.btnMenuTutor.Size = new System.Drawing.Size(47, 44);
             this.btnMenuTutor.TabIndex = 11;
             this.btnMenuTutor.Text = "☰";
             this.btnMenuTutor.UseVisualStyleBackColor = false;
@@ -253,37 +267,39 @@
             // 
             this.cmsTutor.BackColor = System.Drawing.Color.LightGray;
             this.cmsTutor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsTutor.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsTutor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarTutorToolStripMenuItem,
             this.consultarTutorToolStripMenuItem,
             this.editarTutorToolStripMenuItem,
             this.excluirTutorToolStripMenuItem});
             this.cmsTutor.Name = "cmsTutor";
-            this.cmsTutor.Size = new System.Drawing.Size(190, 100);
+            this.cmsTutor.Size = new System.Drawing.Size(223, 108);
             // 
             // cadastrarTutorToolStripMenuItem
             // 
             this.cadastrarTutorToolStripMenuItem.Name = "cadastrarTutorToolStripMenuItem";
-            this.cadastrarTutorToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.cadastrarTutorToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.cadastrarTutorToolStripMenuItem.Text = "Cadastrar tutor";
             this.cadastrarTutorToolStripMenuItem.Click += new System.EventHandler(this.cadastrarTutorToolStripMenuItem_Click);
             // 
             // consultarTutorToolStripMenuItem
             // 
             this.consultarTutorToolStripMenuItem.Name = "consultarTutorToolStripMenuItem";
-            this.consultarTutorToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.consultarTutorToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.consultarTutorToolStripMenuItem.Text = "Consultar tutor";
+            this.consultarTutorToolStripMenuItem.Click += new System.EventHandler(this.consultarTutorToolStripMenuItem_Click);
             // 
             // editarTutorToolStripMenuItem
             // 
             this.editarTutorToolStripMenuItem.Name = "editarTutorToolStripMenuItem";
-            this.editarTutorToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.editarTutorToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.editarTutorToolStripMenuItem.Text = "Editar tutor";
             // 
             // excluirTutorToolStripMenuItem
             // 
             this.excluirTutorToolStripMenuItem.Name = "excluirTutorToolStripMenuItem";
-            this.excluirTutorToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
+            this.excluirTutorToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.excluirTutorToolStripMenuItem.Text = "Excluir tutor";
             // 
             // btnMenuProcesso
@@ -293,9 +309,10 @@
             this.btnMenuProcesso.FlatAppearance.BorderSize = 0;
             this.btnMenuProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuProcesso.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuProcesso.Location = new System.Drawing.Point(555, 578);
+            this.btnMenuProcesso.Location = new System.Drawing.Point(740, 711);
+            this.btnMenuProcesso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMenuProcesso.Name = "btnMenuProcesso";
-            this.btnMenuProcesso.Size = new System.Drawing.Size(35, 36);
+            this.btnMenuProcesso.Size = new System.Drawing.Size(47, 44);
             this.btnMenuProcesso.TabIndex = 13;
             this.btnMenuProcesso.Text = "☰";
             this.btnMenuProcesso.UseVisualStyleBackColor = false;
@@ -305,6 +322,7 @@
             // 
             this.cmsAdocao.BackColor = System.Drawing.Color.LightGray;
             this.cmsAdocao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsAdocao.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsAdocao.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarVisitaDomiciliarToolStripMenuItem,
             this.cadastrarProcessoAdotivoToolStripMenuItem,
@@ -312,37 +330,39 @@
             this.editarProcessoAdotivoToolStripMenuItem,
             this.excluirProcessoAdotivoToolStripMenuItem});
             this.cmsAdocao.Name = "cmsAdocao";
-            this.cmsAdocao.Size = new System.Drawing.Size(285, 124);
+            this.cmsAdocao.Size = new System.Drawing.Size(338, 164);
+            this.cmsAdocao.Opening += new System.ComponentModel.CancelEventHandler(this.cmsAdocao_Opening);
             // 
             // registrarVisitaDomiciliarToolStripMenuItem
             // 
             this.registrarVisitaDomiciliarToolStripMenuItem.Name = "registrarVisitaDomiciliarToolStripMenuItem";
-            this.registrarVisitaDomiciliarToolStripMenuItem.Size = new System.Drawing.Size(284, 24);
+            this.registrarVisitaDomiciliarToolStripMenuItem.Size = new System.Drawing.Size(337, 26);
             this.registrarVisitaDomiciliarToolStripMenuItem.Text = "Registrar visita domiciliar";
             this.registrarVisitaDomiciliarToolStripMenuItem.Click += new System.EventHandler(this.registrarVisitaDomiciliarToolStripMenuItem_Click);
             // 
             // cadastrarProcessoAdotivoToolStripMenuItem
             // 
             this.cadastrarProcessoAdotivoToolStripMenuItem.Name = "cadastrarProcessoAdotivoToolStripMenuItem";
-            this.cadastrarProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(284, 24);
+            this.cadastrarProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(337, 26);
             this.cadastrarProcessoAdotivoToolStripMenuItem.Text = "Cadastrar processo adotivo";
             // 
             // consultarProcessoAdotivoToolStripMenuItem
             // 
             this.consultarProcessoAdotivoToolStripMenuItem.Name = "consultarProcessoAdotivoToolStripMenuItem";
-            this.consultarProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(284, 24);
+            this.consultarProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(337, 26);
             this.consultarProcessoAdotivoToolStripMenuItem.Text = "Consultar processo adotivo";
+            this.consultarProcessoAdotivoToolStripMenuItem.Click += new System.EventHandler(this.consultarProcessoAdotivoToolStripMenuItem_Click);
             // 
             // editarProcessoAdotivoToolStripMenuItem
             // 
             this.editarProcessoAdotivoToolStripMenuItem.Name = "editarProcessoAdotivoToolStripMenuItem";
-            this.editarProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(284, 24);
+            this.editarProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(337, 26);
             this.editarProcessoAdotivoToolStripMenuItem.Text = "Editar processo adotivo";
             // 
             // excluirProcessoAdotivoToolStripMenuItem
             // 
             this.excluirProcessoAdotivoToolStripMenuItem.Name = "excluirProcessoAdotivoToolStripMenuItem";
-            this.excluirProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(284, 24);
+            this.excluirProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(337, 26);
             this.excluirProcessoAdotivoToolStripMenuItem.Text = "Excluir processo adotivo";
             // 
             // btnMenuOcorrencia
@@ -352,9 +372,10 @@
             this.btnMenuOcorrencia.FlatAppearance.BorderSize = 0;
             this.btnMenuOcorrencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuOcorrencia.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuOcorrencia.Location = new System.Drawing.Point(835, 577);
+            this.btnMenuOcorrencia.Location = new System.Drawing.Point(1113, 710);
+            this.btnMenuOcorrencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMenuOcorrencia.Name = "btnMenuOcorrencia";
-            this.btnMenuOcorrencia.Size = new System.Drawing.Size(35, 36);
+            this.btnMenuOcorrencia.Size = new System.Drawing.Size(47, 44);
             this.btnMenuOcorrencia.TabIndex = 14;
             this.btnMenuOcorrencia.Text = "☰";
             this.btnMenuOcorrencia.UseVisualStyleBackColor = false;
@@ -364,32 +385,35 @@
             // 
             this.cmsOcorrencia.BackColor = System.Drawing.Color.LightGray;
             this.cmsOcorrencia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsOcorrencia.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsOcorrencia.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarOcorrênciaToolStripMenuItem,
             this.consultarOcorrênciaToolStripMenuItem});
             this.cmsOcorrencia.Name = "cmsOcorrencia";
-            this.cmsOcorrencia.Size = new System.Drawing.Size(234, 52);
+            this.cmsOcorrencia.Size = new System.Drawing.Size(273, 84);
+            this.cmsOcorrencia.Opening += new System.ComponentModel.CancelEventHandler(this.cmsOcorrencia_Opening);
             // 
             // registrarOcorrênciaToolStripMenuItem
             // 
             this.registrarOcorrênciaToolStripMenuItem.Name = "registrarOcorrênciaToolStripMenuItem";
-            this.registrarOcorrênciaToolStripMenuItem.Size = new System.Drawing.Size(233, 24);
+            this.registrarOcorrênciaToolStripMenuItem.Size = new System.Drawing.Size(272, 26);
             this.registrarOcorrênciaToolStripMenuItem.Text = "Registrar ocorrência";
             this.registrarOcorrênciaToolStripMenuItem.Click += new System.EventHandler(this.registrarOcorrênciaToolStripMenuItem_Click);
             // 
             // consultarOcorrênciaToolStripMenuItem
             // 
             this.consultarOcorrênciaToolStripMenuItem.Name = "consultarOcorrênciaToolStripMenuItem";
-            this.consultarOcorrênciaToolStripMenuItem.Size = new System.Drawing.Size(233, 24);
+            this.consultarOcorrênciaToolStripMenuItem.Size = new System.Drawing.Size(272, 26);
             this.consultarOcorrênciaToolStripMenuItem.Text = "Consultar ocorrência";
+            this.consultarOcorrênciaToolStripMenuItem.Click += new System.EventHandler(this.consultarOcorrênciaToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1184, 749);
+            this.ClientSize = new System.Drawing.Size(1579, 922);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.btnMenuOcorrencia);
             this.Controls.Add(this.pictureBox2);
@@ -403,6 +427,7 @@
             this.Controls.Add(this.btnTutores);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAnimais);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
