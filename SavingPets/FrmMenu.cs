@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SavingPets
 {
-    
+
     public partial class FrmMenu : Form
     {
         bool variavel;
@@ -23,8 +23,8 @@ namespace SavingPets
         private void btnAnimais_Click(object sender, EventArgs e)
         {
             //Comando para exibição menu lateral
-            int x = btnAnimais.Width;   
-            int y = 0;                 
+            int x = btnAnimais.Width;
+            int y = 0;
 
             cmsAnimais.Show(btnAnimais, new Point(x, y));
         }
@@ -44,6 +44,23 @@ namespace SavingPets
         private void cadastrarAnimalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAnimal janela = new FrmAnimal();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        //Evento de clique para acessar consulta de animais
+        private void consultarAnimalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarAnimal janela = new FrmGerenciarAnimal();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void editarAnimalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarAnimal janela = new FrmGerenciarAnimal();
             Hide();
             janela.ShowDialog();
             Show();
@@ -78,6 +95,23 @@ namespace SavingPets
             Show();
         }
 
+        //Evento de click para acessar consulta de tutor
+        private void consultarTutorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarTutor janela = new FrmGerenciarTutor();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void editarTutorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarTutor janela = new FrmGerenciarTutor();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
         //Evento de clique para menu lateral processo adotivo
         private void btnProcesso_Click(object sender, EventArgs e)
         {
@@ -105,6 +139,31 @@ namespace SavingPets
             Show();
         }
 
+        //Evento de click para cadastrar processo adotivo
+        private void cadastrarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCadastrarProcesso janela = new FrmCadastrarProcesso();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        //Evento de click para exibir consulta de processo adotivo 
+        private void consultarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarProcessoAdotivo janela = new FrmGerenciarProcessoAdotivo();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+        private void editarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarProcessoAdotivo janela = new FrmGerenciarProcessoAdotivo();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
         //Comando para exibição menu lateral ocorrencias
         private void btnOcorrencia_Click(object sender, EventArgs e)
         {
@@ -124,53 +183,16 @@ namespace SavingPets
             cmsOcorrencia.Show(btnOcorrencia, new Point(x, y));
         }
 
+        //Evento de clique para cadastrar ocorrencia
         private void registrarOcorrênciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmOcorrencia janela = new FrmOcorrencia(this);
+            FrmOcorrencia janela = new FrmOcorrencia();
             Hide();
             janela.ShowDialog();
             Show();
         }
 
-        private void consultarTutorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmGerenciarTutor janela = new FrmGerenciarTutor();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
-
-        private void cmsAnimais_Opening(object sender, CancelEventArgs e)
-        {
-            
-        }
-
-        private void consultarAnimalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmGerenciarAnimal janela = new FrmGerenciarAnimal();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
-
-        private void cmsAdocao_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void consultarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmGerenciarProcessoAdotivo janela = new FrmGerenciarProcessoAdotivo();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
-
-        private void cmsOcorrencia_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
+        //Evento de click para consultar ocorrencia
         private void consultarOcorrênciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGerenciarOcorrencias janela = new FrmGerenciarOcorrencias();
@@ -179,14 +201,6 @@ namespace SavingPets
             Show();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            if ()
-        }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

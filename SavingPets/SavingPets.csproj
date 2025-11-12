@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\OcorrenciaController.cs" />
+    <Compile Include="Controllers\ProcessoAdotivoController.cs" />
     <Compile Include="FrmAnimal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +108,8 @@
     <Compile Include="FrmInicial.Designer.cs">
       <DependentUpon>FrmInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Ocorrencia.cs" />
+    <Compile Include="Models\ProcessoAdotivo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FrmLogin.cs">
@@ -178,5 +182,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
