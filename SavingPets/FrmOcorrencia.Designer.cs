@@ -40,7 +40,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtProvidencia = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dataOcorrido = new System.Windows.Forms.DateTimePicker();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -106,7 +106,7 @@
             this.groupBox5.Size = new System.Drawing.Size(508, 55);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Gravidade:";
+            this.groupBox5.Text = "Gravidade: *";
             // 
             // rbAlta
             // 
@@ -162,9 +162,9 @@
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(28, 319);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(152, 21);
+            this.label9.Size = new System.Drawing.Size(162, 21);
             this.label9.TabIndex = 28;
-            this.label9.Text = "Data do Ocorrido:";
+            this.label9.Text = "Data do Ocorrido: *";
             // 
             // txtProvidencia
             // 
@@ -182,18 +182,18 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(27, 427);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(175, 21);
+            this.label5.Size = new System.Drawing.Size(185, 21);
             this.label5.TabIndex = 32;
-            this.label5.Text = "Providência tomada:";
+            this.label5.Text = "Providência tomada: *";
             // 
-            // dateTimePicker1
+            // dataOcorrido
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(29, 340);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(508, 26);
-            this.dateTimePicker1.TabIndex = 34;
+            this.dataOcorrido.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataOcorrido.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataOcorrido.Location = new System.Drawing.Point(29, 340);
+            this.dataOcorrido.Name = "dataOcorrido";
+            this.dataOcorrido.Size = new System.Drawing.Size(508, 26);
+            this.dataOcorrido.TabIndex = 34;
             // 
             // btnVoltar
             // 
@@ -216,9 +216,9 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(28, 237);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(184, 21);
+            this.label3.Size = new System.Drawing.Size(194, 21);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Descrição do ocorrido:";
+            this.label3.Text = "Descrição do ocorrido: *";
             // 
             // groupBox1
             // 
@@ -236,7 +236,7 @@
             this.groupBox1.Size = new System.Drawing.Size(514, 123);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Processo Adotivo ";
+            this.groupBox1.Text = "Processo Adotivo: *";
             // 
             // dataAdocao
             // 
@@ -364,7 +364,7 @@
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnVoltar);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dataOcorrido);
             this.Controls.Add(this.txtProvidencia);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label9);
@@ -400,7 +400,7 @@
         private System.Windows.Forms.RadioButton rbAlta;
         private System.Windows.Forms.TextBox txtProvidencia;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dataOcorrido;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
