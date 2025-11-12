@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace SavingPets
 {
+    
     public partial class FrmMenu : Form
     {
+        bool variavel;
         public FrmMenu()
         {
             InitializeComponent();
@@ -175,6 +177,16 @@ namespace SavingPets
             Hide();
             janela.ShowDialog();
             Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if ()
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

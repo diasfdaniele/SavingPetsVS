@@ -62,6 +62,9 @@
             this.cmsOcorrencia = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.registrarOcorrênciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarOcorrênciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flLateral = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -70,6 +73,8 @@
             this.cmsTutor.SuspendLayout();
             this.cmsAdocao.SuspendLayout();
             this.cmsOcorrencia.SuspendLayout();
+            this.flLateral.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -87,7 +92,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(445, 154);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(341, 250);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,7 +103,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(445, 463);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(341, 250);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,7 +114,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(819, 463);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(341, 250);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -120,7 +125,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(819, 154);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(341, 250);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -135,7 +140,7 @@
             this.btnAnimais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnimais.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnimais.Location = new System.Drawing.Point(445, 400);
-            this.btnAnimais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAnimais.Margin = new System.Windows.Forms.Padding(4);
             this.btnAnimais.Name = "btnAnimais";
             this.btnAnimais.Size = new System.Drawing.Size(341, 44);
             this.btnAnimais.TabIndex = 5;
@@ -151,7 +156,7 @@
             this.btnTutores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTutores.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTutores.Location = new System.Drawing.Point(819, 400);
-            this.btnTutores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTutores.Margin = new System.Windows.Forms.Padding(4);
             this.btnTutores.Name = "btnTutores";
             this.btnTutores.Size = new System.Drawing.Size(341, 44);
             this.btnTutores.TabIndex = 6;
@@ -167,7 +172,7 @@
             this.btnProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcesso.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcesso.Location = new System.Drawing.Point(445, 713);
-            this.btnProcesso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProcesso.Margin = new System.Windows.Forms.Padding(4);
             this.btnProcesso.Name = "btnProcesso";
             this.btnProcesso.Size = new System.Drawing.Size(341, 44);
             this.btnProcesso.TabIndex = 7;
@@ -183,7 +188,7 @@
             this.btnOcorrencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOcorrencia.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOcorrencia.Location = new System.Drawing.Point(819, 711);
-            this.btnOcorrencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOcorrencia.Margin = new System.Windows.Forms.Padding(4);
             this.btnOcorrencia.Name = "btnOcorrencia";
             this.btnOcorrencia.Size = new System.Drawing.Size(341, 44);
             this.btnOcorrencia.TabIndex = 8;
@@ -239,7 +244,7 @@
             this.btnMenuAnimais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuAnimais.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuAnimais.Location = new System.Drawing.Point(740, 400);
-            this.btnMenuAnimais.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuAnimais.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuAnimais.Name = "btnMenuAnimais";
             this.btnMenuAnimais.Size = new System.Drawing.Size(47, 44);
             this.btnMenuAnimais.TabIndex = 10;
@@ -255,7 +260,7 @@
             this.btnMenuTutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuTutor.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuTutor.Location = new System.Drawing.Point(1113, 399);
-            this.btnMenuTutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuTutor.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuTutor.Name = "btnMenuTutor";
             this.btnMenuTutor.Size = new System.Drawing.Size(47, 44);
             this.btnMenuTutor.TabIndex = 11;
@@ -310,7 +315,7 @@
             this.btnMenuProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuProcesso.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuProcesso.Location = new System.Drawing.Point(740, 711);
-            this.btnMenuProcesso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuProcesso.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuProcesso.Name = "btnMenuProcesso";
             this.btnMenuProcesso.Size = new System.Drawing.Size(47, 44);
             this.btnMenuProcesso.TabIndex = 13;
@@ -330,7 +335,7 @@
             this.editarProcessoAdotivoToolStripMenuItem,
             this.excluirProcessoAdotivoToolStripMenuItem});
             this.cmsAdocao.Name = "cmsAdocao";
-            this.cmsAdocao.Size = new System.Drawing.Size(338, 164);
+            this.cmsAdocao.Size = new System.Drawing.Size(338, 134);
             this.cmsAdocao.Opening += new System.ComponentModel.CancelEventHandler(this.cmsAdocao_Opening);
             // 
             // registrarVisitaDomiciliarToolStripMenuItem
@@ -373,7 +378,7 @@
             this.btnMenuOcorrencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuOcorrencia.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuOcorrencia.Location = new System.Drawing.Point(1113, 710);
-            this.btnMenuOcorrencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuOcorrencia.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenuOcorrencia.Name = "btnMenuOcorrencia";
             this.btnMenuOcorrencia.Size = new System.Drawing.Size(47, 44);
             this.btnMenuOcorrencia.TabIndex = 14;
@@ -390,7 +395,7 @@
             this.registrarOcorrênciaToolStripMenuItem,
             this.consultarOcorrênciaToolStripMenuItem});
             this.cmsOcorrencia.Name = "cmsOcorrencia";
-            this.cmsOcorrencia.Size = new System.Drawing.Size(273, 84);
+            this.cmsOcorrencia.Size = new System.Drawing.Size(273, 56);
             this.cmsOcorrencia.Opening += new System.ComponentModel.CancelEventHandler(this.cmsOcorrencia_Opening);
             // 
             // registrarOcorrênciaToolStripMenuItem
@@ -407,6 +412,38 @@
             this.consultarOcorrênciaToolStripMenuItem.Text = "Consultar ocorrência";
             this.consultarOcorrênciaToolStripMenuItem.Click += new System.EventHandler(this.consultarOcorrênciaToolStripMenuItem_Click);
             // 
+            // flLateral
+            // 
+            this.flLateral.BackColor = System.Drawing.Color.DarkGray;
+            this.flLateral.Controls.Add(this.flowLayoutPanel2);
+            this.flLateral.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flLateral.ForeColor = System.Drawing.Color.Black;
+            this.flLateral.Location = new System.Drawing.Point(0, 0);
+            this.flLateral.MaximumSize = new System.Drawing.Size(200, 922);
+            this.flLateral.MinimumSize = new System.Drawing.Size(50, 922);
+            this.flLateral.Name = "flLateral";
+            this.flLateral.Size = new System.Drawing.Size(200, 922);
+            this.flLateral.TabIndex = 15;
+            this.flLateral.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.button1);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(197, 100);
+            this.flowLayoutPanel2.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 71);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -414,6 +451,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1579, 922);
+            this.Controls.Add(this.flLateral);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.btnMenuOcorrencia);
             this.Controls.Add(this.pictureBox2);
@@ -427,7 +465,7 @@
             this.Controls.Add(this.btnTutores);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAnimais);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
@@ -439,6 +477,8 @@
             this.cmsTutor.ResumeLayout(false);
             this.cmsAdocao.ResumeLayout(false);
             this.cmsOcorrencia.ResumeLayout(false);
+            this.flLateral.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,5 +518,8 @@
         private System.Windows.Forms.ContextMenuStrip cmsOcorrencia;
         private System.Windows.Forms.ToolStripMenuItem registrarOcorrênciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarOcorrênciaToolStripMenuItem;
+        private System.Windows.Forms.FlowLayoutPanel flLateral;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button button1;
     }
 }
