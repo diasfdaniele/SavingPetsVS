@@ -1,14 +1,16 @@
-﻿using System;
+﻿using SavingPets.Controllers;
+using SavingPets.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SavingPets.Models;
-using SavingPets.Controllers;
 
 
 namespace SavingPets
@@ -48,14 +50,63 @@ namespace SavingPets
                     return;
                 }
 
+                //Verifica campos obrigatórios
+                if (string.IsNullOrEmpty(txtNomeTutor.Text) ||
+                    string.IsNullOrEmpty(txtCpf.Text) ||
+                    string.IsNullOrEmpty(txtEmail.Text) ||
+                    string.IsNullOrEmpty(txtTelefone.Text) ||
+                    string.IsNullOrEmpty(txtCep.Text) ||
+                    string.IsNullOrEmpty(txtRua.Text) ||
+                    string.IsNullOrEmpty(txtNumero.Text) ||
+                    string.IsNullOrEmpty(txtBairro.Text) ||
+                    string.IsNullOrEmpty(txtCidade.Text) ||
+                    string.IsNullOrEmpty(txtEstado.Text))
+                {
+                    MessageBox.Show("Por favor, preencha todos os campos obrigatórios (apenas complemento é opcional)!",
+                        "Campos obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                //aqui pega os valores dos campos cpf e email
+                string cpf = txtCpf.Text.Trim();
+                string email = txtEmail.Text.Trim();
+                string telefone = txtTelefone.Text.Trim();
+
+                //validação de CPF
+                if (!Validacoes.ValidarCPF(cpf))
+                {
+                    MessageBox.Show("CPF inválido! Verifique e tente novamente.",
+                        "Erro de validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCpf.Focus();
+                    return; // Interrompe o cadastro
+                }
+
+                //validação de e-mail
+                if (!Validacoes.ValidarEmail(email))
+                {
+                    MessageBox.Show("E-mail inválido! Verifique e tente novamente.",
+                        "Erro de validação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtEmail.Focus();
+                    return;
+                }
+
+                //validação de telefone
+                if (!Validacoes.ValidarTelefone(telefone))
+                {
+                    MessageBox.Show("Telefone inválido! Verifique o número digitado.\nUse o formato (DDD) 99999-9999.",
+                        "Telefone inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtTelefone.Focus();
+                    return;
+                }
+
                 Tutor novo = new Tutor
                 {
-                    IdTutor = 0, // será gerado automaticamente
+                    IdTutor = 0, //será gerado automaticamente
                     IdAnimal = string.IsNullOrWhiteSpace(txtIdAnimal.Text) ? 0 : int.Parse(txtIdAnimal.Text),
                     NomeTutor = txtNomeTutor.Text,
                     SexoTutor = sexoT,
                     CPF = txtCpf.Text,
-                    Telefone = txtTelefone.Text,
+                    Telefone = telefone,
                     Email = txtEmail.Text,
                     CEP = txtCep.Text,
                     Rua = txtRua.Text,

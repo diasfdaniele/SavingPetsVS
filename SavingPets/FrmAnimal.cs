@@ -66,6 +66,15 @@ namespace SavingPets
 
             try
             {
+                //Verifica campos obrigatórios
+                if (string.IsNullOrEmpty(txtNomeAnimal.Text) ||
+                    string.IsNullOrEmpty(txtHistorico.Text))
+                {
+                    MessageBox.Show("Por favor, preencha todos os campos obrigatórios!",
+                        "Campos obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 Animal novo = new Animal
                 {
                     IdAnimal = int.Parse(txtIdAnimal.Text),
