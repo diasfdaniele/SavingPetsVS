@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtIdAnimal = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNomeAnimal = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -90,16 +90,17 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "ID:";
             // 
-            // txtId
+            // txtIdAnimal
             // 
-            this.txtId.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtId.Enabled = false;
-            this.txtId.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(227, 91);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(325, 27);
-            this.txtId.TabIndex = 2;
+            this.txtIdAnimal.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtIdAnimal.Enabled = false;
+            this.txtIdAnimal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdAnimal.Location = new System.Drawing.Point(227, 91);
+            this.txtIdAnimal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdAnimal.Name = "txtIdAnimal";
+            this.txtIdAnimal.ReadOnly = true;
+            this.txtIdAnimal.Size = new System.Drawing.Size(325, 27);
+            this.txtIdAnimal.TabIndex = 2;
             // 
             // label3
             // 
@@ -117,7 +118,7 @@
             this.txtNomeAnimal.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNomeAnimal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeAnimal.Location = new System.Drawing.Point(227, 150);
-            this.txtNomeAnimal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNomeAnimal.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomeAnimal.Name = "txtNomeAnimal";
             this.txtNomeAnimal.Size = new System.Drawing.Size(325, 27);
             this.txtNomeAnimal.TabIndex = 4;
@@ -128,9 +129,9 @@
             this.groupBox1.Controls.Add(this.rbCachorro);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(227, 191);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(327, 63);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
@@ -141,7 +142,7 @@
             this.rbGato.AutoSize = true;
             this.rbGato.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbGato.Location = new System.Drawing.Point(200, 27);
-            this.rbGato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbGato.Margin = new System.Windows.Forms.Padding(4);
             this.rbGato.Name = "rbGato";
             this.rbGato.Size = new System.Drawing.Size(68, 24);
             this.rbGato.TabIndex = 1;
@@ -155,7 +156,7 @@
             this.rbCachorro.BackColor = System.Drawing.Color.Transparent;
             this.rbCachorro.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbCachorro.Location = new System.Drawing.Point(12, 28);
-            this.rbCachorro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbCachorro.Margin = new System.Windows.Forms.Padding(4);
             this.rbCachorro.Name = "rbCachorro";
             this.rbCachorro.Size = new System.Drawing.Size(101, 24);
             this.rbCachorro.TabIndex = 0;
@@ -169,9 +170,9 @@
             this.groupBox2.Controls.Add(this.rbMacho);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(227, 256);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(327, 54);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
@@ -182,7 +183,7 @@
             this.rbFemea.AutoSize = true;
             this.rbFemea.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFemea.Location = new System.Drawing.Point(200, 21);
-            this.rbFemea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbFemea.Margin = new System.Windows.Forms.Padding(4);
             this.rbFemea.Name = "rbFemea";
             this.rbFemea.Size = new System.Drawing.Size(80, 24);
             this.rbFemea.TabIndex = 1;
@@ -195,7 +196,7 @@
             this.rbMacho.AutoSize = true;
             this.rbMacho.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMacho.Location = new System.Drawing.Point(12, 22);
-            this.rbMacho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbMacho.Margin = new System.Windows.Forms.Padding(4);
             this.rbMacho.Name = "rbMacho";
             this.rbMacho.Size = new System.Drawing.Size(84, 24);
             this.rbMacho.TabIndex = 0;
@@ -217,9 +218,9 @@
             this.groupBox3.Controls.Add(this.cbPoli8);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(227, 318);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(327, 167);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
@@ -230,7 +231,7 @@
             this.cbPoli5.AutoSize = true;
             this.cbPoli5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPoli5.Location = new System.Drawing.Point(168, 138);
-            this.cbPoli5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPoli5.Margin = new System.Windows.Forms.Padding(4);
             this.cbPoli5.Name = "cbPoli5";
             this.cbPoli5.Size = new System.Drawing.Size(136, 24);
             this.cbPoli5.TabIndex = 10;
@@ -275,7 +276,7 @@
             this.cbAntirabica.AutoSize = true;
             this.cbAntirabica.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAntirabica.Location = new System.Drawing.Point(99, 47);
-            this.cbAntirabica.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbAntirabica.Margin = new System.Windows.Forms.Padding(4);
             this.cbAntirabica.Name = "cbAntirabica";
             this.cbAntirabica.Size = new System.Drawing.Size(120, 25);
             this.cbAntirabica.TabIndex = 4;
@@ -287,7 +288,7 @@
             this.cbPoli4.AutoSize = true;
             this.cbPoli4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPoli4.Location = new System.Drawing.Point(168, 117);
-            this.cbPoli4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPoli4.Margin = new System.Windows.Forms.Padding(4);
             this.cbPoli4.Name = "cbPoli4";
             this.cbPoli4.Size = new System.Drawing.Size(136, 24);
             this.cbPoli4.TabIndex = 5;
@@ -299,7 +300,7 @@
             this.cbPoli10.AutoSize = true;
             this.cbPoli10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPoli10.Location = new System.Drawing.Point(3, 133);
-            this.cbPoli10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPoli10.Margin = new System.Windows.Forms.Padding(4);
             this.cbPoli10.Name = "cbPoli10";
             this.cbPoli10.Size = new System.Drawing.Size(144, 24);
             this.cbPoli10.TabIndex = 3;
@@ -311,7 +312,7 @@
             this.cbPoli3.AutoSize = true;
             this.cbPoli3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPoli3.Location = new System.Drawing.Point(168, 97);
-            this.cbPoli3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPoli3.Margin = new System.Windows.Forms.Padding(4);
             this.cbPoli3.Name = "cbPoli3";
             this.cbPoli3.Size = new System.Drawing.Size(136, 24);
             this.cbPoli3.TabIndex = 2;
@@ -322,7 +323,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(344, 130);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(122, 25);
             this.checkBox2.TabIndex = 1;
@@ -334,7 +335,7 @@
             this.cbPoli8.AutoSize = true;
             this.cbPoli8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPoli8.Location = new System.Drawing.Point(3, 103);
-            this.cbPoli8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbPoli8.Margin = new System.Windows.Forms.Padding(4);
             this.cbPoli8.Name = "cbPoli8";
             this.cbPoli8.Size = new System.Drawing.Size(140, 24);
             this.cbPoli8.TabIndex = 0;
@@ -347,9 +348,9 @@
             this.groupBox4.Controls.Add(this.rbVermifugado);
             this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(227, 486);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(324, 54);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
@@ -360,7 +361,7 @@
             this.rbNaoVermifugado.AutoSize = true;
             this.rbNaoVermifugado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbNaoVermifugado.Location = new System.Drawing.Point(200, 25);
-            this.rbNaoVermifugado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbNaoVermifugado.Margin = new System.Windows.Forms.Padding(4);
             this.rbNaoVermifugado.Name = "rbNaoVermifugado";
             this.rbNaoVermifugado.Size = new System.Drawing.Size(61, 24);
             this.rbNaoVermifugado.TabIndex = 1;
@@ -373,7 +374,7 @@
             this.rbVermifugado.AutoSize = true;
             this.rbVermifugado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbVermifugado.Location = new System.Drawing.Point(9, 25);
-            this.rbVermifugado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbVermifugado.Margin = new System.Windows.Forms.Padding(4);
             this.rbVermifugado.Name = "rbVermifugado";
             this.rbVermifugado.Size = new System.Drawing.Size(53, 24);
             this.rbVermifugado.TabIndex = 0;
@@ -387,9 +388,9 @@
             this.groupBox5.Controls.Add(this.rbCastrado);
             this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(227, 545);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5.Size = new System.Drawing.Size(324, 54);
             this.groupBox5.TabIndex = 9;
             this.groupBox5.TabStop = false;
@@ -400,7 +401,7 @@
             this.rbNaoCastrado.AutoSize = true;
             this.rbNaoCastrado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbNaoCastrado.Location = new System.Drawing.Point(197, 25);
-            this.rbNaoCastrado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbNaoCastrado.Margin = new System.Windows.Forms.Padding(4);
             this.rbNaoCastrado.Name = "rbNaoCastrado";
             this.rbNaoCastrado.Size = new System.Drawing.Size(61, 24);
             this.rbNaoCastrado.TabIndex = 1;
@@ -413,7 +414,7 @@
             this.rbCastrado.AutoSize = true;
             this.rbCastrado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbCastrado.Location = new System.Drawing.Point(8, 25);
-            this.rbCastrado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbCastrado.Margin = new System.Windows.Forms.Padding(4);
             this.rbCastrado.Name = "rbCastrado";
             this.rbCastrado.Size = new System.Drawing.Size(53, 24);
             this.rbCastrado.TabIndex = 0;
@@ -437,7 +438,7 @@
             this.txtHistorico.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtHistorico.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHistorico.Location = new System.Drawing.Point(227, 630);
-            this.txtHistorico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHistorico.Margin = new System.Windows.Forms.Padding(4);
             this.txtHistorico.Name = "txtHistorico";
             this.txtHistorico.Size = new System.Drawing.Size(325, 27);
             this.txtHistorico.TabIndex = 11;
@@ -450,7 +451,7 @@
             this.btnCadAnimal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadAnimal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadAnimal.Location = new System.Drawing.Point(227, 681);
-            this.btnCadAnimal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCadAnimal.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadAnimal.Name = "btnCadAnimal";
             this.btnCadAnimal.Size = new System.Drawing.Size(153, 43);
             this.btnCadAnimal.TabIndex = 12;
@@ -477,7 +478,7 @@
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Location = new System.Drawing.Point(400, 681);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(153, 43);
             this.btnVoltar.TabIndex = 14;
@@ -503,13 +504,14 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtNomeAnimal);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtIdAnimal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmAnimal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Novo Animal";
+            this.Load += new System.EventHandler(this.FrmAnimal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -529,7 +531,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtIdAnimal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNomeAnimal;
         private System.Windows.Forms.GroupBox groupBox1;

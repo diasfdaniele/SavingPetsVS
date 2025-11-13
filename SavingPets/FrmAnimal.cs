@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SavingPets.Models;
+using SavingPets.Controllers;
 
 namespace SavingPets
 {
@@ -20,19 +22,96 @@ namespace SavingPets
         //Evento de clique cadastrar animal
         private void btnCadAnimal_Click(object sender, EventArgs e)
         {
+            
+            string especie = "";
+            if (rbCachorro.Checked)
+                especie = "Cachorro";
+            else if (rbGato.Checked)
+                especie = "Gato";
+            else
+            {
+                MessageBox.Show("Selecione a espécie do animal!");
+                return;
+            }
+
+            
+            string sexoA = "";
+            if (rbMacho.Checked)
+                sexoA = "Macho";
+            else if (rbFemea.Checked)
+                sexoA = "Fêmea";
+            else
+            {
+                MessageBox.Show("Selecione o sexo do animal!");
+                return;
+            }
+
+            
+            List<string> vacinasSelecionadas = new List<string>();
+            if (cbAntirabica.Checked) vacinasSelecionadas.Add("Antirrábica");
+            if (cbPoli8.Checked) vacinasSelecionadas.Add("Polivalente V8");
+            if (cbPoli10.Checked) vacinasSelecionadas.Add("Polivalente V10");
+            if (cbPoli3.Checked) vacinasSelecionadas.Add("Polivalente V3");
+            if (cbPoli4.Checked) vacinasSelecionadas.Add("Polivalente V4");
+            if (cbPoli5.Checked) vacinasSelecionadas.Add("Polivalente V5");
+
+            
+            string vacinasTexto = string.Join("; ", vacinasSelecionadas);
+
+            
+            bool vermifugado = rbVermifugado.Checked; // true se "Sim", false se "Não"
+
+            
+            bool castrado = rbCastrado.Checked; // true se "Sim", false se "Não"
+
+            try
+            {
+                Animal novo = new Animal
+                {
+                    IdAnimal = int.Parse(txtIdAnimal.Text),
+                    NomeAnimal = txtNomeAnimal.Text,
+                    Especie = especie,
+                    SexoAnimal = sexoA,
+                    Vacinas = vacinasTexto,
+                    Vermifugado = vermifugado,
+                    Castrado = castrado,
+                    HistoricoDoencas = txtHistorico.Text,
+                    
+                };
+
+                AnimalController controller = new AnimalController();
+                controller.CadastrarAnimal(novo);
+
+                MessageBox.Show("Animal cadastrado com sucesso!");
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message);
+            }
+            }
+
+//Evento de clique para voltar ao menu principal
+private void btnVoltar_Click(object sender, EventArgs e)
+        {
             FrmMenu janela = new FrmMenu();
             Hide();
             janela.ShowDialog();
             Show();
         }
 
-        //Evento de clique para voltar ao menu principal
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void FrmAnimal_Load(object sender, EventArgs e)
         {
-            FrmMenu janela = new FrmMenu();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            try
+            {
+                AnimalController controller = new AnimalController();
+                int proximoId = controller.ObterProximoId();
+                txtIdAnimal.Text = proximoId.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar próximo ID: " + ex.Message);
+            }
         }
     }
 }
