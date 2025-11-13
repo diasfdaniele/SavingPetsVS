@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvAnimais = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPesquisarAnimal = new System.Windows.Forms.TextBox();
             this.btnPesquisar_Animal = new System.Windows.Forms.Button();
@@ -55,20 +55,21 @@
             this.txtIdAnimal = new System.Windows.Forms.TextBox();
             this.btnExcluir_Animal = new System.Windows.Forms.Button();
             this.btnEditar_Animal = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnimais)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvAnimais
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 179);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1116, 205);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvAnimais.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAnimais.Location = new System.Drawing.Point(22, 179);
+            this.dgvAnimais.Name = "dgvAnimais";
+            this.dgvAnimais.RowHeadersWidth = 51;
+            this.dgvAnimais.RowTemplate.Height = 24;
+            this.dgvAnimais.Size = new System.Drawing.Size(1116, 205);
+            this.dgvAnimais.TabIndex = 0;
+            this.dgvAnimais.SelectionChanged += new System.EventHandler(this.dgvAnimais_SelectionChanged);
             // 
             // label1
             // 
@@ -94,6 +95,7 @@
             this.btnPesquisar_Animal.TabIndex = 3;
             this.btnPesquisar_Animal.Text = "Pesquisar";
             this.btnPesquisar_Animal.UseVisualStyleBackColor = true;
+            this.btnPesquisar_Animal.Click += new System.EventHandler(this.btnPesquisar_Animal_Click);
             // 
             // rbIDAnimal
             // 
@@ -106,7 +108,7 @@
             this.rbIDAnimal.TabStop = true;
             this.rbIDAnimal.Text = "ID animal";
             this.rbIDAnimal.UseVisualStyleBackColor = true;
-            this.rbIDAnimal.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rbIDAnimal.CheckedChanged += new System.EventHandler(this.rbIDAnimal_CheckedChanged);
             // 
             // rbNomeAnimal
             // 
@@ -117,6 +119,7 @@
             this.rbNomeAnimal.TabIndex = 5;
             this.rbNomeAnimal.Text = "Nome ";
             this.rbNomeAnimal.UseVisualStyleBackColor = true;
+            this.rbNomeAnimal.CheckedChanged += new System.EventHandler(this.rbNomeAnimal_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -311,6 +314,7 @@
             this.btnExcluir_Animal.TabIndex = 37;
             this.btnExcluir_Animal.Text = "Excluir";
             this.btnExcluir_Animal.UseVisualStyleBackColor = false;
+            this.btnExcluir_Animal.Click += new System.EventHandler(this.btnExcluir_Animal_Click);
             // 
             // btnEditar_Animal
             // 
@@ -326,6 +330,7 @@
             this.btnEditar_Animal.TabIndex = 36;
             this.btnEditar_Animal.Text = "Editar";
             this.btnEditar_Animal.UseVisualStyleBackColor = false;
+            this.btnEditar_Animal.Click += new System.EventHandler(this.btnEditar_Animal_Click);
             // 
             // FrmGerenciarAnimal
             // 
@@ -336,10 +341,10 @@
             this.Controls.Add(this.btnEditar_Animal);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAnimais);
             this.Name = "FrmGerenciarAnimal";
             this.Text = "Consultar Animal";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnimais)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -350,7 +355,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAnimais;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPesquisarAnimal;
         private System.Windows.Forms.Button btnPesquisar_Animal;

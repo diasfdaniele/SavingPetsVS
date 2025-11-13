@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SavingPets.Models
 {
-    internal class Animal
+    public class Animal
     {
         public int IdAnimal { get; set; }
         

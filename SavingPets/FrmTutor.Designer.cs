@@ -69,7 +69,7 @@
             this.txtIdAnimal.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtIdAnimal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdAnimal.Location = new System.Drawing.Point(20, 181);
-            this.txtIdAnimal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdAnimal.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdAnimal.Name = "txtIdAnimal";
             this.txtIdAnimal.Size = new System.Drawing.Size(325, 27);
             this.txtIdAnimal.TabIndex = 9;
@@ -91,7 +91,7 @@
             this.txtIdTutor.Enabled = false;
             this.txtIdTutor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdTutor.Location = new System.Drawing.Point(20, 122);
-            this.txtIdTutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdTutor.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdTutor.Name = "txtIdTutor";
             this.txtIdTutor.Size = new System.Drawing.Size(325, 27);
             this.txtIdTutor.TabIndex = 7;
@@ -123,7 +123,7 @@
             this.txtNomeTutor.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNomeTutor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeTutor.Location = new System.Drawing.Point(20, 241);
-            this.txtNomeTutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNomeTutor.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomeTutor.Name = "txtNomeTutor";
             this.txtNomeTutor.Size = new System.Drawing.Size(325, 27);
             this.txtNomeTutor.TabIndex = 11;
@@ -144,7 +144,7 @@
             this.txtCpf.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCpf.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCpf.Location = new System.Drawing.Point(20, 368);
-            this.txtCpf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCpf.Margin = new System.Windows.Forms.Padding(4);
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(325, 27);
             this.txtCpf.TabIndex = 17;
@@ -166,9 +166,9 @@
             this.groupBox1.Controls.Add(this.rbMasculino);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(20, 277);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(327, 63);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
@@ -179,11 +179,10 @@
             this.rbFeminino.AutoSize = true;
             this.rbFeminino.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFeminino.Location = new System.Drawing.Point(200, 27);
-            this.rbFeminino.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbFeminino.Margin = new System.Windows.Forms.Padding(4);
             this.rbFeminino.Name = "rbFeminino";
             this.rbFeminino.Size = new System.Drawing.Size(94, 24);
             this.rbFeminino.TabIndex = 1;
-            this.rbFeminino.TabStop = true;
             this.rbFeminino.Text = "Feminino";
             this.rbFeminino.UseVisualStyleBackColor = true;
             // 
@@ -191,9 +190,10 @@
             // 
             this.rbMasculino.AutoSize = true;
             this.rbMasculino.BackColor = System.Drawing.Color.Transparent;
+            this.rbMasculino.Checked = true;
             this.rbMasculino.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMasculino.Location = new System.Drawing.Point(12, 28);
-            this.rbMasculino.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbMasculino.Margin = new System.Windows.Forms.Padding(4);
             this.rbMasculino.Name = "rbMasculino";
             this.rbMasculino.Size = new System.Drawing.Size(105, 24);
             this.rbMasculino.TabIndex = 0;
@@ -206,7 +206,7 @@
             this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(20, 482);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(325, 27);
             this.txtEmail.TabIndex = 22;
@@ -228,7 +228,7 @@
             this.txtTelefone.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTelefone.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefone.Location = new System.Drawing.Point(20, 423);
-            this.txtTelefone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefone.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(325, 27);
             this.txtTelefone.TabIndex = 20;
@@ -250,7 +250,7 @@
             this.txtNumero.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNumero.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumero.Location = new System.Drawing.Point(392, 241);
-            this.txtNumero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumero.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(99, 27);
             this.txtNumero.TabIndex = 24;
@@ -271,7 +271,7 @@
             this.txtRua.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtRua.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRua.Location = new System.Drawing.Point(392, 181);
-            this.txtRua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRua.Margin = new System.Windows.Forms.Padding(4);
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(325, 27);
             this.txtRua.TabIndex = 22;
@@ -292,7 +292,7 @@
             this.txtCep.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCep.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCep.Location = new System.Drawing.Point(392, 122);
-            this.txtCep.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCep.Margin = new System.Windows.Forms.Padding(4);
             this.txtCep.Name = "txtCep";
             this.txtCep.Size = new System.Drawing.Size(325, 27);
             this.txtCep.TabIndex = 20;
@@ -313,7 +313,7 @@
             this.txtComplemento.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtComplemento.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtComplemento.Location = new System.Drawing.Point(500, 241);
-            this.txtComplemento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtComplemento.Margin = new System.Windows.Forms.Padding(4);
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(216, 27);
             this.txtComplemento.TabIndex = 27;
@@ -334,7 +334,7 @@
             this.txtCidade.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCidade.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCidade.Location = new System.Drawing.Point(392, 359);
-            this.txtCidade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCidade.Margin = new System.Windows.Forms.Padding(4);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(325, 27);
             this.txtCidade.TabIndex = 31;
@@ -355,7 +355,7 @@
             this.txtBairro.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtBairro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBairro.Location = new System.Drawing.Point(392, 300);
-            this.txtBairro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBairro.Margin = new System.Windows.Forms.Padding(4);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(325, 27);
             this.txtBairro.TabIndex = 29;
@@ -376,7 +376,7 @@
             this.txtEstado.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtEstado.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEstado.Location = new System.Drawing.Point(392, 423);
-            this.txtEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEstado.Margin = new System.Windows.Forms.Padding(4);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(325, 27);
             this.txtEstado.TabIndex = 33;
@@ -412,7 +412,7 @@
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.Location = new System.Drawing.Point(220, 676);
-            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(153, 43);
             this.btnCadastrar.TabIndex = 34;
@@ -428,7 +428,7 @@
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Location = new System.Drawing.Point(392, 676);
-            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(153, 43);
             this.btnVoltar.TabIndex = 36;
@@ -473,7 +473,7 @@
             this.Controls.Add(this.txtIdTutor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmTutor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de tutores";

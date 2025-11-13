@@ -146,7 +146,6 @@
             this.rbGato.Name = "rbGato";
             this.rbGato.Size = new System.Drawing.Size(68, 24);
             this.rbGato.TabIndex = 1;
-            this.rbGato.TabStop = true;
             this.rbGato.Text = "Gato";
             this.rbGato.UseVisualStyleBackColor = true;
             // 
@@ -154,6 +153,7 @@
             // 
             this.rbCachorro.AutoSize = true;
             this.rbCachorro.BackColor = System.Drawing.Color.Transparent;
+            this.rbCachorro.Checked = true;
             this.rbCachorro.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbCachorro.Location = new System.Drawing.Point(12, 28);
             this.rbCachorro.Margin = new System.Windows.Forms.Padding(4);
@@ -187,13 +187,13 @@
             this.rbFemea.Name = "rbFemea";
             this.rbFemea.Size = new System.Drawing.Size(80, 24);
             this.rbFemea.TabIndex = 1;
-            this.rbFemea.TabStop = true;
             this.rbFemea.Text = "Fêmea";
             this.rbFemea.UseVisualStyleBackColor = true;
             // 
             // rbMacho
             // 
             this.rbMacho.AutoSize = true;
+            this.rbMacho.Checked = true;
             this.rbMacho.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMacho.Location = new System.Drawing.Point(12, 22);
             this.rbMacho.Margin = new System.Windows.Forms.Padding(4);
@@ -365,13 +365,13 @@
             this.rbNaoVermifugado.Name = "rbNaoVermifugado";
             this.rbNaoVermifugado.Size = new System.Drawing.Size(61, 24);
             this.rbNaoVermifugado.TabIndex = 1;
-            this.rbNaoVermifugado.TabStop = true;
             this.rbNaoVermifugado.Text = "Não";
             this.rbNaoVermifugado.UseVisualStyleBackColor = true;
             // 
             // rbVermifugado
             // 
             this.rbVermifugado.AutoSize = true;
+            this.rbVermifugado.Checked = true;
             this.rbVermifugado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbVermifugado.Location = new System.Drawing.Point(9, 25);
             this.rbVermifugado.Margin = new System.Windows.Forms.Padding(4);
@@ -405,13 +405,13 @@
             this.rbNaoCastrado.Name = "rbNaoCastrado";
             this.rbNaoCastrado.Size = new System.Drawing.Size(61, 24);
             this.rbNaoCastrado.TabIndex = 1;
-            this.rbNaoCastrado.TabStop = true;
             this.rbNaoCastrado.Text = "Não";
             this.rbNaoCastrado.UseVisualStyleBackColor = true;
             // 
             // rbCastrado
             // 
             this.rbCastrado.AutoSize = true;
+            this.rbCastrado.Checked = true;
             this.rbCastrado.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbCastrado.Location = new System.Drawing.Point(8, 25);
             this.rbCastrado.Margin = new System.Windows.Forms.Padding(4);
