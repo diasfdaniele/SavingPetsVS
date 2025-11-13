@@ -71,6 +71,7 @@ namespace SavingPets
                 string cpf = txtCpf.Text.Trim();
                 string email = txtEmail.Text.Trim();
                 string telefone = txtTelefone.Text.Trim();
+                string cep = txtCep.Text.Trim();
 
                 //validação de CPF
                 if (!Validacoes.ValidarCPF(cpf))
@@ -96,6 +97,15 @@ namespace SavingPets
                     MessageBox.Show("Telefone inválido! Verifique o número digitado.\nUse o formato (DDD) 99999-9999.",
                         "Telefone inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtTelefone.Focus();
+                    return;
+                }
+
+                //validação de CEP
+                if (!Validacoes.ValidarCEP(cep))
+                {
+                    MessageBox.Show("CEP inválido! O formato deve conter 8 números, ex: 12345-678.",
+                        "CEP inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCep.Focus();
                     return;
                 }
 

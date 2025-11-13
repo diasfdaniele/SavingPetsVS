@@ -62,14 +62,33 @@ namespace SavingPets.Models
             if (string.IsNullOrWhiteSpace(telefone))
                 return false;
 
-            //Remove tudo que não é número
+            //remove tudo que não é número
             string numeros = new string(telefone.Where(char.IsDigit).ToArray());
 
-            //Telefone tem que ter 10 ou 11 dígitos
+            //telefone tem que ter 10 ou 11 dígitos
             if (numeros.Length < 10 || numeros.Length > 11)
                 return false;
 
-            //Não permite números repetidos (ex.: 11111111111)
+            //não permite números repetidos (telefone = 11111111)
+            if (numeros.All(c => c == numeros[0]))
+                return false;
+
+            return true;
+        }
+
+        public static bool ValidarCEP(string cep)
+        {
+            if (string.IsNullOrWhiteSpace(cep))
+                return false;
+
+            //remove tudo que não é número
+            string numeros = new string(cep.Where(char.IsDigit).ToArray());
+
+            //CEP precisa ter 8 dígitos
+            if (numeros.Length != 8)
+                return false;
+
+            // não permite número repetidos (cep = 1111111)
             if (numeros.All(c => c == numeros[0]))
                 return false;
 
