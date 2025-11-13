@@ -62,6 +62,12 @@
     <Compile Include="FrmCadastrarProcesso.Designer.cs">
       <DependentUpon>FrmCadastrarProcesso.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultarProcesso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultarProcesso.Designer.cs">
+      <DependentUpon>FrmConsultarProcesso.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGerenciarAnimal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadastrarProcesso.resx">
       <DependentUpon>FrmCadastrarProcesso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultarProcesso.resx">
+      <DependentUpon>FrmConsultarProcesso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGerenciarAnimal.resx">
       <DependentUpon>FrmGerenciarAnimal.cs</DependentUpon>
