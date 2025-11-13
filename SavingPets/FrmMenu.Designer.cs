@@ -59,9 +59,10 @@
             this.cmsOcorrencia = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.registrarOcorrênciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarOcorrênciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.flLateral = new System.Windows.Forms.FlowLayoutPanel();
+            this.fSideBar = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.tmSideBar = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -70,7 +71,7 @@
             this.cmsTutor.SuspendLayout();
             this.cmsAdocao.SuspendLayout();
             this.cmsOcorrencia.SuspendLayout();
-            this.flLateral.SuspendLayout();
+            this.fSideBar.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -376,38 +377,45 @@
             this.consultarOcorrênciaToolStripMenuItem.Text = "Consultar ocorrência";
             this.consultarOcorrênciaToolStripMenuItem.Click += new System.EventHandler(this.consultarOcorrênciaToolStripMenuItem_Click);
             // 
-            // flLateral
+            // fSideBar
             // 
-            this.flLateral.BackColor = System.Drawing.Color.DarkGray;
-            this.flLateral.Controls.Add(this.flowLayoutPanel2);
-            this.flLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flLateral.ForeColor = System.Drawing.Color.Black;
-            this.flLateral.Location = new System.Drawing.Point(0, 0);
-            this.flLateral.Margin = new System.Windows.Forms.Padding(2);
-            this.flLateral.MaximumSize = new System.Drawing.Size(150, 749);
-            this.flLateral.MinimumSize = new System.Drawing.Size(38, 749);
-            this.flLateral.Name = "flLateral";
-            this.flLateral.Size = new System.Drawing.Size(150, 749);
-            this.flLateral.TabIndex = 15;
+            this.fSideBar.BackColor = System.Drawing.Color.DarkGray;
+            this.fSideBar.Controls.Add(this.flowLayoutPanel2);
+            this.fSideBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.fSideBar.ForeColor = System.Drawing.Color.Black;
+            this.fSideBar.Location = new System.Drawing.Point(0, 0);
+            this.fSideBar.Margin = new System.Windows.Forms.Padding(2);
+            this.fSideBar.MaximumSize = new System.Drawing.Size(150, 749);
+            this.fSideBar.MinimumSize = new System.Drawing.Size(38, 749);
+            this.fSideBar.Name = "fSideBar";
+            this.fSideBar.Size = new System.Drawing.Size(150, 749);
+            this.fSideBar.TabIndex = 15;
+            this.fSideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.flLateral_Paint);
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.button1);
+            this.flowLayoutPanel2.Controls.Add(this.btnMenu);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(148, 81);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
-            // button1
+            // btnMenu
             // 
-            this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 58);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMenu.Location = new System.Drawing.Point(2, 2);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(84, 58);
+            this.btnMenu.TabIndex = 16;
+            this.btnMenu.Text = "button1";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // tmSideBar
+            // 
+            this.tmSideBar.Interval = 10;
+            this.tmSideBar.Tick += new System.EventHandler(this.tmSideBar_Tick);
             // 
             // FrmMenu
             // 
@@ -416,7 +424,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1028, 609);
-            this.Controls.Add(this.flLateral);
+            this.Controls.Add(this.fSideBar);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.btnMenuOcorrencia);
             this.Controls.Add(this.pictureBox2);
@@ -441,7 +449,7 @@
             this.cmsTutor.ResumeLayout(false);
             this.cmsAdocao.ResumeLayout(false);
             this.cmsOcorrencia.ResumeLayout(false);
-            this.flLateral.ResumeLayout(false);
+            this.fSideBar.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -479,8 +487,9 @@
         private System.Windows.Forms.ContextMenuStrip cmsOcorrencia;
         private System.Windows.Forms.ToolStripMenuItem registrarOcorrênciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarOcorrênciaToolStripMenuItem;
-        private System.Windows.Forms.FlowLayoutPanel flLateral;
+        private System.Windows.Forms.FlowLayoutPanel fSideBar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Timer tmSideBar;
     }
 }

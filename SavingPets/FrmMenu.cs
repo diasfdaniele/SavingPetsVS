@@ -13,7 +13,7 @@ namespace SavingPets
 
     public partial class FrmMenu : Form
     {
-        bool variavel;
+        bool sidebarExpand;
         public FrmMenu()
         {
             InitializeComponent();
@@ -201,6 +201,38 @@ namespace SavingPets
             Show();
         }
 
+        private void flLateral_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+
+        private void tmSideBar_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                fSideBar.Width -= 30;
+
+                if (fSideBar.Width <= fSideBar.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    tmSideBar.Stop();
+                }
+            }
+            else
+            {
+                fSideBar.Width += 30;
+                if (fSideBar.Width >= fSideBar.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    tmSideBar.Stop();
+                }
+            }
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            tmSideBar.Start();
+        }
     }
 }
