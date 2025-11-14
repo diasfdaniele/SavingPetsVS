@@ -390,7 +390,7 @@
             this.fSideBar.Name = "fSideBar";
             this.fSideBar.Size = new System.Drawing.Size(150, 749);
             this.fSideBar.TabIndex = 15;
-            this.fSideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.flLateral_Paint);
+//            this.fSideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.flLateral_Paint);
             // 
             // flowLayoutPanel2
             // 

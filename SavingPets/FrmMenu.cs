@@ -201,17 +201,12 @@ namespace SavingPets
             Show();
         }
 
-        private void flLateral_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
 
         private void tmSideBar_Tick(object sender, EventArgs e)
         {
             if (sidebarExpand)
             {
-                fSideBar.Width -= 30;
+                fSideBar.Width -= 25;
 
                 if (fSideBar.Width <= fSideBar.MinimumSize.Width)
                 {
@@ -221,7 +216,7 @@ namespace SavingPets
             }
             else
             {
-                fSideBar.Width += 30;
+                fSideBar.Width += 25;
                 if (fSideBar.Width >= fSideBar.MaximumSize.Width)
                 {
                     sidebarExpand = true;
