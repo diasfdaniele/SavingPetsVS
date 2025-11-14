@@ -344,6 +344,7 @@
             this.Controls.Add(this.dgvAnimais);
             this.Name = "FrmGerenciarAnimal";
             this.Text = "Consultar Animal";
+            this.Load += new System.EventHandler(this.FrmGerenciarAnimal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimais)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

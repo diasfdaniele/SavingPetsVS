@@ -64,12 +64,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.rbCodigo_Tutor = new System.Windows.Forms.RadioButton();
             this.btnPesquisar_Tutor = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTutores = new System.Windows.Forms.DataGridView();
             this.btnExcluir_Tutor = new System.Windows.Forms.Button();
             this.btnEditar_Tutor = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTutores)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -126,7 +126,6 @@
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.Size = new System.Drawing.Size(179, 23);
             this.txtEstado.TabIndex = 39;
-            this.txtEstado.TextChanged += new System.EventHandler(this.txtEstado_TextChanged);
             // 
             // txtCidade
             // 
@@ -195,7 +194,6 @@
             this.label16.Size = new System.Drawing.Size(38, 17);
             this.label16.TabIndex = 31;
             this.label16.Text = "CEP:";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // txtComplemento
             // 
@@ -406,16 +404,18 @@
             this.btnPesquisar_Tutor.TabIndex = 3;
             this.btnPesquisar_Tutor.Text = "Pesquisar";
             this.btnPesquisar_Tutor.UseVisualStyleBackColor = true;
+            this.btnPesquisar_Tutor.Click += new System.EventHandler(this.btnPesquisar_Tutor_Click);
             // 
-            // dataGridView1
+            // dgvTutores
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 172);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1116, 205);
-            this.dataGridView1.TabIndex = 11;
+            this.dgvTutores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTutores.Location = new System.Drawing.Point(21, 172);
+            this.dgvTutores.Name = "dgvTutores";
+            this.dgvTutores.RowHeadersWidth = 51;
+            this.dgvTutores.RowTemplate.Height = 24;
+            this.dgvTutores.Size = new System.Drawing.Size(1116, 205);
+            this.dgvTutores.TabIndex = 11;
+            this.dgvTutores.SelectionChanged += new System.EventHandler(this.dgvTutores_SelectionChanged);
             // 
             // btnExcluir_Tutor
             // 
@@ -431,6 +431,7 @@
             this.btnExcluir_Tutor.TabIndex = 39;
             this.btnExcluir_Tutor.Text = "Excluir";
             this.btnExcluir_Tutor.UseVisualStyleBackColor = false;
+            this.btnExcluir_Tutor.Click += new System.EventHandler(this.btnExcluir_Tutor_Click);
             // 
             // btnEditar_Tutor
             // 
@@ -446,6 +447,7 @@
             this.btnEditar_Tutor.TabIndex = 38;
             this.btnEditar_Tutor.Text = "Editar";
             this.btnEditar_Tutor.UseVisualStyleBackColor = false;
+            this.btnEditar_Tutor.Click += new System.EventHandler(this.btnEditar_Tutor_Click);
             // 
             // FrmGerenciarTutor
             // 
@@ -456,14 +458,14 @@
             this.Controls.Add(this.btnEditar_Tutor);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvTutores);
             this.Name = "FrmGerenciarTutor";
             this.Text = "Consultar Tutor";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTutores)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -490,7 +492,7 @@
         private System.Windows.Forms.RadioButton rbNome_Tutor;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RadioButton rbCodigo_Tutor;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTutores;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.TextBox txtCidade;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SavingPets.Models
 {
-    internal class Tutor
+    public class Tutor
     {
         public int IdTutor { get; set; }
         public int IdAnimal { get; set; }  // vínculo com o animal

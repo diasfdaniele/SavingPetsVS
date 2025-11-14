@@ -153,5 +153,10 @@ namespace SavingPets
             dgvAnimais.DataSource = null;
             dgvAnimais.DataSource = filtrados;
         }
+
+        private void FrmGerenciarAnimal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
