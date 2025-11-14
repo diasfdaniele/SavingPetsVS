@@ -17,12 +17,44 @@ namespace SavingPets
 {
     public partial class FrmTutor : Form
     {
+        private Tutor tutorEmEdicao = null;
         public FrmTutor()
         {
             InitializeComponent();
         }
 
-        
+        public FrmTutor(Tutor tutorEditado)
+        {
+            InitializeComponent();
+            tutorEmEdicao = tutorEditado;
+            PreencherCampos(tutorEditado);
+        }
+
+        private void PreencherCampos(Tutor t)
+        {
+            txtIdTutor.Text = t.IdTutor.ToString();
+            txtIdAnimal.Text = t.IdAnimal.ToString();
+            txtNomeTutor.Text = t.NomeTutor;
+
+            if (t.SexoTutor == "Masculino")
+                rbMasculino.Checked = true;
+            else if (t.SexoTutor == "Feminino")
+                rbFeminino.Checked = true;
+
+            txtCpf.Text = t.CPF;
+            txtTelefone.Text = t.Telefone;
+            txtEmail.Text = t.Email;
+
+            txtCep.Text = t.CEP;
+            txtRua.Text = t.Rua;
+            txtNumero.Text = t.Numero;
+            txtComplemento.Text = t.Complemento;
+            txtBairro.Text = t.Bairro;
+            txtCidade.Text = t.Cidade;
+            txtEstado.Text = t.Estado;
+        }
+
+
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             FrmMenu janela = new FrmMenu();
@@ -33,7 +65,8 @@ namespace SavingPets
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            
+
+            bool modoEdicao = tutorEmEdicao != null;
 
             try
             {
@@ -132,6 +165,22 @@ namespace SavingPets
 
                 txtIdTutor.Text = controller.ObterProximoId().ToString();
                 LimparCampos();
+
+
+                if (modoEdicao)
+                {
+                    //editar
+                    novo.IdTutor = tutorEmEdicao.IdTutor; //garante que o ID não muda
+
+                    controller.EditarTutor(novo);
+                    MessageBox.Show("Tutor editado com sucesso!");
+                }
+                else
+                {
+                    // CADASTRAR
+                    controller.CadastrarTutor(novo);
+                    MessageBox.Show("Tutor cadastrado com sucesso!");
+                }
             }
             catch (Exception ex)
             {
