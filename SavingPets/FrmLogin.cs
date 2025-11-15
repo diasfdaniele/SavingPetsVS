@@ -45,9 +45,23 @@ namespace SavingPets
                     janela.ShowDialog();
                     Show();
                 }
+                else if(string.IsNullOrEmpty(this.txtEmail.Text))
+                {
+                    MessageBox.Show("Por favor, preencha o Email.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.txtEmail.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(this.txtSenha.Text))
+                {
+                    MessageBox.Show("Por favor, informe sua senha.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.txtSenha.Focus();
+                    return;
+                }
                 else
                 {
-                    MessageBox.Show("Login ou senha inválidos!");
+                    MessageBox.Show("Email ou senha incorretos.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.txtEmail.Focus();
+                    return;
                 }
 
             }
@@ -67,11 +81,6 @@ namespace SavingPets
 
         //Evento de clique para registrar novo usuário voluntário
         //Falta desenvolver tela
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
-
+        
     }
 }

@@ -9,7 +9,7 @@ namespace SavingPets.DAL
 {
     public class Conexao
     {
-        private readonly string conStr = @"server=127.0.0.1;uid=root;pwd=ifsp;database=SavingPets";
+        private readonly string conStr = @"server=127.0.0.1;uid=root;pwd=;database=SavingPets";
 
         public MySqlConnection GetConnection()
         {
