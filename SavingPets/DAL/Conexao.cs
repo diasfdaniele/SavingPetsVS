@@ -9,10 +9,13 @@ namespace SavingPets.DAL
 {
     public class Conexao
     {
+        //Cria a conexão com o Banco de Dados
+        //Não esqueça de colocar as informações certas na string
         private readonly string conStr = @"server=127.0.0.1;uid=root;pwd=;database=SavingPets";
 
         public MySqlConnection GetConnection()
         {
+            //Retorna a conexão estabelecida
             return new MySqlConnection(conStr);
         }
     }

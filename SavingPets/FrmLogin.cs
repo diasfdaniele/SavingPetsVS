@@ -31,33 +31,35 @@ namespace SavingPets
 
         }
 
-        //Evento de clique para abrir página do menu principal
+        //Evento de clique para efetuar login
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             try
             {
+                //cria um novo login
                 Login login = new Login();
 
-                if (login.Logar(txtEmail.Text, txtSenha.Text))
+                //Chama o metodo Logar, para tentar logar no sistema, se email e senha estiverem corretos, ele fecha e abre o menu
+                if (login.Logar(txtEmail.Text, txtSenha.Text))//Testa se o login está correto
                 {
                     FrmMenu janela = new FrmMenu();
-                    Hide();
+                    Close();
                     janela.ShowDialog();
                     Show();
                 }
-                else if(string.IsNullOrEmpty(this.txtEmail.Text))
+                else if(string.IsNullOrEmpty(this.txtEmail.Text))//Se login não retornar nada, testa se o campo txtEmail está vazio
                 {
-                    MessageBox.Show("Por favor, preencha o Email.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.txtEmail.Focus();
+                    MessageBox.Show("Por favor, preencha o Email.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);//Exibe mensagem de erro
+                    this.txtEmail.Focus();//Move o cursor para o text box Email
                     return;
                 }
-                else if (string.IsNullOrEmpty(this.txtSenha.Text))
+                else if (string.IsNullOrEmpty(this.txtSenha.Text))//Se login não retornar nada e email está preenchido, testa se o campo txtSenha está vazio
                 {
                     MessageBox.Show("Por favor, informe sua senha.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.txtSenha.Focus();
                     return;
                 }
-                else
+                else // Se não estavam vazios, email e senha, exibe mensagem de login inválido
                 {
                     MessageBox.Show("Email ou senha incorretos.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.txtEmail.Focus();
@@ -65,7 +67,7 @@ namespace SavingPets
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception ex) //Para erros de banco, servidor e Etc.
             {
                  MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
