@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SavingPets.DAL;
 
 namespace SavingPets
 {
@@ -18,6 +19,8 @@ namespace SavingPets
 
             //Comandos para deixar os label com plano de
             //fundo do picturebox (imagem)
+            
+
             label1.Parent = pictureBox1;
             label2.Parent = pictureBox1;
             label3.Parent = pictureBox1;
@@ -31,10 +34,28 @@ namespace SavingPets
         //Evento de clique para abrir página do menu principal
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            FrmMenu janela = new FrmMenu();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            try
+            {
+                Login login = new Login();
+
+                if (login.Logar(txtEmail.Text, txtSenha.Text))
+                {
+                    FrmMenu janela = new FrmMenu();
+                    Hide();
+                    janela.ShowDialog();
+                    Show();
+                }
+                else
+                {
+                    MessageBox.Show("Login ou senha inválidos!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         //Evento de clique para limpar os campos e-mail e senha
@@ -48,7 +69,8 @@ namespace SavingPets
         //Falta desenvolver tela
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-
+            
+            
         }
 
     }
