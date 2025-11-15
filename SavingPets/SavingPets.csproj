@@ -96,11 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AnimalController.cs" />
+    <Compile Include="Controllers\Conexão.cs" />
+    <Compile Include="Controllers\Login.cs" />
     <Compile Include="Controllers\OcorrenciaController.cs" />
     <Compile Include="Controllers\ProcessoAdotivoController.cs" />
     <Compile Include="Controllers\TutorController.cs" />
-    <Compile Include="DAL\Conexao.cs" />
-    <Compile Include="DAL\Login.cs" />
     <Compile Include="FrmAnimal.cs">
       <SubType>Form</SubType>
     </Compile>

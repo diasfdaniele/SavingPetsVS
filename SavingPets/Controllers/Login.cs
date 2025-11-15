@@ -1,12 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
+using SavingPets.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace SavingPets.DAL
+namespace SavingPets.Controllers
 {
     public class Login
     {
@@ -14,7 +14,7 @@ namespace SavingPets.DAL
         Conexao conexao = new Conexao();
 
         public bool Logar(string login, string senha)
-        {       
+        {
             try
             {
                 using (MySqlConnection con = conexao.GetConnection()) //tenta se conectar com o banco
@@ -22,7 +22,7 @@ namespace SavingPets.DAL
                     con.Open(); //Abre a conexão
 
                     string sql = "SELECT * FROM Pessoa INNER JOIN Voluntario ON Voluntario.idPessoa = Pessoa.idPessoa  WHERE email=@email AND senha=@senha ";//Seleciona os voluntários cadastrados
-                    MySqlCommand cmd = new MySqlCommand(sql, con); 
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
 
                     cmd.Parameters.AddWithValue("@email", login);
                     cmd.Parameters.AddWithValue("@senha", senha);
@@ -41,5 +41,4 @@ namespace SavingPets.DAL
             }
         }
     }
-
 }
