@@ -53,24 +53,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.rbNaoAcompanhado = new System.Windows.Forms.RadioButton();
+            this.rbAcompanhado = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.rbNaoVacinado = new System.Windows.Forms.RadioButton();
+            this.rbVacinado = new System.Windows.Forms.RadioButton();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.rbDuvida = new System.Windows.Forms.RadioButton();
+            this.rbNao = new System.Windows.Forms.RadioButton();
+            this.rbSim = new System.Windows.Forms.RadioButton();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbInseguro = new System.Windows.Forms.RadioButton();
+            this.rbSatisfatorio = new System.Windows.Forms.RadioButton();
+            this.rbSeguro = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxHigiene = new System.Windows.Forms.ComboBox();
+            this.cbxSaudavel = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -79,21 +79,19 @@
             this.cbxFisico = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.cbxConclusao = new System.Windows.Forms.ComboBox();
-            this.dataAgendamento = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtOrientacao = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.dataAgendamento = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.txtComportamento = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cbxRelacao = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbxAdaptacao = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
@@ -184,6 +182,7 @@
             this.btnPesquisar.TabIndex = 32;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // groupBox1
             // 
@@ -295,7 +294,6 @@
             // txtResponsavel
             // 
             this.txtResponsavel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtResponsavel.Enabled = false;
             this.txtResponsavel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResponsavel.Location = new System.Drawing.Point(286, 72);
             this.txtResponsavel.Name = "txtResponsavel";
@@ -368,8 +366,8 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.radioButton7);
-            this.groupBox10.Controls.Add(this.radioButton10);
+            this.groupBox10.Controls.Add(this.rbNaoAcompanhado);
+            this.groupBox10.Controls.Add(this.rbAcompanhado);
             this.groupBox10.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox10.Location = new System.Drawing.Point(332, 109);
             this.groupBox10.Name = "groupBox10";
@@ -378,34 +376,34 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Acompanhamento veterinário?";
             // 
-            // radioButton7
+            // rbNaoAcompanhado
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton7.Location = new System.Drawing.Point(102, 48);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(58, 24);
-            this.radioButton7.TabIndex = 1;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Não";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.rbNaoAcompanhado.AutoSize = true;
+            this.rbNaoAcompanhado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNaoAcompanhado.Location = new System.Drawing.Point(102, 48);
+            this.rbNaoAcompanhado.Name = "rbNaoAcompanhado";
+            this.rbNaoAcompanhado.Size = new System.Drawing.Size(58, 24);
+            this.rbNaoAcompanhado.TabIndex = 1;
+            this.rbNaoAcompanhado.TabStop = true;
+            this.rbNaoAcompanhado.Text = "Não";
+            this.rbNaoAcompanhado.UseVisualStyleBackColor = true;
             // 
-            // radioButton10
+            // rbAcompanhado
             // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton10.Location = new System.Drawing.Point(15, 49);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(50, 24);
-            this.radioButton10.TabIndex = 0;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "Sim";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.rbAcompanhado.AutoSize = true;
+            this.rbAcompanhado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAcompanhado.Location = new System.Drawing.Point(15, 49);
+            this.rbAcompanhado.Name = "rbAcompanhado";
+            this.rbAcompanhado.Size = new System.Drawing.Size(50, 24);
+            this.rbAcompanhado.TabIndex = 0;
+            this.rbAcompanhado.TabStop = true;
+            this.rbAcompanhado.Text = "Sim";
+            this.rbAcompanhado.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.radioButton8);
-            this.groupBox5.Controls.Add(this.radioButton9);
+            this.groupBox5.Controls.Add(this.rbNaoVacinado);
+            this.groupBox5.Controls.Add(this.rbVacinado);
             this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(332, 32);
             this.groupBox5.Name = "groupBox5";
@@ -414,29 +412,29 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Vacinas em dia?";
             // 
-            // radioButton8
+            // rbNaoVacinado
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton8.Location = new System.Drawing.Point(102, 28);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(58, 24);
-            this.radioButton8.TabIndex = 1;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Não";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.rbNaoVacinado.AutoSize = true;
+            this.rbNaoVacinado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNaoVacinado.Location = new System.Drawing.Point(102, 28);
+            this.rbNaoVacinado.Name = "rbNaoVacinado";
+            this.rbNaoVacinado.Size = new System.Drawing.Size(58, 24);
+            this.rbNaoVacinado.TabIndex = 1;
+            this.rbNaoVacinado.TabStop = true;
+            this.rbNaoVacinado.Text = "Não";
+            this.rbNaoVacinado.UseVisualStyleBackColor = true;
             // 
-            // radioButton9
+            // rbVacinado
             // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton9.Location = new System.Drawing.Point(15, 29);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(50, 24);
-            this.radioButton9.TabIndex = 0;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "Sim";
-            this.radioButton9.UseVisualStyleBackColor = true;
+            this.rbVacinado.AutoSize = true;
+            this.rbVacinado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbVacinado.Location = new System.Drawing.Point(15, 29);
+            this.rbVacinado.Name = "rbVacinado";
+            this.rbVacinado.Size = new System.Drawing.Size(50, 24);
+            this.rbVacinado.TabIndex = 0;
+            this.rbVacinado.TabStop = true;
+            this.rbVacinado.Text = "Sim";
+            this.rbVacinado.UseVisualStyleBackColor = true;
             // 
             // textBox5
             // 
@@ -448,9 +446,9 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.radioButton4);
-            this.groupBox7.Controls.Add(this.radioButton5);
-            this.groupBox7.Controls.Add(this.radioButton6);
+            this.groupBox7.Controls.Add(this.rbDuvida);
+            this.groupBox7.Controls.Add(this.rbNao);
+            this.groupBox7.Controls.Add(this.rbSim);
             this.groupBox7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(5, 271);
             this.groupBox7.Name = "groupBox7";
@@ -459,47 +457,47 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Indícios de maus-tratos";
             // 
-            // radioButton4
+            // rbDuvida
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(327, 25);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(104, 24);
-            this.radioButton4.TabIndex = 2;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Em dúvida";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbDuvida.AutoSize = true;
+            this.rbDuvida.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbDuvida.Location = new System.Drawing.Point(327, 25);
+            this.rbDuvida.Name = "rbDuvida";
+            this.rbDuvida.Size = new System.Drawing.Size(104, 24);
+            this.rbDuvida.TabIndex = 2;
+            this.rbDuvida.TabStop = true;
+            this.rbDuvida.Text = "Em dúvida";
+            this.rbDuvida.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rbNao
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.Location = new System.Drawing.Point(194, 25);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(58, 24);
-            this.radioButton5.TabIndex = 1;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Não";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rbNao.AutoSize = true;
+            this.rbNao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNao.Location = new System.Drawing.Point(194, 25);
+            this.rbNao.Name = "rbNao";
+            this.rbNao.Size = new System.Drawing.Size(58, 24);
+            this.rbNao.TabIndex = 1;
+            this.rbNao.TabStop = true;
+            this.rbNao.Text = "Não";
+            this.rbNao.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // rbSim
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton6.Location = new System.Drawing.Point(69, 25);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(50, 24);
-            this.radioButton6.TabIndex = 0;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Sim";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.rbSim.AutoSize = true;
+            this.rbSim.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbSim.Location = new System.Drawing.Point(69, 25);
+            this.rbSim.Name = "rbSim";
+            this.rbSim.Size = new System.Drawing.Size(50, 24);
+            this.rbSim.TabIndex = 0;
+            this.rbSim.TabStop = true;
+            this.rbSim.Text = "Sim";
+            this.rbSim.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.radioButton3);
-            this.groupBox6.Controls.Add(this.radioButton2);
-            this.groupBox6.Controls.Add(this.radioButton1);
+            this.groupBox6.Controls.Add(this.rbInseguro);
+            this.groupBox6.Controls.Add(this.rbSatisfatorio);
+            this.groupBox6.Controls.Add(this.rbSeguro);
             this.groupBox6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(5, 200);
             this.groupBox6.Name = "groupBox6";
@@ -508,41 +506,41 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Condições do ambiente";
             // 
-            // radioButton3
+            // rbInseguro
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(327, 25);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(91, 24);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Inseguro";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbInseguro.AutoSize = true;
+            this.rbInseguro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbInseguro.Location = new System.Drawing.Point(327, 25);
+            this.rbInseguro.Name = "rbInseguro";
+            this.rbInseguro.Size = new System.Drawing.Size(91, 24);
+            this.rbInseguro.TabIndex = 2;
+            this.rbInseguro.TabStop = true;
+            this.rbInseguro.Text = "Inseguro";
+            this.rbInseguro.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbSatisfatorio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(194, 25);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(107, 24);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Adequado";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbSatisfatorio.AutoSize = true;
+            this.rbSatisfatorio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbSatisfatorio.Location = new System.Drawing.Point(194, 25);
+            this.rbSatisfatorio.Name = "rbSatisfatorio";
+            this.rbSatisfatorio.Size = new System.Drawing.Size(106, 24);
+            this.rbSatisfatorio.TabIndex = 1;
+            this.rbSatisfatorio.TabStop = true;
+            this.rbSatisfatorio.Text = "Satisfatório";
+            this.rbSatisfatorio.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbSeguro
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(69, 25);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(78, 24);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Seguro";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbSeguro.AutoSize = true;
+            this.rbSeguro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbSeguro.Location = new System.Drawing.Point(69, 25);
+            this.rbSeguro.Name = "rbSeguro";
+            this.rbSeguro.Size = new System.Drawing.Size(78, 24);
+            this.rbSeguro.TabIndex = 0;
+            this.rbSeguro.TabStop = true;
+            this.rbSeguro.Text = "Seguro";
+            this.rbSeguro.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -556,8 +554,8 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.comboBox7);
-            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.cbxHigiene);
+            this.groupBox4.Controls.Add(this.cbxSaudavel);
             this.groupBox4.Controls.Add(this.label22);
             this.groupBox4.Controls.Add(this.label21);
             this.groupBox4.Controls.Add(this.label20);
@@ -572,29 +570,29 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Bem-estar do animal";
             // 
-            // comboBox7
+            // cbxHigiene
             // 
-            this.comboBox7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
+            this.cbxHigiene.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxHigiene.FormattingEnabled = true;
+            this.cbxHigiene.Items.AddRange(new object[] {
             "Adequada",
             "Inadequada"});
-            this.comboBox7.Location = new System.Drawing.Point(193, 125);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(121, 25);
-            this.comboBox7.TabIndex = 45;
+            this.cbxHigiene.Location = new System.Drawing.Point(193, 125);
+            this.cbxHigiene.Name = "cbxHigiene";
+            this.cbxHigiene.Size = new System.Drawing.Size(121, 25);
+            this.cbxHigiene.TabIndex = 45;
             // 
-            // comboBox1
+            // cbxSaudavel
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbxSaudavel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxSaudavel.FormattingEnabled = true;
+            this.cbxSaudavel.Items.AddRange(new object[] {
             "Sim",
             "Não"});
-            this.comboBox1.Location = new System.Drawing.Point(193, 91);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 25);
-            this.comboBox1.TabIndex = 44;
+            this.cbxSaudavel.Location = new System.Drawing.Point(193, 91);
+            this.cbxSaudavel.Name = "cbxSaudavel";
+            this.cbxSaudavel.Size = new System.Drawing.Size(121, 25);
+            this.cbxSaudavel.TabIndex = 44;
             // 
             // label22
             // 
@@ -681,15 +679,23 @@
             this.groupBox8.Controls.Add(this.label13);
             this.groupBox8.Controls.Add(this.dataAgendamento);
             this.groupBox8.Controls.Add(this.label15);
-            this.groupBox8.Controls.Add(this.checkedListBox1);
-            this.groupBox8.Controls.Add(this.label14);
             this.groupBox8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(618, 443);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(508, 193);
+            this.groupBox8.Size = new System.Drawing.Size(508, 152);
             this.groupBox8.TabIndex = 6;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Recomendações e ações futuras";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(6, 66);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(157, 20);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "Conclusão da visita:";
             // 
             // cbxConclusao
             // 
@@ -699,38 +705,10 @@
             "Acompanhamento Periódico",
             "Acompanhamento Contínuo",
             "Caso Encerrado"});
-            this.cbxConclusao.Location = new System.Drawing.Point(164, 118);
+            this.cbxConclusao.Location = new System.Drawing.Point(164, 63);
             this.cbxConclusao.Name = "cbxConclusao";
             this.cbxConclusao.Size = new System.Drawing.Size(338, 28);
             this.cbxConclusao.TabIndex = 5;
-            // 
-            // dataAgendamento
-            // 
-            this.dataAgendamento.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataAgendamento.Location = new System.Drawing.Point(164, 161);
-            this.dataAgendamento.Name = "dataAgendamento";
-            this.dataAgendamento.Size = new System.Drawing.Size(338, 26);
-            this.dataAgendamento.TabIndex = 4;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(8, 147);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(125, 40);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "Próxima visita \r\n(data sugerida):";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(6, 60);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(236, 20);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Encaminhamentos necessários:";
             // 
             // txtOrientacao
             // 
@@ -750,26 +728,31 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Orientações dadas:";
             // 
-            // checkedListBox1
+            // dataAgendamento
             // 
-            this.checkedListBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "Retorno de visita",
-            "Avaliação Veterinária",
-            "Acompanhamento social"});
-            this.checkedListBox1.Location = new System.Drawing.Point(250, 55);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(168, 52);
-            this.checkedListBox1.TabIndex = 3;
+            this.dataAgendamento.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataAgendamento.Location = new System.Drawing.Point(164, 106);
+            this.dataAgendamento.Name = "dataAgendamento";
+            this.dataAgendamento.Size = new System.Drawing.Size(338, 26);
+            this.dataAgendamento.TabIndex = 4;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(8, 92);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(125, 40);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Próxima visita \r\n(data sugerida):";
             // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.txtComportamento);
             this.groupBox9.Controls.Add(this.label18);
-            this.groupBox9.Controls.Add(this.comboBox4);
+            this.groupBox9.Controls.Add(this.cbxRelacao);
             this.groupBox9.Controls.Add(this.label17);
-            this.groupBox9.Controls.Add(this.comboBox3);
+            this.groupBox9.Controls.Add(this.cbxAdaptacao);
             this.groupBox9.Controls.Add(this.label16);
             this.groupBox9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(618, 285);
@@ -797,18 +780,18 @@
             this.label18.TabIndex = 9;
             this.label18.Text = "Alterações de comportamento observadas:";
             // 
-            // comboBox4
+            // cbxRelacao
             // 
-            this.comboBox4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.cbxRelacao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxRelacao.FormattingEnabled = true;
+            this.cbxRelacao.Items.AddRange(new object[] {
             "Boa",
             "Regular",
             "Ruim"});
-            this.comboBox4.Location = new System.Drawing.Point(214, 61);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 28);
-            this.comboBox4.TabIndex = 8;
+            this.cbxRelacao.Location = new System.Drawing.Point(214, 61);
+            this.cbxRelacao.Name = "cbxRelacao";
+            this.cbxRelacao.Size = new System.Drawing.Size(121, 28);
+            this.cbxRelacao.TabIndex = 8;
             // 
             // label17
             // 
@@ -820,18 +803,18 @@
             this.label17.TabIndex = 6;
             this.label17.Text = "Relação com tutor:";
             // 
-            // comboBox3
+            // cbxAdaptacao
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cbxAdaptacao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxAdaptacao.FormattingEnabled = true;
+            this.cbxAdaptacao.Items.AddRange(new object[] {
             "Sim",
             "Parcialmente",
             "Não"});
-            this.comboBox3.Location = new System.Drawing.Point(214, 26);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 28);
-            this.comboBox3.TabIndex = 7;
+            this.cbxAdaptacao.Location = new System.Drawing.Point(214, 26);
+            this.cbxAdaptacao.Name = "cbxAdaptacao";
+            this.cbxAdaptacao.Size = new System.Drawing.Size(121, 28);
+            this.cbxAdaptacao.TabIndex = 7;
             // 
             // label16
             // 
@@ -842,16 +825,6 @@
             this.label16.Size = new System.Drawing.Size(197, 20);
             this.label16.TabIndex = 6;
             this.label16.Text = "Adaptação ao ambiente:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(6, 121);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(157, 20);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "Conclusão da visita:";
             // 
             // btnLimpar
             // 
@@ -973,30 +946,28 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbInseguro;
+        private System.Windows.Forms.RadioButton rbSatisfatorio;
+        private System.Windows.Forms.RadioButton rbSeguro;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton rbDuvida;
+        private System.Windows.Forms.RadioButton rbNao;
+        private System.Windows.Forms.RadioButton rbSim;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtIdVisita;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtOrientacao;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.ComboBox cbxConclusao;
         private System.Windows.Forms.DateTimePicker dataAgendamento;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.TextBox txtComportamento;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cbxRelacao;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbxAdaptacao;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
@@ -1005,14 +976,14 @@
         private System.Windows.Forms.ComboBox cbxFisico;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.DateTimePicker dataAdocao;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxHigiene;
+        private System.Windows.Forms.ComboBox cbxSaudavel;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton rbNaoVacinado;
+        private System.Windows.Forms.RadioButton rbVacinado;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton rbNaoAcompanhado;
+        private System.Windows.Forms.RadioButton rbAcompanhado;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnCadastrar;

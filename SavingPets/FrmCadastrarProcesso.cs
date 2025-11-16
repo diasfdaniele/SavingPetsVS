@@ -14,7 +14,12 @@ namespace SavingPets
 {
     public partial class FrmCadastrarProcesso : Form
     {
-        ProcessoAdotivoController processoController = new ProcessoAdotivoController();
+        private Tutor tutorSelecionado = null;
+        private Animal animalSelecionado = null;
+
+        private TutorController tutorController = new TutorController();
+        private AnimalController animalController = new AnimalController();
+        private ProcessoAdotivoController processoController = new ProcessoAdotivoController();
         public FrmCadastrarProcesso()
         {
             InitializeComponent();
@@ -83,6 +88,11 @@ namespace SavingPets
         }
 
         private void FrmCadastrarProcesso_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPesquisarTutor_Click(object sender, EventArgs e)
         {
 
         }

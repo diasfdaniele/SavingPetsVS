@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AnimalController.cs" />
+    <Compile Include="Controllers\VisitaController.cs" />
     <Compile Include="DAL\Conexão.cs" />
     <Compile Include="DAL\BancoDadosAnimal.cs" />
     <Compile Include="DAL\Login.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Models\ProcessoAdotivo.cs" />
     <Compile Include="Models\Tutor.cs" />
     <Compile Include="Models\Validacoes.cs" />
+    <Compile Include="Models\Visita.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FrmLogin.cs">
