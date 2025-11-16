@@ -36,8 +36,9 @@ namespace SavingPets.Models
         // Recomendações e ações futuras
         public string OrientacoesDadas { get; set; }
         public string ConclusaoVisita { get; set; }
+        public string Observacoes {  get; set; }
 
-        public DateTime? ProximaVisitaSugerida { get; set; }
+        public DateTime ProximaVisitaSugerida { get; set; }
 
     }
 }

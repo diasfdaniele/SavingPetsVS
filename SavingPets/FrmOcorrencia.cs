@@ -110,8 +110,8 @@ namespace SavingPets
             {
                 processoSelecionado = (ProcessoAdotivo)frm.Tag;
                 txtId.Text = processoSelecionado.IdProcesso.ToString();
-                txtNomeTutor.Text = processoSelecionado.NomeTutor;
-                txtNomeAnimal.Text = processoSelecionado.NomeAnimal;
+                txtNomeTutor.Text = processoSelecionado.Tutor.NomeTutor;
+                txtNomeAnimal.Text = processoSelecionado.Animal.NomeAnimal;
                 dataAdocao.Value = processoSelecionado.DataAdocao;
             }
         }

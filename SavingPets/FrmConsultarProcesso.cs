@@ -15,88 +15,100 @@ namespace SavingPets
     {
 
         //LISTA DE SIMULAÇÃO DOS DADOS
+        //SUBSTITUIR POR SELECT DO BANCO APÓS INTEGRAÇÃO
         private List<ProcessoAdotivo> listaProcessos;
-        //Comando para guardar tipo de filtro que usuario escolheu
+
+        //Comando para guardar tipo de filtro escolhido pelo usuário
         private string filtroAtual = "NomeTutor";
-        //Objeto que guarda o processo selecionado
+
+        //Objeto que guarda o processo selecionado no DataGrid
         private ProcessoAdotivo processoSelecionado;
 
         public FrmConsultarProcesso()
         {
             InitializeComponent();
-            CarregarProcessosSimulados(); // enquanto não tiver banco
-            AtualizarGrid(); //exibe dados no datagrid
 
-            //Associação de evento quando usuário seleciona linha
+            //Carrega processos simulados (EM MEMÓRIA)
+            //EM BANCO → CARREGAR DADOS VIA SELECT
+            CarregarProcessosSimulados();
+
+            //Atualiza o DataGrid com os dados da lista
+            AtualizarGrid();
+
+            //Evento disparado quando o usuário seleciona uma linha do DataGrid
             dgvProcessos.SelectionChanged += dgvProcessos_SelectionChanged;
         }
 
         //CLASSE QUE SIMULA O BANCO DE DADOS
-        //PRECISA SER REVISTA PÓS INTEGRAÇÃO COM BANCO
+        //ESTE TRECHO SERÁ REMOVIDO APÓS INTEGRAÇÃO COM BANCO
         private void CarregarProcessosSimulados()
         {
             listaProcessos = new List<ProcessoAdotivo>
             {
-                new ProcessoAdotivo { IdProcesso = 1, NomeTutor = "Ana Souza", NomeAnimal = "Rex", DataAdocao = new DateTime(2025, 10, 15) },
-                new ProcessoAdotivo { IdProcesso = 2, NomeTutor = "João Lima", NomeAnimal = "Luna", DataAdocao = new DateTime(2025, 9, 5) },
-                new ProcessoAdotivo { IdProcesso = 3, NomeTutor = "Marcos Oliveira", NomeAnimal = "Mia", DataAdocao = new DateTime(2025, 8, 20) }
+                new ProcessoAdotivo { IdProcesso = 1, Tutor = new Tutor { NomeTutor = "Ana Souza" },
+            Animal = new Animal { NomeAnimal = "Rex" }, DataAdocao = new DateTime(2025, 10, 15) },
             };
         }
 
-        //Exibição dos processos no datagrid
+        //Exibição dos processos no DataGridView
+        //EM BANCO → A LISTA VIRÁ DE UMA CONSULTA SQL (SELECT)
         private void AtualizarGrid()
         {
             dgvProcessos.DataSource = null;
             dgvProcessos.DataSource = listaProcessos;
 
+            //Configurações do DataGrid
             dgvProcessos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProcessos.MultiSelect = false;
             dgvProcessos.ReadOnly = true;
         }
 
-        //Eventos de click para filtro de pesquisa
+        //RadioButton – troca o filtro ativo para Nome do Tutor
         private void rbNomeTutor_CheckedChanged(object sender, EventArgs e)
         {
             filtroAtual = "NomeTutor";
         }
 
+        //RadioButton – troca o filtro ativo para Nome do Animal
         private void rbNomeAnimal_CheckedChanged(object sender, EventArgs e)
         {
             filtroAtual = "NomeAnimal";
         }
 
+        //RadioButton – troca o filtro ativo para ID do Processo
         private void rbIdProcesso_CheckedChanged(object sender, EventArgs e)
         {
             filtroAtual = "IdProcesso";
         }
 
-        //Pesquisa de processo adotivo (dispara a cada letra digitada)
+        //Pesquisa de processo enquanto usuário digita
+        //EM BANCO → IMPLEMENTAR CONSULTA DINÂMICA COM LIKE
         private void txtPesquisar_TextChanged(object sender, EventArgs e)
         {
-            //converte caracteres para letra minuscula
-            string termo = txtPesquisar.Text.ToLower();
+            string termo = txtPesquisar.Text.ToLower(); //converte texto para minusculo
 
-            //filtra a lista conforme tipo de filtro
+            //Filtra lista conforme tipo de filtro selecionado
             var filtrados = listaProcessos.Where(p =>
-                (filtroAtual == "NomeTutor" && p.NomeTutor.ToLower().Contains(termo)) ||
-                (filtroAtual == "NomeAnimal" && p.NomeAnimal.ToLower().Contains(termo)) ||
+                (filtroAtual == "NomeTutor" && p.Tutor.NomeTutor.ToLower().Contains(termo)) ||
+                (filtroAtual == "NomeAnimal" && p.Animal.NomeAnimal.ToLower().Contains(termo)) ||
                 (filtroAtual == "IdProcesso" && p.IdProcesso.ToString().Contains(termo))
             ).ToList();
 
-            //atualiza datagrid conforme resultados filtrados
+            //Exibe resultados filtrados
             dgvProcessos.DataSource = null;
             dgvProcessos.DataSource = filtrados;
         }
 
-        //Evento de clique para gerar detalhes ao clicar
+        //Evento disparado quando o usuário seleciona uma linha no DataGrid
         private void dgvProcessos_SelectionChanged(object sender, EventArgs e)
         {
             //Verifica se há pelo menos uma linha selecionada
             if (dgvProcessos.SelectedRows.Count > 0)
             {
-                //recupera o objeto associado a linha selecionada
+                //Recupera o objeto associado à linha selecionada
                 var processo = dgvProcessos.SelectedRows[0].DataBoundItem as ProcessoAdotivo;
 
+                //Se for válido, armazena como processo selecionado
                 if (processo != null)
                 {
                     processoSelecionado = processo;
@@ -105,39 +117,38 @@ namespace SavingPets
             }
         }
 
-        //Exibe as informações do processo nos textbox
+        //Exibe dados do processo nos TextBox
         private void ExibirDetalhes(ProcessoAdotivo processo)
         {
             txtId.Text = processo.IdProcesso.ToString();
-            txtNomeTutor.Text = processo.NomeTutor;
-            txtNomeAnimal.Text = processo.NomeAnimal;
+            txtNomeTutor.Text = processo.Tutor.NomeTutor;
+            txtNomeAnimal.Text = processo.Animal.NomeAnimal;
             dataAdocao.Value = processo.DataAdocao;
         }
 
-        //Evento de click para retornar o processo para a outra tela
+        //Retorna o processo selecionado para outra tela
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
             if (processoSelecionado != null)
             {
+                //Envia o processo por meio da propriedade Tag
                 this.Tag = processoSelecionado;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Selecione um processo antes de confirmar.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //Mensagem caso usuário tente confirmar sem selecionar nada
+                MessageBox.Show("Selecione um processo antes de confirmar.", "Atenção",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        //Evento de click para fechar a tela
+        //Botão para fechar a tela
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void FrmConsultarProcesso_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

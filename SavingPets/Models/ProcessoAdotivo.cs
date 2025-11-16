@@ -10,13 +10,9 @@ namespace SavingPets.Models
     {
         public int IdProcesso { get; set; }
 
-        // Ligação com Tutor
-        public int IdTutor { get; set; }
-        public string NomeTutor { get; set; }
-
-        // Ligação com Animal
-        public int IdAnimal { get; set; }
-        public string NomeAnimal { get; set; }
+        // Ligação com Tutor e animal
+        public Tutor Tutor { get; set; }
+        public Animal Animal { get; set; }
 
         // Informações específicas do processo de adoção
         public DateTime DataAdocao { get; set; }

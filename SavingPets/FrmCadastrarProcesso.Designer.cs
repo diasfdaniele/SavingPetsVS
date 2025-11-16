@@ -530,6 +530,7 @@
             this.btnPesquisarAnimal.TabIndex = 52;
             this.btnPesquisarAnimal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisarAnimal.UseVisualStyleBackColor = false;
+            this.btnPesquisarAnimal.Click += new System.EventHandler(this.btnPesquisarAnimal_Click);
             // 
             // txtPesquisarAnimal
             // 
@@ -620,7 +621,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmCadastrarProcesso";
             this.Text = "FrmCadastrarProcesso";
-            this.Load += new System.EventHandler(this.FrmCadastrarProcesso_Load_1);
+//            this.Load += new System.EventHandler(this.FrmCadastrarProcesso_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

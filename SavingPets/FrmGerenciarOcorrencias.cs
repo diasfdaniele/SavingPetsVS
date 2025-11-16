@@ -10,51 +10,55 @@ using System.Windows.Forms;
 using SavingPets.Models;
 using SavingPets.Controllers;
 
-
 namespace SavingPets
 {
     public partial class FrmGerenciarOcorrencias : Form
     {
-        //CRIADA PARA TESTES, AVALIAR NECESSIDADE PÓS INTEGRAÇÃO BANCO
-        //Criação de controlador de ocorrencias
-        //para a manipulação dos dados
+        //CONTROLADOR DE OCORRÊNCIAS
+        //OBJETO RESPONSÁVEL PELA PONTE ENTRE INTERFACE E DADOS
+        //ATUALMENTE TRABALHA EM MEMÓRIA, MAS SERÁ AJUSTADO PARA BANCO (MySQL)
         private OcorrenciaController controladorOcorrencia = new OcorrenciaController();
 
-        //Lista de ocorrencias onde os dados vão ficar temporariamente 
-        //armazenados (enquanto ainda não há banco)
+        //LISTA TEMPORÁRIA DE OCORRÊNCIAS
+        //ENQUANTO NÃO HÁ BANCO, ARMAZENA OS DADOS EM MEMÓRIA
         private List<Ocorrencia> listaOcorrencias = new List<Ocorrencia>();
+
         public FrmGerenciarOcorrencias()
         {
             InitializeComponent();
 
-            //Código para inicialização do datagrid
+            //CONFIGURAÇÃO DO DATAGRID (EXIBE AUTOMATICAMENTE AS COLUNAS)
             dgvOcorrencias.AutoGenerateColumns = true;
 
-            //Simulação para carregar ocorrencias
-            //PRECISA INTEGRAR COM BANCO
+            //CARREGA OCORRÊNCIAS PARA TESTE
+            //DEVE SER SUBSTITUÍDO POR SELECT DO BANCO
             CarregarOcorrenciasExemplo();
         }
 
-        //SIMULAÇÃO DE DADOS PARA TESTES
-        //PRECISA AJUSTAR QUANDO INTEGRAR COM BANCO
+        //SIMULAÇÃO DE DADOS PARA TESTES INTERNOS
+        //APÓS INTEGRAÇÃO COM MYSQL, ESTA FUNÇÃO SERÁ REMOVIDA
         private void CarregarOcorrenciasExemplo()
         {
+            //Criação de objetos de processo apenas para teste
+            //No banco, virão de SELECT com JOIN entre Processos e Ocorrências
             ProcessoAdotivo processo1 = new ProcessoAdotivo
             {
                 IdProcesso = 1,
-                NomeTutor = "Maria Silva",
-                NomeAnimal = "Rex",
+                Tutor = new Tutor { NomeTutor = "Maria Silva" },
+                Animal = new Animal { NomeAnimal = "Rex" },
                 DataAdocao = new DateTime(2025, 11, 11)
             };
 
             ProcessoAdotivo processo2 = new ProcessoAdotivo
             {
                 IdProcesso = 2,
-                NomeTutor = "João Souza",
-                NomeAnimal = "Luna",
+                Tutor = new Tutor { NomeTutor = "cleiton Silva" },
+                Animal = new Animal { NomeAnimal = "nina" },
                 DataAdocao = new DateTime(2025, 10, 10)
             };
 
+            //Criação das ocorrências apenas em memória
+            //No banco, o ID será gerado automaticamente (AUTO_INCREMENT)
             Ocorrencia o1 = new Ocorrencia
             {
                 IdOcorrencia = 1,
@@ -75,12 +79,13 @@ namespace SavingPets
                 ProvidenciaTomada = "Animal encontrado e retornou ao lar."
             };
 
-            //Método chamado para armazenar as ocorrencias na lista 
+            //ARMAZENA AS OCORRÊNCIAS NA LISTA DA CAMADA DE CONTROLLER
+            //APÓS INTEGRAÇÃO → CONTROLADOR IRÁ INSERIR NO BANCO
             controladorOcorrencia.CadastrarOcorrencia(o1);
             controladorOcorrencia.CadastrarOcorrencia(o2);
         }
 
-        //Alteração do nome do label de acordo com rdb selecionado
+        //ALTERA O TEXTO DO LABEL DE FILTRO CONFORME O RADIO BUTTON CLICADO
         private void rbNomeTutor_CheckedChanged(object sender, EventArgs e)
         {
             if (rbNomeTutor.Checked)
@@ -105,26 +110,29 @@ namespace SavingPets
                 lblFiltro.Text = "ID da ocorrência:";
         }
 
-        //Evento de click da LUPA(Pesquisar)
+        //BOTÃO DE PESQUISA (LUPA)
+        //FILTRA AS OCORRÊNCIAS CONFORME O TIPO DE FILTRO
+        //APÓS INTEGRAÇÃO COM BANCO → UTILIZAR CONSULTA SQL COM WHERE
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             string termo = txtPesquisarOcorrencias.Text.ToLower();
             List<Ocorrencia> resultados = new List<Ocorrencia>();
 
-            //Pega todas as ocorrências cadastradas
+            //PEGA TODAS AS OCORRÊNCIAS CADASTRADAS
+            //APÓS BANCO → SELECT * FROM ocorrencias
             listaOcorrencias = controladorOcorrencia.ListarOcorrencias();
 
-            //Procura na lista ocorrencias com o texto digitado
+            //APLICA FILTRO DE PESQUISA LOCALMENTE
             if (rbNomeTutor.Checked)
             {
                 resultados = listaOcorrencias
-                    .Where(o => o.Processo.NomeTutor.ToLower().Contains(termo))
+                    .Where(o => o.Processo.Tutor.NomeTutor.ToLower().Contains(termo))
                     .ToList();
             }
             else if (rbNomeAnimal.Checked)
             {
                 resultados = listaOcorrencias
-                    .Where(o => o.Processo.NomeAnimal.ToLower().Contains(termo))
+                    .Where(o => o.Processo.Animal.NomeAnimal.ToLower().Contains(termo))
                     .ToList();
             }
             else if (rbIdProcesso.Checked && int.TryParse(termo, out int idProc))
@@ -140,24 +148,27 @@ namespace SavingPets
                     .ToList();
             }
 
-            // Mostra no DataGridView
+            //EXIBE FILTRO NO DATAGRID
             dgvOcorrencias.DataSource = resultados;
 
+            //MENSAGEM QUANDO NENHUMA OCORRÊNCIA É ENCONTRADA
             if (resultados.Count == 0)
             {
                 MessageBox.Show("Nenhuma ocorrência encontrada.");
             }
         }
 
-        //Evento de clique para quando o usuário clica numa linha da tabela
+        //EVENTO DISPARADO AO CLICAR EM UMA LINHA DO DATAGRID
+        //PREENCHE OS CAMPOS DA TELA COM OS DADOS DA LINHA SELECIONADA
         private void dgvOcorrencias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 Ocorrencia ocorrenciaSelecionada = (Ocorrencia)dgvOcorrencias.Rows[e.RowIndex].DataBoundItem;
 
-                txtNomeTutor.Text = ocorrenciaSelecionada.Processo.NomeTutor;
-                txtNomeAnimal.Text = ocorrenciaSelecionada.Processo.NomeAnimal;
+                //PREENCHE CAMPOS DA TELA COM OS DADOS DA OCORRÊNCIA
+                txtNomeTutor.Text = ocorrenciaSelecionada.Processo.Tutor.NomeTutor;
+                txtNomeAnimal.Text = ocorrenciaSelecionada.Processo.Animal.NomeAnimal;
                 txtIdProcesso.Text = ocorrenciaSelecionada.Processo.IdProcesso.ToString();
                 txtIdOcorrencia.Text = ocorrenciaSelecionada.IdOcorrencia.ToString();
                 txtDescricao.Text = ocorrenciaSelecionada.Descricao;
@@ -167,7 +178,7 @@ namespace SavingPets
             }
         }
 
-        //Evento de click para voltar ao menu principal
+        //BOTÃO VOLTAR – RETORNA AO MENU PRINCIPAL
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             FrmMenu janela = new FrmMenu();
@@ -177,4 +188,3 @@ namespace SavingPets
         }
     }
 }
-

@@ -13,10 +13,12 @@ namespace SavingPets.Controllers
         //CAMADA ATUA COMO PONTE ENTRE INTERFACE E DADOS
 
         //Lista compartilhada entre todas as instâncias
-        //Simulação, necessário alterar na integração com banco
+        //Simulação de armazenamento em memória
+        // (BANCO) — será substituída por SELECT no banco de dados
         private static List<Ocorrencia> listaOcorrencias = new List<Ocorrencia>();
 
         //Comando para geração de ID automático
+        // (BANCO) — esse valor será gerado automaticamente pelo campo AUTO_INCREMENT do MySQL
         private static int ultimoId = 0;
 
         //Método para validação dos campos da ocorrência
@@ -28,6 +30,7 @@ namespace SavingPets.Controllers
                 throw new ArgumentNullException("ocorrencia", "Ocorrência é nula.");
 
             //Verifica se processo adotivo foi informado
+            // (BANCO) — validação continua igual, pois depende do objeto, não do banco
             if (ocorrencia.Processo == null)
                 throw new Exception("ATENÇÃO: É obrigatório selecionar um processo adotivo anter de prosseguir.");
 
@@ -35,7 +38,7 @@ namespace SavingPets.Controllers
             if (string.IsNullOrWhiteSpace(ocorrencia.Descricao))
                 throw new Exception("ATENÇÃO: A descrição do ocorrido é campo de preenchimento obrigatório.");
 
-            //Gravidade como campo de preenchimento obrigatório
+            //Validação da gravidade
             var grav = (ocorrencia.Gravidade ?? "").ToLower();
             if (!(grav == "baixa" || grav == "média" || grav == "media" || grav == "alta"))
                 throw new Exception("ATENÇÃO: A gravidade da ocorrência é campo obrigatório. \nInforme a gravidade da ocorrência (Baixa, Média ou Alta).");
@@ -44,7 +47,7 @@ namespace SavingPets.Controllers
             if (ocorrencia.DataOcorrencia > DateTime.Now)
                 throw new Exception("ATENÇÃO: A data informada não pode ser posterior à data de hoje.");
 
-            //Data do ocorrido não pode ser anterior à data de adoção (opcional regra)
+            //Data do ocorrido não pode ser anterior à data de adoção (regra opcional)
             if (ocorrencia.Processo != null && ocorrencia.DataOcorrencia < ocorrencia.Processo.DataAdocao)
                 throw new Exception("ATENÇÃO: A data do ocorrido não pode ser anterior à data de adoção do processo.");
         }
@@ -56,17 +59,20 @@ namespace SavingPets.Controllers
             Validar(ocorrencia);
 
             //Gera Id automático
+            // (BANCO) — será removido, pois o ID virá do banco após o INSERT
             ultimoId++;
             ocorrencia.IdOcorrencia = ultimoId;
 
             //Adiciona ocorrencia na lista de memoria
-            //AJUSTADO PARA SIMULAÇÃO DE BANCO
+            // (BANCO) — será substituído por INSERT INTO Ocorrencias (...)
             listaOcorrencias.Add(ocorrencia);
         }
 
         //Método para listar todas as ocorrências
         public List<Ocorrencia> ListarOcorrencias()
         {
+            //Retorna todas as ocorrências simuladas
+            // (BANCO) — será substituído por SELECT * FROM Ocorrencias
             return listaOcorrencias;
         }
 
@@ -76,12 +82,13 @@ namespace SavingPets.Controllers
             List<Ocorrencia> resultados = new List<Ocorrencia>();
 
             //Percorre todas as ocorrencias cadastradas
+            // (BANCO) — toda essa filtragem será substituída por SELECT com WHERE dinâmico
             foreach (Ocorrencia o in listaOcorrencias)
             {
-                if (tipoFiltro == "NomeTutor" && o.Processo.NomeTutor.ToLower().Contains(termo.ToLower()))
+                if (tipoFiltro == "NomeTutor" && o.Processo.Tutor.NomeTutor.ToLower().Contains(termo.ToLower()))
                     resultados.Add(o);
 
-                else if (tipoFiltro == "NomeAnimal" && o.Processo.NomeAnimal.ToLower().Contains(termo.ToLower()))
+                else if (tipoFiltro == "NomeAnimal" && o.Processo.Animal.NomeAnimal.ToLower().Contains(termo.ToLower()))
                     resultados.Add(o);
 
                 else if (tipoFiltro == "IdProcesso" && o.Processo.IdProcesso.ToString() == termo)

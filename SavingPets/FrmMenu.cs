@@ -229,5 +229,42 @@ namespace SavingPets
         {
             tmSideBar.Start();
         }
+
+        private void consultarVisitaDomiciliarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void consultarProcessoAdotivoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarProcessoAdotivo janela = new FrmGerenciarProcessoAdotivo();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void editarExcluirProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarProcessoAdotivo janela = new FrmGerenciarProcessoAdotivo();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarVisita janela = new FrmGerenciarVisita();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void editarExcluirVisitaDomiciliarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmGerenciarVisita janela = new FrmGerenciarVisita();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
     }
 }

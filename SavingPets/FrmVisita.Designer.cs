@@ -58,7 +58,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.rbNaoVacinado = new System.Windows.Forms.RadioButton();
             this.rbVacinado = new System.Windows.Forms.RadioButton();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtObservacoes = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.rbDuvida = new System.Windows.Forms.RadioButton();
             this.rbNao = new System.Windows.Forms.RadioButton();
@@ -352,14 +352,14 @@
             // 
             this.groupBox3.Controls.Add(this.groupBox10);
             this.groupBox3.Controls.Add(this.groupBox5);
-            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.txtObservacoes);
             this.groupBox3.Controls.Add(this.groupBox7);
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(72, 285);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(514, 410);
+            this.groupBox3.Size = new System.Drawing.Size(514, 414);
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Checklist de Visita ";
@@ -436,13 +436,14 @@
             this.rbVacinado.Text = "Sim";
             this.rbVacinado.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // txtObservacoes
             // 
-            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(5, 368);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(503, 26);
-            this.textBox5.TabIndex = 2;
+            this.txtObservacoes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservacoes.Location = new System.Drawing.Point(5, 361);
+            this.txtObservacoes.Multiline = true;
+            this.txtObservacoes.Name = "txtObservacoes";
+            this.txtObservacoes.Size = new System.Drawing.Size(503, 42);
+            this.txtObservacoes.TabIndex = 2;
             // 
             // groupBox7
             // 
@@ -546,7 +547,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 345);
+            this.label8.Location = new System.Drawing.Point(6, 338);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(191, 20);
             this.label8.TabIndex = 1;
@@ -598,7 +599,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(0, 128);
+            this.label22.Location = new System.Drawing.Point(4, 128);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(150, 17);
             this.label22.TabIndex = 43;
@@ -608,7 +609,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(0, 94);
+            this.label21.Location = new System.Drawing.Point(4, 94);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(175, 17);
             this.label21.TabIndex = 42;
@@ -618,7 +619,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(0, 60);
+            this.label20.Location = new System.Drawing.Point(4, 60);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(124, 17);
             this.label20.TabIndex = 40;
@@ -641,7 +642,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(0, 27);
+            this.label19.Location = new System.Drawing.Point(4, 27);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(185, 17);
             this.label19.TabIndex = 11;
@@ -682,7 +683,7 @@
             this.groupBox8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(618, 443);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(508, 152);
+            this.groupBox8.Size = new System.Drawing.Size(508, 175);
             this.groupBox8.TabIndex = 6;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Recomendações e ações futuras";
@@ -691,7 +692,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(6, 66);
+            this.label23.Location = new System.Drawing.Point(6, 91);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(157, 20);
             this.label23.TabIndex = 6;
@@ -705,7 +706,7 @@
             "Acompanhamento Periódico",
             "Acompanhamento Contínuo",
             "Caso Encerrado"});
-            this.cbxConclusao.Location = new System.Drawing.Point(164, 63);
+            this.cbxConclusao.Location = new System.Drawing.Point(164, 88);
             this.cbxConclusao.Name = "cbxConclusao";
             this.cbxConclusao.Size = new System.Drawing.Size(338, 28);
             this.cbxConclusao.TabIndex = 5;
@@ -714,8 +715,9 @@
             // 
             this.txtOrientacao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOrientacao.Location = new System.Drawing.Point(164, 23);
+            this.txtOrientacao.Multiline = true;
             this.txtOrientacao.Name = "txtOrientacao";
-            this.txtOrientacao.Size = new System.Drawing.Size(338, 26);
+            this.txtOrientacao.Size = new System.Drawing.Size(338, 48);
             this.txtOrientacao.TabIndex = 1;
             // 
             // label13
@@ -731,7 +733,7 @@
             // dataAgendamento
             // 
             this.dataAgendamento.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataAgendamento.Location = new System.Drawing.Point(164, 106);
+            this.dataAgendamento.Location = new System.Drawing.Point(164, 131);
             this.dataAgendamento.Name = "dataAgendamento";
             this.dataAgendamento.Size = new System.Drawing.Size(338, 26);
             this.dataAgendamento.TabIndex = 4;
@@ -740,7 +742,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(8, 92);
+            this.label15.Location = new System.Drawing.Point(8, 117);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(125, 40);
             this.label15.TabIndex = 3;
@@ -943,7 +945,7 @@
         private System.Windows.Forms.DateTimePicker dataVisita;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtObservacoes;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RadioButton rbInseguro;

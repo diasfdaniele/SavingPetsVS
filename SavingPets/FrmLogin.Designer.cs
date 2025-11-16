@@ -64,7 +64,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(-2, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1201, 40);
+            this.label2.Size = new System.Drawing.Size(1201, 69);
             this.label2.TabIndex = 1;
             this.label2.Text = "Gerenciamento Pós Adotivo de Animais \r\nResgatados \r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -162,11 +162,13 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label6.Location = new System.Drawing.Point(1, 659);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(1183, 16);
             this.label6.TabIndex = 9;
             this.label6.Text = "AAANO - Associação Amigos dos Animais de Nova Odessa";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label7
             // 

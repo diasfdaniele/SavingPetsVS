@@ -1,47 +1,58 @@
-﻿using System;
+﻿using SavingPets.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using SavingPets.Models;
 
 namespace SavingPets.Controllers
 {
-    public class ProcessoAdotivoController
+    internal class ProcessoAdotivoController
     {
-        //CLASSE QUE IRÁ MANIPULAR OS DADOS DAS OCORRENCIAS
-        //CÓDIGO CRIADO PARA SIMULAR SITUAÇÕES DE TESTE DO SISTEMA
-        //NECESSÁRIO AJUSTAR NA INTEGRAÇÃO COM BANCO DE DADOS
+        //POR ENQUANTO: lista em memória
+        private static List<ProcessoAdotivo> processos = new List<ProcessoAdotivo>();
 
-        // Lista simulando o banco de dados
-        private static List<ProcessoAdotivo> listaProcessos = new List<ProcessoAdotivo>();
+        // Quando integrar banco, substituir por chamada ao DAL
+        // private static BancoDadosProcessoAdotivo processoDados = new BancoDadosProcessoAdotivo();
 
-        // Método para cadastrar novo processo
-        public void CadastrarProcesso(ProcessoAdotivo novoProcesso)
+        public void Cadastrar(ProcessoAdotivo processo)
         {
-            // Gera um ID automático se ainda não tiver
-            if (novoProcesso.IdProcesso == 0)
-                novoProcesso.IdProcesso = listaProcessos.Count + 1;
+            if (processo.IdProcesso == 0)
+            {
+                processo.IdProcesso = ObterProximoId();
+            }
 
-            listaProcessos.Add(novoProcesso);
+            // FUTURO: processoDados.Salvar(processo);
+            processos.Add(processo);
         }
 
-        // Buscar por ID
+        public List<ProcessoAdotivo> Listar()
+        {
+            // FUTURO: return processoDados.ListarTodos();
+            return processos;
+        }
         public ProcessoAdotivo BuscarPorId(int id)
         {
-            return listaProcessos.FirstOrDefault(p => p.IdProcesso == id);
+            // FUTURO: return processoDados.Buscar(id);
+            return processos.FirstOrDefault(p => p.IdProcesso == id);
         }
 
-        // Buscar por nome do tutor
-        public List<ProcessoAdotivo> BuscarPorNomeTutor(string nome)
+        public void Editar(ProcessoAdotivo processoEditado)
         {
-            return listaProcessos
-                .Where(p => p.NomeTutor.ToLower().Contains(nome.ToLower()))
-                .ToList();
+            var processo = BuscarPorId(processoEditado.IdProcesso);
+            if (processo == null)
+                throw new Exception("Processo não encontrado!");
+
+            processo.Tutor = processoEditado.Tutor;
+            processo.Animal = processoEditado.Animal;
+            processo.DataAdocao = processoEditado.DataAdocao;
+            processo.Observacoes = processoEditado.Observacoes;
+
+            // FUTURO: processoDados.Alterar(processoEditado);
         }
 
-        // Retornar todos os processos
-        public List<ProcessoAdotivo> ListarTodos()
+        public int ObterProximoId()
         {
-            return listaProcessos;
+            // ➜ FUTURO: return processoDados.ExtrairMaiorId() + 1;
+            return processos.Count == 0 ? 1 : processos.Max(p => p.IdProcesso) + 1;
         }
     }
 }

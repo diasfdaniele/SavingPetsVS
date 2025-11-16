@@ -323,7 +323,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmConsultarProcesso";
             this.Text = "Selecionar Processo Adotivo";
-            this.Load += new System.EventHandler(this.FrmConsultarProcesso_Load);
+//            this.Load += new System.EventHandler(this.FrmConsultarProcesso_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcessos)).EndInit();

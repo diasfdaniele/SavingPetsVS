@@ -37,8 +37,8 @@ namespace SavingPets
 
                 // Preenche os campos na tela
                 txtId.Text = processoSelecionado.IdProcesso.ToString();
-                txtNomeTutor.Text = processoSelecionado.NomeTutor;
-                txtNomeAnimal.Text = processoSelecionado.NomeAnimal;
+                txtNomeTutor.Text = processoSelecionado.Tutor.NomeTutor;
+                txtNomeAnimal.Text = processoSelecionado.Animal.NomeAnimal;
                 dataAdocao.Value = processoSelecionado.DataAdocao;
             }
         }
@@ -132,12 +132,12 @@ namespace SavingPets
                     // Recomendações
                     OrientacoesDadas = txtOrientacao.Text.Trim(),
                     ProximaVisitaSugerida = dataAgendamento.Value,
+                    Observacoes = txtObservacoes.Text.Trim(),
                     ConclusaoVisita = cbxConclusao.Text,
                 };
 
-                // -----------------------------------------
                 // ENVIA AO CONTROLLER (VALIDAÇÃO DE REGRA)
-                // -----------------------------------------
+            
                 visitaController.CadastrarVisita(novaVisita);
 
                 MessageBox.Show("Visita cadastrada com sucesso!", "Sucesso",
@@ -187,6 +187,7 @@ namespace SavingPets
             rbNao.Checked = false;
             rbDuvida.Checked = false;
 
+            txtObservacoes.Clear();
             cbxAdaptacao.SelectedIndex = -1;
             cbxRelacao.SelectedIndex = -1;
 
