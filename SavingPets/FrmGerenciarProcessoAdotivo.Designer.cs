@@ -47,14 +47,14 @@
             this.txtNomeTutor = new System.Windows.Forms.TextBox();
             this.dgvProcessos = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbIdAnimal = new System.Windows.Forms.RadioButton();
+            this.rbIdTutor = new System.Windows.Forms.RadioButton();
             this.rbIdProcesso = new System.Windows.Forms.RadioButton();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.rbNomeAnimal = new System.Windows.Forms.RadioButton();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.rbNomeTutor = new System.Windows.Forms.RadioButton();
-            this.rbIdTutor = new System.Windows.Forms.RadioButton();
-            this.rbIdAnimal = new System.Windows.Forms.RadioButton();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -271,6 +271,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta";
             // 
+            // rbIdAnimal
+            // 
+            this.rbIdAnimal.AutoSize = true;
+            this.rbIdAnimal.Location = new System.Drawing.Point(428, 58);
+            this.rbIdAnimal.Margin = new System.Windows.Forms.Padding(2);
+            this.rbIdAnimal.Name = "rbIdAnimal";
+            this.rbIdAnimal.Size = new System.Drawing.Size(95, 24);
+            this.rbIdAnimal.TabIndex = 42;
+            this.rbIdAnimal.Text = "ID animal";
+            this.rbIdAnimal.UseVisualStyleBackColor = true;
+            // 
+            // rbIdTutor
+            // 
+            this.rbIdTutor.AutoSize = true;
+            this.rbIdTutor.Location = new System.Drawing.Point(152, 58);
+            this.rbIdTutor.Margin = new System.Windows.Forms.Padding(2);
+            this.rbIdTutor.Name = "rbIdTutor";
+            this.rbIdTutor.Size = new System.Drawing.Size(81, 24);
+            this.rbIdTutor.TabIndex = 41;
+            this.rbIdTutor.Text = "ID tutor";
+            this.rbIdTutor.UseVisualStyleBackColor = true;
+            // 
             // rbIdProcesso
             // 
             this.rbIdProcesso.AutoSize = true;
@@ -342,28 +364,6 @@
             this.rbNomeTutor.Text = "Nome tutor";
             this.rbNomeTutor.UseVisualStyleBackColor = true;
             // 
-            // rbIdTutor
-            // 
-            this.rbIdTutor.AutoSize = true;
-            this.rbIdTutor.Location = new System.Drawing.Point(152, 58);
-            this.rbIdTutor.Margin = new System.Windows.Forms.Padding(2);
-            this.rbIdTutor.Name = "rbIdTutor";
-            this.rbIdTutor.Size = new System.Drawing.Size(81, 24);
-            this.rbIdTutor.TabIndex = 41;
-            this.rbIdTutor.Text = "ID tutor";
-            this.rbIdTutor.UseVisualStyleBackColor = true;
-            // 
-            // rbIdAnimal
-            // 
-            this.rbIdAnimal.AutoSize = true;
-            this.rbIdAnimal.Location = new System.Drawing.Point(428, 58);
-            this.rbIdAnimal.Margin = new System.Windows.Forms.Padding(2);
-            this.rbIdAnimal.Name = "rbIdAnimal";
-            this.rbIdAnimal.Size = new System.Drawing.Size(95, 24);
-            this.rbIdAnimal.TabIndex = 42;
-            this.rbIdAnimal.Text = "ID animal";
-            this.rbIdAnimal.UseVisualStyleBackColor = true;
-            // 
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.SystemColors.ButtonShadow;
@@ -422,9 +422,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvProcessos);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmGerenciarProcessoAdotivo";
             this.Text = "Consultar Processo Adotivo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmGerenciarProcessoAdotivo_FormClosing);
             this.Load += new System.EventHandler(this.FrmGerenciarProcessoAdotivo_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

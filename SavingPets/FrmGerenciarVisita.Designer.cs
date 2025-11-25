@@ -777,7 +777,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmGerenciarVisita";
             this.Text = "Gerenciar Visita Domiciliar";
-//            this.Load += new System.EventHandler(this.GerenciarVisita_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmGerenciarVisita_FormClosing);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisita)).EndInit();

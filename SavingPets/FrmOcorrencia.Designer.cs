@@ -378,6 +378,7 @@
             this.Name = "FrmOcorrencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Ocorrências";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmOcorrencia_FormClosing);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);

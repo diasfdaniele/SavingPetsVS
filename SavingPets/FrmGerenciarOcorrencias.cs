@@ -186,5 +186,31 @@ namespace SavingPets
             janela.ShowDialog();
             Show();
         }
+
+        private void FrmGerenciarOcorrencias_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            // Se o sistema está fechando porque Application.Exit() foi chamado,
+            // não mostrar a mensagem novamente.
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+                return;
+
+            //Exibe mensagem de confirmação
+            var resultado = MessageBox.Show(
+                "Deseja realmente sair do sistema?",
+                "Confirmar saída",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            //se clica não, cancela o fechamento
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            Application.Exit();
+
+        }
     }
 }

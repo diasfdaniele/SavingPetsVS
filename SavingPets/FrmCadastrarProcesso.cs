@@ -34,10 +34,10 @@ namespace SavingPets
             try
             {
                 if (tutorSelecionado == null)
-                    throw new Exception("Selecione um tutor.");
+                    throw new Exception("Por favor, selecione um tutor.");
 
                 if (animalSelecionado == null)
-                    throw new Exception("Selecione um animal.");
+                    throw new Exception("Por favor, selecione um animal.");
 
                 if (dataAdocao.Value.Date > DateTime.Today)
                     throw new Exception("A data de adoção não pode ser futura.");
@@ -68,8 +68,14 @@ namespace SavingPets
         {
             txtIdTutor.Clear();
             txtNomeTutor.Clear();
+            txtCpf.Clear();
+            txtTelefone.Clear();
+            txtEmail.Clear();
             txtIdAnimal.Clear();
             txtNomeAnimal.Clear();
+            txtEspecie.Clear();
+            txtCastrado.Clear();
+            txtVermifugado.Clear();
             dataAdocao.Value = DateTime.Today;
             txtObservacoes.Clear();
 
@@ -106,6 +112,40 @@ namespace SavingPets
                 txtVacinado.Text = animalSelecionado.Vacinas.ToString();
 
             }
+        }
+
+        private void FrmCadastrarProcesso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            // Se o sistema está fechando porque Application.Exit() foi chamado,
+            // não mostrar a mensagem novamente.
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+                return;
+
+            //Exibe mensagem de confirmação
+            var resultado = MessageBox.Show(
+                "Deseja realmente sair do sistema?",
+                "Confirmar saída",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            //se clica não, cancela o fechamento
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            Application.Exit();
+
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FrmMenu janela = new FrmMenu();
+            Hide();
+            janela.ShowDialog();
+            Show();
         }
     }
 }

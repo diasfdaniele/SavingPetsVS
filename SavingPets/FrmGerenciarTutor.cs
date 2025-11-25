@@ -51,7 +51,7 @@ namespace SavingPets
         {
             InitializeComponent();
 
- 
+
 
             //para usar o grid view
             CarregarTutoresSimulados();
@@ -63,7 +63,7 @@ namespace SavingPets
             CarregarTutores();
             AtualizarGrid();
 
-            
+
             btnPesquisar_Tutor.Click += btnPesquisar_Tutor_Click;
             btnEditar_Tutor.Click += btnEditar_Tutor_Click;
             //btnExcluir_Tutor.Click += btnExcluir_Tutor_Click;
@@ -73,7 +73,7 @@ namespace SavingPets
         private void CarregarTutores()
         {
             //listaTutores = controller.ListarTutores(); //feito antes de usar o datagrid com exemplos
-          
+
         }
 
         // Atualiza DataGrid
@@ -198,6 +198,40 @@ namespace SavingPets
                 AtualizarGrid();
             }
         }
+
+        private void FrmGerenciarTutor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            // Se o sistema está fechando porque Application.Exit() foi chamado,
+            // não mostrar a mensagem novamente.
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+                return;
+
+            //Exibe mensagem de confirmação
+            var resultado = MessageBox.Show(
+                "Deseja realmente sair do sistema?",
+                "Confirmar saída",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            //se clica não, cancela o fechamento
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            Application.Exit();
+
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            FrmMenu janela = new FrmMenu();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
     }
-    }
+}
 

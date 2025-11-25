@@ -131,7 +131,7 @@ namespace SavingPets
         }
 
         //Comando para acessar tela da visita domiciliar
-        private void registrarVisitaDomiciliarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void registrarVisitaDomiciliarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmVisita janela = new FrmVisita();
             Hide();
@@ -139,14 +139,16 @@ namespace SavingPets
             Show();
         }
 
+
         //Evento de click para cadastrar processo adotivo
-        private void cadastrarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cadastrarProcessoAdotivoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmCadastrarProcesso janela = new FrmCadastrarProcesso();
             Hide();
             janela.ShowDialog();
             Show();
         }
+
 
         //Evento de click para exibir consulta de processo adotivo 
         private void consultarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -266,5 +268,33 @@ namespace SavingPets
             janela.ShowDialog();
             Show();
         }
+
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            // Se o sistema está fechando porque Application.Exit() foi chamado,
+            // não mostrar a mensagem novamente.
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+                return;
+
+            //Exibe mensagem de confirmação
+            var resultado = MessageBox.Show(
+                "Deseja realmente sair do sistema?",
+                "Confirmar saída",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            //se clica não, cancela o fechamento
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            Application.Exit();
+
+        }
+
+        
     }
 }

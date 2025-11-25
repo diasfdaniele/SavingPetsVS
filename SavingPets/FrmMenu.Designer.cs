@@ -51,8 +51,14 @@
             this.editarTutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuProcesso = new System.Windows.Forms.Button();
             this.cmsAdocao = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.registrarVisitaDomiciliarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarProcessoAdotivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarProcessoAdotivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarProcessoAdotivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarExcluirProcessoAdotivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarVisitaDomiciliarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarVisitaDomiciliarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarExcluirVisitaDomiciliarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuOcorrencia = new System.Windows.Forms.Button();
             this.cmsOcorrencia = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.registrarOcorrênciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,10 +67,6 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMenu = new System.Windows.Forms.Button();
             this.tmSideBar = new System.Windows.Forms.Timer(this.components);
-            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarExcluirVisitaDomiciliarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarProcessoAdotivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarExcluirProcessoAdotivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -304,30 +306,72 @@
             this.cmsAdocao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsAdocao.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsAdocao.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registrarVisitaDomiciliarToolStripMenuItem,
-            this.cadastrarProcessoAdotivoToolStripMenuItem});
+            this.cadastrarProcessoAdotivoToolStripMenuItem,
+            this.registrarVisitaDomiciliarToolStripMenuItem});
             this.cmsAdocao.Name = "cmsAdocao";
-            this.cmsAdocao.Size = new System.Drawing.Size(285, 74);
-            // 
-            // registrarVisitaDomiciliarToolStripMenuItem
-            // 
-            this.registrarVisitaDomiciliarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cToolStripMenuItem,
-            this.editarExcluirVisitaDomiciliarToolStripMenuItem1});
-            this.registrarVisitaDomiciliarToolStripMenuItem.Name = "registrarVisitaDomiciliarToolStripMenuItem";
-            this.registrarVisitaDomiciliarToolStripMenuItem.Size = new System.Drawing.Size(284, 24);
-            this.registrarVisitaDomiciliarToolStripMenuItem.Text = "Registrar visita domiciliar";
-            this.registrarVisitaDomiciliarToolStripMenuItem.Click += new System.EventHandler(this.registrarVisitaDomiciliarToolStripMenuItem_Click);
+            this.cmsAdocao.Size = new System.Drawing.Size(257, 74);
             // 
             // cadastrarProcessoAdotivoToolStripMenuItem
             // 
             this.cadastrarProcessoAdotivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarProcessoAdotivoToolStripMenuItem1,
             this.consultarProcessoAdotivoToolStripMenuItem1,
             this.editarExcluirProcessoAdotivoToolStripMenuItem});
             this.cadastrarProcessoAdotivoToolStripMenuItem.Name = "cadastrarProcessoAdotivoToolStripMenuItem";
-            this.cadastrarProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.cadastrarProcessoAdotivoToolStripMenuItem.Text = "Cadastrar processo adotivo";
-            this.cadastrarProcessoAdotivoToolStripMenuItem.Click += new System.EventHandler(this.cadastrarProcessoAdotivoToolStripMenuItem_Click);
+            this.cadastrarProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.cadastrarProcessoAdotivoToolStripMenuItem.Text = "Processo Adotivo";
+            // 
+            // cadastrarProcessoAdotivoToolStripMenuItem1
+            // 
+            this.cadastrarProcessoAdotivoToolStripMenuItem1.Name = "cadastrarProcessoAdotivoToolStripMenuItem1";
+            this.cadastrarProcessoAdotivoToolStripMenuItem1.Size = new System.Drawing.Size(304, 24);
+            this.cadastrarProcessoAdotivoToolStripMenuItem1.Text = "Cadastrar Processo Adotivo";
+            this.cadastrarProcessoAdotivoToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarProcessoAdotivoToolStripMenuItem1_Click);
+            // 
+            // consultarProcessoAdotivoToolStripMenuItem1
+            // 
+            this.consultarProcessoAdotivoToolStripMenuItem1.Name = "consultarProcessoAdotivoToolStripMenuItem1";
+            this.consultarProcessoAdotivoToolStripMenuItem1.Size = new System.Drawing.Size(304, 24);
+            this.consultarProcessoAdotivoToolStripMenuItem1.Text = "Consultar Processo Adotivo";
+            this.consultarProcessoAdotivoToolStripMenuItem1.Click += new System.EventHandler(this.consultarProcessoAdotivoToolStripMenuItem1_Click);
+            // 
+            // editarExcluirProcessoAdotivoToolStripMenuItem
+            // 
+            this.editarExcluirProcessoAdotivoToolStripMenuItem.Name = "editarExcluirProcessoAdotivoToolStripMenuItem";
+            this.editarExcluirProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.editarExcluirProcessoAdotivoToolStripMenuItem.Text = "Editar/Excluir Processo Adotivo";
+            this.editarExcluirProcessoAdotivoToolStripMenuItem.Click += new System.EventHandler(this.editarExcluirProcessoAdotivoToolStripMenuItem_Click);
+            // 
+            // registrarVisitaDomiciliarToolStripMenuItem
+            // 
+            this.registrarVisitaDomiciliarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarVisitaDomiciliarToolStripMenuItem1,
+            this.cToolStripMenuItem,
+            this.editarExcluirVisitaDomiciliarToolStripMenuItem1});
+            this.registrarVisitaDomiciliarToolStripMenuItem.Name = "registrarVisitaDomiciliarToolStripMenuItem";
+            this.registrarVisitaDomiciliarToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.registrarVisitaDomiciliarToolStripMenuItem.Text = "Registrar visita domiciliar";
+            // 
+            // registrarVisitaDomiciliarToolStripMenuItem1
+            // 
+            this.registrarVisitaDomiciliarToolStripMenuItem1.Name = "registrarVisitaDomiciliarToolStripMenuItem1";
+            this.registrarVisitaDomiciliarToolStripMenuItem1.Size = new System.Drawing.Size(288, 24);
+            this.registrarVisitaDomiciliarToolStripMenuItem1.Text = "Registrar Visita Domiciliar";
+            this.registrarVisitaDomiciliarToolStripMenuItem1.Click += new System.EventHandler(this.registrarVisitaDomiciliarToolStripMenuItem1_Click);
+            // 
+            // cToolStripMenuItem
+            // 
+            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
+            this.cToolStripMenuItem.Size = new System.Drawing.Size(288, 24);
+            this.cToolStripMenuItem.Text = "Consultar Visita Domiciliar";
+            this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
+            // 
+            // editarExcluirVisitaDomiciliarToolStripMenuItem1
+            // 
+            this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Name = "editarExcluirVisitaDomiciliarToolStripMenuItem1";
+            this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Size = new System.Drawing.Size(288, 24);
+            this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Text = "Editar/Excluir Visita Domiciliar";
+            this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Click += new System.EventHandler(this.editarExcluirVisitaDomiciliarToolStripMenuItem1_Click);
             // 
             // btnMenuOcorrencia
             // 
@@ -408,34 +452,6 @@
             this.tmSideBar.Interval = 10;
             this.tmSideBar.Tick += new System.EventHandler(this.tmSideBar_Tick);
             // 
-            // cToolStripMenuItem
-            // 
-            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
-            this.cToolStripMenuItem.Size = new System.Drawing.Size(286, 24);
-            this.cToolStripMenuItem.Text = "Consultar visita domiciliar";
-            this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
-            // 
-            // editarExcluirVisitaDomiciliarToolStripMenuItem1
-            // 
-            this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Name = "editarExcluirVisitaDomiciliarToolStripMenuItem1";
-            this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Size = new System.Drawing.Size(286, 24);
-            this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Text = "Editar/Excluir visita domiciliar";
-            this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Click += new System.EventHandler(this.editarExcluirVisitaDomiciliarToolStripMenuItem1_Click);
-            // 
-            // consultarProcessoAdotivoToolStripMenuItem1
-            // 
-            this.consultarProcessoAdotivoToolStripMenuItem1.Name = "consultarProcessoAdotivoToolStripMenuItem1";
-            this.consultarProcessoAdotivoToolStripMenuItem1.Size = new System.Drawing.Size(304, 24);
-            this.consultarProcessoAdotivoToolStripMenuItem1.Text = "Consultar processo adotivo";
-            this.consultarProcessoAdotivoToolStripMenuItem1.Click += new System.EventHandler(this.consultarProcessoAdotivoToolStripMenuItem1_Click);
-            // 
-            // editarExcluirProcessoAdotivoToolStripMenuItem
-            // 
-            this.editarExcluirProcessoAdotivoToolStripMenuItem.Name = "editarExcluirProcessoAdotivoToolStripMenuItem";
-            this.editarExcluirProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
-            this.editarExcluirProcessoAdotivoToolStripMenuItem.Text = "Editar/Excluir processo adotivo";
-            this.editarExcluirProcessoAdotivoToolStripMenuItem.Click += new System.EventHandler(this.editarExcluirProcessoAdotivoToolStripMenuItem_Click);
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,6 +476,7 @@
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -512,5 +529,7 @@
         private System.Windows.Forms.ToolStripMenuItem editarExcluirVisitaDomiciliarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem consultarProcessoAdotivoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editarExcluirProcessoAdotivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarProcessoAdotivoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem registrarVisitaDomiciliarToolStripMenuItem1;
     }
 }

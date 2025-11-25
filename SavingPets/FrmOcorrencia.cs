@@ -36,14 +36,16 @@ namespace SavingPets
                 //Verifica se o usuário escolheu um processo
                 if (processoSelecionado == null)
                 {
-                    MessageBox.Show("Selecione um processo antes de cadastrar a ocorrência!");
+                    MessageBox.Show("Selecione um processo adotivo antes de cadastrar a ocorrência!", "ATENÇÃO",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    groupBox1.Focus();
                     return;
                 }
 
                 //Obrigatoriedade preenchimento da descrição do ocorrido
                 if (string.IsNullOrWhiteSpace(txtDescricao.Text))
                 {
-                    MessageBox.Show("Preencha a descrição do ocorrido.", "Atenção",
+                    MessageBox.Show("Por favor, preencha a descrição do ocorrido.", "ATENÇÃO",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtDescricao.Focus();
                     return;
@@ -52,7 +54,7 @@ namespace SavingPets
                 //Obrigatoriedade preenchimento gravidade
                 if (!rbBaixa.Checked && !rbMedia.Checked && !rbAlta.Checked)
                 {
-                    MessageBox.Show("Selecione a gravidade (Baixa, Média ou Alta).", "Atenção",
+                    MessageBox.Show("Por favor, selecione a gravidade da ocorrência (Baixa, Média ou Alta).", "ATENÇÃO",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -122,6 +124,28 @@ namespace SavingPets
             this.Close();
         }
 
+        private void FrmOcorrencia_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Se o sistema está fechando porque Application.Exit() foi chamado,
+            // não mostrar a mensagem novamente.
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+                return;
 
+            //Exibe mensagem de confirmação
+            var resultado = MessageBox.Show(
+                "Deseja realmente sair do sistema?",
+                "Confirmar saída",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            //se clica não, cancela o fechamento
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            Application.Exit();
+        }
     }
 }

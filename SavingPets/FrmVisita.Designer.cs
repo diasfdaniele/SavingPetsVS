@@ -896,7 +896,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmVisita";
-            this.Text = "Saudável";
+            this.Text = "Atualização de visita domiciliar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmVisita_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

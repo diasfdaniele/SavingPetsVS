@@ -19,7 +19,7 @@ namespace SavingPets
 
             //Comandos para deixar os label com plano de
             //fundo do picturebox (imagem)
-            
+
 
             label1.Parent = pictureBox1;
             label2.Parent = pictureBox1;
@@ -47,9 +47,9 @@ namespace SavingPets
                     janela.ShowDialog();
                     Show();
                 }
-                else if(string.IsNullOrEmpty(this.txtEmail.Text))//Se login não retornar nada, testa se o campo txtEmail está vazio
+                else if (string.IsNullOrEmpty(this.txtEmail.Text))//Se login não retornar nada, testa se o campo txtEmail está vazio
                 {
-                    MessageBox.Show("Por favor, preencha o Email.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);//Exibe mensagem de erro
+                    MessageBox.Show("Por favor, digite seu e-mail.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);//Exibe mensagem de erro
                     this.txtEmail.Focus();//Move o cursor para o text box Email
                     return;
                 }
@@ -69,9 +69,9 @@ namespace SavingPets
             }
             catch (Exception ex) //Para erros de banco, servidor e Etc.
             {
-                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         //Evento de clique para limpar os campos e-mail e senha
@@ -81,8 +81,15 @@ namespace SavingPets
             txtSenha.Clear();
         }
 
-        //Evento de clique para registrar novo usuário voluntário
-        //Falta desenvolver tela
-        
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Entre em contato com um administrador da AAANO!", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
+        }
+
+
     }
+
+
 }
+

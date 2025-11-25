@@ -51,14 +51,14 @@ namespace SavingPets
 
                 if (processoSelecionado == null)
                 {
-                    MessageBox.Show("Selecione primeiro um processo adotivo.", "Atenção",
+                    MessageBox.Show("Por favor, selecione primeiro um processo adotivo.", "Atenção",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(txtResponsavel.Text))
                 {
-                    MessageBox.Show("Informe o responsável pela visita.", "Atenção",
+                    MessageBox.Show("Por favor, informe o responsável pela visita.", "Atenção",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtResponsavel.Focus();
                     return;
@@ -66,35 +66,35 @@ namespace SavingPets
 
                 if (cbxStatusVisita.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Selecione o status da visita.", "Atenção",
+                    MessageBox.Show("Por favor, selecione o status da visita.", "Atenção",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (cbxFisico.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Informe a condição física do animal.", "Atenção",
+                    MessageBox.Show("Por favor, informe a condição física do animal.", "Atenção",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (cbxComportamento.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Informe o comportamento do animal.", "Atenção",
+                    MessageBox.Show("Por favor, informe o comportamento do animal.", "Atenção",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (!rbSeguro.Checked && !rbSatisfatorio.Checked && !rbInseguro.Checked)
                 {
-                    MessageBox.Show("Selecione a condição do ambiente.", "Atenção",
+                    MessageBox.Show("Por favor, selecione a condição do ambiente.", "Atenção",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (!rbSim.Checked && !rbNao.Checked && !rbDuvida.Checked)
                 {
-                    MessageBox.Show("Informe se há indícios de maus-tratos.", "Atenção",
+                    MessageBox.Show("Por favor, informe se há indícios de maus-tratos.", "Atenção",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -137,7 +137,7 @@ namespace SavingPets
                 };
 
                 // ENVIA AO CONTROLLER (VALIDAÇÃO DE REGRA)
-            
+
                 visitaController.CadastrarVisita(novaVisita);
 
                 MessageBox.Show("Visita cadastrada com sucesso!", "Sucesso",
@@ -150,7 +150,7 @@ namespace SavingPets
                 MessageBox.Show("Erro ao cadastrar visita: " + ex.Message,
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
+
 
             FrmMenu janela = new FrmMenu();
             Hide();
@@ -202,6 +202,30 @@ namespace SavingPets
             this.Close();
         }
 
-        
+        private void FrmVisita_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            // Se o sistema está fechando porque Application.Exit() foi chamado,
+            // não mostrar a mensagem novamente.
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+                return;
+
+            //Exibe mensagem de confirmação
+            var resultado = MessageBox.Show(
+                "Deseja realmente sair do sistema?",
+                "Confirmar saída",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            //se clica não, cancela o fechamento
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            Application.Exit();
+
+        }
     }
 }

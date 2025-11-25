@@ -101,6 +101,7 @@
             this.btnVoltar.TabIndex = 28;
             this.btnVoltar.Text = "VOLTAR";
             this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnCadastrarProcesso
             // 
@@ -597,7 +598,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 749);
+            this.ClientSize = new System.Drawing.Size(1182, 661);
             this.Controls.Add(this.dataAgendamento);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.txtObservacoes);
@@ -620,8 +621,9 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FrmCadastrarProcesso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCadastrarProcesso";
-//            this.Load += new System.EventHandler(this.FrmCadastrarProcesso_Load_1);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCadastrarProcesso_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

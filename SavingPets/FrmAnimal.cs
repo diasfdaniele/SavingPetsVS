@@ -60,7 +60,7 @@ namespace SavingPets
             vermifugado = animal.Vermifugado;
             castrado = animal.Castrado;
             txtHistorico.Text = animal.HistoricoDoencas;
-            
+
 
             // (opcional) muda o título da janela para indicar edição
             this.Text = "Editar Animal";
@@ -69,8 +69,8 @@ namespace SavingPets
         //Evento de clique cadastrar animal
         private void btnCadAnimal_Click(object sender, EventArgs e)
         {
-            
-           
+
+
 
             try
             {
@@ -116,23 +116,23 @@ namespace SavingPets
                     Vermifugado = vermifugado,
                     Castrado = castrado,
                     HistoricoDoencas = txtHistorico.Text,
-                    
+
                 };
 
                 AnimalController controller = new AnimalController();
                 controller.CadastrarAnimal(novo);
 
                 MessageBox.Show("Animal cadastrado com sucesso!");
-            
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
-            }
+        }
 
-//Evento de clique para voltar ao menu principal
-private void btnVoltar_Click(object sender, EventArgs e)
+        //Evento de clique para voltar ao menu principal
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
             FrmMenu janela = new FrmMenu();
             Hide();
@@ -152,6 +152,32 @@ private void btnVoltar_Click(object sender, EventArgs e)
             {
                 MessageBox.Show("Erro ao carregar próximo ID: " + ex.Message);
             }
+        }
+
+        private void FrmAnimal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            // Se o sistema está fechando porque Application.Exit() foi chamado,
+            // não mostrar a mensagem novamente.
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+                return;
+
+            //Exibe mensagem de confirmação
+            var resultado = MessageBox.Show(
+                "Deseja realmente sair do sistema?",
+                "Confirmar saída",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            //se clica não, cancela o fechamento
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            Application.Exit();
+
         }
     }
 }
