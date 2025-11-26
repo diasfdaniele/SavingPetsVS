@@ -147,7 +147,10 @@ namespace SavingPets
         //Botão para fechar a tela
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FrmOcorrencia janela = new FrmOcorrencia();
+            Hide();
+            janela.ShowDialog();
+            Show();
         }
 
     }

@@ -199,7 +199,10 @@ namespace SavingPets
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FrmMenu janela = new FrmMenu();
+            Hide();
+            janela.ShowDialog();
+            Show();
         }
 
         private void FrmVisita_FormClosing(object sender, FormClosingEventArgs e)

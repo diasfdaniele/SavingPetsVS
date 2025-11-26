@@ -49,16 +49,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtCpf = new System.Windows.Forms.TextBox();
             this.dgvTutor = new System.Windows.Forms.DataGridView();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTutor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // rbId
             // 
             this.rbId.AutoSize = true;
             this.rbId.Location = new System.Drawing.Point(465, 58);
-            this.rbId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbId.Margin = new System.Windows.Forms.Padding(2);
             this.rbId.Name = "rbId";
             this.rbId.Size = new System.Drawing.Size(47, 24);
             this.rbId.TabIndex = 40;
@@ -96,7 +98,7 @@
             // 
             this.rbCpf.AutoSize = true;
             this.rbCpf.Location = new System.Drawing.Point(299, 58);
-            this.rbCpf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbCpf.Margin = new System.Windows.Forms.Padding(2);
             this.rbCpf.Name = "rbCpf";
             this.rbCpf.Size = new System.Drawing.Size(55, 24);
             this.rbCpf.TabIndex = 5;
@@ -109,7 +111,7 @@
             this.rbNome.AutoSize = true;
             this.rbNome.Checked = true;
             this.rbNome.Location = new System.Drawing.Point(126, 58);
-            this.rbNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbNome.Margin = new System.Windows.Forms.Padding(2);
             this.rbNome.Name = "rbNome";
             this.rbNome.Size = new System.Drawing.Size(75, 24);
             this.rbNome.TabIndex = 4;
@@ -128,10 +130,10 @@
             this.groupBox1.Controls.Add(this.rbNome);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(50, 8);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(613, 93);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(582, 93);
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta";
@@ -140,7 +142,7 @@
             // 
             this.txtPesquisar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPesquisar.Location = new System.Drawing.Point(114, 28);
-            this.txtPesquisar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPesquisar.Margin = new System.Windows.Forms.Padding(2);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(382, 26);
             this.txtPesquisar.TabIndex = 2;
@@ -149,7 +151,7 @@
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(144, 30);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(112, 26);
             this.txtId.TabIndex = 20;
@@ -208,9 +210,9 @@
             this.groupBox2.Enabled = false;
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(50, 267);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(475, 134);
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
@@ -219,7 +221,7 @@
             // txtDadosMedicos
             // 
             this.txtDadosMedicos.Location = new System.Drawing.Point(139, 193);
-            this.txtDadosMedicos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDadosMedicos.Margin = new System.Windows.Forms.Padding(2);
             this.txtDadosMedicos.Name = "txtDadosMedicos";
             this.txtDadosMedicos.Size = new System.Drawing.Size(324, 26);
             this.txtDadosMedicos.TabIndex = 13;
@@ -256,7 +258,7 @@
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(144, 62);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(322, 26);
             this.txtNome.TabIndex = 0;
@@ -274,7 +276,7 @@
             // txtCpf
             // 
             this.txtCpf.Location = new System.Drawing.Point(144, 96);
-            this.txtCpf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCpf.Margin = new System.Windows.Forms.Padding(2);
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(322, 26);
             this.txtCpf.TabIndex = 1;
@@ -283,13 +285,23 @@
             // 
             this.dgvTutor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTutor.Location = new System.Drawing.Point(50, 105);
-            this.dgvTutor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTutor.Margin = new System.Windows.Forms.Padding(2);
             this.dgvTutor.Name = "dgvTutor";
             this.dgvTutor.RowHeadersWidth = 51;
             this.dgvTutor.RowTemplate.Height = 24;
             this.dgvTutor.Size = new System.Drawing.Size(700, 147);
             this.dgvTutor.TabIndex = 48;
             this.dgvTutor.SelectionChanged += new System.EventHandler(this.dgvTutor_SelectionChanged);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(629, 12);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(137, 90);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 53;
+            this.pictureBox5.TabStop = false;
             // 
             // FrmConsultarTutor
             // 
@@ -301,6 +313,7 @@
             this.Controls.Add(this.btnSelecionar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvTutor);
+            this.Controls.Add(this.pictureBox5);
             this.Name = "FrmConsultarTutor";
             this.Text = "Selecionar Tutor";
             this.TopMost = true;
@@ -309,6 +322,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTutor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,5 +349,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCpf;
         private System.Windows.Forms.DataGridView dgvTutor;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

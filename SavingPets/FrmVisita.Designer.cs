@@ -95,6 +95,7 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -105,6 +106,7 @@
             this.groupBox4.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNomeTutor
@@ -112,7 +114,7 @@
             this.txtNomeTutor.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNomeTutor.Enabled = false;
             this.txtNomeTutor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeTutor.Location = new System.Drawing.Point(113, 25);
+            this.txtNomeTutor.Location = new System.Drawing.Point(113, 21);
             this.txtNomeTutor.Name = "txtNomeTutor";
             this.txtNomeTutor.Size = new System.Drawing.Size(395, 26);
             this.txtNomeTutor.TabIndex = 31;
@@ -121,7 +123,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(2, 59);
+            this.label10.Location = new System.Drawing.Point(2, 55);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(109, 20);
             this.label10.TabIndex = 30;
@@ -131,7 +133,7 @@
             // 
             this.txtPesquisar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtPesquisar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisar.Location = new System.Drawing.Point(232, 111);
+            this.txtPesquisar.Location = new System.Drawing.Point(233, 88);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(323, 26);
             this.txtPesquisar.TabIndex = 29;
@@ -140,7 +142,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(68, 114);
+            this.label11.Location = new System.Drawing.Point(69, 88);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(157, 21);
             this.label11.TabIndex = 28;
@@ -151,7 +153,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1, 88);
+            this.label2.Location = new System.Drawing.Point(1, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 20);
             this.label2.TabIndex = 24;
@@ -176,7 +178,7 @@
             this.btnPesquisar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(557, 111);
+            this.btnPesquisar.Location = new System.Drawing.Point(558, 88);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(29, 26);
             this.btnPesquisar.TabIndex = 32;
@@ -195,7 +197,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(72, 144);
+            this.groupBox1.Location = new System.Drawing.Point(72, 115);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(514, 123);
             this.groupBox1.TabIndex = 33;
@@ -205,7 +207,7 @@
             // dataAdocao
             // 
             this.dataAdocao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataAdocao.Location = new System.Drawing.Point(113, 87);
+            this.dataAdocao.Location = new System.Drawing.Point(113, 83);
             this.dataAdocao.Name = "dataAdocao";
             this.dataAdocao.Size = new System.Drawing.Size(395, 26);
             this.dataAdocao.TabIndex = 42;
@@ -215,7 +217,7 @@
             this.txtNomeAnimal.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNomeAnimal.Enabled = false;
             this.txtNomeAnimal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeAnimal.Location = new System.Drawing.Point(113, 55);
+            this.txtNomeAnimal.Location = new System.Drawing.Point(113, 51);
             this.txtNomeAnimal.Name = "txtNomeAnimal";
             this.txtNomeAnimal.Size = new System.Drawing.Size(196, 26);
             this.txtNomeAnimal.TabIndex = 35;
@@ -224,7 +226,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1, 26);
+            this.label3.Location = new System.Drawing.Point(1, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 20);
             this.label3.TabIndex = 0;
@@ -235,7 +237,7 @@
             this.txtId.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtId.Enabled = false;
             this.txtId.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(420, 56);
+            this.txtId.Location = new System.Drawing.Point(420, 52);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(88, 26);
             this.txtId.TabIndex = 34;
@@ -244,7 +246,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(315, 61);
+            this.label4.Location = new System.Drawing.Point(315, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 20);
             this.label4.TabIndex = 33;
@@ -261,9 +263,9 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(618, 111);
+            this.groupBox2.Location = new System.Drawing.Point(618, 85);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(514, 156);
+            this.groupBox2.Size = new System.Drawing.Size(508, 139);
             this.groupBox2.TabIndex = 36;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados da visita";
@@ -273,7 +275,7 @@
             this.txtIdVisita.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtIdVisita.Enabled = false;
             this.txtIdVisita.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdVisita.Location = new System.Drawing.Point(85, 71);
+            this.txtIdVisita.Location = new System.Drawing.Point(85, 61);
             this.txtIdVisita.Name = "txtIdVisita";
             this.txtIdVisita.Size = new System.Drawing.Size(70, 26);
             this.txtIdVisita.TabIndex = 37;
@@ -286,7 +288,7 @@
             "Realizada",
             "Reagendada",
             "Cancelada"});
-            this.cbxStatusVisita.Location = new System.Drawing.Point(85, 103);
+            this.cbxStatusVisita.Location = new System.Drawing.Point(85, 93);
             this.cbxStatusVisita.Name = "cbxStatusVisita";
             this.cbxStatusVisita.Size = new System.Drawing.Size(136, 28);
             this.cbxStatusVisita.TabIndex = 41;
@@ -295,16 +297,16 @@
             // 
             this.txtResponsavel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtResponsavel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResponsavel.Location = new System.Drawing.Point(286, 72);
+            this.txtResponsavel.Location = new System.Drawing.Point(286, 62);
             this.txtResponsavel.Name = "txtResponsavel";
-            this.txtResponsavel.Size = new System.Drawing.Size(222, 26);
+            this.txtResponsavel.Size = new System.Drawing.Size(216, 26);
             this.txtResponsavel.TabIndex = 40;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(8, 75);
+            this.label12.Location = new System.Drawing.Point(8, 65);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(71, 20);
             this.label12.TabIndex = 36;
@@ -314,7 +316,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(174, 75);
+            this.label7.Location = new System.Drawing.Point(174, 65);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(106, 20);
             this.label7.TabIndex = 39;
@@ -323,16 +325,16 @@
             // dataVisita
             // 
             this.dataVisita.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataVisita.Location = new System.Drawing.Point(85, 42);
+            this.dataVisita.Location = new System.Drawing.Point(85, 32);
             this.dataVisita.Name = "dataVisita";
-            this.dataVisita.Size = new System.Drawing.Size(423, 26);
+            this.dataVisita.Size = new System.Drawing.Size(417, 26);
             this.dataVisita.TabIndex = 38;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 106);
+            this.label6.Location = new System.Drawing.Point(8, 96);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 20);
             this.label6.TabIndex = 36;
@@ -342,7 +344,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 44);
+            this.label5.Location = new System.Drawing.Point(8, 34);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 20);
             this.label5.TabIndex = 0;
@@ -350,16 +352,17 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtObservacoes);
             this.groupBox3.Controls.Add(this.groupBox10);
             this.groupBox3.Controls.Add(this.groupBox5);
-            this.groupBox3.Controls.Add(this.txtObservacoes);
             this.groupBox3.Controls.Add(this.groupBox7);
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(72, 285);
+            this.groupBox3.Location = new System.Drawing.Point(72, 240);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(514, 414);
+            this.groupBox3.Size = new System.Drawing.Size(514, 397);
             this.groupBox3.TabIndex = 37;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Checklist de Visita ";
@@ -369,7 +372,7 @@
             this.groupBox10.Controls.Add(this.rbNaoAcompanhado);
             this.groupBox10.Controls.Add(this.rbAcompanhado);
             this.groupBox10.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox10.Location = new System.Drawing.Point(332, 109);
+            this.groupBox10.Location = new System.Drawing.Point(332, 98);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(176, 85);
             this.groupBox10.TabIndex = 14;
@@ -380,7 +383,7 @@
             // 
             this.rbNaoAcompanhado.AutoSize = true;
             this.rbNaoAcompanhado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNaoAcompanhado.Location = new System.Drawing.Point(102, 48);
+            this.rbNaoAcompanhado.Location = new System.Drawing.Point(102, 46);
             this.rbNaoAcompanhado.Name = "rbNaoAcompanhado";
             this.rbNaoAcompanhado.Size = new System.Drawing.Size(58, 24);
             this.rbNaoAcompanhado.TabIndex = 1;
@@ -392,7 +395,7 @@
             // 
             this.rbAcompanhado.AutoSize = true;
             this.rbAcompanhado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAcompanhado.Location = new System.Drawing.Point(15, 49);
+            this.rbAcompanhado.Location = new System.Drawing.Point(15, 46);
             this.rbAcompanhado.Name = "rbAcompanhado";
             this.rbAcompanhado.Size = new System.Drawing.Size(50, 24);
             this.rbAcompanhado.TabIndex = 0;
@@ -405,7 +408,7 @@
             this.groupBox5.Controls.Add(this.rbNaoVacinado);
             this.groupBox5.Controls.Add(this.rbVacinado);
             this.groupBox5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(332, 32);
+            this.groupBox5.Location = new System.Drawing.Point(332, 18);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(176, 71);
             this.groupBox5.TabIndex = 13;
@@ -416,7 +419,7 @@
             // 
             this.rbNaoVacinado.AutoSize = true;
             this.rbNaoVacinado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNaoVacinado.Location = new System.Drawing.Point(102, 28);
+            this.rbNaoVacinado.Location = new System.Drawing.Point(102, 25);
             this.rbNaoVacinado.Name = "rbNaoVacinado";
             this.rbNaoVacinado.Size = new System.Drawing.Size(58, 24);
             this.rbNaoVacinado.TabIndex = 1;
@@ -428,7 +431,7 @@
             // 
             this.rbVacinado.AutoSize = true;
             this.rbVacinado.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbVacinado.Location = new System.Drawing.Point(15, 29);
+            this.rbVacinado.Location = new System.Drawing.Point(15, 25);
             this.rbVacinado.Name = "rbVacinado";
             this.rbVacinado.Size = new System.Drawing.Size(50, 24);
             this.rbVacinado.TabIndex = 0;
@@ -439,7 +442,7 @@
             // txtObservacoes
             // 
             this.txtObservacoes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservacoes.Location = new System.Drawing.Point(5, 361);
+            this.txtObservacoes.Location = new System.Drawing.Point(5, 337);
             this.txtObservacoes.Multiline = true;
             this.txtObservacoes.Name = "txtObservacoes";
             this.txtObservacoes.Size = new System.Drawing.Size(503, 42);
@@ -451,7 +454,7 @@
             this.groupBox7.Controls.Add(this.rbNao);
             this.groupBox7.Controls.Add(this.rbSim);
             this.groupBox7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(5, 271);
+            this.groupBox7.Location = new System.Drawing.Point(6, 251);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(503, 62);
             this.groupBox7.TabIndex = 13;
@@ -462,7 +465,7 @@
             // 
             this.rbDuvida.AutoSize = true;
             this.rbDuvida.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDuvida.Location = new System.Drawing.Point(327, 25);
+            this.rbDuvida.Location = new System.Drawing.Point(327, 15);
             this.rbDuvida.Name = "rbDuvida";
             this.rbDuvida.Size = new System.Drawing.Size(104, 24);
             this.rbDuvida.TabIndex = 2;
@@ -474,7 +477,7 @@
             // 
             this.rbNao.AutoSize = true;
             this.rbNao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNao.Location = new System.Drawing.Point(194, 25);
+            this.rbNao.Location = new System.Drawing.Point(194, 15);
             this.rbNao.Name = "rbNao";
             this.rbNao.Size = new System.Drawing.Size(58, 24);
             this.rbNao.TabIndex = 1;
@@ -486,7 +489,7 @@
             // 
             this.rbSim.AutoSize = true;
             this.rbSim.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSim.Location = new System.Drawing.Point(69, 25);
+            this.rbSim.Location = new System.Drawing.Point(69, 15);
             this.rbSim.Name = "rbSim";
             this.rbSim.Size = new System.Drawing.Size(50, 24);
             this.rbSim.TabIndex = 0;
@@ -500,7 +503,7 @@
             this.groupBox6.Controls.Add(this.rbSatisfatorio);
             this.groupBox6.Controls.Add(this.rbSeguro);
             this.groupBox6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.Location = new System.Drawing.Point(5, 200);
+            this.groupBox6.Location = new System.Drawing.Point(5, 185);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(503, 62);
             this.groupBox6.TabIndex = 12;
@@ -511,7 +514,7 @@
             // 
             this.rbInseguro.AutoSize = true;
             this.rbInseguro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbInseguro.Location = new System.Drawing.Point(327, 25);
+            this.rbInseguro.Location = new System.Drawing.Point(328, 25);
             this.rbInseguro.Name = "rbInseguro";
             this.rbInseguro.Size = new System.Drawing.Size(91, 24);
             this.rbInseguro.TabIndex = 2;
@@ -535,7 +538,7 @@
             // 
             this.rbSeguro.AutoSize = true;
             this.rbSeguro.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSeguro.Location = new System.Drawing.Point(69, 25);
+            this.rbSeguro.Location = new System.Drawing.Point(70, 25);
             this.rbSeguro.Name = "rbSeguro";
             this.rbSeguro.Size = new System.Drawing.Size(78, 24);
             this.rbSeguro.TabIndex = 0;
@@ -547,7 +550,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 338);
+            this.label8.Location = new System.Drawing.Point(6, 314);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(191, 20);
             this.label8.TabIndex = 1;
@@ -564,7 +567,7 @@
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.cbxFisico);
             this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(78, 314);
+            this.groupBox4.Location = new System.Drawing.Point(6, 18);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(320, 165);
             this.groupBox4.TabIndex = 1;
@@ -578,7 +581,7 @@
             this.cbxHigiene.Items.AddRange(new object[] {
             "Adequada",
             "Inadequada"});
-            this.cbxHigiene.Location = new System.Drawing.Point(193, 125);
+            this.cbxHigiene.Location = new System.Drawing.Point(193, 123);
             this.cbxHigiene.Name = "cbxHigiene";
             this.cbxHigiene.Size = new System.Drawing.Size(121, 25);
             this.cbxHigiene.TabIndex = 45;
@@ -590,7 +593,7 @@
             this.cbxSaudavel.Items.AddRange(new object[] {
             "Sim",
             "Não"});
-            this.cbxSaudavel.Location = new System.Drawing.Point(193, 91);
+            this.cbxSaudavel.Location = new System.Drawing.Point(193, 89);
             this.cbxSaudavel.Name = "cbxSaudavel";
             this.cbxSaudavel.Size = new System.Drawing.Size(121, 25);
             this.cbxSaudavel.TabIndex = 44;
@@ -599,7 +602,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(4, 128);
+            this.label22.Location = new System.Drawing.Point(4, 126);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(150, 17);
             this.label22.TabIndex = 43;
@@ -609,7 +612,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(4, 94);
+            this.label21.Location = new System.Drawing.Point(4, 92);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(175, 17);
             this.label21.TabIndex = 42;
@@ -619,7 +622,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(4, 60);
+            this.label20.Location = new System.Drawing.Point(4, 58);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(124, 17);
             this.label20.TabIndex = 40;
@@ -633,7 +636,7 @@
             "Calmo",
             "Agitado",
             "Agressivo"});
-            this.cbxComportamento.Location = new System.Drawing.Point(193, 57);
+            this.cbxComportamento.Location = new System.Drawing.Point(193, 55);
             this.cbxComportamento.Name = "cbxComportamento";
             this.cbxComportamento.Size = new System.Drawing.Size(121, 25);
             this.cbxComportamento.TabIndex = 41;
@@ -642,7 +645,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(4, 27);
+            this.label19.Location = new System.Drawing.Point(4, 25);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(185, 17);
             this.label19.TabIndex = 11;
@@ -657,7 +660,7 @@
             "Boa",
             "Regular",
             "Ruim"});
-            this.cbxFisico.Location = new System.Drawing.Point(193, 24);
+            this.cbxFisico.Location = new System.Drawing.Point(193, 22);
             this.cbxFisico.Name = "cbxFisico";
             this.cbxFisico.Size = new System.Drawing.Size(121, 25);
             this.cbxFisico.TabIndex = 39;
@@ -681,7 +684,7 @@
             this.groupBox8.Controls.Add(this.dataAgendamento);
             this.groupBox8.Controls.Add(this.label15);
             this.groupBox8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(618, 443);
+            this.groupBox8.Location = new System.Drawing.Point(618, 396);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(508, 175);
             this.groupBox8.TabIndex = 6;
@@ -692,7 +695,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(6, 91);
+            this.label23.Location = new System.Drawing.Point(6, 81);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(157, 20);
             this.label23.TabIndex = 6;
@@ -706,7 +709,7 @@
             "Acompanhamento Periódico",
             "Acompanhamento Contínuo",
             "Caso Encerrado"});
-            this.cbxConclusao.Location = new System.Drawing.Point(164, 88);
+            this.cbxConclusao.Location = new System.Drawing.Point(164, 78);
             this.cbxConclusao.Name = "cbxConclusao";
             this.cbxConclusao.Size = new System.Drawing.Size(338, 28);
             this.cbxConclusao.TabIndex = 5;
@@ -733,7 +736,7 @@
             // dataAgendamento
             // 
             this.dataAgendamento.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataAgendamento.Location = new System.Drawing.Point(164, 131);
+            this.dataAgendamento.Location = new System.Drawing.Point(164, 121);
             this.dataAgendamento.Name = "dataAgendamento";
             this.dataAgendamento.Size = new System.Drawing.Size(338, 26);
             this.dataAgendamento.TabIndex = 4;
@@ -742,7 +745,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(8, 117);
+            this.label15.Location = new System.Drawing.Point(8, 107);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(125, 40);
             this.label15.TabIndex = 3;
@@ -757,9 +760,9 @@
             this.groupBox9.Controls.Add(this.cbxAdaptacao);
             this.groupBox9.Controls.Add(this.label16);
             this.groupBox9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox9.Location = new System.Drawing.Point(618, 285);
+            this.groupBox9.Location = new System.Drawing.Point(618, 233);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(508, 145);
+            this.groupBox9.Size = new System.Drawing.Size(508, 157);
             this.groupBox9.TabIndex = 6;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Adaptação e Relacionamento";
@@ -767,7 +770,7 @@
             // txtComportamento
             // 
             this.txtComportamento.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtComportamento.Location = new System.Drawing.Point(7, 114);
+            this.txtComportamento.Location = new System.Drawing.Point(7, 112);
             this.txtComportamento.Name = "txtComportamento";
             this.txtComportamento.Size = new System.Drawing.Size(495, 26);
             this.txtComportamento.TabIndex = 10;
@@ -776,7 +779,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(3, 92);
+            this.label18.Location = new System.Drawing.Point(3, 90);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(332, 20);
             this.label18.TabIndex = 9;
@@ -790,7 +793,7 @@
             "Boa",
             "Regular",
             "Ruim"});
-            this.cbxRelacao.Location = new System.Drawing.Point(214, 61);
+            this.cbxRelacao.Location = new System.Drawing.Point(214, 59);
             this.cbxRelacao.Name = "cbxRelacao";
             this.cbxRelacao.Size = new System.Drawing.Size(121, 28);
             this.cbxRelacao.TabIndex = 8;
@@ -799,7 +802,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(8, 62);
+            this.label17.Location = new System.Drawing.Point(8, 60);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(150, 20);
             this.label17.TabIndex = 6;
@@ -813,7 +816,7 @@
             "Sim",
             "Parcialmente",
             "Não"});
-            this.cbxAdaptacao.Location = new System.Drawing.Point(214, 26);
+            this.cbxAdaptacao.Location = new System.Drawing.Point(214, 24);
             this.cbxAdaptacao.Name = "cbxAdaptacao";
             this.cbxAdaptacao.Size = new System.Drawing.Size(121, 28);
             this.cbxAdaptacao.TabIndex = 7;
@@ -822,7 +825,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(8, 29);
+            this.label16.Location = new System.Drawing.Point(8, 27);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(197, 20);
             this.label16.TabIndex = 6;
@@ -835,7 +838,7 @@
             this.btnLimpar.FlatAppearance.BorderSize = 0;
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.Location = new System.Drawing.Point(820, 653);
+            this.btnLimpar.Location = new System.Drawing.Point(820, 595);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(115, 35);
             this.btnLimpar.TabIndex = 39;
@@ -850,7 +853,7 @@
             this.btnCadastrar.FlatAppearance.BorderSize = 0;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(658, 653);
+            this.btnCadastrar.Location = new System.Drawing.Point(658, 595);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(115, 35);
             this.btnCadastrar.TabIndex = 40;
@@ -865,7 +868,7 @@
             this.btnVoltar.FlatAppearance.BorderSize = 0;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(982, 653);
+            this.btnVoltar.Location = new System.Drawing.Point(982, 595);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(115, 35);
             this.btnVoltar.TabIndex = 41;
@@ -873,20 +876,30 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(550, 618);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(131, 86);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 42;
+            this.pictureBox5.TabStop = false;
+            // 
             // FrmVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1199, 711);
-            this.Controls.Add(this.btnVoltar);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.groupBox9);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnPesquisar);
@@ -896,6 +909,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmVisita";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Atualização de visita domiciliar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmVisita_FormClosing);
             this.groupBox1.ResumeLayout(false);
@@ -918,6 +932,7 @@
             this.groupBox8.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -991,5 +1006,6 @@
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

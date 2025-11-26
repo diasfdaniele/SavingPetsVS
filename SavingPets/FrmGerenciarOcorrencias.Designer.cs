@@ -58,9 +58,11 @@
             this.txtNomeTutor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOcorrencias)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -74,9 +76,9 @@
             this.groupBox1.Controls.Add(this.rbNomeTutor);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(11, 36);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(585, 93);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
@@ -86,7 +88,7 @@
             // 
             this.rbIdOcorrencia.AutoSize = true;
             this.rbIdOcorrencia.Location = new System.Drawing.Point(441, 58);
-            this.rbIdOcorrencia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbIdOcorrencia.Margin = new System.Windows.Forms.Padding(2);
             this.rbIdOcorrencia.Name = "rbIdOcorrencia";
             this.rbIdOcorrencia.Size = new System.Drawing.Size(129, 24);
             this.rbIdOcorrencia.TabIndex = 41;
@@ -98,7 +100,7 @@
             // 
             this.rbIdProcesso.AutoSize = true;
             this.rbIdProcesso.Location = new System.Drawing.Point(307, 58);
-            this.rbIdProcesso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbIdProcesso.Margin = new System.Windows.Forms.Padding(2);
             this.rbIdProcesso.Name = "rbIdProcesso";
             this.rbIdProcesso.Size = new System.Drawing.Size(114, 24);
             this.rbIdProcesso.TabIndex = 40;
@@ -137,7 +139,7 @@
             // 
             this.rbNomeAnimal.AutoSize = true;
             this.rbNomeAnimal.Location = new System.Drawing.Point(158, 58);
-            this.rbNomeAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbNomeAnimal.Margin = new System.Windows.Forms.Padding(2);
             this.rbNomeAnimal.Name = "rbNomeAnimal";
             this.rbNomeAnimal.Size = new System.Drawing.Size(123, 24);
             this.rbNomeAnimal.TabIndex = 5;
@@ -149,7 +151,7 @@
             // 
             this.txtPesquisarOcorrencias.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPesquisarOcorrencias.Location = new System.Drawing.Point(172, 27);
-            this.txtPesquisarOcorrencias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPesquisarOcorrencias.Margin = new System.Windows.Forms.Padding(2);
             this.txtPesquisarOcorrencias.Name = "txtPesquisarOcorrencias";
             this.txtPesquisarOcorrencias.Size = new System.Drawing.Size(382, 26);
             this.txtPesquisarOcorrencias.TabIndex = 2;
@@ -159,7 +161,7 @@
             this.rbNomeTutor.AutoSize = true;
             this.rbNomeTutor.Checked = true;
             this.rbNomeTutor.Location = new System.Drawing.Point(18, 58);
-            this.rbNomeTutor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbNomeTutor.Margin = new System.Windows.Forms.Padding(2);
             this.rbNomeTutor.Name = "rbNomeTutor";
             this.rbNomeTutor.Size = new System.Drawing.Size(109, 24);
             this.rbNomeTutor.TabIndex = 4;
@@ -172,7 +174,7 @@
             // 
             this.dgvOcorrencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOcorrencias.Location = new System.Drawing.Point(11, 133);
-            this.dgvOcorrencias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvOcorrencias.Margin = new System.Windows.Forms.Padding(2);
             this.dgvOcorrencias.Name = "dgvOcorrencias";
             this.dgvOcorrencias.RowHeadersWidth = 51;
             this.dgvOcorrencias.RowTemplate.Height = 24;
@@ -201,9 +203,9 @@
             this.groupBox2.Controls.Add(this.txtNomeTutor);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(11, 304);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(585, 267);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
@@ -223,7 +225,7 @@
             // 
             this.txtIdOcorrencia.Enabled = false;
             this.txtIdOcorrencia.Location = new System.Drawing.Point(425, 87);
-            this.txtIdOcorrencia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIdOcorrencia.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdOcorrencia.Name = "txtIdOcorrencia";
             this.txtIdOcorrencia.Size = new System.Drawing.Size(117, 26);
             this.txtIdOcorrencia.TabIndex = 38;
@@ -242,7 +244,7 @@
             // 
             this.txtIdProcesso.Enabled = false;
             this.txtIdProcesso.Location = new System.Drawing.Point(149, 86);
-            this.txtIdProcesso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIdProcesso.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdProcesso.Name = "txtIdProcesso";
             this.txtIdProcesso.Size = new System.Drawing.Size(117, 26);
             this.txtIdProcesso.TabIndex = 36;
@@ -261,7 +263,7 @@
             // 
             this.txtProvidencia.Enabled = false;
             this.txtProvidencia.Location = new System.Drawing.Point(197, 228);
-            this.txtProvidencia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtProvidencia.Margin = new System.Windows.Forms.Padding(2);
             this.txtProvidencia.Name = "txtProvidencia";
             this.txtProvidencia.Size = new System.Drawing.Size(345, 26);
             this.txtProvidencia.TabIndex = 13;
@@ -289,7 +291,7 @@
             // 
             this.txtGravidade.Enabled = false;
             this.txtGravidade.Location = new System.Drawing.Point(197, 194);
-            this.txtGravidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtGravidade.Margin = new System.Windows.Forms.Padding(2);
             this.txtGravidade.Name = "txtGravidade";
             this.txtGravidade.Size = new System.Drawing.Size(345, 26);
             this.txtGravidade.TabIndex = 21;
@@ -348,7 +350,7 @@
             // 
             this.txtDescricao.Enabled = false;
             this.txtDescricao.Location = new System.Drawing.Point(197, 121);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(345, 26);
             this.txtDescricao.TabIndex = 2;
@@ -357,7 +359,7 @@
             // 
             this.txtNomeAnimal.Enabled = false;
             this.txtNomeAnimal.Location = new System.Drawing.Point(149, 56);
-            this.txtNomeAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNomeAnimal.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeAnimal.Name = "txtNomeAnimal";
             this.txtNomeAnimal.Size = new System.Drawing.Size(393, 26);
             this.txtNomeAnimal.TabIndex = 1;
@@ -366,7 +368,7 @@
             // 
             this.txtNomeTutor.Enabled = false;
             this.txtNomeTutor.Location = new System.Drawing.Point(149, 23);
-            this.txtNomeTutor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNomeTutor.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeTutor.Name = "txtNomeTutor";
             this.txtNomeTutor.Size = new System.Drawing.Size(393, 26);
             this.txtNomeTutor.TabIndex = 0;
@@ -396,6 +398,16 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(586, 39);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(137, 90);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 37;
+            this.pictureBox5.TabStop = false;
+            // 
             // FrmGerenciarOcorrencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,7 +419,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvOcorrencias);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.pictureBox5);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmGerenciarOcorrencias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Ocorrências";
@@ -417,6 +430,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOcorrencias)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,5 +467,6 @@
         private System.Windows.Forms.RadioButton rbIdOcorrencia;
         private System.Windows.Forms.RadioButton rbIdProcesso;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

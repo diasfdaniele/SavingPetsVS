@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGerenciarAnimal));
             this.dgvAnimais = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPesquisarAnimal = new System.Windows.Forms.TextBox();
@@ -56,9 +57,11 @@
             this.btnExcluir_Animal = new System.Windows.Forms.Button();
             this.btnEditar_Animal = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimais)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvAnimais
@@ -69,7 +72,7 @@
             this.dgvAnimais.Name = "dgvAnimais";
             this.dgvAnimais.RowHeadersWidth = 51;
             this.dgvAnimais.RowTemplate.Height = 24;
-            this.dgvAnimais.Size = new System.Drawing.Size(837, 167);
+            this.dgvAnimais.Size = new System.Drawing.Size(764, 167);
             this.dgvAnimais.TabIndex = 0;
             this.dgvAnimais.SelectionChanged += new System.EventHandler(this.dgvAnimais_SelectionChanged);
             // 
@@ -373,11 +376,22 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(428, 34);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(137, 90);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 6;
+            this.pictureBox5.TabStop = false;
+            // 
             // FrmGerenciarAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 609);
+            this.ClientSize = new System.Drawing.Size(790, 609);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnExcluir_Animal);
             this.Controls.Add(this.btnEditar_Animal);
@@ -389,12 +403,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Animal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmGerenciarAnimal_FormClosing);
-//            this.Load += new System.EventHandler(this.FrmGerenciarAnimal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnimais)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -429,5 +443,6 @@
         private System.Windows.Forms.Button btnExcluir_Animal;
         private System.Windows.Forms.Button btnEditar_Animal;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

@@ -58,7 +58,10 @@ namespace SavingPets.Controllers
             return animalDados.ExtrairDados(id);
         }
 
-        public void ExcluirAnimal() { }
+        public void ExcluirAnimal(int id)
+        {
+            animalDados.ExcluirDados(id);
+        }
 
     }
 }

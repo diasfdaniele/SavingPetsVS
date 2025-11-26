@@ -8,24 +8,18 @@ namespace SavingPets.Models
 {
     public class Animal
     {
-        public int IdAnimal { get; set; }
-        
+        public int IdAnimal { get; set; }              // PK (gerado pelo DB)
         public string NomeAnimal { get; set; }
-        
-        public string Especie { get; set; } 
-        
+        public string Especie { get; set; }           // "Cachorro" / "Gato"
         public string Raca { get; set; }
-       
-        public string SexoAnimal { get; set; } 
-        
-        public string Vacinas { get; set; } 
+        public string SexoAnimal { get; set; }        // "Macho" / "Fêmea"
 
-        public bool Vermifugado { get; set; }
-        public bool Castrado { get; set; }
+        // Lista de vacinas (cada item será um registro na tabela Vacina)
+        public List<string> Vacinas { get; set; } = new List<string>();
 
-        public string HistoricoDoencas { get; set; }
-        
-        
-        
+        public bool Vermifugado { get; set; }         // true = Sim, false = Não
+        public bool Castrado { get; set; }            // true = Sim, false = Não
+
+        public string HistoricoDoencas { get; set; }  // histórico de saúde
     }
 }

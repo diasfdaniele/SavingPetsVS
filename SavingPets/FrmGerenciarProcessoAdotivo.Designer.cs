@@ -58,9 +58,11 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcessos)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVoltar
@@ -70,7 +72,7 @@
             this.btnVoltar.FlatAppearance.BorderSize = 0;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(681, 505);
+            this.btnVoltar.Location = new System.Drawing.Point(681, 494);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(115, 35);
             this.btnVoltar.TabIndex = 41;
@@ -123,11 +125,11 @@
             this.groupBox2.Controls.Add(this.txtNomeAnimal);
             this.groupBox2.Controls.Add(this.txtNomeTutor);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(90, 324);
+            this.groupBox2.Location = new System.Drawing.Point(90, 313);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(585, 233);
+            this.groupBox2.Size = new System.Drawing.Size(585, 213);
             this.groupBox2.TabIndex = 39;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações";
@@ -146,7 +148,7 @@
             // txtTelefone
             // 
             this.txtTelefone.Enabled = false;
-            this.txtTelefone.Location = new System.Drawing.Point(149, 186);
+            this.txtTelefone.Location = new System.Drawing.Point(149, 173);
             this.txtTelefone.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(393, 26);
@@ -164,7 +166,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 186);
+            this.label12.Location = new System.Drawing.Point(8, 173);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(75, 20);
@@ -174,7 +176,7 @@
             // txtEndereco
             // 
             this.txtEndereco.Enabled = false;
-            this.txtEndereco.Location = new System.Drawing.Point(149, 131);
+            this.txtEndereco.Location = new System.Drawing.Point(149, 124);
             this.txtEndereco.Margin = new System.Windows.Forms.Padding(2);
             this.txtEndereco.Multiline = true;
             this.txtEndereco.Name = "txtEndereco";
@@ -184,7 +186,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 131);
+            this.label11.Location = new System.Drawing.Point(8, 124);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 20);
@@ -242,12 +244,12 @@
             // dgvProcessos
             // 
             this.dgvProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcessos.Location = new System.Drawing.Point(90, 153);
+            this.dgvProcessos.Location = new System.Drawing.Point(90, 151);
             this.dgvProcessos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProcessos.Name = "dgvProcessos";
             this.dgvProcessos.RowHeadersWidth = 51;
             this.dgvProcessos.RowTemplate.Height = 24;
-            this.dgvProcessos.Size = new System.Drawing.Size(706, 167);
+            this.dgvProcessos.Size = new System.Drawing.Size(706, 160);
             this.dgvProcessos.TabIndex = 37;
             this.dgvProcessos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcessos_CellContentClick);
             // 
@@ -371,7 +373,7 @@
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Location = new System.Drawing.Point(680, 342);
+            this.btnEditar.Location = new System.Drawing.Point(680, 331);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(115, 35);
             this.btnEditar.TabIndex = 42;
@@ -386,7 +388,7 @@
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Location = new System.Drawing.Point(681, 447);
+            this.btnExcluir.Location = new System.Drawing.Point(681, 436);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(115, 35);
             this.btnExcluir.TabIndex = 43;
@@ -401,13 +403,23 @@
             this.btnSalvar.FlatAppearance.BorderSize = 0;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(680, 396);
+            this.btnSalvar.Location = new System.Drawing.Point(680, 385);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(115, 35);
             this.btnSalvar.TabIndex = 44;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(381, 531);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(126, 76);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 45;
+            this.pictureBox5.TabStop = false;
             // 
             // FrmGerenciarProcessoAdotivo
             // 
@@ -422,6 +434,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvProcessos);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pictureBox5);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmGerenciarProcessoAdotivo";
             this.Text = "Consultar Processo Adotivo";
@@ -432,6 +445,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcessos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,5 +482,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

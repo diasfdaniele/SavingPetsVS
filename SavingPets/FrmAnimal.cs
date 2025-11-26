@@ -29,38 +29,37 @@ namespace SavingPets
             txtIdAnimal.Text = animal.IdAnimal.ToString();
             txtNomeAnimal.Text = animal.NomeAnimal;
 
-            string especie = rbCachorro.Checked ? "Cachorro" : "Gato";
+            // Marca a espécie
+            if (animal.Especie == "Cachorro")
+                rbCachorro.Checked = true;
+            else
+                rbGato.Checked = true;
 
+            // Marca o sexo
+            if (animal.SexoAnimal == "Macho")
+                rbMacho.Checked = true;
+            else
+                rbFemea.Checked = true;
 
-            string sexoA = rbMacho.Checked ? "Macho" : "Fêmea";
+            // Marca as vacinas
+            cbAntirabica.Checked = animal.Vacinas.Contains("Antirrábica");
+            cbPoli8.Checked = animal.Vacinas.Contains("V8");
+            cbPoli10.Checked = animal.Vacinas.Contains("V10");
+            cbPoli3.Checked = animal.Vacinas.Contains("V3");
+            cbPoli4.Checked = animal.Vacinas.Contains("V4");
+            cbPoli5.Checked = animal.Vacinas.Contains("V5");
 
+            // Marca vermifugado
+            rbVermifugado.Checked = animal.Vermifugado;
+            rbNaoVermifugado.Checked = !animal.Vermifugado;
 
+            // Marca castrado
+            rbCastrado.Checked = animal.Castrado;
+            rbNaoCastrado.Checked = !animal.Castrado;
 
-            List<string> vacinasSelecionadas = new List<string>();
-            if (cbAntirabica.Checked) vacinasSelecionadas.Add("Antirrábica");
-            if (cbPoli8.Checked) vacinasSelecionadas.Add("Polivalente V8");
-            if (cbPoli10.Checked) vacinasSelecionadas.Add("Polivalente V10");
-            if (cbPoli3.Checked) vacinasSelecionadas.Add("Polivalente V3");
-            if (cbPoli4.Checked) vacinasSelecionadas.Add("Polivalente V4");
-            if (cbPoli5.Checked) vacinasSelecionadas.Add("Polivalente V5");
-
-
-            string vacinasTexto = string.Join("; ", vacinasSelecionadas);
-
-
-            bool vermifugado = rbVermifugado.Checked; // true se "Sim", false se "Não"
-
-
-            bool castrado = rbCastrado.Checked; // true se "Sim", false se "Não"
-
-
-            especie = animal.Especie;
-            sexoA = animal.SexoAnimal;
-            vacinasTexto = animal.Vacinas;
-            vermifugado = animal.Vermifugado;
-            castrado = animal.Castrado;
+            // Campos simples
+            txtRaca.Text = animal.Raca;
             txtHistorico.Text = animal.HistoricoDoencas;
-
 
             // (opcional) muda o título da janela para indicar edição
             this.Text = "Editar Animal";
@@ -69,67 +68,67 @@ namespace SavingPets
         //Evento de clique cadastrar animal
         private void btnCadAnimal_Click(object sender, EventArgs e)
         {
+            // Monta a lista de vacinas a partir dos checkboxes
+            List<string> vacinasSelecionadas = new List<string>();
+            if (cbAntirabica.Checked) vacinasSelecionadas.Add("Antirrábica");
+            if (cbPoli8.Checked) vacinasSelecionadas.Add("Polivalente V8");
+            if (cbPoli10.Checked) vacinasSelecionadas.Add("Polivalente V10");
+            if (cbPoli3.Checked) vacinasSelecionadas.Add("Polivalente V3");
+            if (cbPoli4.Checked) vacinasSelecionadas.Add("Polivalente V4");
+            if (cbPoli5.Checked) vacinasSelecionadas.Add("Polivalente V5");
 
+            // demais campos
+            string especie = rbCachorro.Checked ? "Cachorro" : "Gato";
+            string sexoA = rbMacho.Checked ? "Macho" : "Fêmea";
+            bool vermifugado = rbVermifugado.Checked;
+            bool castrado = rbCastrado.Checked;
 
-
-            try
+            //Validações (mantive as suas)
+            if (string.IsNullOrWhiteSpace(txtNomeAnimal.Text) ||
+                string.IsNullOrWhiteSpace(txtRaca.Text))
             {
-                string especie = rbCachorro.Checked ? "Cachorro" : "Gato";
+                MessageBox.Show("Por favor, preencha todos os campos obrigatórios!",
+                    "Campos obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                string sexoA = rbMacho.Checked ? "Macho" : "Fêmea";
+            // Cria o objeto Animal - note que Vacinas recebe a LISTA, não a string
+            Animal novo = new Animal
+            {
+                NomeAnimal = txtNomeAnimal.Text.Trim(),
+                Especie = especie,
+                SexoAnimal = sexoA,
+                Vacinas = vacinasSelecionadas,      // <<< AQUI: lista, não string
+                Vermifugado = vermifugado,
+                Castrado = castrado,
+                Raca = txtRaca.Text.Trim(),
+                HistoricoDoencas = txtHistorico.Text.Trim()
+            };
 
+            // Se estivermos editando um animal existente, mantenha o Id
+            if (animalEmEdicao != null)
+            {
+                novo.IdAnimal = animalEmEdicao.IdAnimal;
+            }
 
-                List<string> vacinasSelecionadas = new List<string>();
-                if (cbAntirabica.Checked) vacinasSelecionadas.Add("Antirrábica");
-                if (cbPoli8.Checked) vacinasSelecionadas.Add("Polivalente V8");
-                if (cbPoli10.Checked) vacinasSelecionadas.Add("Polivalente V10");
-                if (cbPoli3.Checked) vacinasSelecionadas.Add("Polivalente V3");
-                if (cbPoli4.Checked) vacinasSelecionadas.Add("Polivalente V4");
-                if (cbPoli5.Checked) vacinasSelecionadas.Add("Polivalente V5");
+            // Chama o controller
+            AnimalController controller = new AnimalController();
 
-
-                string vacinasTexto = string.Join("; ", vacinasSelecionadas);
-
-
-                bool vermifugado = rbVermifugado.Checked; // true se "Sim", false se "Não"
-
-
-                bool castrado = rbCastrado.Checked; // true se "Sim", false se "Não"
-
-
-                //Verifica campos obrigatórios
-                if (string.IsNullOrEmpty(txtNomeAnimal.Text) ||
-                    string.IsNullOrEmpty(txtHistorico.Text))
-                {
-                    MessageBox.Show("Por favor, preencha todos os campos obrigatórios!",
-                        "Campos obrigatórios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                Animal novo = new Animal
-                {
-                    IdAnimal = int.Parse(txtIdAnimal.Text),
-                    NomeAnimal = txtNomeAnimal.Text,
-                    Especie = especie,
-                    SexoAnimal = sexoA,
-                    Vacinas = vacinasTexto,
-                    Vermifugado = vermifugado,
-                    Castrado = castrado,
-                    HistoricoDoencas = txtHistorico.Text,
-
-                };
-
-                AnimalController controller = new AnimalController();
+            if (animalEmEdicao == null)
+            {
                 controller.CadastrarAnimal(novo);
-
                 MessageBox.Show("Animal cadastrado com sucesso!");
-
+                LimparCampos();   // <<< AQUI!!!
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Erro: " + ex.Message);
+                controller.EditarAnimal(novo);
+                MessageBox.Show("Animal atualizado com sucesso!");
             }
+
+
         }
+
 
         //Evento de clique para voltar ao menu principal
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -153,6 +152,40 @@ namespace SavingPets
                 MessageBox.Show("Erro ao carregar próximo ID: " + ex.Message);
             }
         }
+
+        private void LimparCampos()
+        {
+            txtNomeAnimal.Clear();
+            txtRaca.Clear();
+            txtHistorico.Clear();
+
+            // Desmarca vacinas
+            cbAntirabica.Checked = false;
+            cbPoli8.Checked = false;
+            cbPoli10.Checked = false;
+            cbPoli3.Checked = false;
+            cbPoli4.Checked = false;
+            cbPoli5.Checked = false;
+
+            // RadioButtons
+            rbCachorro.Checked = false;
+            rbGato.Checked = false;
+            rbMacho.Checked = false;
+            rbFemea.Checked = false;
+            rbVermifugado.Checked = false;
+            rbNaoVermifugado.Checked = false;
+            rbCastrado.Checked = false;
+            rbNaoCastrado.Checked = false;
+
+            // Gera novo ID
+            try
+            {
+                AnimalController controller = new AnimalController();
+                txtIdAnimal.Text = controller.ObterProximoId().ToString();
+            }
+            catch { }
+        }
+
 
         private void FrmAnimal_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -88,10 +88,12 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisita)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVoltar
@@ -393,11 +395,11 @@
             this.groupBox1.Controls.Add(this.txtPesquisar);
             this.groupBox1.Controls.Add(this.rbNomeTutor);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(43, 42);
+            this.groupBox1.Location = new System.Drawing.Point(136, 42);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(585, 76);
+            this.groupBox1.Size = new System.Drawing.Size(492, 76);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta";
@@ -406,7 +408,7 @@
             // 
             this.rbIdVisita.AutoSize = true;
             this.rbIdVisita.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbIdVisita.Location = new System.Drawing.Point(444, 47);
+            this.rbIdVisita.Location = new System.Drawing.Point(413, 47);
             this.rbIdVisita.Margin = new System.Windows.Forms.Padding(2);
             this.rbIdVisita.Name = "rbIdVisita";
             this.rbIdVisita.Size = new System.Drawing.Size(76, 21);
@@ -419,7 +421,7 @@
             // 
             this.rbIdProcesso.AutoSize = true;
             this.rbIdProcesso.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbIdProcesso.Location = new System.Drawing.Point(310, 47);
+            this.rbIdProcesso.Location = new System.Drawing.Point(308, 47);
             this.rbIdProcesso.Margin = new System.Windows.Forms.Padding(2);
             this.rbIdProcesso.Name = "rbIdProcesso";
             this.rbIdProcesso.Size = new System.Drawing.Size(100, 21);
@@ -437,7 +439,7 @@
             this.btnPesquisar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(537, 18);
+            this.btnPesquisar.Location = new System.Drawing.Point(457, 19);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(29, 23);
             this.btnPesquisar.TabIndex = 39;
@@ -449,7 +451,7 @@
             // 
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltro.Location = new System.Drawing.Point(18, 22);
+            this.lblFiltro.Location = new System.Drawing.Point(14, 21);
             this.lblFiltro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(87, 17);
@@ -460,7 +462,7 @@
             // 
             this.rbNomeAnimal.AutoSize = true;
             this.rbNomeAnimal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNomeAnimal.Location = new System.Drawing.Point(161, 47);
+            this.rbNomeAnimal.Location = new System.Drawing.Point(189, 47);
             this.rbNomeAnimal.Margin = new System.Windows.Forms.Padding(2);
             this.rbNomeAnimal.Name = "rbNomeAnimal";
             this.rbNomeAnimal.Size = new System.Drawing.Size(115, 21);
@@ -472,10 +474,10 @@
             // txtPesquisar
             // 
             this.txtPesquisar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisar.Location = new System.Drawing.Point(158, 18);
+            this.txtPesquisar.Location = new System.Drawing.Point(105, 19);
             this.txtPesquisar.Margin = new System.Windows.Forms.Padding(2);
             this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(382, 23);
+            this.txtPesquisar.Size = new System.Drawing.Size(355, 23);
             this.txtPesquisar.TabIndex = 2;
             // 
             // rbNomeTutor
@@ -483,7 +485,7 @@
             this.rbNomeTutor.AutoSize = true;
             this.rbNomeTutor.Checked = true;
             this.rbNomeTutor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNomeTutor.Location = new System.Drawing.Point(21, 47);
+            this.rbNomeTutor.Location = new System.Drawing.Point(78, 47);
             this.rbNomeTutor.Margin = new System.Windows.Forms.Padding(2);
             this.rbNomeTutor.Name = "rbNomeTutor";
             this.rbNomeTutor.Size = new System.Drawing.Size(101, 21);
@@ -763,18 +765,29 @@
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(26, 42);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(124, 76);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 46;
+            this.pictureBox5.TabStop = false;
+            // 
             // FrmGerenciarVisita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1089, 596);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvVisita);
-            this.Controls.Add(this.groupBox1);
             this.Name = "FrmGerenciarVisita";
             this.Text = "Gerenciar Visita Domiciliar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmGerenciarVisita_FormClosing);
@@ -785,6 +798,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -851,5 +865,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

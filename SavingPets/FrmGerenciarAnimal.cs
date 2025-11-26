@@ -22,24 +22,17 @@ namespace SavingPets
         public FrmGerenciarAnimal()
         {
             InitializeComponent();
-            CarregarAnimaisSimulados(); // enquanto não há banco
+            listaAnimais = controller.ListarAnimais(); // carrega do banco real
             AtualizarGrid();
 
             dgvAnimais.SelectionChanged += dgvAnimais_SelectionChanged;
         }
 
-        private void CarregarAnimaisSimulados()
-        {
-            listaAnimais = new List<Animal>
-            {
-                new Animal { IdAnimal = 1, NomeAnimal = "Tobias", Especie = "Cachorro", SexoAnimal = "Macho", Vacinas = "Antirrábica;V8", Vermifugado = true, Castrado = true, HistoricoDoencas = "Nenhum"},
-                new Animal { IdAnimal = 2, NomeAnimal = "Mia", Especie = "Gato", SexoAnimal = "Fêmea", Vacinas = "V4", Vermifugado = false, Castrado = true, HistoricoDoencas = "Dermatite" }
-            };
-        }
-
         //Atualiza o DataGridView
         private void AtualizarGrid()
         {
+            listaAnimais = controller.ListarAnimais(); // pega dados atualizados do MySQL
+
             dgvAnimais.DataSource = null;
             dgvAnimais.DataSource = listaAnimais;
 
@@ -70,7 +63,7 @@ namespace SavingPets
             txtNomeAnimal.Text = animal.NomeAnimal;
             txtEspecie.Text = animal.Especie;
             txtSexoAnimal.Text = animal.SexoAnimal;
-            txtVacinas.Text = animal.Vacinas;
+            txtVacinas.Text = string.Join("; ", animal.Vacinas);
             txtVermifugado.Text = animal.Vermifugado ? "Sim" : "Não";
             txtCastrado.Text = animal.Castrado ? "Sim" : "Não";
             txtHistoricoSaude.Text = animal.HistoricoDoencas;
@@ -103,7 +96,7 @@ namespace SavingPets
 
             if (resp == DialogResult.Yes)
             {
-                listaAnimais.Remove(animalSelecionado);
+                controller.ExcluirAnimal(animalSelecionado.IdAnimal);
                 AtualizarGrid();
                 MessageBox.Show("Animal excluído com sucesso!");
             }
@@ -125,7 +118,7 @@ namespace SavingPets
                     txtNomeAnimal.Text = animal.NomeAnimal;
                     txtEspecie.Text = animal.Especie;
                     txtSexoAnimal.Text = animal.SexoAnimal;
-                    txtVacinas.Text = animal.Vacinas;
+                    txtVacinas.Text = string.Join("; ", animal.Vacinas);
                     txtVermifugado.Text = animal.Vermifugado ? "Sim" : "Não";
                     txtCastrado.Text = animal.Castrado ? "Sim" : "Não";
                     txtHistoricoSaude.Text = animal.HistoricoDoencas;

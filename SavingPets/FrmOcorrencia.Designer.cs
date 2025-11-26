@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOcorrencia));
-            this.label8 = new System.Windows.Forms.Label();
             this.rbMedia = new System.Windows.Forms.RadioButton();
             this.rbBaixa = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -55,19 +54,11 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(136, 616);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(318, 16);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "AAANO - Associação Amigos dos Animais de Nova Odessa";
             // 
             // rbMedia
             // 
@@ -353,12 +344,23 @@
             this.label11.Text = "Pesquisar processo:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(218, 562);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(108, 68);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 40;
+            this.pictureBox5.TabStop = false;
+            // 
             // FrmOcorrencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(564, 641);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.txtPesquisar);
@@ -368,7 +370,6 @@
             this.Controls.Add(this.txtProvidencia);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnCadastrarOcorrencia);
             this.Controls.Add(this.txtDescricao);
@@ -383,14 +384,13 @@
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RadioButton rbMedia;
         private System.Windows.Forms.RadioButton rbBaixa;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -416,5 +416,6 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox txtPesquisar;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

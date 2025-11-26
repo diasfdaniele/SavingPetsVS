@@ -63,10 +63,15 @@
             this.cmsOcorrencia = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.registrarOcorrênciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarOcorrênciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fSideBar = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.tmSideBar = new System.Windows.Forms.Timer(this.components);
+            this.fSideBar = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnCadastrarVoluntario = new System.Windows.Forms.Button();
+            this.btnEmitirRelatorio = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -76,14 +81,15 @@
             this.cmsAdocao.SuspendLayout();
             this.cmsOcorrencia.SuspendLayout();
             this.fSideBar.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(440, 17);
+            this.label1.Location = new System.Drawing.Point(364, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(314, 44);
             this.label1.TabIndex = 0;
@@ -92,7 +98,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(334, 84);
+            this.pictureBox1.Location = new System.Drawing.Point(258, 89);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(256, 203);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,7 +108,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(334, 335);
+            this.pictureBox2.Location = new System.Drawing.Point(258, 340);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(256, 203);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +118,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(614, 335);
+            this.pictureBox4.Location = new System.Drawing.Point(538, 340);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(256, 203);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -122,7 +128,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(614, 84);
+            this.pictureBox3.Location = new System.Drawing.Point(538, 89);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(256, 203);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -136,7 +142,7 @@
             this.btnAnimais.FlatAppearance.BorderSize = 0;
             this.btnAnimais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnimais.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnimais.Location = new System.Drawing.Point(334, 284);
+            this.btnAnimais.Location = new System.Drawing.Point(258, 289);
             this.btnAnimais.Name = "btnAnimais";
             this.btnAnimais.Size = new System.Drawing.Size(256, 36);
             this.btnAnimais.TabIndex = 5;
@@ -151,7 +157,7 @@
             this.btnTutores.FlatAppearance.BorderSize = 0;
             this.btnTutores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTutores.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTutores.Location = new System.Drawing.Point(614, 284);
+            this.btnTutores.Location = new System.Drawing.Point(538, 289);
             this.btnTutores.Name = "btnTutores";
             this.btnTutores.Size = new System.Drawing.Size(256, 36);
             this.btnTutores.TabIndex = 6;
@@ -166,7 +172,7 @@
             this.btnProcesso.FlatAppearance.BorderSize = 0;
             this.btnProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcesso.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcesso.Location = new System.Drawing.Point(334, 538);
+            this.btnProcesso.Location = new System.Drawing.Point(258, 543);
             this.btnProcesso.Name = "btnProcesso";
             this.btnProcesso.Size = new System.Drawing.Size(256, 36);
             this.btnProcesso.TabIndex = 7;
@@ -181,7 +187,7 @@
             this.btnOcorrencia.FlatAppearance.BorderSize = 0;
             this.btnOcorrencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOcorrencia.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOcorrencia.Location = new System.Drawing.Point(614, 537);
+            this.btnOcorrencia.Location = new System.Drawing.Point(538, 542);
             this.btnOcorrencia.Name = "btnOcorrencia";
             this.btnOcorrencia.Size = new System.Drawing.Size(256, 36);
             this.btnOcorrencia.TabIndex = 8;
@@ -229,7 +235,7 @@
             this.btnMenuAnimais.FlatAppearance.BorderSize = 0;
             this.btnMenuAnimais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuAnimais.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuAnimais.Location = new System.Drawing.Point(555, 284);
+            this.btnMenuAnimais.Location = new System.Drawing.Point(479, 289);
             this.btnMenuAnimais.Name = "btnMenuAnimais";
             this.btnMenuAnimais.Size = new System.Drawing.Size(35, 36);
             this.btnMenuAnimais.TabIndex = 10;
@@ -244,7 +250,7 @@
             this.btnMenuTutor.FlatAppearance.BorderSize = 0;
             this.btnMenuTutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuTutor.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuTutor.Location = new System.Drawing.Point(835, 283);
+            this.btnMenuTutor.Location = new System.Drawing.Point(759, 288);
             this.btnMenuTutor.Name = "btnMenuTutor";
             this.btnMenuTutor.Size = new System.Drawing.Size(35, 36);
             this.btnMenuTutor.TabIndex = 11;
@@ -292,7 +298,7 @@
             this.btnMenuProcesso.FlatAppearance.BorderSize = 0;
             this.btnMenuProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuProcesso.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuProcesso.Location = new System.Drawing.Point(555, 537);
+            this.btnMenuProcesso.Location = new System.Drawing.Point(479, 542);
             this.btnMenuProcesso.Name = "btnMenuProcesso";
             this.btnMenuProcesso.Size = new System.Drawing.Size(35, 36);
             this.btnMenuProcesso.TabIndex = 13;
@@ -309,7 +315,7 @@
             this.cadastrarProcessoAdotivoToolStripMenuItem,
             this.registrarVisitaDomiciliarToolStripMenuItem});
             this.cmsAdocao.Name = "cmsAdocao";
-            this.cmsAdocao.Size = new System.Drawing.Size(257, 74);
+            this.cmsAdocao.Size = new System.Drawing.Size(257, 52);
             // 
             // cadastrarProcessoAdotivoToolStripMenuItem
             // 
@@ -380,7 +386,7 @@
             this.btnMenuOcorrencia.FlatAppearance.BorderSize = 0;
             this.btnMenuOcorrencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuOcorrencia.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuOcorrencia.Location = new System.Drawing.Point(835, 536);
+            this.btnMenuOcorrencia.Location = new System.Drawing.Point(759, 541);
             this.btnMenuOcorrencia.Name = "btnMenuOcorrencia";
             this.btnMenuOcorrencia.Size = new System.Drawing.Size(35, 36);
             this.btnMenuOcorrencia.TabIndex = 14;
@@ -413,10 +419,20 @@
             this.consultarOcorrênciaToolStripMenuItem.Text = "Consultar ocorrência";
             this.consultarOcorrênciaToolStripMenuItem.Click += new System.EventHandler(this.consultarOcorrênciaToolStripMenuItem_Click);
             // 
+            // tmSideBar
+            // 
+            this.tmSideBar.Interval = 10;
+            this.tmSideBar.Tick += new System.EventHandler(this.tmSideBar_Tick);
+            // 
             // fSideBar
             // 
-            this.fSideBar.BackColor = System.Drawing.Color.DarkGray;
+            this.fSideBar.BackColor = System.Drawing.Color.LightGray;
+            this.fSideBar.Controls.Add(this.flowLayoutPanel1);
+            this.fSideBar.Controls.Add(this.btnCadastrarVoluntario);
+            this.fSideBar.Controls.Add(this.btnEmitirRelatorio);
+            this.fSideBar.Controls.Add(this.button3);
             this.fSideBar.Controls.Add(this.flowLayoutPanel2);
+            this.fSideBar.Controls.Add(this.button1);
             this.fSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.fSideBar.ForeColor = System.Drawing.Color.Black;
             this.fSideBar.Location = new System.Drawing.Point(0, 0);
@@ -427,30 +443,72 @@
             this.fSideBar.Size = new System.Drawing.Size(150, 749);
             this.fSideBar.TabIndex = 15;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.pictureBox5);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(140, 146);
+            this.flowLayoutPanel1.TabIndex = 4;
+            // 
+            // btnCadastrarVoluntario
+            // 
+            this.btnCadastrarVoluntario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarVoluntario.Location = new System.Drawing.Point(3, 155);
+            this.btnCadastrarVoluntario.Name = "btnCadastrarVoluntario";
+            this.btnCadastrarVoluntario.Size = new System.Drawing.Size(140, 42);
+            this.btnCadastrarVoluntario.TabIndex = 0;
+            this.btnCadastrarVoluntario.Text = "Cadastrar Voluntário";
+            this.btnCadastrarVoluntario.UseVisualStyleBackColor = true;
+            // 
+            // btnEmitirRelatorio
+            // 
+            this.btnEmitirRelatorio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmitirRelatorio.Location = new System.Drawing.Point(3, 203);
+            this.btnEmitirRelatorio.Name = "btnEmitirRelatorio";
+            this.btnEmitirRelatorio.Size = new System.Drawing.Size(140, 42);
+            this.btnEmitirRelatorio.TabIndex = 1;
+            this.btnEmitirRelatorio.Text = "Emitir relatórios";
+            this.btnEmitirRelatorio.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(3, 251);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(140, 42);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Relatórios de Alterações";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.btnMenu);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 299);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(148, 81);
-            this.flowLayoutPanel2.TabIndex = 0;
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(140, 255);
+            this.flowLayoutPanel2.TabIndex = 5;
             // 
-            // btnMenu
+            // button1
             // 
-            this.btnMenu.Location = new System.Drawing.Point(2, 2);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(84, 58);
-            this.btnMenu.TabIndex = 16;
-            this.btnMenu.Text = "button1";
-            this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(3, 560);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 42);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Sair";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // tmSideBar
+            // pictureBox5
             // 
-            this.tmSideBar.Interval = 10;
-            this.tmSideBar.Tick += new System.EventHandler(this.tmSideBar_Tick);
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(137, 90);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
             // 
             // FrmMenu
             // 
@@ -458,7 +516,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1028, 609);
+            this.ClientSize = new System.Drawing.Size(884, 609);
             this.Controls.Add(this.fSideBar);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.btnMenuOcorrencia);
@@ -486,7 +544,8 @@
             this.cmsAdocao.ResumeLayout(false);
             this.cmsOcorrencia.ResumeLayout(false);
             this.fSideBar.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -521,9 +580,6 @@
         private System.Windows.Forms.ContextMenuStrip cmsOcorrencia;
         private System.Windows.Forms.ToolStripMenuItem registrarOcorrênciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarOcorrênciaToolStripMenuItem;
-        private System.Windows.Forms.FlowLayoutPanel fSideBar;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Timer tmSideBar;
         private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarExcluirVisitaDomiciliarToolStripMenuItem1;
@@ -531,5 +587,13 @@
         private System.Windows.Forms.ToolStripMenuItem editarExcluirProcessoAdotivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarProcessoAdotivoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem registrarVisitaDomiciliarToolStripMenuItem1;
+        private System.Windows.Forms.FlowLayoutPanel fSideBar;
+        private System.Windows.Forms.Button btnCadastrarVoluntario;
+        private System.Windows.Forms.Button btnEmitirRelatorio;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

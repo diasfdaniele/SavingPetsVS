@@ -75,8 +75,10 @@
             this.label19 = new System.Windows.Forms.Label();
             this.dataAgendamento = new System.Windows.Forms.DateTimePicker();
             this.label20 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -94,7 +96,7 @@
             this.btnVoltar.FlatAppearance.BorderSize = 0;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(600, 560);
+            this.btnVoltar.Location = new System.Drawing.Point(600, 523);
             this.btnVoltar.Margin = new System.Windows.Forms.Padding(4);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(153, 43);
@@ -110,7 +112,7 @@
             this.btnCadastrarProcesso.FlatAppearance.BorderSize = 0;
             this.btnCadastrarProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarProcesso.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrarProcesso.Location = new System.Drawing.Point(432, 560);
+            this.btnCadastrarProcesso.Location = new System.Drawing.Point(432, 523);
             this.btnCadastrarProcesso.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadastrarProcesso.Name = "btnCadastrarProcesso";
             this.btnCadastrarProcesso.Size = new System.Drawing.Size(153, 43);
@@ -557,7 +559,7 @@
             // 
             this.txtObservacoes.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtObservacoes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservacoes.Location = new System.Drawing.Point(349, 491);
+            this.txtObservacoes.Location = new System.Drawing.Point(349, 479);
             this.txtObservacoes.Name = "txtObservacoes";
             this.txtObservacoes.Size = new System.Drawing.Size(595, 26);
             this.txtObservacoes.TabIndex = 55;
@@ -566,7 +568,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(345, 463);
+            this.label19.Location = new System.Drawing.Point(345, 451);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(199, 21);
             this.label19.TabIndex = 54;
@@ -594,11 +596,22 @@
             this.label20.TabIndex = 56;
             this.label20.Text = "Agendamento visita:";
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(519, 573);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(137, 90);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 58;
+            this.pictureBox5.TabStop = false;
+            // 
             // FrmCadastrarProcesso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 661);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.dataAgendamento);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.txtObservacoes);
@@ -628,6 +641,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -681,5 +695,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DateTimePicker dataAgendamento;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
