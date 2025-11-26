@@ -75,11 +75,11 @@
             this.groupBox1.Controls.Add(this.txtPesquisarOcorrencias);
             this.groupBox1.Controls.Add(this.rbNomeTutor);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(11, 36);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(15, 44);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(585, 93);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(780, 114);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta";
@@ -87,10 +87,10 @@
             // rbIdOcorrencia
             // 
             this.rbIdOcorrencia.AutoSize = true;
-            this.rbIdOcorrencia.Location = new System.Drawing.Point(441, 58);
-            this.rbIdOcorrencia.Margin = new System.Windows.Forms.Padding(2);
+            this.rbIdOcorrencia.Location = new System.Drawing.Point(588, 71);
+            this.rbIdOcorrencia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbIdOcorrencia.Name = "rbIdOcorrencia";
-            this.rbIdOcorrencia.Size = new System.Drawing.Size(129, 24);
+            this.rbIdOcorrencia.Size = new System.Drawing.Size(155, 26);
             this.rbIdOcorrencia.TabIndex = 41;
             this.rbIdOcorrencia.Text = "ID ocorrência";
             this.rbIdOcorrencia.UseVisualStyleBackColor = true;
@@ -99,10 +99,10 @@
             // rbIdProcesso
             // 
             this.rbIdProcesso.AutoSize = true;
-            this.rbIdProcesso.Location = new System.Drawing.Point(307, 58);
-            this.rbIdProcesso.Margin = new System.Windows.Forms.Padding(2);
+            this.rbIdProcesso.Location = new System.Drawing.Point(409, 71);
+            this.rbIdProcesso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbIdProcesso.Name = "rbIdProcesso";
-            this.rbIdProcesso.Size = new System.Drawing.Size(114, 24);
+            this.rbIdProcesso.Size = new System.Drawing.Size(136, 26);
             this.rbIdProcesso.TabIndex = 40;
             this.rbIdProcesso.Text = "ID processo";
             this.rbIdProcesso.UseVisualStyleBackColor = true;
@@ -117,9 +117,10 @@
             this.btnPesquisar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(551, 27);
+            this.btnPesquisar.Location = new System.Drawing.Point(735, 33);
+            this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(29, 26);
+            this.btnPesquisar.Size = new System.Drawing.Size(39, 32);
             this.btnPesquisar.TabIndex = 39;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = false;
@@ -128,20 +129,19 @@
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Location = new System.Drawing.Point(15, 30);
-            this.lblFiltro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFiltro.Location = new System.Drawing.Point(20, 37);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(95, 20);
+            this.lblFiltro.Size = new System.Drawing.Size(119, 22);
             this.lblFiltro.TabIndex = 1;
             this.lblFiltro.Text = "Nome tutor:";
             // 
             // rbNomeAnimal
             // 
             this.rbNomeAnimal.AutoSize = true;
-            this.rbNomeAnimal.Location = new System.Drawing.Point(158, 58);
-            this.rbNomeAnimal.Margin = new System.Windows.Forms.Padding(2);
+            this.rbNomeAnimal.Location = new System.Drawing.Point(211, 71);
+            this.rbNomeAnimal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbNomeAnimal.Name = "rbNomeAnimal";
-            this.rbNomeAnimal.Size = new System.Drawing.Size(123, 24);
+            this.rbNomeAnimal.Size = new System.Drawing.Size(152, 26);
             this.rbNomeAnimal.TabIndex = 5;
             this.rbNomeAnimal.Text = "Nome animal";
             this.rbNomeAnimal.UseVisualStyleBackColor = true;
@@ -150,20 +150,20 @@
             // txtPesquisarOcorrencias
             // 
             this.txtPesquisarOcorrencias.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPesquisarOcorrencias.Location = new System.Drawing.Point(172, 27);
-            this.txtPesquisarOcorrencias.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPesquisarOcorrencias.Location = new System.Drawing.Point(229, 33);
+            this.txtPesquisarOcorrencias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPesquisarOcorrencias.Name = "txtPesquisarOcorrencias";
-            this.txtPesquisarOcorrencias.Size = new System.Drawing.Size(382, 26);
+            this.txtPesquisarOcorrencias.Size = new System.Drawing.Size(508, 30);
             this.txtPesquisarOcorrencias.TabIndex = 2;
             // 
             // rbNomeTutor
             // 
             this.rbNomeTutor.AutoSize = true;
             this.rbNomeTutor.Checked = true;
-            this.rbNomeTutor.Location = new System.Drawing.Point(18, 58);
-            this.rbNomeTutor.Margin = new System.Windows.Forms.Padding(2);
+            this.rbNomeTutor.Location = new System.Drawing.Point(24, 71);
+            this.rbNomeTutor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbNomeTutor.Name = "rbNomeTutor";
-            this.rbNomeTutor.Size = new System.Drawing.Size(109, 24);
+            this.rbNomeTutor.Size = new System.Drawing.Size(135, 26);
             this.rbNomeTutor.TabIndex = 4;
             this.rbNomeTutor.TabStop = true;
             this.rbNomeTutor.Text = "Nome tutor";
@@ -173,12 +173,12 @@
             // dgvOcorrencias
             // 
             this.dgvOcorrencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOcorrencias.Location = new System.Drawing.Point(11, 133);
-            this.dgvOcorrencias.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvOcorrencias.Location = new System.Drawing.Point(15, 164);
+            this.dgvOcorrencias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvOcorrencias.Name = "dgvOcorrencias";
             this.dgvOcorrencias.RowHeadersWidth = 51;
             this.dgvOcorrencias.RowTemplate.Height = 24;
-            this.dgvOcorrencias.Size = new System.Drawing.Size(706, 167);
+            this.dgvOcorrencias.Size = new System.Drawing.Size(941, 206);
             this.dgvOcorrencias.TabIndex = 13;
             this.dgvOcorrencias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOcorrencias_CellContentClick);
             // 
@@ -202,11 +202,11 @@
             this.groupBox2.Controls.Add(this.txtNomeAnimal);
             this.groupBox2.Controls.Add(this.txtNomeTutor);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(11, 304);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Location = new System.Drawing.Point(15, 374);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(585, 267);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(780, 329);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações";
@@ -214,39 +214,37 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(303, 89);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(404, 110);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 20);
+            this.label6.Size = new System.Drawing.Size(144, 22);
             this.label6.TabIndex = 39;
             this.label6.Text = "ID Ocorrência:";
             // 
             // txtIdOcorrencia
             // 
             this.txtIdOcorrencia.Enabled = false;
-            this.txtIdOcorrencia.Location = new System.Drawing.Point(425, 87);
-            this.txtIdOcorrencia.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIdOcorrencia.Location = new System.Drawing.Point(567, 107);
+            this.txtIdOcorrencia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdOcorrencia.Name = "txtIdOcorrencia";
-            this.txtIdOcorrencia.Size = new System.Drawing.Size(117, 26);
+            this.txtIdOcorrencia.Size = new System.Drawing.Size(155, 30);
             this.txtIdOcorrencia.TabIndex = 38;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 87);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(11, 107);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 20);
+            this.label5.Size = new System.Drawing.Size(118, 22);
             this.label5.TabIndex = 37;
             this.label5.Text = "ID Processo:";
             // 
             // txtIdProcesso
             // 
             this.txtIdProcesso.Enabled = false;
-            this.txtIdProcesso.Location = new System.Drawing.Point(149, 86);
-            this.txtIdProcesso.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIdProcesso.Location = new System.Drawing.Point(199, 106);
+            this.txtIdProcesso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIdProcesso.Name = "txtIdProcesso";
-            this.txtIdProcesso.Size = new System.Drawing.Size(117, 26);
+            this.txtIdProcesso.Size = new System.Drawing.Size(155, 30);
             this.txtIdProcesso.TabIndex = 36;
             // 
             // dataOcorrencia
@@ -254,132 +252,127 @@
             this.dataOcorrencia.CalendarFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataOcorrencia.Enabled = false;
             this.dataOcorrencia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataOcorrencia.Location = new System.Drawing.Point(197, 158);
+            this.dataOcorrencia.Location = new System.Drawing.Point(263, 194);
+            this.dataOcorrencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataOcorrencia.Name = "dataOcorrencia";
-            this.dataOcorrencia.Size = new System.Drawing.Size(345, 26);
+            this.dataOcorrencia.Size = new System.Drawing.Size(459, 30);
             this.dataOcorrencia.TabIndex = 35;
             // 
             // txtProvidencia
             // 
             this.txtProvidencia.Enabled = false;
-            this.txtProvidencia.Location = new System.Drawing.Point(197, 228);
-            this.txtProvidencia.Margin = new System.Windows.Forms.Padding(2);
+            this.txtProvidencia.Location = new System.Drawing.Point(263, 281);
+            this.txtProvidencia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProvidencia.Name = "txtProvidencia";
-            this.txtProvidencia.Size = new System.Drawing.Size(345, 26);
+            this.txtProvidencia.Size = new System.Drawing.Size(459, 30);
             this.txtProvidencia.TabIndex = 13;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(17, 262);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Location = new System.Drawing.Point(23, 322);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(0, 20);
+            this.label14.Size = new System.Drawing.Size(0, 22);
             this.label14.TabIndex = 26;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 228);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(11, 281);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(164, 20);
+            this.label12.Size = new System.Drawing.Size(205, 22);
             this.label12.TabIndex = 23;
             this.label12.Text = "Providência tomada:";
             // 
             // txtGravidade
             // 
             this.txtGravidade.Enabled = false;
-            this.txtGravidade.Location = new System.Drawing.Point(197, 194);
-            this.txtGravidade.Margin = new System.Windows.Forms.Padding(2);
+            this.txtGravidade.Location = new System.Drawing.Point(263, 239);
+            this.txtGravidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtGravidade.Name = "txtGravidade";
-            this.txtGravidade.Size = new System.Drawing.Size(345, 26);
+            this.txtGravidade.Size = new System.Drawing.Size(459, 30);
             this.txtGravidade.TabIndex = 21;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 197);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Location = new System.Drawing.Point(11, 242);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 20);
+            this.label11.Size = new System.Drawing.Size(118, 22);
             this.label11.TabIndex = 19;
             this.label11.Text = "Gravidade:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 162);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(11, 199);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(140, 20);
+            this.label10.Size = new System.Drawing.Size(173, 22);
             this.label10.TabIndex = 18;
             this.label10.Text = "Data do ocorrido:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 124);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(11, 153);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(179, 20);
+            this.label8.Size = new System.Drawing.Size(217, 22);
             this.label8.TabIndex = 16;
             this.label8.Text = "Descrição do ocorrido:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 57);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(11, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(133, 20);
+            this.label3.Size = new System.Drawing.Size(166, 22);
             this.label3.TabIndex = 15;
             this.label3.Text = "Nome do animal:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 26);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(11, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 20);
+            this.label2.Size = new System.Drawing.Size(149, 22);
             this.label2.TabIndex = 14;
             this.label2.Text = "Nome do tutor:";
             // 
             // txtDescricao
             // 
             this.txtDescricao.Enabled = false;
-            this.txtDescricao.Location = new System.Drawing.Point(197, 121);
-            this.txtDescricao.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDescricao.Location = new System.Drawing.Point(263, 149);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(345, 26);
+            this.txtDescricao.Size = new System.Drawing.Size(459, 30);
             this.txtDescricao.TabIndex = 2;
             // 
             // txtNomeAnimal
             // 
             this.txtNomeAnimal.Enabled = false;
-            this.txtNomeAnimal.Location = new System.Drawing.Point(149, 56);
-            this.txtNomeAnimal.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomeAnimal.Location = new System.Drawing.Point(199, 69);
+            this.txtNomeAnimal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomeAnimal.Name = "txtNomeAnimal";
-            this.txtNomeAnimal.Size = new System.Drawing.Size(393, 26);
+            this.txtNomeAnimal.Size = new System.Drawing.Size(523, 30);
             this.txtNomeAnimal.TabIndex = 1;
             // 
             // txtNomeTutor
             // 
             this.txtNomeTutor.Enabled = false;
-            this.txtNomeTutor.Location = new System.Drawing.Point(149, 23);
-            this.txtNomeTutor.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNomeTutor.Location = new System.Drawing.Point(199, 28);
+            this.txtNomeTutor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNomeTutor.Name = "txtNomeTutor";
-            this.txtNomeTutor.Size = new System.Drawing.Size(393, 26);
+            this.txtNomeTutor.Size = new System.Drawing.Size(523, 30);
             this.txtNomeTutor.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(202, -2);
+            this.label4.Location = new System.Drawing.Point(269, -2);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(330, 36);
+            this.label4.Size = new System.Drawing.Size(420, 44);
             this.label4.TabIndex = 16;
             this.label4.Text = "Consultar Ocorrências";
             // 
@@ -390,9 +383,10 @@
             this.btnVoltar.FlatAppearance.BorderSize = 0;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(601, 532);
+            this.btnVoltar.Location = new System.Drawing.Point(801, 655);
+            this.btnVoltar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(115, 35);
+            this.btnVoltar.Size = new System.Drawing.Size(153, 43);
             this.btnVoltar.TabIndex = 36;
             this.btnVoltar.Text = "VOLTAR";
             this.btnVoltar.UseVisualStyleBackColor = false;
@@ -401,26 +395,27 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(586, 39);
+            this.pictureBox5.Location = new System.Drawing.Point(781, 48);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(137, 90);
+            this.pictureBox5.Size = new System.Drawing.Size(183, 111);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 37;
             this.pictureBox5.TabStop = false;
             // 
             // FrmGerenciarOcorrencias
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(728, 609);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(971, 750);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvOcorrencias);
             this.Controls.Add(this.pictureBox5);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmGerenciarOcorrencias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Ocorrências";
