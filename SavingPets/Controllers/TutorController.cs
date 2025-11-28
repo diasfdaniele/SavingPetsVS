@@ -33,9 +33,9 @@ namespace SavingPets.Controllers
             if (tutor == null)
                 throw new Exception("Tutor não encontrado!");
 
-            tutor.IdAnimal = tutorEditado.IdAnimal;
             tutor.NomeTutor = tutorEditado.NomeTutor;
             tutor.SexoTutor = tutorEditado.SexoTutor;
+            tutor.DataNascimento = tutorEditado.DataNascimento;
             tutor.CPF = tutorEditado.CPF;
             tutor.Telefone = tutorEditado.Telefone;
             tutor.Email = tutorEditado.Email;

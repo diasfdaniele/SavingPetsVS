@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTutor));
-            this.txtIdAnimal = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtIdTutor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,44 +61,27 @@
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtNascimento = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtIdAnimal
-            // 
-            this.txtIdAnimal.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtIdAnimal.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdAnimal.Location = new System.Drawing.Point(15, 147);
-            this.txtIdAnimal.Name = "txtIdAnimal";
-            this.txtIdAnimal.Size = new System.Drawing.Size(245, 23);
-            this.txtIdAnimal.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 17);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "ID do animal:";
             // 
             // txtIdTutor
             // 
             this.txtIdTutor.BackColor = System.Drawing.Color.Gainsboro;
             this.txtIdTutor.Enabled = false;
             this.txtIdTutor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdTutor.Location = new System.Drawing.Point(15, 99);
+            this.txtIdTutor.Location = new System.Drawing.Point(15, 144);
             this.txtIdTutor.Name = "txtIdTutor";
-            this.txtIdTutor.Size = new System.Drawing.Size(245, 23);
+            this.txtIdTutor.Size = new System.Drawing.Size(79, 23);
             this.txtIdTutor.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 80);
+            this.label2.Location = new System.Drawing.Point(12, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 17);
             this.label2.TabIndex = 6;
@@ -120,7 +101,7 @@
             // 
             this.txtNomeTutor.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNomeTutor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeTutor.Location = new System.Drawing.Point(15, 196);
+            this.txtNomeTutor.Location = new System.Drawing.Point(294, 151);
             this.txtNomeTutor.Name = "txtNomeTutor";
             this.txtNomeTutor.Size = new System.Drawing.Size(245, 23);
             this.txtNomeTutor.TabIndex = 11;
@@ -129,7 +110,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 177);
+            this.label5.Location = new System.Drawing.Point(12, 80);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 17);
             this.label5.TabIndex = 10;
@@ -139,7 +120,7 @@
             // 
             this.txtCpf.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCpf.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCpf.Location = new System.Drawing.Point(15, 299);
+            this.txtCpf.Location = new System.Drawing.Point(15, 249);
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(245, 23);
             this.txtCpf.TabIndex = 17;
@@ -148,7 +129,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 279);
+            this.label6.Location = new System.Drawing.Point(12, 229);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 17);
             this.label6.TabIndex = 16;
@@ -159,7 +140,7 @@
             this.groupBox1.Controls.Add(this.rbFeminino);
             this.groupBox1.Controls.Add(this.rbMasculino);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(15, 225);
+            this.groupBox1.Location = new System.Drawing.Point(15, 175);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(245, 51);
             this.groupBox1.TabIndex = 18;
@@ -195,7 +176,7 @@
             // 
             this.txtEmail.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(15, 392);
+            this.txtEmail.Location = new System.Drawing.Point(15, 342);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(245, 23);
             this.txtEmail.TabIndex = 22;
@@ -205,7 +186,7 @@
             this.label7.AutoSize = true;
             this.label7.Enabled = false;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 372);
+            this.label7.Location = new System.Drawing.Point(12, 322);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 17);
             this.label7.TabIndex = 21;
@@ -215,7 +196,7 @@
             // 
             this.txtTelefone.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTelefone.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefone.Location = new System.Drawing.Point(15, 344);
+            this.txtTelefone.Location = new System.Drawing.Point(15, 294);
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(245, 23);
             this.txtTelefone.TabIndex = 20;
@@ -225,7 +206,7 @@
             this.label8.AutoSize = true;
             this.label8.Enabled = false;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 325);
+            this.label8.Location = new System.Drawing.Point(12, 275);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(142, 17);
             this.label8.TabIndex = 19;
@@ -254,7 +235,7 @@
             // 
             this.txtRua.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtRua.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRua.Location = new System.Drawing.Point(294, 147);
+            this.txtRua.Location = new System.Drawing.Point(15, 100);
             this.txtRua.Name = "txtRua";
             this.txtRua.Size = new System.Drawing.Size(245, 23);
             this.txtRua.TabIndex = 22;
@@ -263,7 +244,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(291, 127);
+            this.label10.Location = new System.Drawing.Point(292, 131);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 17);
             this.label10.TabIndex = 21;
@@ -382,7 +363,7 @@
             this.btnCadastrar.FlatAppearance.BorderSize = 0;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(145, 448);
+            this.btnCadastrar.Location = new System.Drawing.Point(145, 415);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(115, 35);
             this.btnCadastrar.TabIndex = 34;
@@ -397,7 +378,7 @@
             this.btnVoltar.FlatAppearance.BorderSize = 0;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(294, 448);
+            this.btnVoltar.Location = new System.Drawing.Point(294, 415);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(115, 35);
             this.btnVoltar.TabIndex = 36;
@@ -408,12 +389,31 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(210, 520);
+            this.pictureBox5.Location = new System.Drawing.Point(203, 504);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(118, 77);
+            this.pictureBox5.Size = new System.Drawing.Size(136, 93);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 37;
             this.pictureBox5.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(130, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 17);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "Data Nascimento:";
+            // 
+            // dtNascimento
+            // 
+            this.dtNascimento.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNascimento.Location = new System.Drawing.Point(133, 144);
+            this.dtNascimento.Name = "dtNascimento";
+            this.dtNascimento.Size = new System.Drawing.Size(127, 23);
+            this.dtNascimento.TabIndex = 39;
             // 
             // FrmTutor
             // 
@@ -421,6 +421,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(564, 609);
+            this.Controls.Add(this.dtNascimento);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.label15);
@@ -448,8 +450,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtNomeTutor);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtIdAnimal);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtIdTutor);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -467,9 +467,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtIdAnimal;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdTutor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -502,5 +499,7 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtNascimento;
     }
 }

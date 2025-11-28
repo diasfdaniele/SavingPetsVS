@@ -33,7 +33,7 @@ namespace SavingPets
         private void PreencherCampos(Tutor t)
         {
             txtIdTutor.Text = t.IdTutor.ToString();
-            txtIdAnimal.Text = t.IdAnimal.ToString();
+            //txtIdAnimal.Text = t.IdAnimal.ToString();
             txtNomeTutor.Text = t.NomeTutor;
 
             if (t.SexoTutor == "Masculino")
@@ -86,6 +86,7 @@ namespace SavingPets
                 //Verifica campos obrigatórios
                 if (string.IsNullOrEmpty(txtNomeTutor.Text) ||
                     string.IsNullOrEmpty(txtCpf.Text) ||
+                    string.IsNullOrEmpty(dtNascimento.Text) ||
                     string.IsNullOrEmpty(txtEmail.Text) ||
                     string.IsNullOrEmpty(txtTelefone.Text) ||
                     string.IsNullOrEmpty(txtCep.Text) ||
@@ -145,10 +146,10 @@ namespace SavingPets
                 Tutor novo = new Tutor
                 {
                     IdTutor = 0, //será gerado automaticamente
-                    IdAnimal = string.IsNullOrWhiteSpace(txtIdAnimal.Text) ? 0 : int.Parse(txtIdAnimal.Text),
                     NomeTutor = txtNomeTutor.Text,
                     SexoTutor = sexoT,
                     CPF = txtCpf.Text,
+                    DataNascimento = dtNascimento.Value,
                     Telefone = telefone,
                     Email = txtEmail.Text,
                     CEP = txtCep.Text,
@@ -210,7 +211,6 @@ namespace SavingPets
 
         private void LimparCampos()
         {
-            txtIdAnimal.Clear();
             txtNomeTutor.Clear();
             txtCpf.Clear();
             txtTelefone.Clear();

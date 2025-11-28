@@ -9,8 +9,8 @@ namespace SavingPets.Models
     public class Tutor
     {
         public int IdTutor { get; set; }
-        public int IdAnimal { get; set; }  // vínculo com o animal
         public string NomeTutor { get; set; }
+        public DateTime DataNascimento { get; set; }
         public string SexoTutor { get; set; }
         public string CPF { get; set; }
         public string Telefone { get; set; }

@@ -299,5 +299,29 @@ namespace SavingPets
         {
 
         }
+
+        private void btnCadastrarVoluntario_Click(object sender, EventArgs e)
+        {
+            FrmVoluntario janela = new FrmVoluntario();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void btnEmitirRelatorio_Click(object sender, EventArgs e)
+        {
+            FrmRelatorioGerencial janela = new FrmRelatorioGerencial();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
+
+        private void btnAlteracoes_Click(object sender, EventArgs e)
+        {
+            FrmAlteracoes janela = new FrmAlteracoes();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
     }
 }

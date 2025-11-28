@@ -31,14 +31,14 @@ namespace SavingPets
             listaTutores = new List<Tutor>
     {
         new Tutor {
-            IdTutor = 1, IdAnimal = 100, NomeTutor = "Isabella Costa", SexoTutor = "Feminino",
+            IdTutor = 1, NomeTutor = "Isabella Costa", SexoTutor = "Feminino", DataNascimento = new DateTime(2025, 11, 10),
             CPF = "44859914562", Telefone = "(19) 99999-1111", Email = "isabella@gmail.com",
             CEP = "13888469", Rua = "Rua das Flores", Numero = "100", Complemento = "Apto 54",
             Bairro = "Centro", Cidade = "Campinas", Estado = "SP"
         },
 
         new Tutor {
-            IdTutor = 2, IdAnimal = 2, NomeTutor = "Daniele Souza", SexoTutor = "Masculino",
+            IdTutor = 2, NomeTutor = "Daniele Souza", SexoTutor = "Masculino", DataNascimento = new DateTime(2025, 11, 10),
             CPF = "10365424937", Telefone = "(19) 98888-2222", Email = "daniele@gmail.com",
             CEP = "13426027", Rua = "Av. Brasil", Numero = "250", Complemento = "Casa 2",
             Bairro = "Taquaral", Cidade = "Campinas", Estado = "SP"
@@ -142,7 +142,6 @@ namespace SavingPets
         private void ExibirDetalhes(Tutor t)
         {
             txtIdTutor.Text = t.IdTutor.ToString();
-            txtIdAnimal.Text = t.IdAnimal.ToString();
             txtNomeTutor.Text = t.NomeTutor;
             txtSexoTutor.Text = t.SexoTutor;
             txtCPF.Text = t.CPF;
