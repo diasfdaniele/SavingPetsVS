@@ -3,6 +3,7 @@ using SavingPets.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using static SavingPets.DAL.Login;
 
 namespace SavingPets.DAL
@@ -12,7 +13,7 @@ namespace SavingPets.DAL
         private Conexao conexao = new Conexao();
 
         // =================================================================
-        // 1. LISTAR TODOS (Read)
+        // 1. LISTAR TODOS (Com JOIN em Telefone e Endereço)
         // =================================================================
         public List<ProcessoAdotivo> ListarProcessos()
         {
@@ -21,12 +22,22 @@ namespace SavingPets.DAL
             string sql = @"
                 SELECT 
                     PA.idProcessoAdotivo, PA.dataAdocao, PA.agendamentoVisita, PA.observacoes,
+                    
                     A.idAnimal, A.nome AS nomeDoAnimal,
-                    T.idTutor, P.nome AS nomeDoTutor
+                    (SELECT GROUP_CONCAT(nome SEPARATOR '|') FROM Vacina V WHERE V.idAnimal = A.idAnimal) AS listaVacinas,
+
+                    T.idTutor, P.nome AS nomeDoTutor,
+                    
+                    Tel.ddd, Tel.numero AS numeroTelefone,
+                    
+                    E.rua, E.bairro, E.cidade, E.estado, E.numero, E.cep, E.complemento
+        
                 FROM ProcessoAdotivo PA
                 INNER JOIN Animal A ON PA.idAnimal = A.idAnimal
                 INNER JOIN Tutor T ON PA.idTutor = T.idTutor
                 INNER JOIN Pessoa P ON T.idPessoa = P.idPessoa
+                LEFT JOIN Endereco E ON P.idPessoa = E.idPessoa
+                LEFT JOIN Telefone Tel ON P.idPessoa = Tel.idPessoa
                 ORDER BY PA.dataAdocao DESC;";
 
             using (MySqlConnection conect = conexao.GetConnection())
@@ -40,26 +51,41 @@ namespace SavingPets.DAL
                         while (reader.Read())
                         {
                             ProcessoAdotivo processo = new ProcessoAdotivo();
-
-                            // Mapeamento Processo
                             processo.IdProcesso = Convert.ToInt32(reader["idProcessoAdotivo"]);
                             processo.DataAdocao = Convert.ToDateTime(reader["dataAdocao"]);
                             processo.DataAgendamentoVisita = Convert.ToDateTime(reader["agendamentoVisita"]);
-                            processo.Observacoes = reader["observacoes"] != DBNull.Value ? reader["observacoes"].ToString() : "";
+                            processo.Observacoes = reader["observacoes"]?.ToString();
 
-                            // Mapeamento Animal (Apenas o necessário para exibir na lista)
+                            // Animal
                             processo.Animal = new Animal
                             {
                                 IdAnimal = Convert.ToInt32(reader["idAnimal"]),
                                 NomeAnimal = reader["nomeDoAnimal"].ToString()
                             };
+                            string vacinasRaw = reader["listaVacinas"]?.ToString();
+                            if (!string.IsNullOrEmpty(vacinasRaw))
+                                processo.Animal.Vacinas = vacinasRaw.Split('|').ToList();
 
-                            // Mapeamento Tutor (Apenas o necessário para exibir na lista)
+                            // Tutor
                             processo.Tutor = new Tutor
                             {
                                 IdTutor = Convert.ToInt32(reader["idTutor"]),
-                                NomeTutor = reader["nomeDoTutor"].ToString()
+                                NomeTutor = reader["nomeDoTutor"].ToString(),
+                                Rua = reader["rua"]?.ToString(),
+                                Bairro = reader["bairro"]?.ToString(),
+                                Cidade = reader["cidade"]?.ToString(),
+                                Estado = reader["estado"]?.ToString(),
+                                Numero = reader["numero"]?.ToString(),
+                                CEP = reader["cep"]?.ToString(),
+                                Complemento = reader["complemento"]?.ToString()
                             };
+
+                            string ddd = reader["ddd"]?.ToString();
+                            string num = reader["numeroTelefone"]?.ToString();
+                            if (!string.IsNullOrEmpty(ddd) && !string.IsNullOrEmpty(num))
+                            {
+                                processo.Tutor.Telefone = $"({ddd}) {num}";
+                            }
 
                             lista.Add(processo);
                         }
@@ -67,74 +93,24 @@ namespace SavingPets.DAL
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Erro ao listar processos: " + ex.Message);
+                    throw new Exception("Erro no DAL ao listar processos: " + ex.Message);
                 }
             }
             return lista;
         }
 
         // =================================================================
-        // 2. BUSCAR POR ID (Read Unico)
+        // 2. BUSCAR POR ID
         // =================================================================
         public ProcessoAdotivo BuscarPorId(int id)
         {
-            ProcessoAdotivo processo = null;
-
-            string sql = @"
-                SELECT 
-                    PA.idProcessoAdotivo, PA.dataAdocao, PA.agendamentoVisita, PA.observacoes,
-                    A.idAnimal, A.nome AS nomeDoAnimal,
-                    T.idTutor, P.nome AS nomeDoTutor
-                FROM ProcessoAdotivo PA
-                INNER JOIN Animal A ON PA.idAnimal = A.idAnimal
-                INNER JOIN Tutor T ON PA.idTutor = T.idTutor
-                INNER JOIN Pessoa P ON T.idPessoa = P.idPessoa
-                WHERE PA.idProcessoAdotivo = @id;";
-
-            using (MySqlConnection conect = conexao.GetConnection())
-            {
-                try
-                {
-                    conect.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conect))
-                    {
-                        cmd.Parameters.AddWithValue("@id", id);
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                processo = new ProcessoAdotivo();
-
-                                processo.IdProcesso = Convert.ToInt32(reader["idProcessoAdotivo"]);
-                                processo.DataAdocao = Convert.ToDateTime(reader["dataAdocao"]);
-                                processo.DataAgendamentoVisita = Convert.ToDateTime(reader["agendamentoVisita"]);
-                                processo.Observacoes = reader["observacoes"]?.ToString();
-
-                                processo.Animal = new Animal
-                                {
-                                    IdAnimal = Convert.ToInt32(reader["idAnimal"]),
-                                    NomeAnimal = reader["nomeDoAnimal"].ToString()
-                                };
-
-                                processo.Tutor = new Tutor
-                                {
-                                    IdTutor = Convert.ToInt32(reader["idTutor"]),
-                                    NomeTutor = reader["nomeDoTutor"].ToString()
-                                };
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Erro ao buscar processo: " + ex.Message);
-                }
-            }
-            return processo;
+            // Implementação simplificada para suportar o controller
+            // O ideal seria repetir o JOIN do ListarProcessos filtrando por ID
+            return ListarProcessos().FirstOrDefault(p => p.IdProcesso == id);
         }
 
         // =================================================================
-        // 3. SALVAR (Create)
+        // 3. SALVAR (INSERT)
         // =================================================================
         public void Salvar(ProcessoAdotivo processo)
         {
@@ -142,13 +118,10 @@ namespace SavingPets.DAL
             {
                 conect.Open();
                 MySqlTransaction trans = conect.BeginTransaction();
-
                 try
                 {
-                    // 1. Configura Sessão para Trigger (Log)
                     ConfigurarSessao(conect, trans);
 
-                    // 2. Insert
                     string sql = @"
                         INSERT INTO ProcessoAdotivo (idAnimal, idTutor, dataAdocao, agendamentoVisita, observacoes)
                         VALUES (@idAnimal, @idTutor, @dataAdocao, @agendamentoVisita, @observacoes);";
@@ -158,25 +131,22 @@ namespace SavingPets.DAL
                         cmd.Parameters.AddWithValue("@idAnimal", processo.Animal.IdAnimal);
                         cmd.Parameters.AddWithValue("@idTutor", processo.Tutor.IdTutor);
                         cmd.Parameters.AddWithValue("@dataAdocao", processo.DataAdocao);
-                        // Mapeia a propriedade DataAgendamentoVisita do Model para a coluna agendamentoVisita do Banco
                         cmd.Parameters.AddWithValue("@agendamentoVisita", processo.DataAgendamentoVisita);
                         cmd.Parameters.AddWithValue("@observacoes", processo.Observacoes ?? (object)DBNull.Value);
-
                         cmd.ExecuteNonQuery();
                     }
-
                     trans.Commit();
                 }
                 catch (Exception ex)
                 {
                     try { trans.Rollback(); } catch { }
-                    throw new Exception("Erro ao cadastrar processo: " + ex.Message);
+                    throw new Exception("Erro ao salvar processo: " + ex.Message);
                 }
             }
         }
 
         // =================================================================
-        // 4. ALTERAR (Update)
+        // 4. ALTERAR (UPDATE)
         // =================================================================
         public void Alterar(ProcessoAdotivo processo)
         {
@@ -184,52 +154,44 @@ namespace SavingPets.DAL
             {
                 conect.Open();
                 MySqlTransaction trans = conect.BeginTransaction();
-
                 try
                 {
                     ConfigurarSessao(conect, trans);
 
                     string sql = @"
-                        UPDATE ProcessoAdotivo SET 
-                            idAnimal = @idAnimal,
-                            idTutor = @idTutor,
-                            dataAdocao = @dataAdocao,
-                            agendamentoVisita = @agendamentoVisita,
+                        UPDATE ProcessoAdotivo 
+                        SET dataAdocao = @dataAdocao, 
+                            agendamentoVisita = @agendamentoVisita, 
                             observacoes = @observacoes
                         WHERE idProcessoAdotivo = @id;";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conect, trans))
                     {
-                        cmd.Parameters.AddWithValue("@idAnimal", processo.Animal.IdAnimal);
-                        cmd.Parameters.AddWithValue("@idTutor", processo.Tutor.IdTutor);
                         cmd.Parameters.AddWithValue("@dataAdocao", processo.DataAdocao);
                         cmd.Parameters.AddWithValue("@agendamentoVisita", processo.DataAgendamentoVisita);
                         cmd.Parameters.AddWithValue("@observacoes", processo.Observacoes ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@id", processo.IdProcesso);
-
                         cmd.ExecuteNonQuery();
                     }
-
                     trans.Commit();
                 }
                 catch (Exception ex)
                 {
                     try { trans.Rollback(); } catch { }
-                    throw new Exception("Erro ao editar processo: " + ex.Message);
+                    throw new Exception("Erro ao alterar processo: " + ex.Message);
                 }
             }
         }
 
         // =================================================================
-        // 5. EXCLUIR (Delete)
+        // 5. EXCLUIR (DELETE)
         // =================================================================
-        public void Excluir(int idProcesso)
+        public void Excluir(int id)
         {
             using (MySqlConnection conect = conexao.GetConnection())
             {
                 conect.Open();
                 MySqlTransaction trans = conect.BeginTransaction();
-
                 try
                 {
                     ConfigurarSessao(conect, trans);
@@ -238,10 +200,9 @@ namespace SavingPets.DAL
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conect, trans))
                     {
-                        cmd.Parameters.AddWithValue("@id", idProcesso);
+                        cmd.Parameters.AddWithValue("@id", id);
                         cmd.ExecuteNonQuery();
                     }
-
                     trans.Commit();
                 }
                 catch (Exception ex)
@@ -253,7 +214,7 @@ namespace SavingPets.DAL
         }
 
         // =================================================================
-        // 6. PRÓXIMO ID (Auxiliar)
+        // 6. PRÓXIMO ID
         // =================================================================
         public int ObterProximoId()
         {
@@ -263,20 +224,18 @@ namespace SavingPets.DAL
                 try
                 {
                     conect.Open();
-                    string sql = $@"SELECT AUTO_INCREMENT FROM information_schema.TABLES 
-                                    WHERE TABLE_SCHEMA = '{conect.Database}' AND TABLE_NAME = 'ProcessoAdotivo';";
+                    string sql = $@"SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = '{conect.Database}' AND TABLE_NAME = 'ProcessoAdotivo';";
                     using (MySqlCommand cmd = new MySqlCommand(sql, conect))
                     {
                         object result = cmd.ExecuteScalar();
                         if (result != null && result != DBNull.Value) nextId = Convert.ToInt32(result);
                     }
                 }
-                catch { /* Ignora erro e retorna 1 */ }
+                catch { }
             }
             return nextId;
         }
 
-        // --- Método Privado para Configurar Sessão (Evita repetição) ---
         private void ConfigurarSessao(MySqlConnection conect, MySqlTransaction trans)
         {
             int idVol = SessaoUsuario.IdVoluntarioLogado;

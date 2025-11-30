@@ -34,7 +34,7 @@ namespace SavingPets
         {
             txtIdTutor.Text = t.IdTutor.ToString();
             //txtIdAnimal.Text = t.IdAnimal.ToString();
-            txtRua.Text = t.NomeTutor;
+            txtNomeTutor.Text = t.NomeTutor;
 
             if (t.SexoTutor == "Masculino")
                 rbMasculino.Checked = true;
@@ -46,7 +46,7 @@ namespace SavingPets
             txtEmail.Text = t.Email;
 
             txtCep.Text = t.CEP;
-            txtNomeTutor.Text = t.Rua;
+            txtRua.Text = t.Rua;
             txtNumero.Text = t.Numero;
             txtComplemento.Text = t.Complemento;
             txtBairro.Text = t.Bairro;
@@ -146,14 +146,14 @@ namespace SavingPets
                 Tutor novo = new Tutor
                 {
                     IdTutor = 0, //será gerado automaticamente
-                    NomeTutor = txtRua.Text,
+                    NomeTutor = txtNomeTutor.Text,
                     SexoTutor = sexoT,
                     CPF = txtCpf.Text,
                     DataNascimento = dtNascimento.Value,
                     Telefone = telefone,
                     Email = txtEmail.Text,
                     CEP = txtCep.Text,
-                    Rua = txtNomeTutor.Text,
+                    Rua = txtRua.Text,
                     Numero = txtNumero.Text,
                     Complemento = txtComplemento.Text,
                     Bairro = txtBairro.Text,

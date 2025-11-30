@@ -1,4 +1,5 @@
-﻿using SavingPets.Models;
+﻿using SavingPets.Controllers; // <--- 1. Importante: Adicionado namespace do Controller
+using SavingPets.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,22 +14,24 @@ namespace SavingPets
 {
     public partial class FrmConsultarTutor : Form
     {
-        //LISTA DE SIMULAÇÃO DOS DADOS
-        //SUBSTITUIR POR SELECT DO BANCO APÓS INTEGRAÇÃO
-        private List<Tutor> listaTutores;
+        // <--- 2. Instância do Controller para conectar com o banco
+        private TutorController controller = new TutorController();
+
+        // Lista que receberá os dados do banco
+        private List<Tutor> listaTutores = new List<Tutor>();
 
         //Comando para guardar tipo de filtro escolhido pelo usuário
         private string filtroAtual = "Nome";
 
         //Objeto que guarda o tutor selecionado no DataGrid
         private Tutor tutorSelecionado;
+
         public FrmConsultarTutor()
         {
             InitializeComponent();
 
-            //Carrega tutor simulados (EM MEMÓRIA)
-            //EM BANCO → CARREGAR DADOS VIA SELECT
-            CarregarTutorSimulados();
+            // <--- 3. Substituída a simulação pela carga real do banco
+            CarregarDadosBanco();
 
             //Atualiza o DataGrid com os dados da lista
             AtualizarGrid();
@@ -37,18 +40,20 @@ namespace SavingPets
             dgvTutor.SelectionChanged += dgvTutor_SelectionChanged;
         }
 
-        //CLASSE QUE SIMULA O BANCO DE DADOS
-        //ESTE TRECHO SERÁ REMOVIDO APÓS INTEGRAÇÃO COM BANCO
-        private void CarregarTutorSimulados()
+        // <--- 4. Método Novo: Busca dados reais no MySQL via Controller
+        private void CarregarDadosBanco()
         {
-            listaTutores = new List<Tutor>
+            try
             {
-                new Tutor { IdTutor = 1, NomeTutor = "Ana Souza", CPF = "41233652466", Email = "ana@email", Telefone = "19998512233"},
-            };
+                listaTutores = controller.ListarTutores();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar tutores: " + ex.Message);
+            }
         }
 
         //Exibição dos tutores no DataGridView
-        //EM BANCO → A LISTA VIRÁ DE UMA CONSULTA SQL (SELECT)
         private void AtualizarGrid()
         {
             dgvTutor.DataSource = null;
@@ -58,6 +63,18 @@ namespace SavingPets
             dgvTutor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvTutor.MultiSelect = false;
             dgvTutor.ReadOnly = true;
+
+            // Opcional: Esconder coluna de lista de animais se ela existir e atrapalhar o grid
+            if (dgvTutor.Columns["Animais"] != null)
+                dgvTutor.Columns["Animais"].Visible = false;
+        }
+
+        // Método auxiliar para atualizar o grid com resultados de pesquisa
+        private void AtualizarGridFiltrado(List<Tutor> listaFiltrada)
+        {
+            dgvTutor.DataSource = null;
+            dgvTutor.DataSource = listaFiltrada;
+            if (dgvTutor.Columns["Animais"] != null) dgvTutor.Columns["Animais"].Visible = false;
         }
 
         private void rbNome_CheckedChanged(object sender, EventArgs e)
@@ -79,16 +96,19 @@ namespace SavingPets
         {
             string termo = txtPesquisar.Text.ToLower(); //converte texto para minusculo
 
-            //Filtra lista conforme tipo de filtro selecionado
-            var filtrados = listaTutores.Where(p =>
-                (filtroAtual == "Nome" && tutorSelecionado.NomeTutor.ToLower().Contains(termo)) ||
-                (filtroAtual == "CPF" && tutorSelecionado.CPF.ToLower().Contains(termo)) ||
-                (filtroAtual == "Id" && tutorSelecionado.IdTutor.ToString().Contains(termo))
+            if (listaTutores == null) return;
+
+            // <--- 5. CORREÇÃO IMPORTANTE DE BUG --->
+            // Antes estava 'tutorSelecionado.Nome...', o que causava erro se nada estivesse selecionado.
+            // Agora usamos 't' (o item da lista sendo verificado).
+            var filtrados = listaTutores.Where(t =>
+                (filtroAtual == "Nome" && t.NomeTutor.ToLower().Contains(termo)) ||
+                (filtroAtual == "CPF" && t.CPF.ToLower().Contains(termo)) ||
+                (filtroAtual == "ID" && t.IdTutor.ToString().Contains(termo))
             ).ToList();
 
             //Exibe resultados filtrados
-            dgvTutor.DataSource = null;
-            dgvTutor.DataSource = filtrados;
+            AtualizarGridFiltrado(filtrados);
         }
 
         private void dgvTutor_SelectionChanged(object sender, EventArgs e)
@@ -107,6 +127,7 @@ namespace SavingPets
                 }
             }
         }
+
         //Exibe dados do processo nos TextBox
         private void ExibirDetalhes(Tutor tutor)
         {
@@ -136,8 +157,5 @@ namespace SavingPets
         {
             this.Close();
         }
-
-       
     }
 }
-
