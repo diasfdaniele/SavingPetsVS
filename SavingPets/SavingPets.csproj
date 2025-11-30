@@ -97,7 +97,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\VisitaController.cs" />
-    <Compile Include="DAL\BancoDadosProcesso.cs" />
+    <Compile Include="DAL\BancoDadosProcessoAdotivo.cs" />
     <Compile Include="DAL\BancoDeDadosTutor.cs" />
     <Compile Include="DAL\Conexão.cs" />
     <Compile Include="DAL\BancoDadosAnimal.cs" />

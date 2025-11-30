@@ -1,38 +1,33 @@
-﻿using Org.BouncyCastle.Asn1.Cmp;
-using SavingPets.Controllers;
+﻿using SavingPets.Controllers;
 using SavingPets.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SavingPets
 {
     public partial class FrmCadastrarProcesso : Form
     {
-
         // Controllers usados pela tela
-        TutorController tutorController = new TutorController();
-        AnimalController animalController = new AnimalController();
-        ProcessoAdotivoController processoController = new ProcessoAdotivoController();
+        private ProcessoAdotivoController processoController = new ProcessoAdotivoController();
 
         // Guardam os objetos selecionados na busca
         private Tutor tutorSelecionado;
         private Animal animalSelecionado;
+
         public FrmCadastrarProcesso()
         {
             InitializeComponent();
+
+            // Define data mínima como hoje
+            dataAdocao.MinDate = DateTime.Today.AddYears(-5);
+            dataAgendamento.MinDate = DateTime.Today;
         }
 
         private void btnCadastrarProcesso_Click(object sender, EventArgs e)
         {
             try
             {
+                // Validações de Tela
                 if (tutorSelecionado == null)
                     throw new Exception("Por favor, selecione um tutor.");
 
@@ -42,15 +37,17 @@ namespace SavingPets
                 if (dataAdocao.Value.Date > DateTime.Today)
                     throw new Exception("A data de adoção não pode ser futura.");
 
+                // Cria Objeto
                 ProcessoAdotivo novo = new ProcessoAdotivo()
                 {
                     Tutor = tutorSelecionado,
                     Animal = animalSelecionado,
                     DataAdocao = dataAdocao.Value,
-                    DataAgendamentoVisita = dataAgendamento.Value,
+                    AgendamentoVisita = dataAgendamento.Value, // Campo novo do banco
                     Observacoes = txtObservacoes.Text
                 };
 
+                // Chama Controller -> DAL -> Banco
                 processoController.Cadastrar(novo);
 
                 MessageBox.Show("Processo adotivo cadastrado com sucesso!",
@@ -71,12 +68,15 @@ namespace SavingPets
             txtCpf.Clear();
             txtTelefone.Clear();
             txtEmail.Clear();
+
             txtIdAnimal.Clear();
             txtNomeAnimal.Clear();
             txtEspecie.Clear();
             txtCastrado.Clear();
             txtVermifugado.Clear();
+
             dataAdocao.Value = DateTime.Today;
+            dataAgendamento.Value = DateTime.Today;
             txtObservacoes.Clear();
 
             tutorSelecionado = null;
@@ -89,11 +89,14 @@ namespace SavingPets
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 tutorSelecionado = (Tutor)frm.Tag;
-                txtIdTutor.Text = tutorSelecionado.IdTutor.ToString();
-                txtNomeTutor.Text = tutorSelecionado.NomeTutor;
-                txtCpf.Text = tutorSelecionado.CPF;
-                txtTelefone.Text = tutorSelecionado.Telefone;
-                txtEmail.Text = tutorSelecionado.Email;
+                if (tutorSelecionado != null)
+                {
+                    txtIdTutor.Text = tutorSelecionado.IdTutor.ToString();
+                    txtNomeTutor.Text = tutorSelecionado.NomeTutor;
+                    txtCpf.Text = tutorSelecionado.CPF;
+                    txtTelefone.Text = tutorSelecionado.Telefone;
+                    txtEmail.Text = tutorSelecionado.Email;
+                }
             }
         }
 
@@ -103,43 +106,20 @@ namespace SavingPets
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 animalSelecionado = (Animal)frm.Tag;
-                txtIdAnimal.Text = animalSelecionado.IdAnimal.ToString();
-                txtNomeAnimal.Text = animalSelecionado.NomeAnimal;
-                txtEspecie.Text = animalSelecionado.Especie;
-                txtSexo.Text = animalSelecionado.SexoAnimal;
-                txtCastrado.Text = animalSelecionado.Castrado.ToString();
-                txtVermifugado.Text = animalSelecionado.Vermifugado.ToString();
-                txtVacinado.Text = animalSelecionado.Vacinas.ToString();
-
+                if (animalSelecionado != null)
+                {
+                    txtIdAnimal.Text = animalSelecionado.IdAnimal.ToString();
+                    txtNomeAnimal.Text = animalSelecionado.NomeAnimal;
+                    txtEspecie.Text = animalSelecionado.Especie;
+                    txtSexo.Text = animalSelecionado.SexoAnimal;
+                    txtCastrado.Text = animalSelecionado.Castrado;
+                    txtVermifugado.Text = animalSelecionado.Vermifugado;
+                    // txtVacinado.Text = animalSelecionado.Vacinas.ToString(); // Ajustar se tiver lista
+                }
             }
         }
 
-        private void FrmCadastrarProcesso_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-            // Se o sistema está fechando porque Application.Exit() foi chamado,
-            // não mostrar a mensagem novamente.
-            if (e.CloseReason == CloseReason.ApplicationExitCall)
-                return;
-
-            //Exibe mensagem de confirmação
-            var resultado = MessageBox.Show(
-                "Deseja realmente sair do sistema?",
-                "Confirmar saída",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            //se clica não, cancela o fechamento
-            if (resultado == DialogResult.No)
-            {
-                e.Cancel = true;
-                return;
-            }
-
-            Application.Exit();
-
-        }
-
+        // Navegação e Fechamento
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             FrmMenu janela = new FrmMenu();
@@ -147,6 +127,20 @@ namespace SavingPets
             janela.ShowDialog();
             Show();
         }
+
+        private void FrmCadastrarProcesso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.ApplicationExitCall) return;
+
+            var resultado = MessageBox.Show("Deseja realmente sair do sistema?", "Confirmar saída",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
+                return;
+            }
+            Application.Exit();
+        }
     }
 }
-

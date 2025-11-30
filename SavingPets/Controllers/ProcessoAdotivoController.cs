@@ -1,4 +1,5 @@
-﻿using SavingPets.Models;
+﻿using SavingPets.DAL;
+using SavingPets.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,52 +8,57 @@ namespace SavingPets.Controllers
 {
     internal class ProcessoAdotivoController
     {
-        //POR ENQUANTO: lista em memória
-        private static List<ProcessoAdotivo> processos = new List<ProcessoAdotivo>();
-
-        // Quando integrar banco, substituir por chamada ao DAL
-        // private static BancoDadosProcessoAdotivo processoDados = new BancoDadosProcessoAdotivo();
+        // Conexão com o DAL
+        private BancoDadosProcessoAdotivo processoDados = new BancoDadosProcessoAdotivo();
 
         public void Cadastrar(ProcessoAdotivo processo)
         {
-            if (processo.IdProcesso == 0)
-            {
-                processo.IdProcesso = ObterProximoId();
-            }
-
-            // FUTURO: processoDados.Salvar(processo);
-            processos.Add(processo);
+            ValidarProcesso(processo);
+            processoDados.Salvar(processo);
         }
 
         public List<ProcessoAdotivo> Listar()
         {
-            // FUTURO: return processoDados.ListarTodos();
-            return processos;
+            return processoDados.ListarProcessos();
         }
+
         public ProcessoAdotivo BuscarPorId(int id)
         {
-            // FUTURO: return processoDados.Buscar(id);
-            return processos.FirstOrDefault(p => p.IdProcesso == id);
+            if (id <= 0) return null;
+            return processoDados.BuscarPorId(id);
         }
 
         public void Editar(ProcessoAdotivo processoEditado)
         {
-            var processo = BuscarPorId(processoEditado.IdProcesso);
-            if (processo == null)
-                throw new Exception("Processo não encontrado!");
+            if (processoEditado.IdProcesso <= 0)
+                throw new Exception("ID do processo inválido para edição!");
 
-            processo.Tutor = processoEditado.Tutor;
-            processo.Animal = processoEditado.Animal;
-            processo.DataAdocao = processoEditado.DataAdocao;
-            processo.Observacoes = processoEditado.Observacoes;
+            ValidarProcesso(processoEditado);
+            processoDados.Alterar(processoEditado);
+        }
 
-            // FUTURO: processoDados.Alterar(processoEditado);
+        public void Excluir(int id)
+        {
+            if (id <= 0) throw new Exception("ID inválido.");
+            processoDados.Excluir(id);
         }
 
         public int ObterProximoId()
         {
-            // ➜ FUTURO: return processoDados.ExtrairMaiorId() + 1;
-            return processos.Count == 0 ? 1 : processos.Max(p => p.IdProcesso) + 1;
+            return processoDados.ObterProximoId();
+        }
+
+        // Validações básicas antes de enviar pro banco
+        private void ValidarProcesso(ProcessoAdotivo p)
+        {
+            if (p.Animal == null || p.Animal.IdAnimal <= 0)
+                throw new Exception("É necessário vincular um Animal ao processo.");
+
+            if (p.Tutor == null || p.Tutor.IdTutor <= 0)
+                throw new Exception("É necessário vincular um Tutor ao processo.");
+
+            if (p.DataAdocao == DateTime.MinValue)
+                throw new Exception("Data de adoção inválida.");
         }
     }
 }
