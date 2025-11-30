@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SavingPets.DAL
 {
@@ -14,14 +15,16 @@ namespace SavingPets.DAL
 
         public bool Logar(string Login, string Senha)
         {
-            
-                using (MySqlConnection Con = Conect.GetConnection()) //tenta se conectar com o banco
-                {
+            using (MySqlConnection Con = Conect.GetConnection())
+            {
                 try
                 {
-                    Con.Open(); //Abre a conexão
+                    Con.Open();
 
-                    string ComandoSql = "SELECT * FROM Pessoa INNER JOIN Voluntario ON Voluntario.idPessoa = Pessoa.idPessoa  WHERE email=@email AND senha=@senha ";//Seleciona os voluntários cadastrados
+                    string ComandoSql = "SELECT Voluntario.idVoluntario " +
+                                        "FROM Pessoa INNER JOIN Voluntario ON Voluntario.idPessoa = Pessoa.idPessoa " +
+                                        "WHERE email=@email AND senha=@senha";
+
                     MySqlCommand Command = new MySqlCommand(ComandoSql, Con);
 
                     Command.Parameters.AddWithValue("@email", Login);
@@ -29,21 +32,31 @@ namespace SavingPets.DAL
 
                     MySqlDataReader LeitorDados = Command.ExecuteReader();
 
-                    return LeitorDados.HasRows; //retorna a quantidade de linhas encontradas
-                                                //como o Email é único, sempre retorna 1
+                    if (LeitorDados.Read())
+                    {
+                        int idVol = Convert.ToInt32(LeitorDados["idVoluntario"]);
+
+                        SessaoUsuario.IdVoluntarioLogado = idVol;
+
+                        return true;
+                    }
+
+                    return false;
                 }
                 catch (Exception ex)
                 {
-                    //lança a exceção para a classe que o chamou
-                    throw new Exception("Erro: " + ex.Message); ;
+                    throw new Exception("Erro: " + ex.Message);
                 }
                 finally
                 {
                     Con.Close();
                 }
             }
+        }
 
-           
+        public static class SessaoUsuario
+        {
+            public static int IdVoluntarioLogado { get; set; }
         }
     }
 }

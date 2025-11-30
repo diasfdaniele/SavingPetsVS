@@ -11,7 +11,7 @@ namespace SavingPets.DAL
     {
         //Cria a conexão com o Banco de Dados
         //Não esqueça de colocar as informações certas na string
-        private readonly string ConStr = @"server=127.0.0.1;uid=root;pwd=;database=SavingPets";
+        private readonly string ConStr = @"server=127.0.0.1;uid=root;pwd=;database=SavingPets; Allow User Variables=True";
 
         public MySqlConnection GetConnection()
         {

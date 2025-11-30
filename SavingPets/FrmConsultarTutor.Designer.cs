@@ -62,7 +62,7 @@
             this.rbId.Location = new System.Drawing.Point(465, 58);
             this.rbId.Margin = new System.Windows.Forms.Padding(2);
             this.rbId.Name = "rbId";
-            this.rbId.Size = new System.Drawing.Size(47, 24);
+            this.rbId.Size = new System.Drawing.Size(44, 22);
             this.rbId.TabIndex = 40;
             this.rbId.Text = "ID ";
             this.rbId.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPesquisar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesquisar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.Location = new System.Drawing.Point(495, 28);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(29, 26);
@@ -90,7 +90,7 @@
             this.lblFiltro.Location = new System.Drawing.Point(15, 30);
             this.lblFiltro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(57, 20);
+            this.lblFiltro.Size = new System.Drawing.Size(53, 18);
             this.lblFiltro.TabIndex = 1;
             this.lblFiltro.Text = "Nome ";
             // 
@@ -100,7 +100,7 @@
             this.rbCpf.Location = new System.Drawing.Point(299, 58);
             this.rbCpf.Margin = new System.Windows.Forms.Padding(2);
             this.rbCpf.Name = "rbCpf";
-            this.rbCpf.Size = new System.Drawing.Size(55, 24);
+            this.rbCpf.Size = new System.Drawing.Size(56, 22);
             this.rbCpf.TabIndex = 5;
             this.rbCpf.Text = "CPF";
             this.rbCpf.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@
             this.rbNome.Location = new System.Drawing.Point(126, 58);
             this.rbNome.Margin = new System.Windows.Forms.Padding(2);
             this.rbNome.Name = "rbNome";
-            this.rbNome.Size = new System.Drawing.Size(75, 24);
+            this.rbNome.Size = new System.Drawing.Size(71, 22);
             this.rbNome.TabIndex = 4;
             this.rbNome.TabStop = true;
             this.rbNome.Text = "Nome ";
@@ -128,7 +128,7 @@
             this.groupBox1.Controls.Add(this.rbCpf);
             this.groupBox1.Controls.Add(this.txtPesquisar);
             this.groupBox1.Controls.Add(this.rbNome);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(50, 8);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -140,11 +140,11 @@
             // 
             // txtPesquisar
             // 
-            this.txtPesquisar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPesquisar.Location = new System.Drawing.Point(114, 28);
             this.txtPesquisar.Margin = new System.Windows.Forms.Padding(2);
             this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(382, 26);
+            this.txtPesquisar.Size = new System.Drawing.Size(382, 24);
             this.txtPesquisar.TabIndex = 2;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             // 
@@ -153,7 +153,7 @@
             this.txtId.Location = new System.Drawing.Point(144, 30);
             this.txtId.Margin = new System.Windows.Forms.Padding(2);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(112, 26);
+            this.txtId.Size = new System.Drawing.Size(112, 24);
             this.txtId.TabIndex = 20;
             // 
             // label10
@@ -162,7 +162,7 @@
             this.label10.Location = new System.Drawing.Point(10, 33);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 20);
+            this.label10.Size = new System.Drawing.Size(26, 18);
             this.label10.TabIndex = 18;
             this.label10.Text = "ID:";
             // 
@@ -172,7 +172,7 @@
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(545, 351);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(115, 35);
@@ -187,7 +187,7 @@
             this.btnSelecionar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSelecionar.FlatAppearance.BorderSize = 0;
             this.btnSelecionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelecionar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelecionar.Location = new System.Drawing.Point(545, 288);
             this.btnSelecionar.Name = "btnSelecionar";
             this.btnSelecionar.Size = new System.Drawing.Size(115, 35);
@@ -208,7 +208,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtCpf);
             this.groupBox2.Enabled = false;
-            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(50, 267);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
@@ -223,7 +223,7 @@
             this.txtDadosMedicos.Location = new System.Drawing.Point(139, 193);
             this.txtDadosMedicos.Margin = new System.Windows.Forms.Padding(2);
             this.txtDadosMedicos.Name = "txtDadosMedicos";
-            this.txtDadosMedicos.Size = new System.Drawing.Size(324, 26);
+            this.txtDadosMedicos.Size = new System.Drawing.Size(324, 24);
             this.txtDadosMedicos.TabIndex = 13;
             // 
             // label14
@@ -232,7 +232,7 @@
             this.label14.Location = new System.Drawing.Point(17, 262);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(0, 20);
+            this.label14.Size = new System.Drawing.Size(0, 18);
             this.label14.TabIndex = 26;
             // 
             // label12
@@ -241,7 +241,7 @@
             this.label12.Location = new System.Drawing.Point(10, 193);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 20);
+            this.label12.Size = new System.Drawing.Size(117, 18);
             this.label12.TabIndex = 23;
             this.label12.Text = "Dados médicos:";
             // 
@@ -251,7 +251,7 @@
             this.label3.Location = new System.Drawing.Point(10, 99);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 20);
+            this.label3.Size = new System.Drawing.Size(42, 18);
             this.label3.TabIndex = 15;
             this.label3.Text = "CPF:";
             // 
@@ -260,7 +260,7 @@
             this.txtNome.Location = new System.Drawing.Point(144, 62);
             this.txtNome.Margin = new System.Windows.Forms.Padding(2);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(322, 26);
+            this.txtNome.Size = new System.Drawing.Size(322, 24);
             this.txtNome.TabIndex = 0;
             // 
             // label2
@@ -269,7 +269,7 @@
             this.label2.Location = new System.Drawing.Point(10, 68);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
+            this.label2.Size = new System.Drawing.Size(53, 18);
             this.label2.TabIndex = 14;
             this.label2.Text = "Nome:";
             // 
@@ -278,7 +278,7 @@
             this.txtCpf.Location = new System.Drawing.Point(144, 96);
             this.txtCpf.Margin = new System.Windows.Forms.Padding(2);
             this.txtCpf.Name = "txtCpf";
-            this.txtCpf.Size = new System.Drawing.Size(322, 26);
+            this.txtCpf.Size = new System.Drawing.Size(322, 24);
             this.txtCpf.TabIndex = 1;
             // 
             // dgvTutor
@@ -302,6 +302,7 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 53;
             this.pictureBox5.TabStop = false;
+//            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // FrmConsultarTutor
             // 
