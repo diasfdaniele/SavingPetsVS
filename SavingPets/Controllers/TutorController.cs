@@ -16,7 +16,6 @@ namespace SavingPets.Controllers
         // Cadastrar tutor (Agora chama o Banco)
         public void CadastrarTutor(Tutor novoTutor)
         {
-            // Podemos colocar validações aqui antes de enviar pro banco
             if (string.IsNullOrEmpty(novoTutor.NomeTutor))
                 throw new Exception("O nome do tutor é obrigatório.");
             tutorDados.SalvaDados(novoTutor);
@@ -38,6 +37,15 @@ namespace SavingPets.Controllers
         public Tutor BuscarPorId(int id)
         {
             return tutorDados.BuscarPorId(id);
+        }
+
+        // Excluir tutor (Chama o Banco) - [NOVO]
+        public void ExcluirTutor(int id)
+        {
+            if (id <= 0)
+                throw new Exception("ID inválido para exclusão.");
+
+            tutorDados.ExcluirTutor(id);
         }
 
         // Gerar próximo ID 

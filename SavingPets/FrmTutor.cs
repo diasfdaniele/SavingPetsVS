@@ -34,7 +34,7 @@ namespace SavingPets
         {
             txtIdTutor.Text = t.IdTutor.ToString();
             //txtIdAnimal.Text = t.IdAnimal.ToString();
-            txtNomeTutor.Text = t.NomeTutor;
+            txtRua.Text = t.NomeTutor;
 
             if (t.SexoTutor == "Masculino")
                 rbMasculino.Checked = true;
@@ -46,7 +46,7 @@ namespace SavingPets
             txtEmail.Text = t.Email;
 
             txtCep.Text = t.CEP;
-            txtRua.Text = t.Rua;
+            txtNomeTutor.Text = t.Rua;
             txtNumero.Text = t.Numero;
             txtComplemento.Text = t.Complemento;
             txtBairro.Text = t.Bairro;
@@ -84,13 +84,13 @@ namespace SavingPets
                 }
 
                 //Verifica campos obrigatórios
-                if (string.IsNullOrEmpty(txtNomeTutor.Text) ||
+                if (string.IsNullOrEmpty(txtRua.Text) ||
                     string.IsNullOrEmpty(txtCpf.Text) ||
                     string.IsNullOrEmpty(dtNascimento.Text) ||
                     string.IsNullOrEmpty(txtEmail.Text) ||
                     string.IsNullOrEmpty(txtTelefone.Text) ||
                     string.IsNullOrEmpty(txtCep.Text) ||
-                    string.IsNullOrEmpty(txtRua.Text) ||
+                    string.IsNullOrEmpty(txtNomeTutor.Text) ||
                     string.IsNullOrEmpty(txtNumero.Text) ||
                     string.IsNullOrEmpty(txtBairro.Text) ||
                     string.IsNullOrEmpty(txtCidade.Text) ||
@@ -146,23 +146,20 @@ namespace SavingPets
                 Tutor novo = new Tutor
                 {
                     IdTutor = 0, //será gerado automaticamente
-                    NomeTutor = txtNomeTutor.Text,
+                    NomeTutor = txtRua.Text,
                     SexoTutor = sexoT,
                     CPF = txtCpf.Text,
                     DataNascimento = dtNascimento.Value,
                     Telefone = telefone,
                     Email = txtEmail.Text,
                     CEP = txtCep.Text,
-                    Rua = txtRua.Text,
+                    Rua = txtNomeTutor.Text,
                     Numero = txtNumero.Text,
                     Complemento = txtComplemento.Text,
                     Bairro = txtBairro.Text,
                     Cidade = txtCidade.Text,
                     Estado = txtEstado.Text
                 };
-
-                controller.CadastrarTutor(novo);
-                MessageBox.Show($"Tutor cadastrado com sucesso!");
 
                 txtIdTutor.Text = controller.ObterProximoId().ToString();
                 LimparCampos();
@@ -211,12 +208,12 @@ namespace SavingPets
 
         private void LimparCampos()
         {
-            txtNomeTutor.Clear();
+            txtRua.Clear();
             txtCpf.Clear();
             txtTelefone.Clear();
             txtEmail.Clear();
             txtCep.Clear();
-            txtRua.Clear();
+            txtNomeTutor.Clear();
             txtNumero.Clear();
             txtComplemento.Clear();
             txtBairro.Clear();

@@ -19,7 +19,6 @@ namespace SavingPets.DAL
         {
             List<Tutor> listaTutores = new List<Tutor>();
 
-            // Query que junta Pessoa, Endereco e Telefone para montar o objeto completo
             string sql = @"
                             SELECT 
                                 T.idTutor, 
@@ -45,7 +44,6 @@ namespace SavingPets.DAL
                             {
                                 Tutor tutor = new Tutor();
 
-                                // Preenchendo dados (conforme fizemos anteriormente)
                                 tutor.IdTutor = Convert.ToInt32(reader["idTutor"]);
                                 tutor.NomeTutor = reader["nome"].ToString();
                                 tutor.CPF = reader["cpf"].ToString();
@@ -53,17 +51,14 @@ namespace SavingPets.DAL
                                 tutor.DataNascimento = Convert.ToDateTime(reader["dataNascimento"]);
                                 tutor.SexoTutor = reader["sexo"].ToString();
 
-                                // Endereço
                                 tutor.CEP = reader["cep"].ToString();
                                 tutor.Rua = reader["rua"].ToString();
-                                // Lembra do ToString aqui para não dar erro de conversão
                                 tutor.Numero = reader["numero"].ToString();
                                 tutor.Bairro = reader["bairro"].ToString();
                                 tutor.Cidade = reader["cidade"].ToString();
                                 tutor.Estado = reader["estado"].ToString();
                                 tutor.Complemento = reader["complemento"] != DBNull.Value ? reader["complemento"].ToString() : null;
 
-                                // Telefone Formatado
                                 string ddd = reader["ddd"].ToString();
                                 string num = reader["numeroTelefone"].ToString();
                                 tutor.Telefone = $"({ddd}) {num}";
@@ -114,7 +109,6 @@ namespace SavingPets.DAL
                             if (reader.Read())
                             {
                                 tutor = new Tutor();
-
                                 tutor.IdTutor = Convert.ToInt32(reader["idTutor"]);
                                 tutor.NomeTutor = reader["nome"].ToString();
                                 tutor.CPF = reader["cpf"].ToString();
@@ -130,7 +124,6 @@ namespace SavingPets.DAL
                                 tutor.Estado = reader["estado"].ToString();
                                 tutor.Complemento = reader["complemento"] != DBNull.Value ? reader["complemento"].ToString() : null;
 
-                                // Telefone: Junta DDD e Número
                                 string ddd = reader["ddd"].ToString();
                                 string num = reader["numeroTelefone"].ToString();
                                 tutor.Telefone = $"({ddd}) {num}";
@@ -143,7 +136,6 @@ namespace SavingPets.DAL
                     throw new Exception("Erro ao buscar tutor por ID: " + ex.Message);
                 }
             }
-
             return tutor;
         }
 
@@ -159,7 +151,7 @@ namespace SavingPets.DAL
 
                 try
                 {
-                    // --- Configurar Variável de Sessão para Log ---
+                    // Log
                     int idVoluntarioAtual = SessaoUsuario.IdVoluntarioLogado;
                     if (idVoluntarioAtual > 0)
                     {
@@ -169,14 +161,13 @@ namespace SavingPets.DAL
                         }
                     }
 
-                    // --- 1) Inserir Pessoa ---
+                    // Pessoa
                     string sqlInsertPessoa = @"
                         INSERT INTO Pessoa (nome, cpf, email, dataNascimento, sexo, dataCadastro, login, senha)
                         VALUES (@nome, @cpf, @email, @dataNascimento, @sexo, NOW(), @login, @senha);
                         SELECT LAST_INSERT_ID();";
 
                     int novoIdPessoa = 0;
-
                     using (MySqlCommand cmd = new MySqlCommand(sqlInsertPessoa, conect, trans))
                     {
                         cmd.Parameters.AddWithValue("@nome", tutor.NomeTutor);
@@ -184,14 +175,12 @@ namespace SavingPets.DAL
                         cmd.Parameters.AddWithValue("@email", tutor.Email ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@dataNascimento", tutor.DataNascimento);
                         cmd.Parameters.AddWithValue("@sexo", tutor.SexoTutor);
-                        cmd.Parameters.AddWithValue("@login", tutor.Email); // Login padrão = email
-                        cmd.Parameters.AddWithValue("@senha", "1234");      // Senha padrão
-
-                        // Executa e recupera o ID gerado
+                        cmd.Parameters.AddWithValue("@login", tutor.Email);
+                        cmd.Parameters.AddWithValue("@senha", "1234");
                         novoIdPessoa = Convert.ToInt32(cmd.ExecuteScalar());
                     }
 
-                    // --- 2) Inserir Endereco ---
+                    // Endereco
                     string sqlInsertEndereco = @"
                         INSERT INTO Endereco (cep, rua, numero, bairro, cidade, estado, complemento, idPessoa)
                         VALUES (@cep, @rua, @numero, @bairro, @cidade, @estado, @complemento, @idPessoa);";
@@ -209,15 +198,12 @@ namespace SavingPets.DAL
                         cmdEnd.ExecuteNonQuery();
                     }
 
-                    // --- 3) Inserir Telefone (Tratamento de String) ---
-                    // Limpa caracteres não numéricos
+                    // Telefone
                     string telNumeros = new string(tutor.Telefone.Where(char.IsDigit).ToArray());
-
                     if (telNumeros.Length >= 10)
                     {
                         string ddd = telNumeros.Substring(0, 2);
                         string numero = telNumeros.Substring(2);
-
                         string sqlInsertTel = @"INSERT INTO Telefone (ddd, numero, idPessoa) VALUES (@ddd, @numero, @idPessoa);";
                         using (MySqlCommand cmdTel = new MySqlCommand(sqlInsertTel, conect, trans))
                         {
@@ -228,7 +214,7 @@ namespace SavingPets.DAL
                         }
                     }
 
-                    // --- 4) Inserir Tutor ---
+                    // Tutor
                     string sqlInsertTutor = @"INSERT INTO Tutor(idPessoa) VALUES (@idPessoa)";
                     using (MySqlCommand cmdTutor = new MySqlCommand(sqlInsertTutor, conect, trans))
                     {
@@ -258,7 +244,6 @@ namespace SavingPets.DAL
 
                 try
                 {
-                    // --- Configurar Variável de Sessão ---
                     int idVoluntarioAtual = SessaoUsuario.IdVoluntarioLogado;
                     if (idVoluntarioAtual > 0)
                     {
@@ -268,19 +253,16 @@ namespace SavingPets.DAL
                         }
                     }
 
-                    // --- 1) Descobrir idPessoa baseado no idTutor ---
                     int idPessoa = 0;
                     string sqlGetId = "SELECT idPessoa FROM Tutor WHERE idTutor = @idTutor";
                     using (MySqlCommand cmdGet = new MySqlCommand(sqlGetId, conect, trans))
                     {
                         cmdGet.Parameters.AddWithValue("@idTutor", tutorEditado.IdTutor);
                         object result = cmdGet.ExecuteScalar();
-
                         if (result != null) idPessoa = Convert.ToInt32(result);
                         else throw new Exception("Tutor não encontrado.");
                     }
 
-                    // --- 2) Atualizar Pessoa ---
                     string sqlUpdatePessoa = @"
                         UPDATE Pessoa SET 
                             nome = @nome, cpf = @cpf, email = @email, 
@@ -298,7 +280,6 @@ namespace SavingPets.DAL
                         cmd.ExecuteNonQuery();
                     }
 
-                    // --- 3) Atualizar Endereco ---
                     string sqlUpdateEndereco = @"
                         UPDATE Endereco SET 
                             cep = @cep, rua = @rua, numero = @numero, bairro = @bairro, 
@@ -318,14 +299,11 @@ namespace SavingPets.DAL
                         cmdEnd.ExecuteNonQuery();
                     }
 
-                    // --- 4) Atualizar Telefone (Lógica de Separação) ---
                     string telNumeros = new string(tutorEditado.Telefone.Where(char.IsDigit).ToArray());
-
                     if (telNumeros.Length >= 10)
                     {
                         string ddd = telNumeros.Substring(0, 2);
                         string numero = telNumeros.Substring(2);
-
                         string sqlUpdateTel = @"UPDATE Telefone SET ddd = @ddd, numero = @numero WHERE idPessoa = @idPessoa;";
                         using (MySqlCommand cmdTel = new MySqlCommand(sqlUpdateTel, conect, trans))
                         {
@@ -347,20 +325,68 @@ namespace SavingPets.DAL
         }
 
         // =================================================================
-        // 5. OBTER PRÓXIMO ID (Consultando Metadados do MySQL)
+        // 5. EXCLUIR TUTOR (Delete) - [NOVO]
+        // =================================================================
+        public void ExcluirTutor(int idTutor)
+        {
+            using (MySqlConnection conect = conexao.GetConnection())
+            {
+                conect.Open();
+                MySqlTransaction trans = conect.BeginTransaction();
+
+                try
+                {
+                    // 1. Log (Define quem está excluindo)
+                    int idVoluntarioAtual = SessaoUsuario.IdVoluntarioLogado;
+                    if (idVoluntarioAtual > 0)
+                    {
+                        using (MySqlCommand cmdSessao = new MySqlCommand($"SET @voluntario_responsavel = {idVoluntarioAtual};", conect, trans))
+                        {
+                            cmdSessao.ExecuteNonQuery();
+                        }
+                    }
+
+                    // 2. Busca o ID PESSOA vinculado ao Tutor
+                    int idPessoa = 0;
+                    string sqlGetId = "SELECT idPessoa FROM Tutor WHERE idTutor = @idTutor";
+                    using (MySqlCommand cmdGet = new MySqlCommand(sqlGetId, conect, trans))
+                    {
+                        cmdGet.Parameters.AddWithValue("@idTutor", idTutor);
+                        object result = cmdGet.ExecuteScalar();
+                        if (result != null) idPessoa = Convert.ToInt32(result);
+                        else throw new Exception("Tutor não encontrado para exclusão.");
+                    }
+
+                    // 3. Deleta a PESSOA (A Trigger do banco fará o delete em cascata de Tutor, Endereco, Telefone, etc)
+                    string sqlDelete = "DELETE FROM Pessoa WHERE idPessoa = @idPessoa";
+                    using (MySqlCommand cmd = new MySqlCommand(sqlDelete, conect, trans))
+                    {
+                        cmd.Parameters.AddWithValue("@idPessoa", idPessoa);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    trans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    try { trans.Rollback(); } catch { }
+                    throw new Exception("Erro ao excluir tutor: " + ex.Message);
+                }
+            }
+        }
+
+        // =================================================================
+        // 6. OBTER PRÓXIMO ID (Consultando Metadados do MySQL)
         // =================================================================
         public int ProximoId()
         {
-            int nextId = 1; // Valor padrão caso a tabela esteja vazia ou não encontrada
+            int nextId = 1;
 
             using (MySqlConnection conect = conexao.GetConnection())
             {
                 try
                 {
                     conect.Open();
-
-                    // Consulta a tabela do sistema que guarda o ponteiro do Auto_Increment
-                    // Usamos 'conect.Database' para pegar o nome do banco atual da string de conexão
                     string sql = $@"
                         SELECT AUTO_INCREMENT
                         FROM information_schema.TABLES
@@ -370,7 +396,6 @@ namespace SavingPets.DAL
                     using (MySqlCommand cmd = new MySqlCommand(sql, conect))
                     {
                         object result = cmd.ExecuteScalar();
-
                         if (result != null && result != DBNull.Value)
                         {
                             nextId = Convert.ToInt32(result);
@@ -382,7 +407,6 @@ namespace SavingPets.DAL
                     throw new Exception("Erro ao obter o próximo ID: " + ex.Message);
                 }
             }
-
             return nextId;
         }
     }

@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using SavingPets.Controllers; // Importante
-using SavingPets.Models;      // Importante
+using SavingPets.Controllers; // Namespace do Controller
+using SavingPets.Models;      // Namespace do Model
 
 namespace SavingPets
 {
     public partial class FrmGerenciarTutor : Form
     {
-        // 1. Instância do Controller (A Conexão com o Banco)
+        // 1. Instância do Controller (Ponte para o Banco)
         private TutorController controller = new TutorController();
 
-        // 2. Lista para armazenar os dados vindos do BANCO
+        // 2. Lista para armazenar os dados vindos do banco
         private List<Tutor> listaTutores = new List<Tutor>();
 
         // Controle de seleção e filtro
@@ -24,22 +24,21 @@ namespace SavingPets
         {
             InitializeComponent();
 
-            // Configuração inicial dos RadioButtons
+            // Configuração inicial
             rbCodigo_Tutor.Checked = true;
 
-            // 3. CARREGA DADOS DO BANCO (Substituindo a simulação)
+            // 3. Carrega dados reais do banco ao abrir
             CarregarTutoresDoBanco();
 
-            // Configura e exibe no Grid
+            // Configura o Grid
             AtualizarGrid();
 
-            // Liga eventos
-            dgvTutores.SelectionChanged += dgvTutores_SelectionChanged;
-            btnPesquisar_Tutor.Click += btnPesquisar_Tutor_Click;
-            btnEditar_Tutor.Click += btnEditar_Tutor_Click;
-
-            // O botão excluir precisa de um método no controller, se não tiver, comente a linha abaixo
-            // btnExcluir_Tutor.Click += btnExcluir_Tutor_Click; 
+            // Foram removidos as linhas:
+            // dgvTutores.SelectionChanged += dgvTutores_SelectionChanged;
+            // btnPesquisar_Tutor.Click += btnPesquisar_Tutor_Click;
+            // btnEditar_Tutor.Click += btnEditar_Tutor_Click;
+            // btnExcluir_Tutor.Click += btnExcluir_Tutor_Click;
+            // Poís geravam click duplo involuntário
         }
 
         // ========================================================
@@ -49,7 +48,7 @@ namespace SavingPets
         {
             try
             {
-                // Busca a lista real lá do MySQL através do Controller
+                // Busca a lista atualizada no MySQL
                 listaTutores = controller.ListarTutores();
             }
             catch (Exception ex)
@@ -66,13 +65,7 @@ namespace SavingPets
             dgvTutores.DataSource = null;
             dgvTutores.DataSource = listaTutores;
 
-            dgvTutores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvTutores.MultiSelect = false;
-            dgvTutores.ReadOnly = true;
-
-            // Dica: Esconder a coluna de animais para não poluir o grid
-            if (dgvTutores.Columns["Animais"] != null)
-                dgvTutores.Columns["Animais"].Visible = false;
+            ConfigurarVisualGrid();
         }
 
         // Atualiza grid com lista filtrada
@@ -80,7 +73,19 @@ namespace SavingPets
         {
             dgvTutores.DataSource = null;
             dgvTutores.DataSource = listaFiltrada;
-            if (dgvTutores.Columns["Animais"] != null) dgvTutores.Columns["Animais"].Visible = false;
+
+            ConfigurarVisualGrid();
+        }
+
+        private void ConfigurarVisualGrid()
+        {
+            dgvTutores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvTutores.MultiSelect = false;
+            dgvTutores.ReadOnly = true;
+
+            // Oculta coluna complexa se existir
+            if (dgvTutores.Columns["Animais"] != null)
+                dgvTutores.Columns["Animais"].Visible = false;
         }
 
         // ========================================================
@@ -90,9 +95,10 @@ namespace SavingPets
         {
             string termo = textBox1.Text.Trim().ToLower();
 
+            // Proteção contra lista vazia ou nula
             if (listaTutores == null || listaTutores.Count == 0) return;
 
-            // Se o campo estiver vazio, recarrega tudo
+            // Se vazio, mostra tudo
             if (string.IsNullOrWhiteSpace(termo))
             {
                 AtualizarGrid();
@@ -164,7 +170,7 @@ namespace SavingPets
             FrmTutor frm = new FrmTutor(tutorSelecionado);
             frm.ShowDialog();
 
-            // Ao voltar, recarrega os dados do banco para ver as mudanças
+            // Ao voltar, recarrega os dados do banco para refletir a edição
             CarregarTutoresDoBanco();
             AtualizarGrid();
         }
@@ -177,9 +183,11 @@ namespace SavingPets
                 return;
             }
 
+            // Confirmação de segurança
             var confirm = MessageBox.Show(
-                $"Deseja excluir o tutor {tutorSelecionado.NomeTutor}?\nIsso apagará também os animais e visitas vinculados.",
-                "Confirmar exclusão",
+                $"Deseja excluir o tutor {tutorSelecionado.NomeTutor}?\n" +
+                "ATENÇÃO: Isso apagará todo o histórico, animais e visitas vinculados!",
+                "Confirmar exclusão crítica",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
             );
@@ -188,20 +196,41 @@ namespace SavingPets
             {
                 try
                 {
-                    // AQUI VOCÊ PRECISARÁ CRIAR O MÉTODO 'ExcluirTutor' NO CONTROLLER
-                    // controller.ExcluirTutor(tutorSelecionado.IdTutor); 
+                    // 🔥 CHAMA A EXCLUSÃO REAL NO BANCO
+                    controller.ExcluirTutor(tutorSelecionado.IdTutor);
 
-                    MessageBox.Show("Funcionalidade de exclusão precisa ser implementada no DAL/Controller.");
+                    MessageBox.Show("Tutor excluído com sucesso!");
 
-                    // Após excluir:
-                    // CarregarTutoresDoBanco();
-                    // AtualizarGrid();
+                    // Atualiza a tela
+                    CarregarTutoresDoBanco();
+                    AtualizarGrid();
+
+                    // Limpa os campos de detalhes visualmente
+                    LimparCamposDetalhes();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao excluir: " + ex.Message);
+                    MessageBox.Show("Erro ao excluir: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void LimparCamposDetalhes()
+        {
+            txtIdTutor.Clear();
+            txtNomeTutor.Clear();
+            txtSexoTutor.Clear();
+            txtCPF.Clear();
+            txtTelefone.Clear();
+            txtEmail.Clear();
+            txtCep.Clear();
+            txtRua.Clear();
+            txtNumero.Clear();
+            txtComplemento.Clear();
+            txtBairro.Clear();
+            txtCidade.Clear();
+            txtEstado.Clear();
+            tutorSelecionado = null;
         }
 
         // ========================================================
@@ -226,7 +255,7 @@ namespace SavingPets
             FrmMenu janela = new FrmMenu();
             Hide();
             janela.ShowDialog();
-            Show(); // Garante que volta se o menu fechar apenas com Hide
+            Show();
         }
     }
 }
