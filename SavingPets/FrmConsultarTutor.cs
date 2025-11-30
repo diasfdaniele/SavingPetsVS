@@ -15,7 +15,7 @@ namespace SavingPets
     {
         //LISTA DE SIMULAÇÃO DOS DADOS
         //SUBSTITUIR POR SELECT DO BANCO APÓS INTEGRAÇÃO
-        private List<Tutor> listaTutor;
+        private List<Tutor> listaTutores;
 
         //Comando para guardar tipo de filtro escolhido pelo usuário
         private string filtroAtual = "Nome";
@@ -41,7 +41,7 @@ namespace SavingPets
         //ESTE TRECHO SERÁ REMOVIDO APÓS INTEGRAÇÃO COM BANCO
         private void CarregarTutorSimulados()
         {
-            listaTutor = new List<Tutor>
+            listaTutores = new List<Tutor>
             {
                 new Tutor { IdTutor = 1, NomeTutor = "Ana Souza", CPF = "41233652466", Email = "ana@email", Telefone = "19998512233"},
             };
@@ -52,7 +52,7 @@ namespace SavingPets
         private void AtualizarGrid()
         {
             dgvTutor.DataSource = null;
-            dgvTutor.DataSource = listaTutor;
+            dgvTutor.DataSource = listaTutores;
 
             //Configurações do DataGrid
             dgvTutor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -80,7 +80,7 @@ namespace SavingPets
             string termo = txtPesquisar.Text.ToLower(); //converte texto para minusculo
 
             //Filtra lista conforme tipo de filtro selecionado
-            var filtrados = listaTutor.Where(p =>
+            var filtrados = listaTutores.Where(p =>
                 (filtroAtual == "Nome" && tutorSelecionado.NomeTutor.ToLower().Contains(termo)) ||
                 (filtroAtual == "CPF" && tutorSelecionado.CPF.ToLower().Contains(termo)) ||
                 (filtroAtual == "Id" && tutorSelecionado.IdTutor.ToString().Contains(termo))
