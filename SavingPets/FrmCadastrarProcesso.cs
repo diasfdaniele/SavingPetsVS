@@ -18,67 +18,75 @@ namespace SavingPets
         {
             InitializeComponent();
 
-            // Define data mínima como hoje
-            dataAdocao.MinDate = DateTime.Today.AddYears(-5);
-            dataAgendamento.MinDate = DateTime.Today;
+            // Configurações de Data
+            dataAdocao.MaxDate = DateTime.Today; // Adoção não pode ser futura
+            dataAgendamento.MinDate = DateTime.Today; // Visita deve ser futura ou hoje
         }
 
         private void btnCadastrarProcesso_Click(object sender, EventArgs e)
         {
             try
             {
-                // Validações de Tela
+                // 1. Validações Prévias
                 if (tutorSelecionado == null)
-                    throw new Exception("Por favor, selecione um tutor.");
+                    throw new Exception("Por favor, pesquise e selecione um tutor.");
 
                 if (animalSelecionado == null)
-                    throw new Exception("Por favor, selecione um animal.");
+                    throw new Exception("Por favor, pesquise e selecione um animal.");
 
                 if (dataAdocao.Value.Date > DateTime.Today)
-                    throw new Exception("A data de adoção não pode ser futura.");
+                    throw new Exception("A data de adoção não pode ser maior que hoje.");
 
-                // Cria Objeto
+                // 2. Criação do Objeto
                 ProcessoAdotivo novo = new ProcessoAdotivo()
                 {
+                    IdProcesso = 0, // Novo cadastro
                     Tutor = tutorSelecionado,
                     Animal = animalSelecionado,
                     DataAdocao = dataAdocao.Value,
-                    AgendamentoVisita = dataAgendamento.Value, // Campo novo do banco
+                    DataAgendamentoVisita = dataAgendamento.Value,
                     Observacoes = txtObservacoes.Text
                 };
 
-                // Chama Controller -> DAL -> Banco
+                // 3. Chamada ao Controller
                 processoController.Cadastrar(novo);
 
                 MessageBox.Show("Processo adotivo cadastrado com sucesso!",
                                 "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // 4. Limpeza
                 LimparFormulario();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao cadastrar: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void LimparFormulario()
         {
+            // Limpa Tutor
             txtIdTutor.Clear();
             txtNomeTutor.Clear();
             txtCpf.Clear();
             txtTelefone.Clear();
             txtEmail.Clear();
 
+            // Limpa Animal
             txtIdAnimal.Clear();
             txtNomeAnimal.Clear();
             txtEspecie.Clear();
             txtCastrado.Clear();
             txtVermifugado.Clear();
+            txtSexo.Clear();
+            // txtVacinado.Clear();
 
+            // Limpa Processo
             dataAdocao.Value = DateTime.Today;
             dataAgendamento.Value = DateTime.Today;
             txtObservacoes.Clear();
 
+            // Reseta variáveis de controle
             tutorSelecionado = null;
             animalSelecionado = null;
         }
@@ -112,14 +120,15 @@ namespace SavingPets
                     txtNomeAnimal.Text = animalSelecionado.NomeAnimal;
                     txtEspecie.Text = animalSelecionado.Especie;
                     txtSexo.Text = animalSelecionado.SexoAnimal;
-                    txtCastrado.Text = animalSelecionado.Castrado;
-                    txtVermifugado.Text = animalSelecionado.Vermifugado;
-                    // txtVacinado.Text = animalSelecionado.Vacinas.ToString(); // Ajustar se tiver lista
+
+                    // Converte bool para Sim/Não para exibir no TextBox
+                    txtCastrado.Text = animalSelecionado.Castrado ? "Sim" : "Não";
+                    txtVermifugado.Text = animalSelecionado.Vermifugado ? "Sim" : "Não";
                 }
             }
         }
 
-        // Navegação e Fechamento
+        // Navegação
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             FrmMenu janela = new FrmMenu();
