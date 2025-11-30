@@ -1,104 +1,73 @@
-﻿using SavingPets.Models;
+﻿using SavingPets.DAL;
+using SavingPets.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static SavingPets.FrmGerenciarOcorrencias;
 
 namespace SavingPets.Controllers
 {
     public class OcorrenciaController
     {
-        //CLASSE QUE IRÁ MANIPULAR OS DADOS DAS OCORRENCIAS
-        //CÓDIGO CRIADO PARA SIMULAR SITUAÇÕES DE TESTE DO SISTEMA
-        //NECESSÁRIO AJUSTAR NA INTEGRAÇÃO COM BANCO DE DADOS
-        //CAMADA ATUA COMO PONTE ENTRE INTERFACE E DADOS
+        private BancoDadosOcorrencia dal = new BancoDadosOcorrencia();
 
-        //Lista compartilhada entre todas as instâncias
-        //Simulação de armazenamento em memória
-        // (BANCO) — será substituída por SELECT no banco de dados
-        private static List<Ocorrencia> listaOcorrencias = new List<Ocorrencia>();
-
-        //Comando para geração de ID automático
-        // (BANCO) — esse valor será gerado automaticamente pelo campo AUTO_INCREMENT do MySQL
-        private static int ultimoId = 0;
-
-        //Método para validação dos campos da ocorrência
-        //Apresenta mensagem clara quando entrada inválida
         private void Validar(Ocorrencia ocorrencia)
         {
-            //Verifica se objeto recebido é nulo
-            if (ocorrencia == null)
-                throw new ArgumentNullException("ocorrencia", "Ocorrência é nula.");
-
-            //Verifica se processo adotivo foi informado
-            // (BANCO) — validação continua igual, pois depende do objeto, não do banco
-            if (ocorrencia.Processo == null)
-                throw new Exception("ATENÇÃO: É obrigatório selecionar um processo adotivo anter de prosseguir.");
-
-            //Descrição como campo de preenchimento obrigatório
+            if (ocorrencia == null) throw new ArgumentNullException(nameof(ocorrencia));
+            if (ocorrencia.Processo == null && ocorrencia.IdProcessoAdotivo <= 0)
+                throw new Exception("ATENÇÃO: É obrigatório selecionar um processo adotivo antes de prosseguir.");
             if (string.IsNullOrWhiteSpace(ocorrencia.Descricao))
                 throw new Exception("ATENÇÃO: A descrição do ocorrido é campo de preenchimento obrigatório.");
-
-            //Validação da gravidade
             var grav = (ocorrencia.Gravidade ?? "").ToLower();
-            if (!(grav == "baixa" || grav == "média" || grav == "media" || grav == "alta"))
-                throw new Exception("ATENÇÃO: A gravidade da ocorrência é campo obrigatório. \nInforme a gravidade da ocorrência (Baixa, Média ou Alta).");
-
-            //Não pode ser inserida data superior a data atual
+            if (!(grav == "baixa" || grav == "media" || grav == "média" || grav == "alta"))
+                throw new Exception("ATENÇÃO: Informe a gravidade da ocorrência (Baixa, Média ou Alta).");
             if (ocorrencia.DataOcorrencia > DateTime.Now)
                 throw new Exception("ATENÇÃO: A data informada não pode ser posterior à data de hoje.");
-
-            //Data do ocorrido não pode ser anterior à data de adoção (regra opcional)
             if (ocorrencia.Processo != null && ocorrencia.DataOcorrencia < ocorrencia.Processo.DataAdocao)
                 throw new Exception("ATENÇÃO: A data do ocorrido não pode ser anterior à data de adoção do processo.");
         }
 
-        //Método para cadastrar ocorrencia
-        public void CadastrarOcorrencia(Ocorrencia ocorrencia)
+        public void CadastrarOcorrencia(Ocorrencia ocorr)
         {
-            //Chama o método de validação
-            Validar(ocorrencia);
+            Validar(ocorr);
 
-            //Gera Id automático
-            // (BANCO) — será removido, pois o ID virá do banco após o INSERT
-            ultimoId++;
-            ocorrencia.IdOcorrencia = ultimoId;
+            // garante que IdProcessoAdotivo esteja preenchido (pode vir do Processo selecionado na UI)
+            if (ocorr.Processo != null && ocorr.IdProcessoAdotivo <= 0)
+                ocorr.IdProcessoAdotivo = ocorr.Processo.IdProcesso;
+            ;
 
-            //Adiciona ocorrencia na lista de memoria
-            // (BANCO) — será substituído por INSERT INTO Ocorrencias (...)
-            listaOcorrencias.Add(ocorrencia);
+            dal.SalvarDados(ocorr);
         }
 
-        //Método para listar todas as ocorrências
-        public List<Ocorrencia> ListarOcorrencias()
+        // método para buscar ocorrências de um processo (para exibir em grid, por exemplo)
+        public List<OcorrenciaView> BuscarPorProcesso(int idProc)
         {
-            //Retorna todas as ocorrências simuladas
-            // (BANCO) — será substituído por SELECT * FROM Ocorrencias
-            return listaOcorrencias;
+            return dal.BuscarPorProcesso(idProc);
         }
 
-        //Método para buscar por nome, ID etc.
-        public List<Ocorrencia> BuscarOcorrencias(string termo, string tipoFiltro)
+        public List<OcorrenciaView> BuscarPorNomeTutor(string nome)
         {
-            List<Ocorrencia> resultados = new List<Ocorrencia>();
+            return dal.BuscarPorNomeTutor(nome);
+        }
 
-            //Percorre todas as ocorrencias cadastradas
-            // (BANCO) — toda essa filtragem será substituída por SELECT com WHERE dinâmico
-            foreach (Ocorrencia o in listaOcorrencias)
-            {
-                if (tipoFiltro == "NomeTutor" && o.Processo.Tutor.NomeTutor.ToLower().Contains(termo.ToLower()))
-                    resultados.Add(o);
+        public List<OcorrenciaView> BuscarPorNomeAnimal(string nome)
+        {
+            return dal.BuscarPorNomeAnimal(nome);
+        }
 
-                else if (tipoFiltro == "NomeAnimal" && o.Processo.Animal.NomeAnimal.ToLower().Contains(termo.ToLower()))
-                    resultados.Add(o);
+        public List<Ocorrencia> BuscarTodos()
+        {
+            return dal.BuscarTodos();
+        }
 
-                else if (tipoFiltro == "IdProcesso" && o.Processo.IdProcesso.ToString() == termo)
-                    resultados.Add(o);
+        public List<OcorrenciaView> BuscarPorIdProcesso(int id)
+        {
+            return dal.BuscarPorProcesso(id);
+        }
 
-                else if (tipoFiltro == "IdOcorrencia" && o.IdOcorrencia.ToString() == termo)
-                    resultados.Add(o);
-            }
-
-            return resultados;
+        public OcorrenciaView BuscarPorId(int idOc)
+        {
+            return dal.BuscarPorId(idOc);
         }
     }
 }

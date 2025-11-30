@@ -16,10 +16,7 @@ namespace SavingPets
     public partial class FrmOcorrencia : Form
     {
 
-        //Cria instâncias dos controladores que fazem a ponte entre a tela e a lógica do sistema
-        ProcessoAdotivoController processoController = new ProcessoAdotivoController();
         private OcorrenciaController controladorOcorrencia = new OcorrenciaController();
-        //Guarda o processo que o usuário escolheu
         private ProcessoAdotivo processoSelecionado;
 
         public FrmOcorrencia()
@@ -32,89 +29,97 @@ namespace SavingPets
         {
             try
             {
-                //Validações para ajudar o usuário 
-                //Verifica se o usuário escolheu um processo
                 if (processoSelecionado == null)
                 {
-                    MessageBox.Show("Selecione um processo adotivo antes de cadastrar a ocorrência!", "ATENÇÃO",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    groupBox1.Focus();
+                    MessageBox.Show("Selecione um processo adotivo antes de cadastrar a ocorrência!", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
 
-                //Obrigatoriedade preenchimento da descrição do ocorrido
                 if (string.IsNullOrWhiteSpace(txtDescricao.Text))
                 {
-                    MessageBox.Show("Por favor, preencha a descrição do ocorrido.", "ATENÇÃO",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Por favor, preencha a descrição do ocorrido.", "ATENÇÃO");
                     txtDescricao.Focus();
                     return;
                 }
 
-                //Obrigatoriedade preenchimento gravidade
                 if (!rbBaixa.Checked && !rbMedia.Checked && !rbAlta.Checked)
                 {
-                    MessageBox.Show("Por favor, selecione a gravidade da ocorrência (Baixa, Média ou Alta).", "ATENÇÃO",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Por favor, selecione a gravidade da ocorrência.", "ATENÇÃO");
                     return;
                 }
 
-                //Cria uma nova ocorrência com os dados preenchidos
-                Ocorrencia novaOcorrencia = new Ocorrencia
+                // monta objeto de ocorrência
+                Ocorrencia nova = new Ocorrencia
                 {
                     Processo = processoSelecionado,
-                    DataOcorrencia = dataOcorrido.Value,
+                    IdProcessoAdotivo = processoSelecionado.IdProcesso,
                     Descricao = txtDescricao.Text.Trim(),
-                    Gravidade = rbBaixa.Checked ? "Baixa" : rbMedia.Checked ? "Média" : "Alta",
-                    ProvidenciaTomada = txtProvidencia.Text.Trim()
+                    DataOcorrencia = dataOcorrido.Value.Date,
+                    ProvidenciaTomada = txtProvidencia.Text.Trim(),
+                    Gravidade = rbBaixa.Checked ? "Baixa" : rbMedia.Checked ? "Media" : "Alta"
                 };
 
-                //Verifica qual gravidade foi selecionada
-                if (rbBaixa.Checked)
-                    novaOcorrencia.Gravidade = "Baixa";
-                else if (rbMedia.Checked)
-                    novaOcorrencia.Gravidade = "Média";
-                else if (rbAlta.Checked)
-                    novaOcorrencia.Gravidade = "Alta";
+                controladorOcorrencia.CadastrarOcorrencia(nova);
 
-                //Cadastra a ocorrência (por enquanto, só em memória)
-                //PARTE QUE PRECISA INTEGRAR BANCO
-                controladorOcorrencia.CadastrarOcorrencia(novaOcorrencia);
+                MessageBox.Show("Ocorrência cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //Exibe mensagem de sucesso após conclusão do cadastro
-                MessageBox.Show("Ocorrência cadastrada com sucesso!", "Sucesso",
-            MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Limpa os campos para o próximo cadastro
-                txtNomeTutor.Clear();
-                txtNomeAnimal.Clear();
-                txtId.Clear();
+                // limpa campos
                 txtDescricao.Clear();
                 txtProvidencia.Clear();
-                rbBaixa.Checked = false;
-                rbMedia.Checked = false;
-                rbAlta.Checked = false;
-
+                rbBaixa.Checked = rbMedia.Checked = rbAlta.Checked = false;
             }
             catch (Exception ex)
             {
-                //Mostra o texto da exceção
-                MessageBox.Show("Erro ao cadastrar ocorrência: " + ex.Message, "Erro",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao cadastrar ocorrência: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         //Evento de click para pesquisar processo
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            FrmConsultarProcesso frm = new FrmConsultarProcesso();
-            if (frm.ShowDialog() == DialogResult.OK)
+            try
             {
-                processoSelecionado = (ProcessoAdotivo)frm.Tag;
-                txtId.Text = processoSelecionado.IdProcesso.ToString();
-                txtNomeTutor.Text = processoSelecionado.Tutor.NomeTutor;
-                txtNomeAnimal.Text = processoSelecionado.Animal.NomeAnimal;
-                dataAdocao.Value = processoSelecionado.DataAdocao;
+                using (FrmConsultarProcesso tela = new FrmConsultarProcesso())
+                {
+                    var resultado = tela.ShowDialog();
+
+                    // DEBUG rápido: ver qual DialogResult veio
+                    // MessageBox.Show("DialogResult retornado: " + resultado.ToString());
+
+                    if (resultado == DialogResult.OK)
+                    {
+                        // checagem defensiva: Tag pode ser null se algo deu errado
+                        if (tela.Tag == null)
+                        {
+                            MessageBox.Show("A tela retornou OK, mas não enviou o processo selecionado (Tag == null).", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        ProcessoAdotivo p = tela.Tag as ProcessoAdotivo;
+                        if (p == null)
+                        {
+                            MessageBox.Show("O objeto retornado não é um ProcessoAdotivo.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        // Preenche os campos no formulário
+                        txtId.Text = p.IdProcesso.ToString();
+                        txtNomeTutor.Text = p.Tutor?.NomeTutor ?? "";
+                        txtNomeAnimal.Text = p.Animal?.NomeAnimal ?? "";
+                        dataAdocao.Value = p.DataAdocao == DateTime.MinValue ? DateTime.Now.Date : p.DataAdocao;
+
+                        // armazena também localmente para uso posterior (se seu formulário usa processoSelecionado)
+                        this.processoSelecionado = p;
+                    }
+                    else
+                    {
+                        // Usuário cancelou -> comportamento normal, sem preencher nada
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao abrir consulta de processos: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

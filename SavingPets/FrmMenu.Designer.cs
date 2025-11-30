@@ -436,7 +436,7 @@
             this.fSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.fSideBar.ForeColor = System.Drawing.Color.Black;
             this.fSideBar.Location = new System.Drawing.Point(0, 0);
-            this.fSideBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fSideBar.Margin = new System.Windows.Forms.Padding(2);
             this.fSideBar.MaximumSize = new System.Drawing.Size(150, 749);
             this.fSideBar.MinimumSize = new System.Drawing.Size(38, 749);
             this.fSideBar.Name = "fSideBar";

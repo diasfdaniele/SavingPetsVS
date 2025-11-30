@@ -61,7 +61,7 @@
             // txtDadosMedicos
             // 
             this.txtDadosMedicos.Location = new System.Drawing.Point(139, 193);
-            this.txtDadosMedicos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDadosMedicos.Margin = new System.Windows.Forms.Padding(2);
             this.txtDadosMedicos.Name = "txtDadosMedicos";
             this.txtDadosMedicos.Size = new System.Drawing.Size(324, 26);
             this.txtDadosMedicos.TabIndex = 13;
@@ -118,7 +118,7 @@
             // txtNomeAnimal
             // 
             this.txtNomeAnimal.Location = new System.Drawing.Point(144, 96);
-            this.txtNomeAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNomeAnimal.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeAnimal.Name = "txtNomeAnimal";
             this.txtNomeAnimal.Size = new System.Drawing.Size(322, 26);
             this.txtNomeAnimal.TabIndex = 1;
@@ -126,7 +126,7 @@
             // txtNomeTutor
             // 
             this.txtNomeTutor.Location = new System.Drawing.Point(144, 62);
-            this.txtNomeTutor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNomeTutor.Margin = new System.Windows.Forms.Padding(2);
             this.txtNomeTutor.Name = "txtNomeTutor";
             this.txtNomeTutor.Size = new System.Drawing.Size(322, 26);
             this.txtNomeTutor.TabIndex = 0;
@@ -177,9 +177,9 @@
             this.groupBox2.Enabled = false;
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(11, 261);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(475, 176);
             this.groupBox2.TabIndex = 44;
             this.groupBox2.TabStop = false;
@@ -195,7 +195,7 @@
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(144, 30);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(112, 26);
             this.txtId.TabIndex = 20;
@@ -214,12 +214,13 @@
             // 
             this.dgvProcessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcessos.Location = new System.Drawing.Point(11, 99);
-            this.dgvProcessos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProcessos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProcessos.Name = "dgvProcessos";
             this.dgvProcessos.RowHeadersWidth = 51;
             this.dgvProcessos.RowTemplate.Height = 24;
             this.dgvProcessos.Size = new System.Drawing.Size(700, 147);
             this.dgvProcessos.TabIndex = 42;
+            this.dgvProcessos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcessos_CellDoubleClick);
             this.dgvProcessos.SelectionChanged += new System.EventHandler(this.dgvProcessos_SelectionChanged);
             // 
             // groupBox1
@@ -232,9 +233,9 @@
             this.groupBox1.Controls.Add(this.rbNomeTutor);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(11, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(546, 93);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
@@ -244,7 +245,7 @@
             // 
             this.rbIdProcesso.AutoSize = true;
             this.rbIdProcesso.Location = new System.Drawing.Point(307, 58);
-            this.rbIdProcesso.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbIdProcesso.Margin = new System.Windows.Forms.Padding(2);
             this.rbIdProcesso.Name = "rbIdProcesso";
             this.rbIdProcesso.Size = new System.Drawing.Size(114, 24);
             this.rbIdProcesso.TabIndex = 40;
@@ -282,7 +283,7 @@
             // 
             this.rbNomeAnimal.AutoSize = true;
             this.rbNomeAnimal.Location = new System.Drawing.Point(158, 58);
-            this.rbNomeAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbNomeAnimal.Margin = new System.Windows.Forms.Padding(2);
             this.rbNomeAnimal.Name = "rbNomeAnimal";
             this.rbNomeAnimal.Size = new System.Drawing.Size(123, 24);
             this.rbNomeAnimal.TabIndex = 5;
@@ -294,7 +295,7 @@
             // 
             this.txtPesquisar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPesquisar.Location = new System.Drawing.Point(114, 28);
-            this.txtPesquisar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPesquisar.Margin = new System.Windows.Forms.Padding(2);
             this.txtPesquisar.Name = "txtPesquisar";
             this.txtPesquisar.Size = new System.Drawing.Size(382, 26);
             this.txtPesquisar.TabIndex = 2;
@@ -305,7 +306,7 @@
             this.rbNomeTutor.AutoSize = true;
             this.rbNomeTutor.Checked = true;
             this.rbNomeTutor.Location = new System.Drawing.Point(18, 58);
-            this.rbNomeTutor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbNomeTutor.Margin = new System.Windows.Forms.Padding(2);
             this.rbNomeTutor.Name = "rbNomeTutor";
             this.rbNomeTutor.Size = new System.Drawing.Size(109, 24);
             this.rbNomeTutor.TabIndex = 4;

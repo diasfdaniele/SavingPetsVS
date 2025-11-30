@@ -14,13 +14,20 @@ namespace SavingPets.Models
     {
         public int IdOcorrencia { get; set; }
 
-        // Representa processo adotivo ao qual ocorrência está vinculada
-        // O tipo "ProcessoAdotivo" é outra classe do sistema, usada aqui como referência
-        public ProcessoAdotivo Processo { get; set; }  
-
-        public DateTime DataOcorrencia { get; set; }
+        // campo que o form usa como Id do processo
+        // no banco esse campo se chama idProcessoAdotivo
+        public int IdProcesso { get; set; }
+        public int IdProcessoAdotivo { get; set; }
         public string Descricao { get; set; }
-        public string Gravidade { get; set; }
-        public string ProvidenciaTomada { get; set; }
+        public DateTime DataOcorrencia { get; set; }
+        public string Gravidade { get; set; }           
+        public string ProvidenciaTomada { get; set; }   
+
+        // para facilitar preenchimento do grid / detalhes
+        public string NomeTutor { get; set; }
+        public string NomeAnimal { get; set; }
+
+        // objeto opcional com mais dados do processo
+        public ProcessoAdotivo Processo { get; set; }
     }
 }

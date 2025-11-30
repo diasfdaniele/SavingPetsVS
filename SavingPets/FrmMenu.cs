@@ -188,9 +188,9 @@ namespace SavingPets
         //Evento de clique para cadastrar ocorrencia
         private void registrarOcorrênciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmOcorrencia janela = new FrmOcorrencia();
+            FrmOcorrencia tela = new FrmOcorrencia();
             Hide();
-            janela.ShowDialog();
+            tela.ShowDialog();
             Show();
         }
 
