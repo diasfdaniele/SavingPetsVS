@@ -21,6 +21,7 @@ namespace SavingPets
             dataAdocao.MaxDate = DateTime.Today;
             dataAgendamento.MinDate = DateTime.Today;
 
+            // 🔥 CARREGA O PRÓXIMO ID ASSIM QUE A TELA ABRE
             CarregarProximoId();
         }
 
@@ -29,6 +30,7 @@ namespace SavingPets
         {
             try
             {
+                // Se o textbox tiver outro nome (ex: txtCodigo), mude aqui
                 txtIdProcesso.Text = processoController.ObterProximoId().ToString();
                 txtIdProcesso.Enabled = false; // Bloqueia para não editar
             }
@@ -94,11 +96,11 @@ namespace SavingPets
             tutorSelecionado = null;
             animalSelecionado = null;
 
-            //ATUALIZA O ID PARA O PRÓXIMO DA FILA
+            // 🔥 ATUALIZA O ID PARA O PRÓXIMO DA FILA
             CarregarProximoId();
         }
 
-        //BOTÃO DE PESQUISA DE TUTOR (Com Endereço Completo e Inteligente)
+        // --- BOTÃO DE PESQUISA DE TUTOR (Com Endereço Completo e Inteligente) ---
         private void btnPesquisarTutor_Click(object sender, EventArgs e)
         {
             FrmConsultarTutor frm = new FrmConsultarTutor();
@@ -123,7 +125,7 @@ namespace SavingPets
             }
         }
 
-        //BOTÃO DE PESQUISA DE ANIMAL (Com Vacinas)
+        // --- BOTÃO DE PESQUISA DE ANIMAL (Com Vacinas) ---
         private void btnPesquisarAnimal_Click(object sender, EventArgs e)
         {
             FrmConsultarAnimal frm = new FrmConsultarAnimal();

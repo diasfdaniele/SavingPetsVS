@@ -34,23 +34,26 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dgvRelatorios = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPesquisarPadrao = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtFimPadrao = new System.Windows.Forms.DateTimePicker();
+            this.dtInicialPadrao = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbTipoRelatorio = new System.Windows.Forms.ComboBox();
             this.btnExportar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.cbxTipo = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbOrdenarPor = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dtInicialPadrao = new System.Windows.Forms.DateTimePicker();
-            this.dtFimPadrao = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbxEspecie = new System.Windows.Forms.CheckBox();
-            this.cbxVacina = new System.Windows.Forms.CheckBox();
             this.cbxCastracao = new System.Windows.Forms.CheckBox();
+            this.cbxVacina = new System.Windows.Forms.CheckBox();
+            this.cbxEspecie = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbxMausTratos = new System.Windows.Forms.CheckBox();
+            this.cbxVisitas = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnPesquisarProcesso = new System.Windows.Forms.Button();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
@@ -58,25 +61,22 @@
             this.cbxStatus = new System.Windows.Forms.CheckBox();
             this.cbxAdaptacao = new System.Windows.Forms.CheckBox();
             this.cbxFisico = new System.Windows.Forms.CheckBox();
-            this.cbxVisitas = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.rbBaixa = new System.Windows.Forms.RadioButton();
-            this.rbMedia = new System.Windows.Forms.RadioButton();
-            this.rbAlta = new System.Windows.Forms.RadioButton();
             this.rbTodas = new System.Windows.Forms.RadioButton();
+            this.rbAlta = new System.Windows.Forms.RadioButton();
+            this.rbMedia = new System.Windows.Forms.RadioButton();
+            this.rbBaixa = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.cbxTutorOcorrencia = new System.Windows.Forms.CheckBox();
             this.cbxTutorProcesso = new System.Windows.Forms.CheckBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.cbxMausTratos = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dtFimPers = new System.Windows.Forms.DateTimePicker();
             this.dtInicialPers = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnPesquisarPadrao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorios)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -139,7 +139,7 @@
             // 
             this.groupBox1.Controls.Add(this.btnPesquisarPadrao);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.cbxTipo);
+            this.groupBox1.Controls.Add(this.cmbTipoRelatorio);
             this.groupBox1.Controls.Add(this.lblFiltro);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(32, 48);
@@ -150,6 +150,87 @@
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta padrão:";
+            // 
+            // btnPesquisarPadrao
+            // 
+            this.btnPesquisarPadrao.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.btnPesquisarPadrao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPesquisarPadrao.FlatAppearance.BorderSize = 0;
+            this.btnPesquisarPadrao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisarPadrao.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPadrao.Location = new System.Drawing.Point(75, 112);
+            this.btnPesquisarPadrao.Name = "btnPesquisarPadrao";
+            this.btnPesquisarPadrao.Size = new System.Drawing.Size(99, 35);
+            this.btnPesquisarPadrao.TabIndex = 54;
+            this.btnPesquisarPadrao.Text = "PESQUISAR";
+            this.btnPesquisarPadrao.UseVisualStyleBackColor = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.dtFimPadrao);
+            this.groupBox2.Controls.Add(this.dtInicialPadrao);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(5, 44);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(237, 67);
+            this.groupBox2.TabIndex = 53;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Período";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(121, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Fim:";
+            // 
+            // dtFimPadrao
+            // 
+            this.dtFimPadrao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtFimPadrao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFimPadrao.Location = new System.Drawing.Point(124, 38);
+            this.dtFimPadrao.Name = "dtFimPadrao";
+            this.dtFimPadrao.Size = new System.Drawing.Size(99, 23);
+            this.dtFimPadrao.TabIndex = 1;
+            // 
+            // dtInicialPadrao
+            // 
+            this.dtInicialPadrao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInicialPadrao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtInicialPadrao.Location = new System.Drawing.Point(6, 38);
+            this.dtInicialPadrao.Name = "dtInicialPadrao";
+            this.dtInicialPadrao.Size = new System.Drawing.Size(99, 23);
+            this.dtInicialPadrao.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Início:";
+            // 
+            // cmbTipoRelatorio
+            // 
+            this.cmbTipoRelatorio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoRelatorio.FormattingEnabled = true;
+            this.cmbTipoRelatorio.Items.AddRange(new object[] {
+            "Quantidade de animais por espécie",
+            "Ocorrências por gravidade ",
+            "Total de visitas realizadas por voluntários",
+            "Relatório geral de visita por animal",
+            "Status de visitas"});
+            this.cmbTipoRelatorio.Location = new System.Drawing.Point(125, 18);
+            this.cmbTipoRelatorio.Name = "cmbTipoRelatorio";
+            this.cmbTipoRelatorio.Size = new System.Drawing.Size(117, 25);
+            this.cmbTipoRelatorio.TabIndex = 2;
             // 
             // btnExportar
             // 
@@ -190,31 +271,16 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
-            // cbxTipo
+            // cmbOrdenarPor
             // 
-            this.cbxTipo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTipo.FormattingEnabled = true;
-            this.cbxTipo.Items.AddRange(new object[] {
-            "Quantidade de animais por espécie",
-            "Ocorrências por gravidade ",
-            "Total de visitas realizadas por voluntários",
-            "Relatório geral de visita por animal",
-            "Status de visitas"});
-            this.cbxTipo.Location = new System.Drawing.Point(125, 18);
-            this.cbxTipo.Name = "cbxTipo";
-            this.cbxTipo.Size = new System.Drawing.Size(117, 25);
-            this.cbxTipo.TabIndex = 2;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbOrdenarPor.FormattingEnabled = true;
+            this.cmbOrdenarPor.Items.AddRange(new object[] {
             "Nome",
             "Data"});
-            this.comboBox1.Location = new System.Drawing.Point(33, 278);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 55;
+            this.cmbOrdenarPor.Location = new System.Drawing.Point(33, 278);
+            this.cmbOrdenarPor.Name = "cmbOrdenarPor";
+            this.cmbOrdenarPor.Size = new System.Drawing.Size(121, 21);
+            this.cmbOrdenarPor.TabIndex = 55;
             // 
             // label3
             // 
@@ -234,58 +300,6 @@
             this.label5.Size = new System.Drawing.Size(0, 36);
             this.label5.TabIndex = 57;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.dtFimPadrao);
-            this.groupBox2.Controls.Add(this.dtInicialPadrao);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(5, 44);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(237, 67);
-            this.groupBox2.TabIndex = 53;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Período";
-            // 
-            // dtInicialPadrao
-            // 
-            this.dtInicialPadrao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInicialPadrao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtInicialPadrao.Location = new System.Drawing.Point(6, 38);
-            this.dtInicialPadrao.Name = "dtInicialPadrao";
-            this.dtInicialPadrao.Size = new System.Drawing.Size(99, 23);
-            this.dtInicialPadrao.TabIndex = 0;
-            // 
-            // dtFimPadrao
-            // 
-            this.dtFimPadrao.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtFimPadrao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFimPadrao.Location = new System.Drawing.Point(124, 38);
-            this.dtFimPadrao.Name = "dtFimPadrao";
-            this.dtFimPadrao.Size = new System.Drawing.Size(99, 23);
-            this.dtFimPadrao.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Início:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(121, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Fim:";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.cbxCastracao);
@@ -299,15 +313,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Animal";
             // 
-            // cbxEspecie
+            // cbxCastracao
             // 
-            this.cbxEspecie.AutoSize = true;
-            this.cbxEspecie.Location = new System.Drawing.Point(6, 17);
-            this.cbxEspecie.Name = "cbxEspecie";
-            this.cbxEspecie.Size = new System.Drawing.Size(75, 21);
-            this.cbxEspecie.TabIndex = 57;
-            this.cbxEspecie.Text = "Espécie";
-            this.cbxEspecie.UseVisualStyleBackColor = true;
+            this.cbxCastracao.AutoSize = true;
+            this.cbxCastracao.Location = new System.Drawing.Point(6, 55);
+            this.cbxCastracao.Name = "cbxCastracao";
+            this.cbxCastracao.Size = new System.Drawing.Size(96, 21);
+            this.cbxCastracao.TabIndex = 59;
+            this.cbxCastracao.Text = "Castração";
+            this.cbxCastracao.UseVisualStyleBackColor = true;
             // 
             // cbxVacina
             // 
@@ -319,15 +333,15 @@
             this.cbxVacina.Text = "Vacinação";
             this.cbxVacina.UseVisualStyleBackColor = true;
             // 
-            // cbxCastracao
+            // cbxEspecie
             // 
-            this.cbxCastracao.AutoSize = true;
-            this.cbxCastracao.Location = new System.Drawing.Point(6, 55);
-            this.cbxCastracao.Name = "cbxCastracao";
-            this.cbxCastracao.Size = new System.Drawing.Size(96, 21);
-            this.cbxCastracao.TabIndex = 59;
-            this.cbxCastracao.Text = "Castração";
-            this.cbxCastracao.UseVisualStyleBackColor = true;
+            this.cbxEspecie.AutoSize = true;
+            this.cbxEspecie.Location = new System.Drawing.Point(6, 17);
+            this.cbxEspecie.Name = "cbxEspecie";
+            this.cbxEspecie.Size = new System.Drawing.Size(75, 21);
+            this.cbxEspecie.TabIndex = 57;
+            this.cbxEspecie.Text = "Espécie";
+            this.cbxEspecie.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -347,6 +361,26 @@
             this.groupBox4.TabIndex = 60;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Processo Adotivo e Visitas";
+            // 
+            // cbxMausTratos
+            // 
+            this.cbxMausTratos.AutoSize = true;
+            this.cbxMausTratos.Location = new System.Drawing.Point(139, 106);
+            this.cbxMausTratos.Name = "cbxMausTratos";
+            this.cbxMausTratos.Size = new System.Drawing.Size(101, 21);
+            this.cbxMausTratos.TabIndex = 61;
+            this.cbxMausTratos.Text = "Maus-tratos";
+            this.cbxMausTratos.UseVisualStyleBackColor = true;
+            // 
+            // cbxVisitas
+            // 
+            this.cbxVisitas.AutoSize = true;
+            this.cbxVisitas.Location = new System.Drawing.Point(140, 86);
+            this.cbxVisitas.Name = "cbxVisitas";
+            this.cbxVisitas.Size = new System.Drawing.Size(145, 21);
+            this.cbxVisitas.TabIndex = 60;
+            this.cbxVisitas.Text = "Visitas agendadas";
+            this.cbxVisitas.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -424,16 +458,6 @@
             this.cbxFisico.Text = "Condição física";
             this.cbxFisico.UseVisualStyleBackColor = true;
             // 
-            // cbxVisitas
-            // 
-            this.cbxVisitas.AutoSize = true;
-            this.cbxVisitas.Location = new System.Drawing.Point(140, 86);
-            this.cbxVisitas.Name = "cbxVisitas";
-            this.cbxVisitas.Size = new System.Drawing.Size(145, 21);
-            this.cbxVisitas.TabIndex = 60;
-            this.cbxVisitas.Text = "Visitas agendadas";
-            this.cbxVisitas.UseVisualStyleBackColor = true;
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.rbTodas);
@@ -450,36 +474,16 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Ocorrência";
             // 
-            // label11
+            // rbTodas
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 26);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 17);
-            this.label11.TabIndex = 0;
-            // 
-            // rbBaixa
-            // 
-            this.rbBaixa.AutoSize = true;
-            this.rbBaixa.Location = new System.Drawing.Point(9, 39);
-            this.rbBaixa.Name = "rbBaixa";
-            this.rbBaixa.Size = new System.Drawing.Size(60, 21);
-            this.rbBaixa.TabIndex = 60;
-            this.rbBaixa.TabStop = true;
-            this.rbBaixa.Text = "Baixa";
-            this.rbBaixa.UseVisualStyleBackColor = true;
-            // 
-            // rbMedia
-            // 
-            this.rbMedia.AutoSize = true;
-            this.rbMedia.Location = new System.Drawing.Point(75, 39);
-            this.rbMedia.Name = "rbMedia";
-            this.rbMedia.Size = new System.Drawing.Size(66, 21);
-            this.rbMedia.TabIndex = 61;
-            this.rbMedia.TabStop = true;
-            this.rbMedia.Text = "Media";
-            this.rbMedia.UseVisualStyleBackColor = true;
+            this.rbTodas.AutoSize = true;
+            this.rbTodas.Location = new System.Drawing.Point(216, 39);
+            this.rbTodas.Name = "rbTodas";
+            this.rbTodas.Size = new System.Drawing.Size(63, 21);
+            this.rbTodas.TabIndex = 63;
+            this.rbTodas.TabStop = true;
+            this.rbTodas.Text = "Todas";
+            this.rbTodas.UseVisualStyleBackColor = true;
             // 
             // rbAlta
             // 
@@ -492,16 +496,36 @@
             this.rbAlta.Text = "Alta";
             this.rbAlta.UseVisualStyleBackColor = true;
             // 
-            // rbTodas
+            // rbMedia
             // 
-            this.rbTodas.AutoSize = true;
-            this.rbTodas.Location = new System.Drawing.Point(216, 39);
-            this.rbTodas.Name = "rbTodas";
-            this.rbTodas.Size = new System.Drawing.Size(63, 21);
-            this.rbTodas.TabIndex = 63;
-            this.rbTodas.TabStop = true;
-            this.rbTodas.Text = "Todas";
-            this.rbTodas.UseVisualStyleBackColor = true;
+            this.rbMedia.AutoSize = true;
+            this.rbMedia.Location = new System.Drawing.Point(75, 39);
+            this.rbMedia.Name = "rbMedia";
+            this.rbMedia.Size = new System.Drawing.Size(66, 21);
+            this.rbMedia.TabIndex = 61;
+            this.rbMedia.TabStop = true;
+            this.rbMedia.Text = "Media";
+            this.rbMedia.UseVisualStyleBackColor = true;
+            // 
+            // rbBaixa
+            // 
+            this.rbBaixa.AutoSize = true;
+            this.rbBaixa.Location = new System.Drawing.Point(9, 39);
+            this.rbBaixa.Name = "rbBaixa";
+            this.rbBaixa.Size = new System.Drawing.Size(60, 21);
+            this.rbBaixa.TabIndex = 60;
+            this.rbBaixa.TabStop = true;
+            this.rbBaixa.Text = "Baixa";
+            this.rbBaixa.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 26);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 17);
+            this.label11.TabIndex = 0;
             // 
             // label10
             // 
@@ -560,16 +584,6 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Consulta personalizada";
             // 
-            // cbxMausTratos
-            // 
-            this.cbxMausTratos.AutoSize = true;
-            this.cbxMausTratos.Location = new System.Drawing.Point(139, 106);
-            this.cbxMausTratos.Name = "cbxMausTratos";
-            this.cbxMausTratos.Size = new System.Drawing.Size(101, 21);
-            this.cbxMausTratos.TabIndex = 61;
-            this.cbxMausTratos.Text = "Maus-tratos";
-            this.cbxMausTratos.UseVisualStyleBackColor = true;
-            // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.label6);
@@ -622,20 +636,6 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Início:";
             // 
-            // btnPesquisarPadrao
-            // 
-            this.btnPesquisarPadrao.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btnPesquisarPadrao.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPesquisarPadrao.FlatAppearance.BorderSize = 0;
-            this.btnPesquisarPadrao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesquisarPadrao.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisarPadrao.Location = new System.Drawing.Point(75, 112);
-            this.btnPesquisarPadrao.Name = "btnPesquisarPadrao";
-            this.btnPesquisarPadrao.Size = new System.Drawing.Size(99, 35);
-            this.btnPesquisarPadrao.TabIndex = 54;
-            this.btnPesquisarPadrao.Text = "PESQUISAR";
-            this.btnPesquisarPadrao.UseVisualStyleBackColor = false;
-            // 
             // FrmRelatorioGerencial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -645,7 +645,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbOrdenarPor);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.dgvRelatorios);
             this.Controls.Add(this.btnExportar);
@@ -685,8 +685,8 @@
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnVoltar;
-        private System.Windows.Forms.ComboBox cbxTipo;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbTipoRelatorio;
+        private System.Windows.Forms.ComboBox cmbOrdenarPor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;

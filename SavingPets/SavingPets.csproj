@@ -39,6 +39,9 @@
     <Reference Include="Google.Protobuf, Version=3.32.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.32.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -96,11 +99,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AnimalController.cs" />
+    <Compile Include="Controllers\LogAlteracaoController.cs" />
+    <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\VisitaController.cs" />
+    <Compile Include="Controllers\VoluntarioController.cs" />
+    <Compile Include="DAL\BancoDadosLogAlteracoes.cs" />
     <Compile Include="DAL\BancoDadosProcessoAdotivo.cs" />
+    <Compile Include="DAL\BancoDadosRelatorio.cs" />
     <Compile Include="DAL\BancoDeDadosOcorrencia.cs" />
     <Compile Include="DAL\BancoDeDadosTutor.cs" />
     <Compile Include="DAL\BancoDeDadosVisita.cs" />
+    <Compile Include="DAL\BancoDeDadosVoluntario.cs" />
     <Compile Include="DAL\Conexão.cs" />
     <Compile Include="DAL\BancoDadosAnimal.cs" />
     <Compile Include="DAL\Login.cs" />
@@ -210,12 +219,14 @@
       <DependentUpon>FrmVoluntario.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Animal.cs" />
+    <Compile Include="Models\LogAlteracao.cs" />
     <Compile Include="Models\ObservacoesVisita.cs" />
     <Compile Include="Models\Ocorrencia.cs" />
     <Compile Include="Models\ProcessoAdotivo.cs" />
     <Compile Include="Models\Tutor.cs" />
     <Compile Include="Models\Validacoes.cs" />
     <Compile Include="Models\Visita.cs" />
+    <Compile Include="Models\Voluntario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FrmLogin.cs">
