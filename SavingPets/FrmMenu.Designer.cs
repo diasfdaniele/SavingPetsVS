@@ -88,10 +88,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(364, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(314, 44);
+            this.label1.Size = new System.Drawing.Size(347, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "MENU PRINCIPAL";
             // 
@@ -141,7 +141,7 @@
             this.btnAnimais.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAnimais.FlatAppearance.BorderSize = 0;
             this.btnAnimais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnimais.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnimais.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnimais.Location = new System.Drawing.Point(258, 289);
             this.btnAnimais.Name = "btnAnimais";
             this.btnAnimais.Size = new System.Drawing.Size(256, 36);
@@ -156,7 +156,7 @@
             this.btnTutores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTutores.FlatAppearance.BorderSize = 0;
             this.btnTutores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTutores.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTutores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTutores.Location = new System.Drawing.Point(538, 289);
             this.btnTutores.Name = "btnTutores";
             this.btnTutores.Size = new System.Drawing.Size(256, 36);
@@ -171,7 +171,7 @@
             this.btnProcesso.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProcesso.FlatAppearance.BorderSize = 0;
             this.btnProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProcesso.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProcesso.Location = new System.Drawing.Point(258, 543);
             this.btnProcesso.Name = "btnProcesso";
             this.btnProcesso.Size = new System.Drawing.Size(256, 36);
@@ -186,7 +186,7 @@
             this.btnOcorrencia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOcorrencia.FlatAppearance.BorderSize = 0;
             this.btnOcorrencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOcorrencia.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOcorrencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOcorrencia.Location = new System.Drawing.Point(538, 542);
             this.btnOcorrencia.Name = "btnOcorrencia";
             this.btnOcorrencia.Size = new System.Drawing.Size(256, 36);
@@ -198,33 +198,33 @@
             // cmsAnimais
             // 
             this.cmsAnimais.BackColor = System.Drawing.Color.LightGray;
-            this.cmsAnimais.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsAnimais.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsAnimais.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsAnimais.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarAnimalToolStripMenuItem,
             this.consultarAnimalToolStripMenuItem,
             this.editarAnimalToolStripMenuItem});
             this.cmsAnimais.Name = "cmsAnimais";
-            this.cmsAnimais.Size = new System.Drawing.Size(224, 76);
+            this.cmsAnimais.Size = new System.Drawing.Size(210, 70);
             // 
             // cadastrarAnimalToolStripMenuItem
             // 
             this.cadastrarAnimalToolStripMenuItem.Name = "cadastrarAnimalToolStripMenuItem";
-            this.cadastrarAnimalToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.cadastrarAnimalToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.cadastrarAnimalToolStripMenuItem.Text = "Cadastrar animal";
             this.cadastrarAnimalToolStripMenuItem.Click += new System.EventHandler(this.cadastrarAnimalToolStripMenuItem_Click);
             // 
             // consultarAnimalToolStripMenuItem
             // 
             this.consultarAnimalToolStripMenuItem.Name = "consultarAnimalToolStripMenuItem";
-            this.consultarAnimalToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.consultarAnimalToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.consultarAnimalToolStripMenuItem.Text = "Consultar animal";
             this.consultarAnimalToolStripMenuItem.Click += new System.EventHandler(this.consultarAnimalToolStripMenuItem_Click);
             // 
             // editarAnimalToolStripMenuItem
             // 
             this.editarAnimalToolStripMenuItem.Name = "editarAnimalToolStripMenuItem";
-            this.editarAnimalToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.editarAnimalToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.editarAnimalToolStripMenuItem.Text = "Editar/Excluir animal";
             this.editarAnimalToolStripMenuItem.Click += new System.EventHandler(this.editarAnimalToolStripMenuItem_Click);
             // 
@@ -234,7 +234,7 @@
             this.btnMenuAnimais.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuAnimais.FlatAppearance.BorderSize = 0;
             this.btnMenuAnimais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuAnimais.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuAnimais.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuAnimais.Location = new System.Drawing.Point(479, 289);
             this.btnMenuAnimais.Name = "btnMenuAnimais";
             this.btnMenuAnimais.Size = new System.Drawing.Size(35, 36);
@@ -249,7 +249,7 @@
             this.btnMenuTutor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuTutor.FlatAppearance.BorderSize = 0;
             this.btnMenuTutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuTutor.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuTutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuTutor.Location = new System.Drawing.Point(759, 288);
             this.btnMenuTutor.Name = "btnMenuTutor";
             this.btnMenuTutor.Size = new System.Drawing.Size(35, 36);
@@ -261,33 +261,33 @@
             // cmsTutor
             // 
             this.cmsTutor.BackColor = System.Drawing.Color.LightGray;
-            this.cmsTutor.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsTutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsTutor.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsTutor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarTutorToolStripMenuItem,
             this.consultarTutorToolStripMenuItem,
             this.editarTutorToolStripMenuItem});
             this.cmsTutor.Name = "cmsTutor";
-            this.cmsTutor.Size = new System.Drawing.Size(210, 76);
+            this.cmsTutor.Size = new System.Drawing.Size(197, 70);
             // 
             // cadastrarTutorToolStripMenuItem
             // 
             this.cadastrarTutorToolStripMenuItem.Name = "cadastrarTutorToolStripMenuItem";
-            this.cadastrarTutorToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.cadastrarTutorToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.cadastrarTutorToolStripMenuItem.Text = "Cadastrar tutor";
             this.cadastrarTutorToolStripMenuItem.Click += new System.EventHandler(this.cadastrarTutorToolStripMenuItem_Click);
             // 
             // consultarTutorToolStripMenuItem
             // 
             this.consultarTutorToolStripMenuItem.Name = "consultarTutorToolStripMenuItem";
-            this.consultarTutorToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.consultarTutorToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.consultarTutorToolStripMenuItem.Text = "Consultar tutor";
             this.consultarTutorToolStripMenuItem.Click += new System.EventHandler(this.consultarTutorToolStripMenuItem_Click);
             // 
             // editarTutorToolStripMenuItem
             // 
             this.editarTutorToolStripMenuItem.Name = "editarTutorToolStripMenuItem";
-            this.editarTutorToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.editarTutorToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.editarTutorToolStripMenuItem.Text = "Editar/Excluir tutor";
             this.editarTutorToolStripMenuItem.Click += new System.EventHandler(this.editarTutorToolStripMenuItem_Click);
             // 
@@ -297,7 +297,7 @@
             this.btnMenuProcesso.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuProcesso.FlatAppearance.BorderSize = 0;
             this.btnMenuProcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuProcesso.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuProcesso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuProcesso.Location = new System.Drawing.Point(479, 542);
             this.btnMenuProcesso.Name = "btnMenuProcesso";
             this.btnMenuProcesso.Size = new System.Drawing.Size(35, 36);
@@ -309,13 +309,13 @@
             // cmsAdocao
             // 
             this.cmsAdocao.BackColor = System.Drawing.Color.LightGray;
-            this.cmsAdocao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsAdocao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsAdocao.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsAdocao.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrarProcessoAdotivoToolStripMenuItem,
             this.registrarVisitaDomiciliarToolStripMenuItem});
             this.cmsAdocao.Name = "cmsAdocao";
-            this.cmsAdocao.Size = new System.Drawing.Size(257, 52);
+            this.cmsAdocao.Size = new System.Drawing.Size(241, 48);
             // 
             // cadastrarProcessoAdotivoToolStripMenuItem
             // 
@@ -324,27 +324,27 @@
             this.consultarProcessoAdotivoToolStripMenuItem1,
             this.editarExcluirProcessoAdotivoToolStripMenuItem});
             this.cadastrarProcessoAdotivoToolStripMenuItem.Name = "cadastrarProcessoAdotivoToolStripMenuItem";
-            this.cadastrarProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.cadastrarProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.cadastrarProcessoAdotivoToolStripMenuItem.Text = "Processo Adotivo";
             // 
             // cadastrarProcessoAdotivoToolStripMenuItem1
             // 
             this.cadastrarProcessoAdotivoToolStripMenuItem1.Name = "cadastrarProcessoAdotivoToolStripMenuItem1";
-            this.cadastrarProcessoAdotivoToolStripMenuItem1.Size = new System.Drawing.Size(304, 24);
+            this.cadastrarProcessoAdotivoToolStripMenuItem1.Size = new System.Drawing.Size(284, 22);
             this.cadastrarProcessoAdotivoToolStripMenuItem1.Text = "Cadastrar Processo Adotivo";
             this.cadastrarProcessoAdotivoToolStripMenuItem1.Click += new System.EventHandler(this.cadastrarProcessoAdotivoToolStripMenuItem1_Click);
             // 
             // consultarProcessoAdotivoToolStripMenuItem1
             // 
             this.consultarProcessoAdotivoToolStripMenuItem1.Name = "consultarProcessoAdotivoToolStripMenuItem1";
-            this.consultarProcessoAdotivoToolStripMenuItem1.Size = new System.Drawing.Size(304, 24);
+            this.consultarProcessoAdotivoToolStripMenuItem1.Size = new System.Drawing.Size(284, 22);
             this.consultarProcessoAdotivoToolStripMenuItem1.Text = "Consultar Processo Adotivo";
             this.consultarProcessoAdotivoToolStripMenuItem1.Click += new System.EventHandler(this.consultarProcessoAdotivoToolStripMenuItem1_Click);
             // 
             // editarExcluirProcessoAdotivoToolStripMenuItem
             // 
             this.editarExcluirProcessoAdotivoToolStripMenuItem.Name = "editarExcluirProcessoAdotivoToolStripMenuItem";
-            this.editarExcluirProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(304, 24);
+            this.editarExcluirProcessoAdotivoToolStripMenuItem.Size = new System.Drawing.Size(284, 22);
             this.editarExcluirProcessoAdotivoToolStripMenuItem.Text = "Editar/Excluir Processo Adotivo";
             this.editarExcluirProcessoAdotivoToolStripMenuItem.Click += new System.EventHandler(this.editarExcluirProcessoAdotivoToolStripMenuItem_Click);
             // 
@@ -355,27 +355,27 @@
             this.cToolStripMenuItem,
             this.editarExcluirVisitaDomiciliarToolStripMenuItem1});
             this.registrarVisitaDomiciliarToolStripMenuItem.Name = "registrarVisitaDomiciliarToolStripMenuItem";
-            this.registrarVisitaDomiciliarToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.registrarVisitaDomiciliarToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.registrarVisitaDomiciliarToolStripMenuItem.Text = "Registrar visita domiciliar";
             // 
             // registrarVisitaDomiciliarToolStripMenuItem1
             // 
             this.registrarVisitaDomiciliarToolStripMenuItem1.Name = "registrarVisitaDomiciliarToolStripMenuItem1";
-            this.registrarVisitaDomiciliarToolStripMenuItem1.Size = new System.Drawing.Size(288, 24);
+            this.registrarVisitaDomiciliarToolStripMenuItem1.Size = new System.Drawing.Size(271, 22);
             this.registrarVisitaDomiciliarToolStripMenuItem1.Text = "Registrar Visita Domiciliar";
             this.registrarVisitaDomiciliarToolStripMenuItem1.Click += new System.EventHandler(this.registrarVisitaDomiciliarToolStripMenuItem1_Click);
             // 
             // cToolStripMenuItem
             // 
             this.cToolStripMenuItem.Name = "cToolStripMenuItem";
-            this.cToolStripMenuItem.Size = new System.Drawing.Size(288, 24);
+            this.cToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
             this.cToolStripMenuItem.Text = "Consultar Visita Domiciliar";
             this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
             // 
             // editarExcluirVisitaDomiciliarToolStripMenuItem1
             // 
             this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Name = "editarExcluirVisitaDomiciliarToolStripMenuItem1";
-            this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Size = new System.Drawing.Size(288, 24);
+            this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Size = new System.Drawing.Size(271, 22);
             this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Text = "Editar/Excluir Visita Domiciliar";
             this.editarExcluirVisitaDomiciliarToolStripMenuItem1.Click += new System.EventHandler(this.editarExcluirVisitaDomiciliarToolStripMenuItem1_Click);
             // 
@@ -385,7 +385,7 @@
             this.btnMenuOcorrencia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMenuOcorrencia.FlatAppearance.BorderSize = 0;
             this.btnMenuOcorrencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuOcorrencia.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuOcorrencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuOcorrencia.Location = new System.Drawing.Point(759, 541);
             this.btnMenuOcorrencia.Name = "btnMenuOcorrencia";
             this.btnMenuOcorrencia.Size = new System.Drawing.Size(35, 36);
@@ -397,32 +397,31 @@
             // cmsOcorrencia
             // 
             this.cmsOcorrencia.BackColor = System.Drawing.Color.LightGray;
-            this.cmsOcorrencia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsOcorrencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsOcorrencia.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsOcorrencia.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarOcorrênciaToolStripMenuItem,
             this.consultarOcorrênciaToolStripMenuItem});
             this.cmsOcorrencia.Name = "cmsOcorrencia";
-            this.cmsOcorrencia.Size = new System.Drawing.Size(234, 52);
+            this.cmsOcorrencia.Size = new System.Drawing.Size(216, 48);
             // 
             // registrarOcorrênciaToolStripMenuItem
             // 
             this.registrarOcorrênciaToolStripMenuItem.Name = "registrarOcorrênciaToolStripMenuItem";
-            this.registrarOcorrênciaToolStripMenuItem.Size = new System.Drawing.Size(233, 24);
+            this.registrarOcorrênciaToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.registrarOcorrênciaToolStripMenuItem.Text = "Registrar ocorrência";
             this.registrarOcorrênciaToolStripMenuItem.Click += new System.EventHandler(this.registrarOcorrênciaToolStripMenuItem_Click);
             // 
             // consultarOcorrênciaToolStripMenuItem
             // 
             this.consultarOcorrênciaToolStripMenuItem.Name = "consultarOcorrênciaToolStripMenuItem";
-            this.consultarOcorrênciaToolStripMenuItem.Size = new System.Drawing.Size(233, 24);
+            this.consultarOcorrênciaToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.consultarOcorrênciaToolStripMenuItem.Text = "Consultar ocorrência";
             this.consultarOcorrênciaToolStripMenuItem.Click += new System.EventHandler(this.consultarOcorrênciaToolStripMenuItem_Click);
             // 
             // tmSideBar
             // 
             this.tmSideBar.Interval = 10;
-            this.tmSideBar.Tick += new System.EventHandler(this.tmSideBar_Tick);
             // 
             // fSideBar
             // 
@@ -442,6 +441,7 @@
             this.fSideBar.Name = "fSideBar";
             this.fSideBar.Size = new System.Drawing.Size(150, 749);
             this.fSideBar.TabIndex = 15;
+            this.fSideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.fSideBar_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -467,7 +467,7 @@
             this.btnCadastrarVoluntario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarVoluntario.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCadastrarVoluntario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarVoluntario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarVoluntario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarVoluntario.ForeColor = System.Drawing.Color.White;
             this.btnCadastrarVoluntario.Location = new System.Drawing.Point(3, 155);
             this.btnCadastrarVoluntario.Name = "btnCadastrarVoluntario";
@@ -483,7 +483,7 @@
             this.btnEmitirRelatorio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEmitirRelatorio.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnEmitirRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmitirRelatorio.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmitirRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmitirRelatorio.ForeColor = System.Drawing.Color.White;
             this.btnEmitirRelatorio.Location = new System.Drawing.Point(3, 203);
             this.btnEmitirRelatorio.Name = "btnEmitirRelatorio";
@@ -499,7 +499,7 @@
             this.btnAlteracoes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAlteracoes.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnAlteracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlteracoes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlteracoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlteracoes.ForeColor = System.Drawing.Color.White;
             this.btnAlteracoes.Location = new System.Drawing.Point(3, 251);
             this.btnAlteracoes.Name = "btnAlteracoes";
@@ -522,7 +522,7 @@
             this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(3, 560);
             this.btnSair.Name = "btnSair";

@@ -1,50 +1,67 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Forms; // Mantido para o uso do 'throw new Exception' com a mensagem de erro
 
 namespace SavingPets.DAL
 {
     public class Login
     {
-        //cria a conexão, usando a Classe Conexão
+        // Cria a conexão, usando a Classe Conexão
         Conexao Conect = new Conexao();
 
-        public Controllers.LogAlteracaoController LoginPodeGerar
+
+        // -----------------------------------------------------------------
+        // CLASSE ESTÁTICA PARA SESSÃO DE USUÁRIO (SessaoUsuario)
+        // -----------------------------------------------------------------
+        public static class SessaoUsuario
         {
-            get => default;
-            set
-            {
-            }
+            public static int IdVoluntarioLogado { get; set; }
+            public static bool IsAdministradorLogado { get; set; }
         }
 
-        public bool Logar(string Login, string Senha)
+        // -----------------------------------------------------------------
+        // MÉTODO PRINCIPAL DE LOGAR
+        // -----------------------------------------------------------------
+        public bool Logar(string email, string senha)
         {
+            // Limpa a sessão no início de qualquer tentativa de login
+            SessaoUsuario.IdVoluntarioLogado = 0;
+            SessaoUsuario.IsAdministradorLogado = false;
+
             using (MySqlConnection Con = Conect.GetConnection())
             {
                 try
                 {
                     Con.Open();
 
-                    string ComandoSql = "SELECT Voluntario.idVoluntario " +
-                                        "FROM Pessoa INNER JOIN Voluntario ON Voluntario.idPessoa = Pessoa.idPessoa " +
-                                        "WHERE email=@email AND senha=@senha";
+                    // SQL 1: Verifica login por email e senha, e busca o idVoluntario.
+                    string ComandoSql = "SELECT V.idVoluntario " +
+                                        "FROM Pessoa AS P INNER JOIN Voluntario AS V ON V.idPessoa = P.idPessoa " +
+                                        "WHERE P.login=@email AND P.senha=@senha"; // Assumindo que o campo é 'login' ou 'email'
 
                     MySqlCommand Command = new MySqlCommand(ComandoSql, Con);
 
-                    Command.Parameters.AddWithValue("@email", Login);
-                    Command.Parameters.AddWithValue("@senha", Senha);
+                    Command.Parameters.AddWithValue("@email", email);
+                    Command.Parameters.AddWithValue("@senha", senha);
 
-                    MySqlDataReader LeitorDados = Command.ExecuteReader();
-
-                    if (LeitorDados.Read())
+                    int idVol = 0;
+                    using (MySqlDataReader LeitorDados = Command.ExecuteReader())
                     {
-                        int idVol = Convert.ToInt32(LeitorDados["idVoluntario"]);
+                        if (LeitorDados.Read())
+                        {
+                            // Login bem-sucedido
+                            idVol = Convert.ToInt32(LeitorDados["idVoluntario"]);
+                        }
+                    } // O LeitorDados é fechado e descartado aqui, liberando a conexão
 
+                    if (idVol > 0)
+                    {
+                        // 2. Chama o método para verificar o status de administrador
+                        bool isAdm = VerificarStatusAdministrador(idVol, Con);
+
+                        // 3. Armazena os dados na sessão
                         SessaoUsuario.IdVoluntarioLogado = idVol;
+                        SessaoUsuario.IsAdministradorLogado = isAdm;
 
                         return true;
                     }
@@ -53,18 +70,51 @@ namespace SavingPets.DAL
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Erro: " + ex.Message);
+                    // Limpa a sessão em caso de erro no banco de dados
+                    SessaoUsuario.IdVoluntarioLogado = 0;
+                    SessaoUsuario.IsAdministradorLogado = false;
+                    throw new Exception("Erro de autenticação ou de conexão com o Banco de Dados: " + ex.Message);
                 }
-                finally
+            } // A conexão é fechada e descartada aqui (via `using`)
+        }
+
+        // -----------------------------------------------------------------
+        // MÉTODO SEPARADO PARA VERIFICAR ADMIN (Como solicitado)
+        // -----------------------------------------------------------------
+        /// <summary>
+        /// Verifica se o idVoluntario está cadastrado na tabela Administrador.
+        /// </summary>
+        private bool VerificarStatusAdministrador(int idVoluntario, MySqlConnection con)
+        {
+            if (idVoluntario <= 0) return false;
+
+            // SQL 2: Verifica se o Voluntário tem um registro de Administrador
+            string cmdsql = "SELECT COUNT(codAdministrador) FROM Administrador " +
+                            "WHERE idVoluntario = @idVoluntario";
+
+            using (MySqlCommand Command2 = new MySqlCommand(cmdsql, con))
+            {
+                Command2.Parameters.AddWithValue("@idVoluntario", idVoluntario);
+
+                // ExecuteScalar retorna o primeiro valor da primeira linha, que é a contagem (0 ou 1)
+                object resultado = Command2.ExecuteScalar();
+
+                // Se a contagem for maior que 0 (ou seja, existe um registro de administrador)
+                if (resultado != null && Convert.ToInt32(resultado) > 0)
                 {
-                    Con.Close();
+                    return true;
                 }
+                return false;
             }
         }
 
-        public static class SessaoUsuario
+        // -----------------------------------------------------------------
+        // MÉTODO PARA ACESSO EXTERNO (Como solicitado)
+        // -----------------------------------------------------------------
+        public bool IsAdministrador()
         {
-            public static int IdVoluntarioLogado { get; set; }
+            // Retorna o valor armazenado na sessão.
+            return SessaoUsuario.IsAdministradorLogado;
         }
     }
 }

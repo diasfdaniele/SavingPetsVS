@@ -1,327 +1,191 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using SavingPets.DAL;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SavingPets.DAL.Login;
 
 namespace SavingPets
 {
-
     public partial class FrmMenu : Form
     {
-        bool sidebarExpand;
+        // Variável de controle da animação do menu
+        bool sidebarExpand = true; // Começa expandido (true) ou recolhido (false), ajuste conforme seu design inicial
+
         public FrmMenu()
         {
             InitializeComponent();
+
+            // Verifica se é administrador para mostrar/esconder o botão de configurações/admin
+            // Nota: Se fSideBar for o menu todo, cuidado ao esconder ele inteiro. 
+            // Talvez você queira esconder apenas um botão específico (ex: btnAlteracoes).
+            bool IsAdministradorLogado = SessaoUsuario.IsAdministradorLogado;
+
+            // Exemplo: Esconde o botão de Log de Alterações se não for admin
+            if (!IsAdministradorLogado)
+            {
+                btnAlteracoes.Visible = false;
+                // fSideBar.Hide(); // CUIDADO: Isso esconde o menu todo! Só descomente se for a intenção.
+            }
         }
 
-        //Evento de clique botão lateral animais
+       
+
+        // ========================================================
+        // EVENTOS DOS BOTÕES DO MENU (Navegação)
+        // ========================================================
+
+        // --- ANIMAIS ---
         private void btnAnimais_Click(object sender, EventArgs e)
         {
-            //Comando para exibição menu lateral
-            int x = btnAnimais.Width;
-            int y = 0;
-
-            cmsAnimais.Show(btnAnimais, new Point(x, y));
+            cmsAnimais.Show(btnAnimais, new Point(btnAnimais.Width, 0));
         }
 
-        //Evento de clique botão lateral animais
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Comando para exibição menu lateral
-            int x = btnAnimais.Width;
-            int y = 0;
-
-            cmsAnimais.Show(btnAnimais, new Point(x, y));
-
-        }
-
-        //Evento de clique para acessar cadastro de animais
         private void cadastrarAnimalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAnimal janela = new FrmAnimal();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            AbrirJanela(new FrmAnimal());
         }
 
-        //Evento de clique para acessar consulta de animais
         private void consultarAnimalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGerenciarAnimal janela = new FrmGerenciarAnimal();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            AbrirJanela(new FrmGerenciarAnimal());
         }
 
         private void editarAnimalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGerenciarAnimal janela = new FrmGerenciarAnimal();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            AbrirJanela(new FrmGerenciarAnimal());
         }
 
-        //Evento de clique botão lateral tutor
+        // --- TUTORES ---
         private void btnTutores_Click(object sender, EventArgs e)
         {
-            // Comando para exibição menu lateral
-            int x = btnTutores.Width;
-            int y = 0;
-
-            cmsTutor.Show(btnTutores, new Point(x, y));
+            cmsTutor.Show(btnTutores, new Point(btnTutores.Width, 0));
         }
 
-        //Evento de clique botão lateral tutor
-        private void btnMenuTutor_Click(object sender, EventArgs e)
-        {
-            // Comando para exibição menu lateral
-            int x = btnTutores.Width;
-            int y = 0;
-
-            cmsTutor.Show(btnTutores, new Point(x, y));
-        }
-
-        //Evento de clique para acessar cadastro de tutor
         private void cadastrarTutorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmTutor janela = new FrmTutor();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            AbrirJanela(new FrmTutor());
         }
 
-        //Evento de click para acessar consulta de tutor
         private void consultarTutorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGerenciarTutor janela = new FrmGerenciarTutor();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            AbrirJanela(new FrmGerenciarTutor());
         }
 
         private void editarTutorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGerenciarTutor janela = new FrmGerenciarTutor();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            AbrirJanela(new FrmGerenciarTutor());
         }
 
-        //Evento de clique para menu lateral processo adotivo
+        // --- PROCESSO ADOTIVO ---
         private void btnProcesso_Click(object sender, EventArgs e)
         {
-            // Comando para exibição menu lateral
-            int x = btnProcesso.Width;
-            int y = 0;
-
-            cmsAdocao.Show(btnProcesso, new Point(x, y));
-        }
-        private void btnMenuProcesso_Click(object sender, EventArgs e)
-        {
-            // Comando para exibição menu lateral
-            int x = btnProcesso.Width;
-            int y = 0;
-
-            cmsAdocao.Show(btnProcesso, new Point(x, y));
+            cmsAdocao.Show(btnProcesso, new Point(btnProcesso.Width, 0));
         }
 
-        //Comando para acessar tela da visita domiciliar
-        private void registrarVisitaDomiciliarToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FrmVisita janela = new FrmVisita();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
-
-
-        //Evento de click para cadastrar processo adotivo
         private void cadastrarProcessoAdotivoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmCadastrarProcesso janela = new FrmCadastrarProcesso();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
-
-
-        //Evento de click para exibir consulta de processo adotivo 
-        private void consultarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmGerenciarProcessoAdotivo janela = new FrmGerenciarProcessoAdotivo();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
-        private void editarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmGerenciarProcessoAdotivo janela = new FrmGerenciarProcessoAdotivo();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
-
-        //Comando para exibição menu lateral ocorrencias
-        private void btnOcorrencia_Click(object sender, EventArgs e)
-        {
-            // Comando para exibição menu lateral
-            int x = btnOcorrencia.Width;
-            int y = 0;
-
-            cmsOcorrencia.Show(btnOcorrencia, new Point(x, y));
-        }
-
-        private void btnMenuOcorrencia_Click(object sender, EventArgs e)
-        {
-            // Comando para exibição menu lateral
-            int x = btnOcorrencia.Width;
-            int y = 0;
-
-            cmsOcorrencia.Show(btnOcorrencia, new Point(x, y));
-        }
-
-        //Evento de clique para cadastrar ocorrencia
-        private void registrarOcorrênciaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmOcorrencia tela = new FrmOcorrencia();
-            Hide();
-            tela.ShowDialog();
-            Show();
-        }
-
-        //Evento de click para consultar ocorrencia
-        private void consultarOcorrênciaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmGerenciarOcorrencias janela = new FrmGerenciarOcorrencias();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
-
-
-        private void tmSideBar_Tick(object sender, EventArgs e)
-        {
-            if (sidebarExpand)
-            {
-                fSideBar.Width -= 25;
-
-                if (fSideBar.Width <= fSideBar.MinimumSize.Width)
-                {
-                    sidebarExpand = false;
-                    tmSideBar.Stop();
-                }
-            }
-            else
-            {
-                fSideBar.Width += 25;
-                if (fSideBar.Width >= fSideBar.MaximumSize.Width)
-                {
-                    sidebarExpand = true;
-                    tmSideBar.Stop();
-                }
-            }
-        }
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            tmSideBar.Start();
-        }
-
-        private void consultarVisitaDomiciliarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            AbrirJanela(new FrmCadastrarProcesso());
         }
 
         private void consultarProcessoAdotivoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmGerenciarProcessoAdotivo janela = new FrmGerenciarProcessoAdotivo();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            AbrirJanela(new FrmGerenciarProcessoAdotivo());
         }
 
         private void editarExcluirProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGerenciarProcessoAdotivo janela = new FrmGerenciarProcessoAdotivo();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            AbrirJanela(new FrmGerenciarProcessoAdotivo());
         }
 
-        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        // --- VISITA DOMICILIAR ---
+        private void registrarVisitaDomiciliarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmGerenciarVisita janela = new FrmGerenciarVisita();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            AbrirJanela(new FrmVisita());
+        }
+
+        private void cToolStripMenuItem_Click(object sender, EventArgs e) // Consultar Visita
+        {
+            AbrirJanela(new FrmGerenciarVisita());
         }
 
         private void editarExcluirVisitaDomiciliarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmGerenciarVisita janela = new FrmGerenciarVisita();
-            Hide();
+            AbrirJanela(new FrmGerenciarVisita());
+        }
+
+        // --- OCORRÊNCIAS ---
+        private void btnOcorrencia_Click(object sender, EventArgs e)
+        {
+            cmsOcorrencia.Show(btnOcorrencia, new Point(btnOcorrencia.Width, 0));
+        }
+
+        private void registrarOcorrênciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirJanela(new FrmOcorrencia());
+        }
+
+        private void consultarOcorrênciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirJanela(new FrmGerenciarOcorrencias());
+        }
+
+        // --- OUTROS BOTÕES ---
+        private void btnCadastrarVoluntario_Click(object sender, EventArgs e)
+        {
+            AbrirJanela(new FrmVoluntario());
+        }
+
+        private void btnEmitirRelatorio_Click(object sender, EventArgs e)
+        {
+            AbrirJanela(new FrmRelatorioGerencial());
+        }
+
+        private void btnAlteracoes_Click(object sender, EventArgs e)
+        {
+            AbrirJanela(new FrmAlteracoes());
+        }
+
+        // ========================================================
+        // MÉTODOS AUXILIARES
+        // ========================================================
+
+        // Método genérico para abrir janelas e esconder o menu (Evita repetição de código)
+        private void AbrirJanela(Form janela)
+        {
+            this.Hide();
             janela.ShowDialog();
-            Show();
+            this.Show();
         }
 
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (e.CloseReason == CloseReason.ApplicationExitCall) return;
 
-            // Se o sistema está fechando porque Application.Exit() foi chamado,
-            // não mostrar a mensagem novamente.
-            if (e.CloseReason == CloseReason.ApplicationExitCall)
-                return;
-
-            //Exibe mensagem de confirmação
             var resultado = MessageBox.Show(
                 "Deseja realmente sair do sistema?",
                 "Confirmar saída",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            //se clica não, cancela o fechamento
             if (resultado == DialogResult.No)
             {
                 e.Cancel = true;
-                return;
             }
-
-            Application.Exit();
-
+            else
+            {
+                Application.Exit();
+            }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCadastrarVoluntario_Click(object sender, EventArgs e)
-        {
-            FrmVoluntario janela = new FrmVoluntario();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
-
-        private void btnEmitirRelatorio_Click(object sender, EventArgs e)
-        {
-            FrmRelatorioGerencial janela = new FrmRelatorioGerencial();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
-
-        private void btnAlteracoes_Click(object sender, EventArgs e)
-        {
-            FrmAlteracoes janela = new FrmAlteracoes();
-            Hide();
-            janela.ShowDialog();
-            Show();
-        }
+        // Eventos vazios ou redundantes mantidos para compatibilidade com Designer
+        private void fSideBar_Paint(object sender, PaintEventArgs e) { }
+        private void button1_Click(object sender, EventArgs e) { }
+        private void button1_Click_1(object sender, EventArgs e) { }
+        private void btnMenuTutor_Click(object sender, EventArgs e) { btnTutores_Click(sender, e); }
+        private void btnMenuProcesso_Click(object sender, EventArgs e) { btnProcesso_Click(sender, e); }
+        private void btnMenuOcorrencia_Click(object sender, EventArgs e) { btnOcorrencia_Click(sender, e); }
+        private void consultarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e) { AbrirJanela(new FrmGerenciarProcessoAdotivo()); }
+        private void editarProcessoAdotivoToolStripMenuItem_Click(object sender, EventArgs e) { AbrirJanela(new FrmGerenciarProcessoAdotivo()); }
+        private void consultarVisitaDomiciliarToolStripMenuItem_Click(object sender, EventArgs e) { }
     }
 }
