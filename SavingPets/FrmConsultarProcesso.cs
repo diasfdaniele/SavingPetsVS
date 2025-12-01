@@ -9,7 +9,7 @@ namespace SavingPets
 {
     public partial class FrmConsultarProcesso : Form
     {
-        private List<ProcessoAdotivo> listaProcessos;  
+        private List<ProcessoAdotivo> listaProcessos;
         private string filtroAtual = "NomeTutor";
         private ProcessoAdotivo processoSelecionado;
 
@@ -17,7 +17,7 @@ namespace SavingPets
         {
             InitializeComponent();
 
-            CarregarProcessosDoBanco();  
+            CarregarProcessosDoBanco();
 
             AtualizarGrid();
 

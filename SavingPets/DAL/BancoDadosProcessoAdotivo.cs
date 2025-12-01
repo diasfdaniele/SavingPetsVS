@@ -12,9 +12,7 @@ namespace SavingPets.DAL
     {
         private Conexao conexao = new Conexao();
 
-        // =================================================================
-        // 1. LISTAR TODOS (Com JOIN em Telefone e Endereço)
-        // =================================================================
+        //LISTAR TODOS (Com JOIN em Telefone e Endereço)
         public List<ProcessoAdotivo> ListarProcessos()
         {
             List<ProcessoAdotivo> lista = new List<ProcessoAdotivo>();
@@ -99,19 +97,13 @@ namespace SavingPets.DAL
             return lista;
         }
 
-        // =================================================================
-        // 2. BUSCAR POR ID
-        // =================================================================
+        //BUSCAR POR ID
         public ProcessoAdotivo BuscarPorId(int id)
         {
-            // Implementação simplificada para suportar o controller
-            // O ideal seria repetir o JOIN do ListarProcessos filtrando por ID
             return ListarProcessos().FirstOrDefault(p => p.IdProcesso == id);
         }
 
-        // =================================================================
         // 3. SALVAR (INSERT)
-        // =================================================================
         public void Salvar(ProcessoAdotivo processo)
         {
             using (MySqlConnection conect = conexao.GetConnection())
@@ -145,9 +137,7 @@ namespace SavingPets.DAL
             }
         }
 
-        // =================================================================
-        // 4. ALTERAR (UPDATE)
-        // =================================================================
+        //ALTERAR (UPDATE)
         public void Alterar(ProcessoAdotivo processo)
         {
             using (MySqlConnection conect = conexao.GetConnection())
@@ -183,9 +173,7 @@ namespace SavingPets.DAL
             }
         }
 
-        // =================================================================
-        // 5. EXCLUIR (DELETE)
-        // =================================================================
+        //EXCLUIR (DELETE)
         public void Excluir(int id)
         {
             using (MySqlConnection conect = conexao.GetConnection())
@@ -213,9 +201,7 @@ namespace SavingPets.DAL
             }
         }
 
-        // =================================================================
-        // 6. PRÓXIMO ID
-        // =================================================================
+        //PRÓXIMO ID
         public int ObterProximoId()
         {
             int nextId = 1;

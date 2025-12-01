@@ -112,7 +112,6 @@ namespace SavingPets
                 txtDescricao.Text = oc.Descricao;
                 dataOcorrencia.Value = oc.DataOcorrencia;
                 txtGravidade.Text = oc.Tipo; // se "Gravidade" era o antigo "Tipo"
-                txtProvidencia.Text = ""; // remover, pois não existe no banco
             }
         }
 

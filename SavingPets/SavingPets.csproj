@@ -100,6 +100,7 @@
     <Compile Include="DAL\BancoDadosProcessoAdotivo.cs" />
     <Compile Include="DAL\BancoDeDadosOcorrencia.cs" />
     <Compile Include="DAL\BancoDeDadosTutor.cs" />
+    <Compile Include="DAL\BancoDeDadosVisita.cs" />
     <Compile Include="DAL\Conexão.cs" />
     <Compile Include="DAL\BancoDadosAnimal.cs" />
     <Compile Include="DAL\Login.cs" />
@@ -209,6 +210,7 @@
       <DependentUpon>FrmVoluntario.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Animal.cs" />
+    <Compile Include="Models\ObservacoesVisita.cs" />
     <Compile Include="Models\Ocorrencia.cs" />
     <Compile Include="Models\ProcessoAdotivo.cs" />
     <Compile Include="Models\Tutor.cs" />

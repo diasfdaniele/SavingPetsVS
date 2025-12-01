@@ -1,5 +1,4 @@
-﻿// DAL/BancoDadosOcorrencia.cs
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using SavingPets.Models;
 using System;
 using System.Collections.Generic;
@@ -201,7 +200,6 @@ namespace SavingPets.DAL
 
             return ExecutarConsultaView(sql, new MySqlParameter("@nome", "%" + nome + "%"));
         }
-
 
 
         // Busca por id da ocorrência

@@ -1,155 +1,87 @@
 ﻿using SavingPets.Models;
+using SavingPets.DAL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SavingPets.Controllers
+public class VisitaController
 {
-    public class VisitaController
+    private readonly BancoDadosVisita _repository = new BancoDadosVisita();
+
+    //CADASTRAR VISITA – versão antiga (para compatibilidade)
+    public bool CadastrarVisita(
+        int idAdocao,
+        DateTime data,
+        string responsavel,
+        string situacao,
+        List<string> observacoes)
     {
-        // Lista temporária que simula o banco de dados
-        // (BANCO) — será substituída por SELECT no repositório
-        private static List<Visita> listaVisitas = new List<Visita>();
-
-        // Controle de ID incremental automático
-        // (BANCO) — será substituído por ID AUTO_INCREMENT do MySQL
-        private static int ultimoId = 0;
-
-        // MÉTODO DE VALIDAÇÃO
-        private void Validar(Visita visita)
+        Visita visita = new Visita
         {
-            // Verifica se o objeto é nulo
-            if (visita == null)
-                throw new ArgumentNullException("visita", "A visita informada é nula.");
+            IdAdocao = idAdocao,
+            DataVisita = data,
+            Responsavel = responsavel,
+            Situacao = situacao,
+            Observacoes = observacoes,
+            ObservacoesDetalhadas = new ObservacoesVisita() // evita null
+        };
 
-            // Verifica se o processo adotivo foi informado
-            if (visita.Processo == null)
-                throw new Exception("ATENÇÃO: É obrigatório selecionar um processo adotivo antes de registrar a visita.");
+        return _repository.InserirVisitaCompleta(visita);
+    }
 
-            // Data da visita não pode ser futura
-            if (visita.DataVisita > DateTime.Now)
-                throw new Exception("ATENÇÃO: A data da visita não pode ser posterior à data de hoje.");
+    //CADASTRAR VISITA – NOVO (com objeto completo)
+    public bool CadastrarVisita(Visita visita)
+    {
+        if (visita == null)
+            throw new ArgumentNullException(nameof(visita));
 
-            // Data da visita não pode ser antes da adoção
-            if (visita.DataVisita < visita.Processo.DataAdocao)
-                throw new Exception("ATENÇÃO: A data da visita não pode ser anterior à data de adoção do processo.");
+        //Garante que ObservacoesDetalhadas nunca seja null
+        if (visita.ObservacoesDetalhadas == null)
+            visita.ObservacoesDetalhadas = new ObservacoesVisita();
 
-            // Campos obrigatórios
-            if (string.IsNullOrWhiteSpace(visita.Responsavel))
-                throw new Exception("ATENÇÃO: O nome do responsável pela visita é obrigatório.");
+        //IdProcessoAdotivo é o mesmo campo da UI chamado IdAdocao
+        visita.IdProcessoAdotivo = visita.IdAdocao;
 
-            if (string.IsNullOrWhiteSpace(visita.Status))
-                throw new Exception("ATENÇÃO: É necessário informar o status da visita.");
+        return _repository.InserirVisitaCompleta(visita);
+    }
 
-            if (string.IsNullOrWhiteSpace(visita.CondicaoAmbiente))
-                throw new Exception("ATENÇÃO: Informe a condição do ambiente (Seguro, Adequado ou Inseguro).");
+    //LISTAR TODAS AS VISITAS
+    public List<Visita> ListarVisitas()
+    {
+        return _repository.ListarVisitas();
+    }
 
-            if (string.IsNullOrWhiteSpace(visita.MausTratos))
-                throw new Exception("ATENÇÃO: Informe se há indícios de maus-tratos.");
+    //BUSCAR POR ID
+    public Visita BuscarVisita(int id)
+    {
+        return _repository.BuscarVisita(id);
+    }
 
-            if (string.IsNullOrWhiteSpace(visita.CondicaoFisica))
-                throw new Exception("ATENÇÃO: Informe a condição física do animal.");
+    //BUSCAR POR FILTRO (texto)
+    public List<Visita> BuscarVisita(string filtro)
+    {
+        if (string.IsNullOrWhiteSpace(filtro))
+            return ListarVisitas();
 
-            if (string.IsNullOrWhiteSpace(visita.Comportamento))
-                throw new Exception("ATENÇÃO: Informe o comportamento do animal.");
-        }
+        return _repository.BuscarVisitasPorFiltro(filtro);
+    }
 
+    //LISTAR OBSERVAÇÕES (retorna lista de strings)
+    public List<string> ListarObservacoesPorVisita(int idVisita)
+    {
+        var visita = _repository.BuscarVisita(idVisita);
 
-        // CADASTRAR
-        public void CadastrarVisita(Visita visita)
-        {
-            // Valida antes de inserir
-            Validar(visita);
+        if (visita == null)
+            return new List<string>();
 
-            // Gera ID manualmente
-            // (BANCO) — esse ID será gerado pelo banco futuramente
-            ultimoId++;
-            visita.IdVisita = ultimoId;
+        if (visita.Observacoes == null)
+            visita.Observacoes = new List<string>();
 
-            // Adiciona na lista simulada
-            // (BANCO) — será substituído por INSERT no banco
-            listaVisitas.Add(visita);
-        }
+        return visita.Observacoes;
+    }
 
-        // LISTAR
-        public List<Visita> ListarVisitas()
-        {
-            // Apenas retorna a lista simulada
-            // (BANCO) — será substituído por SELECT * FROM Visitas
-            return listaVisitas;
-        }
-
-        // BUSCA POR FILTRO
-        public List<Visita> BuscarVisitas(string termo, string tipoFiltro)
-        {
-            termo = termo?.ToLower() ?? "";
-            List<Visita> resultados = new List<Visita>();
-
-            // (BANCO) — toda essa busca será substituída por SELECT com WHERE dinâmico
-            foreach (var v in listaVisitas)
-            {
-                if (tipoFiltro == "NomeTutor" &&
-                    v.Processo.Tutor.NomeTutor.ToLower().Contains(termo))
-                    resultados.Add(v);
-
-                else if (tipoFiltro == "NomeAnimal" &&
-                    v.Processo.Animal.NomeAnimal.ToLower().Contains(termo))
-                    resultados.Add(v);
-
-                else if (tipoFiltro == "IdProcesso" &&
-                    v.Processo.IdProcesso.ToString() == termo)
-                    resultados.Add(v);
-
-                else if (tipoFiltro == "IdVisita" &&
-                    v.IdVisita.ToString() == termo)
-                    resultados.Add(v);
-            }
-
-            return resultados;
-        }
-
-        // Buscar visita por ID
-        // (BANCO) — será substituído por SELECT WHERE IdVisita = x
-        public Visita BuscarPorId(int idVisita)
-        {
-            return listaVisitas.FirstOrDefault(v => v.IdVisita == idVisita);
-        }
-
-        // Editar visita
-        public void EditarVisita(Visita visitaAtualizada)
-        {
-            if (visitaAtualizada == null)
-                throw new ArgumentNullException(nameof(visitaAtualizada));
-
-            // Procura visita existente
-            // (BANCO) — será SELECT + UPDATE
-            var existente = listaVisitas.FirstOrDefault(v => v.IdVisita == visitaAtualizada.IdVisita);
-            if (existente == null)
-                throw new Exception("Visita não encontrada para edição.");
-
-            // Valida antes de atualizar
-            Validar(visitaAtualizada);
-
-            // Remove o item antigo e insere atualizado
-            // (BANCO) — será um comando UPDATE
-            listaVisitas.Remove(existente);
-            listaVisitas.Add(visitaAtualizada);
-        }
-
-        // Excluir visita
-        public void ExcluirVisita(int idVisita)
-        {
-            // Procura visita existente
-            // (BANCO) — será DELETE FROM Visitas WHERE IdVisita = x
-            var existente = listaVisitas.FirstOrDefault(v => v.IdVisita == idVisita);
-            if (existente == null)
-                throw new Exception("Visita não encontrada para exclusão.");
-
-            // Remove da lista simulada
-            // (BANCO) — será substituído por DELETE
-            listaVisitas.Remove(existente);
-        }
+    //EXCLUIR VISITA
+    public bool ExcluirVisita(int id)
+    {
+        return _repository.ExcluirVisita(id);
     }
 }

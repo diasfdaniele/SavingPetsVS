@@ -52,13 +52,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtObservacoes = new System.Windows.Forms.TextBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.rbNaoAcompanhado = new System.Windows.Forms.RadioButton();
             this.rbAcompanhado = new System.Windows.Forms.RadioButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.rbNaoVacinado = new System.Windows.Forms.RadioButton();
             this.rbVacinado = new System.Windows.Forms.RadioButton();
-            this.txtObservacoes = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.rbDuvida = new System.Windows.Forms.RadioButton();
             this.rbNao = new System.Windows.Forms.RadioButton();
@@ -367,6 +367,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Checklist de Visita ";
             // 
+            // txtObservacoes
+            // 
+            this.txtObservacoes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservacoes.Location = new System.Drawing.Point(5, 337);
+            this.txtObservacoes.Multiline = true;
+            this.txtObservacoes.Name = "txtObservacoes";
+            this.txtObservacoes.Size = new System.Drawing.Size(503, 42);
+            this.txtObservacoes.TabIndex = 2;
+            // 
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.rbNaoAcompanhado);
@@ -438,15 +447,6 @@
             this.rbVacinado.TabStop = true;
             this.rbVacinado.Text = "Sim";
             this.rbVacinado.UseVisualStyleBackColor = true;
-            // 
-            // txtObservacoes
-            // 
-            this.txtObservacoes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservacoes.Location = new System.Drawing.Point(5, 337);
-            this.txtObservacoes.Multiline = true;
-            this.txtObservacoes.Name = "txtObservacoes";
-            this.txtObservacoes.Size = new System.Drawing.Size(503, 42);
-            this.txtObservacoes.TabIndex = 2;
             // 
             // groupBox7
             // 

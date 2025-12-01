@@ -83,12 +83,8 @@ namespace SavingPets
                 {
                     var resultado = tela.ShowDialog();
 
-                    // DEBUG rápido: ver qual DialogResult veio
-                    // MessageBox.Show("DialogResult retornado: " + resultado.ToString());
-
                     if (resultado == DialogResult.OK)
                     {
-                        // checagem defensiva: Tag pode ser null se algo deu errado
                         if (tela.Tag == null)
                         {
                             MessageBox.Show("A tela retornou OK, mas não enviou o processo selecionado (Tag == null).", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -108,12 +104,11 @@ namespace SavingPets
                         txtNomeAnimal.Text = p.Animal?.NomeAnimal ?? "";
                         dataAdocao.Value = p.DataAdocao == DateTime.MinValue ? DateTime.Now.Date : p.DataAdocao;
 
-                        // armazena também localmente para uso posterior (se seu formulário usa processoSelecionado)
+                        // armazena também localmente para uso posterior 
                         this.processoSelecionado = p;
                     }
                     else
                     {
-                        // Usuário cancelou -> comportamento normal, sem preencher nada
                     }
                 }
             }

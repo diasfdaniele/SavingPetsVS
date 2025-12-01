@@ -1,64 +1,60 @@
-﻿using Org.BouncyCastle.Asn1.Cmp;
-using SavingPets.Controllers;
+﻿using SavingPets.Controllers;
 using SavingPets.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SavingPets
 {
     public partial class FrmVisita : Form
     {
-        // Controladores
-        private ProcessoAdotivoController processoController = new ProcessoAdotivoController();
-        private VisitaController visitaController = new VisitaController();
+        // Controller principal responsável por validar e salvar no banco
+        private readonly VisitaController visitaController = new VisitaController();
 
-        // Guarda o processo selecionado pelo usuário
+        // Processo selecionado
         private ProcessoAdotivo processoSelecionado;
+
+        // Lista temporária para armazenar observações antes de salvar no banco:
+        private BindingSource listaObservacoes = new BindingSource();
 
         public FrmVisita()
         {
             InitializeComponent();
         }
 
+
+        //BOTÃO PESQUISAR PROCESSO
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            FrmConsultarProcesso frm = new FrmConsultarProcesso();
+            FrmConsultarProcesso lookup = new FrmConsultarProcesso();
 
-            if (frm.ShowDialog() == DialogResult.OK)
+            if (lookup.ShowDialog() == DialogResult.OK)
             {
-                processoSelecionado = (ProcessoAdotivo)frm.Tag;
+                processoSelecionado = (ProcessoAdotivo)lookup.Tag;
 
-                // Preenche os campos na tela
                 txtId.Text = processoSelecionado.IdProcesso.ToString();
-                txtNomeTutor.Text = processoSelecionado.Tutor.NomeTutor;
                 txtNomeAnimal.Text = processoSelecionado.Animal.NomeAnimal;
+                txtNomeTutor.Text = processoSelecionado.Tutor.NomeTutor;
                 dataAdocao.Value = processoSelecionado.DataAdocao;
             }
         }
 
+        //BOTÃO CADASTRAR VISITA
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
-                // VALIDAÇÕES DA INTERFACE
-
+                //VALIDAÇÃO
                 if (processoSelecionado == null)
                 {
-                    MessageBox.Show("Por favor, selecione primeiro um processo adotivo.", "Atenção",
+                    MessageBox.Show("Selecione um processo de adoção.", "Atenção",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(txtResponsavel.Text))
                 {
-                    MessageBox.Show("Por favor, informe o responsável pela visita.", "Atenção",
+                    MessageBox.Show("Informe o responsável pela visita.", "Atenção",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtResponsavel.Focus();
                     return;
@@ -66,79 +62,23 @@ namespace SavingPets
 
                 if (cbxStatusVisita.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Por favor, selecione o status da visita.", "Atenção",
+                    MessageBox.Show("Selecione a situação da visita.", "Atenção",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                if (cbxFisico.SelectedIndex == -1)
+                //CRIA OBJETO VISITA PRINCIPAL
+                Visita visita = new Visita
                 {
-                    MessageBox.Show("Por favor, informe a condição física do animal.", "Atenção",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (cbxComportamento.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Por favor, informe o comportamento do animal.", "Atenção",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (!rbSeguro.Checked && !rbSatisfatorio.Checked && !rbInseguro.Checked)
-                {
-                    MessageBox.Show("Por favor, selecione a condição do ambiente.", "Atenção",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (!rbSim.Checked && !rbNao.Checked && !rbDuvida.Checked)
-                {
-                    MessageBox.Show("Por favor, informe se há indícios de maus-tratos.", "Atenção",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // CRIA OBJETO VISITA
-                Visita novaVisita = new Visita
-                {
-                    Processo = processoSelecionado,
-                    DataVisita = dataVisita.Value,
+                    IdAdocao = processoSelecionado.IdProcesso,
+                    DataVisita = dataVisita.Value.Date,
                     Responsavel = txtResponsavel.Text.Trim(),
-                    Status = cbxStatusVisita.Text,
-
-                    // Bem-estar
-                    CondicaoFisica = cbxFisico.Text,
-                    Comportamento = cbxComportamento.Text,
-                    AnimalSaudavel = cbxSaudavel.Text,
-                    CondicoesHigiene = cbxHigiene.Text,
-                    VacinasEmDia = rbVacinado.Checked ? "Sim" : "Não",
-                    AcompanhamentoVeterinario = rbAcompanhado.Checked ? "Sim" : "Não",
-
-                    // Ambiente
-                    CondicaoAmbiente =
-                        rbSeguro.Checked ? "Seguro" :
-                        rbSatisfatorio.Checked ? "Adequado" : "Inseguro",
-
-                    MausTratos =
-                        rbSim.Checked ? "Sim" :
-                        rbNao.Checked ? "Não" : "Em dúvida",
-
-                    // Adaptação
-                    AdaptacaoAmbiente = cbxAdaptacao.Text,
-                    RelacaoTutor = cbxRelacao.Text,
-                    AlteracoesComportamento = txtComportamento.Text.Trim(),
-
-                    // Recomendações
-                    OrientacoesDadas = txtOrientacao.Text.Trim(),
-                    ProximaVisitaSugerida = dataAgendamento.Value,
-                    Observacoes = txtObservacoes.Text.Trim(),
-                    ConclusaoVisita = cbxConclusao.Text,
+                    Situacao = cbxStatusVisita.Text.Trim(),
+                    Observacoes = listaObservacoes.List.Cast<string>().ToList()
                 };
 
-                // ENVIA AO CONTROLLER (VALIDAÇÃO DE REGRA)
-
-                visitaController.CadastrarVisita(novaVisita);
+                //ENVIA AO CONTROLLER
+                visitaController.CadastrarVisita(visita);
 
                 MessageBox.Show("Visita cadastrada com sucesso!", "Sucesso",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -147,17 +87,12 @@ namespace SavingPets
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar visita: " + ex.Message,
+                MessageBox.Show("Erro ao cadastrar visita:\n" + ex.Message,
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            FrmMenu janela = new FrmMenu();
-            Hide();
-            janela.ShowDialog();
-            Show();
         }
 
+        //LIMPAR CAMPOS
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             LimparCampos();
@@ -165,70 +100,41 @@ namespace SavingPets
 
         private void LimparCampos()
         {
+            processoSelecionado = null;
+
+            txtId.Clear();
+            txtNomeTutor.Clear();
+            txtNomeAnimal.Clear();
             txtResponsavel.Clear();
+            txtObservacoes.Clear();
+
             cbxStatusVisita.SelectedIndex = -1;
 
-            cbxFisico.SelectedIndex = -1;
-            cbxComportamento.SelectedIndex = -1;
-            cbxSaudavel.SelectedIndex = -1;
-            cbxHigiene.SelectedIndex = -1;
-
-            rbVacinado.Checked = false;
-            rbNaoVacinado.Checked = false;
-
-            rbAcompanhado.Checked = false;
-            rbNaoAcompanhado.Checked = false;
-
-            rbSeguro.Checked = false;
-            rbSatisfatorio.Checked = false;
-            rbInseguro.Checked = false;
-
-            rbSim.Checked = false;
-            rbNao.Checked = false;
-            rbDuvida.Checked = false;
-
-            txtObservacoes.Clear();
-            cbxAdaptacao.SelectedIndex = -1;
-            cbxRelacao.SelectedIndex = -1;
-
-            txtComportamento.Clear();
-            txtOrientacao.Clear();
-
-            cbxConclusao.SelectedIndex = -1;
+            listaObservacoes.Clear();
         }
 
+        //VOLTAR PARA O MENU
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            FrmMenu janela = new FrmMenu();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            Close();
         }
 
+        //CONFIRMAÇÃO AO FECHAR
         private void FrmVisita_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-            // Se o sistema está fechando porque Application.Exit() foi chamado,
-            // não mostrar a mensagem novamente.
             if (e.CloseReason == CloseReason.ApplicationExitCall)
                 return;
 
-            //Exibe mensagem de confirmação
-            var resultado = MessageBox.Show(
-                "Deseja realmente sair do sistema?",
+            var result = MessageBox.Show(
+                "Deseja realmente sair?",
                 "Confirmar saída",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            //se clica não, cancela o fechamento
-            if (resultado == DialogResult.No)
-            {
+            if (result == DialogResult.No)
                 e.Cancel = true;
-                return;
-            }
-
-            Application.Exit();
-
         }
+
+
     }
 }

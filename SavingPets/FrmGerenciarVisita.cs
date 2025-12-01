@@ -1,310 +1,271 @@
-﻿using Mysqlx.Crud;
-using Org.BouncyCastle.Asn1.Cmp;
-using SavingPets.Controllers;
+﻿using SavingPets.Controllers;
 using SavingPets.Models;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace SavingPets
 {
     public partial class FrmGerenciarVisita : Form
     {
-        // CONTROLLER USADO PARA MANIPULAR VISITAS
-        // Contém APENAS LISTAS SIMULADAS.
-        // Após a integração com o banco, TODO o acesso será feito via SELECT/INSERT/UPDATE/DELETE.
-
-        private VisitaController visitaController = new VisitaController();
-
-        // Lista usada para exibir no DataGridView
-        private List<Visita> listaAtual = new List<Visita>();
+        private readonly VisitaController visitaController = new VisitaController();
+        private List<Visita> listaVisitas = new List<Visita>();
 
         public FrmGerenciarVisita()
         {
             InitializeComponent();
-
-            dgvVisita.AutoGenerateColumns = true;
-
-            // Dados de exemplo para testes — será removido APÓS integração com o banco
-            CarregarVisitasExemplo();
+            CarregarVisitas();
+            dgvVisita.CellClick += dgvVisita_CellClick;
         }
 
-        // SIMULAÇÃO DE DADOS — SOMENTE PARA TESTE SEM BANCO
-        // Após integração: este método será DELETADO.       
-        private void CarregarVisitasExemplo()
+        // CARREGA TODAS AS VISITAS NO GRID
+        private void CarregarVisitas()
         {
-            // Processo adotivo fictício
-            ProcessoAdotivo processo1 = new ProcessoAdotivo
+            try
             {
-                IdProcesso = 1,
-                Tutor = new Tutor { NomeTutor = "Maria Silva" },
-                Animal = new Animal { NomeAnimal = "Rex" },
-                DataAdocao = DateTime.Now.AddMonths(-3)
-            };
+                // Garante que a lista nunca seja null
+                listaVisitas = visitaController.ListarVisitas() ?? new List<Visita>();
 
-            // Visita fictícia
-            Visita visita1 = new Visita
-            {
-                IdVisita = 1,
-                Processo = processo1,
-                DataVisita = DateTime.Now.AddDays(-10),
-                Responsavel = "Bruno Santos",
-                Status = "Realizada",
+                // Limpa o grid antes de atribuir os dados
+                dgvVisita.DataSource = null;
+                dgvVisita.DataSource = listaVisitas;
 
-                // Bem-estar
-                CondicaoFisica = "Boa",
-                Comportamento = "Calmo",
-                AnimalSaudavel = "Sim",
-                CondicoesHigiene = "Adequada",
-                VacinasEmDia = "Sim",
-                AcompanhamentoVeterinario = "Sim",
+                // Ajusta as colunas de forma segura
+                AjustarColunas();
 
-                // Ambiente
-                CondicaoAmbiente = "Seguro",
-                MausTratos = "Não",
-                AdaptacaoAmbiente = "Perfeita",
-
-                // Relacionamento e observações
-                RelacaoTutor = "Excelente",
-                AlteracoesComportamento = "Nenhuma",
-                OrientacoesDadas = "Manter rotina",
-                ConclusaoVisita = "Animal saudável",
-                Observacoes = "Tudo dentro do esperado",
-
-                // Agendamento
-                ProximaVisitaSugerida = DateTime.Now.AddMonths(1)
-            };
-
-            // Atualmente: armazenado APENAS na lista simulada do controller.
-            // FUTURO: inserir no banco com INSERT INTO Visita (...)
-            visitaController.CadastrarVisita(visita1);
-
-            // Carregar o grid
-            AtualizarGridCompleto();
-        }
-
-        // EVENTO DO BOTÃO PESQUISAR
-        // FUTURO: Isso será SELECT ... WHERE camponEscolhido LIKE ...
-        private void btnPesquisar_Click(object sender, EventArgs e)
-        {
-            string termo = txtPesquisar.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(termo))
-            {
-                MessageBox.Show("Digite algo para pesquisar.", "Atenção",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            string filtro = ObterFiltroSelecionado();
-
-            // No momento: filtragem em memória usando LINQ
-            // FUTURO: SELECT * FROM Visita WHERE filtro LIKE '%termo%'
-            listaAtual = visitaController.BuscarVisitas(termo, filtro);
-
-            dgvVisita.DataSource = null;
-            dgvVisita.DataSource = listaAtual;
-
-            ConfigurarGrid();
-        }
-
-        // Identifica qual filtro de pesquisa o usuário escolheu
-        private string ObterFiltroSelecionado()
-        {
-            if (rbNomeTutor.Checked) return "NomeTutor";
-            if (rbNomeAnimal.Checked) return "NomeAnimal";
-            if (rbIdProcesso.Checked) return "IdProcesso";
-            if (rbIdVisita.Checked) return "IdVisita";
-
-            return "NomeTutor"; // padrão
-        }
-
-        // Carrega todas as visitas cadastradas
-        // FUTURO: SELECT * FROM Visita + JOIN ProcessoAdotivo
-        private void AtualizarGridCompleto()
-        {
-            listaAtual = visitaController.ListarVisitas();
-
-            dgvVisita.DataSource = null;
-            dgvVisita.DataSource = listaAtual;
-
-            ConfigurarGrid();
-        }
-
-        // Configuração do DataGridView
-        // FUTURO: será automatizado caso o SELECT já traga os nomes do tutor/animal
-        private void ConfigurarGrid()
-        {
-            if (dgvVisita.Columns.Count == 0) return;
-
-            // Evita exibir o objeto Processo inteiro no grid
-            dgvVisita.Columns["Processo"].Visible = false;
-
-            // Ajustar headers
-            dgvVisita.Columns["IdVisita"].HeaderText = "ID Visita";
-            dgvVisita.Columns["DataVisita"].HeaderText = "Data";
-            dgvVisita.Columns["Status"].HeaderText = "Status";
-            dgvVisita.Columns["Responsavel"].HeaderText = "Responsável";
-
-            // Colunas adicionais (derivadas da classe ProcessoAdotivo)
-            dgvVisita.Columns.Add("NomeTutor", "Nome do Tutor");
-            dgvVisita.Columns.Add("NomeAnimal", "Nome do Animal");
-            dgvVisita.Columns.Add("IdProcesso", "ID Processo");
-
-            // Preenche as colunas adicionais
-            foreach (DataGridViewRow row in dgvVisita.Rows)
-            {
-                Visita v = row.DataBoundItem as Visita;
-
-                if (v != null)
+                // Se a lista estiver vazia, avisa o usuário
+                if (listaVisitas.Count == 0)
                 {
-                    row.Cells["NomeTutor"].Value = v.Processo.Tutor.NomeTutor;
-                    row.Cells["NomeAnimal"].Value = v.Processo.Animal.NomeAnimal;
-                    row.Cells["IdProcesso"].Value = v.Processo.IdProcesso;
+                    MessageBox.Show("Nenhuma visita cadastrada no sistema.",
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar lista de visitas:\n" + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-
-        // Atualiza label de filtro quando o rádio muda
-        private void rbNomeTutor_CheckedChanged(object sender, EventArgs e)
+        // AJUSTA COLUNAS DO DATA GRID DE FORMA SEGURA
+        private void AjustarColunas()
         {
-            if (rbNomeTutor.Checked)
-                lblFiltro.Text = "Nome do Tutor:";
-        }
-
-        private void rbNomeAnimal_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbNomeAnimal.Checked)
-                lblFiltro.Text = "Nome do Animal:";
-        }
-
-        private void rbIdProcesso_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbIdProcesso.Checked)
-                lblFiltro.Text = "ID do Processo:";
-        }
-
-        private void rbIdVisita_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbIdVisita.Checked)
-                lblFiltro.Text = "ID da Visita:";
-        }
-
-        // Quando usuário clica numa linha, carregar dados nos campos de edição
-        private void dgvVisita_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
+            if (dgvVisita.Columns.Count == 0)
                 return;
 
-            Visita visita = dgvVisita.Rows[e.RowIndex].DataBoundItem as Visita;
+            if (dgvVisita.Columns.Contains("IdVisita"))
+                dgvVisita.Columns["IdVisita"].HeaderText = "Código";
 
-            if (visita != null)
-                PreencherCampos(visita);
+            if (dgvVisita.Columns.Contains("IdAdocao"))
+                dgvVisita.Columns["IdAdocao"].HeaderText = "ID Adoção";
+
+            if (dgvVisita.Columns.Contains("DataVisita"))
+                dgvVisita.Columns["DataVisita"].HeaderText = "Data da Visita";
+
+            if (dgvVisita.Columns.Contains("Responsavel"))
+                dgvVisita.Columns["Responsavel"].HeaderText = "Responsável";
+
+            if (dgvVisita.Columns.Contains("Situacao"))
+                dgvVisita.Columns["Situacao"].HeaderText = "Situação";
+
+            if (dgvVisita.Columns.Contains("Observacoes"))
+                dgvVisita.Columns["Observacoes"].Visible = false;
         }
 
-        // Copia os dados da visita selecionada para os TextBoxes e DatePickers
-        private void PreencherCampos(Visita v)
+        // BOTÃO BUSCAR
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            txtNomeTutor.Text = v.Processo.Tutor.NomeTutor;
-            txtNomeAnimal.Text = v.Processo.Animal.NomeAnimal;
-            txtIdProcesso.Text = v.Processo.IdProcesso.ToString();
-            txtIdVisita.Text = v.IdVisita.ToString();
+            string filtro = txtPesquisar.Text.Trim();
 
-            dataVisita.Value = v.DataVisita;
-            txtStatus.Text = v.Status;
-            txtResponsavel.Text = v.Responsavel;
+            if (string.IsNullOrWhiteSpace(filtro))
+            {
+                CarregarVisitas();
+                return;
+            }
 
-            txtOrientacoes.Text = v.OrientacoesDadas;
-            txtConclusao.Text = v.ConclusaoVisita;
-            dataAgendamento.Value = v.ProximaVisitaSugerida;
+            try
+            {
+                var resultados = visitaController.BuscarVisita(filtro);
 
-            // Bem-estar
-            txtFisico.Text = v.CondicaoFisica;
-            txtComportamento.Text = v.Comportamento;
-            txtSaudavel.Text = v.AnimalSaudavel;
-            txtHigiene.Text = v.CondicoesHigiene;
-            txtVacinado.Text = v.VacinasEmDia;
-            txtAcompanhamento.Text = v.AcompanhamentoVeterinario;
+                dgvVisita.DataSource = null;
+                dgvVisita.DataSource = resultados;
 
-            // Ambiente
-            txtAmbiente.Text = v.CondicaoAmbiente;
-            txtMausTratos.Text = v.MausTratos;
-            txtAdaptacao.Text = v.AdaptacaoAmbiente;
+                AjustarColunas();
 
-            txtRelacao.Text = v.RelacaoTutor;
-            txtAlteracao.Text = v.AlteracoesComportamento;
-            txtObservacoes.Text = v.Observacoes;
+                if (resultados.Count == 0)
+                {
+                    MessageBox.Show("Nenhuma visita encontrada para o termo informado.",
+                        "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar visitas:\n" + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        // BOTÃO EXCLUIR
-        // FUTURO: DELETE FROM Visita WHERE IdVisita = X
+        // MOSTRAR OBSERVAÇÕES EM POPUP AO CLICAR NA VISITA
+        private void btnVerObservacoes_Click(object sender, EventArgs e)
+        {
+            if (dgvVisita.CurrentRow == null)
+                return;
+
+            int idVisita = Convert.ToInt32(dgvVisita.CurrentRow.Cells["IdVisita"].Value);
+
+            try
+            {
+                List<string> observacoes = visitaController.ListarObservacoesPorVisita(idVisita);
+
+                if (observacoes.Count == 0)
+                {
+                    MessageBox.Show("Esta visita não possui observações registradas.",
+                        "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                string texto = string.Join("\n• ", observacoes);
+
+                MessageBox.Show("Observações desta visita:\n\n• " + texto,
+                    "Observações", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao exibir observações:\n" + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // BOTÃO EXCLUIR VISITA + OBSERVAÇÕES
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (dgvVisita.SelectedRows.Count == 0)
+            if (dgvVisita.CurrentRow == null)
             {
-                MessageBox.Show("Selecione uma visita para excluir.", "Atenção",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Selecione uma visita para excluir.",
+                    "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            Visita visitaSelecionada = dgvVisita.SelectedRows[0].DataBoundItem as Visita;
-
-            if (visitaSelecionada == null) return;
+            int idVisita = Convert.ToInt32(dgvVisita.CurrentRow.Cells["IdVisita"].Value);
 
             var confirm = MessageBox.Show(
-                "Deseja realmente excluir esta visita?",
-                "Confirmação",
+                "Tem certeza que deseja excluir esta visita?\n\nAs observações também serão removidas.",
+                "Confirmar exclusão",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+                MessageBoxIcon.Warning);
 
-            if (confirm == DialogResult.Yes)
+            if (confirm == DialogResult.No)
+                return;
+
+            try
             {
+                visitaController.ExcluirVisita(idVisita);
 
-                // Atualmente: remove da lista simulada
-                // FUTURO: DELETE FROM Visita WHERE IdVisita = @id
-                visitaController.ListarVisitas().Remove(visitaSelecionada);
+                MessageBox.Show("Visita excluída com sucesso!",
+                    "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                AtualizarGridCompleto();
+                CarregarVisitas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir visita:\n" + ex.Message,
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
+        // BOTÃO ATUALIZAR LISTA
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            CarregarVisitas();
+        }
+        // BOTÃO VOLTAR
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            FrmMenu janela = new FrmMenu();
-            Hide();
-            janela.ShowDialog();
-            Show();
+            Close();
         }
 
+        // CONFIRMAÇÃO QUANDO FECHA A JANELA
         private void FrmGerenciarVisita_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-            // Se o sistema está fechando porque Application.Exit() foi chamado,
-            // não mostrar a mensagem novamente.
             if (e.CloseReason == CloseReason.ApplicationExitCall)
                 return;
 
-            //Exibe mensagem de confirmação
-            var resultado = MessageBox.Show(
-                "Deseja realmente sair do sistema?",
+            var result = MessageBox.Show(
+                "Deseja realmente sair?",
                 "Confirmar saída",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            //se clica não, cancela o fechamento
-            if (resultado == DialogResult.No)
-            {
+            if (result == DialogResult.No)
                 e.Cancel = true;
-                return;
+        }
+
+        private void dgvVisita_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            {
+                if (e.RowIndex < 0) return;
+
+                var visitaSelecionada = dgvVisita.Rows[e.RowIndex].DataBoundItem as Visita;
+                if (visitaSelecionada == null) return;
+
+                //CAMPOS BÁSICOS
+                txtIdVisita.Text = visitaSelecionada.IdVisita.ToString();
+                txtIdProcesso.Text = visitaSelecionada.IdProcessoAdotivo.ToString();
+                txtResponsavel.Text = visitaSelecionada.Responsavel;
+                txtStatus.Text = visitaSelecionada.Situacao;
+                txtOrientacoes.Text = visitaSelecionada.Orientacoes;
+                txtConclusao.Text = visitaSelecionada.Conclusao;
+
+                dataVisita.Value = visitaSelecionada.DataVisita == DateTime.MinValue
+                    ? DateTime.Now
+                    : visitaSelecionada.DataVisita;
+
+                dataAgendamento.Value = visitaSelecionada.DataAgendada == DateTime.MinValue
+                    ? DateTime.Now
+                    : visitaSelecionada.DataAgendada;
+
+                //OBSERVAÇÕES LIVRES
+                if (visitaSelecionada.Observacoes != null && visitaSelecionada.Observacoes.Count > 0)
+                    txtObservacoes.Text = string.Join(Environment.NewLine, visitaSelecionada.Observacoes);
+                else
+                    txtObservacoes.Text = "";
+
+                //OBSERVAÇÕES DETALHADAS
+                var obs = visitaSelecionada.ObservacoesDetalhadas;
+                if (obs != null)
+                {
+                    txtFisico.Text = obs.CondicaoFisica;
+                    txtComportamento.Text = obs.Comportamento;
+                    txtSaudavel.Text = obs.AparenciaSaudavel;
+                    txtHigiene.Text = obs.CondicoesHigiene;
+                    txtVacinado.Text = obs.Vacinado;
+                    txtAcompanhamento.Text = obs.Acompanhamento;
+                    txtAmbiente.Text = obs.CondicoesAmbiente;
+                    txtMausTratos.Text = obs.IndicioMaustratos;
+                    txtAdaptacao.Text = obs.Adaptacao;
+                    txtRelacao.Text = obs.RelacaoTutor;
+                    txtAlteracao.Text = obs.Alteracoes;
+
+                    txtObservacoes.Text = obs.ObservacoesLivres;
+                }
+                else
+                {
+                    // Limpa tudo caso não tenha observações detalhadas
+                    txtFisico.Clear();
+                    txtComportamento.Clear();
+                    txtSaudavel.Clear();
+                    txtHigiene.Clear();
+                    txtVacinado.Clear();
+                    txtAcompanhamento.Clear();
+                    txtAmbiente.Clear();
+                    txtMausTratos.Clear();
+                    txtAdaptacao.Clear();
+                    txtRelacao.Clear();
+                    txtAlteracao.Clear();
+                    txtObservacoes.Clear();
+                }
             }
-
-            Application.Exit();
-
         }
     }
 }
+
