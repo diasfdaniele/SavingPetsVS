@@ -33,18 +33,46 @@ namespace SavingPets
         private void AtualizarGrid()
         {
             dgvProcessos.DataSource = null;
-            dgvProcessos.DataSource = listaProcessos;
 
+            // Cria uma lista anônima com apenas os campos que queremos mostrar
+            var listaParaGrid = listaProcessos.Select(p => new
+            {
+                ProcessoObj = p, // referência ao objeto real
+                p.IdProcesso,
+                NomeTutor = p.Tutor?.NomeTutor ?? "",
+                NomeAnimal = p.Animal?.NomeAnimal ?? "",
+                DataAdocao = p.DataAdocao.ToString("dd/MM/yyyy"),
+                DataAgendamento = p.DataAgendamentoVisita.ToString("dd/MM/yyyy") ?? ""
+            }).ToList();
+
+            dgvProcessos.DataSource = listaParaGrid;
+
+            if (dgvProcessos.Columns.Contains("ProcessoObj"))
+                dgvProcessos.Columns["ProcessoObj"].Visible = false;
+
+            // Configurações do DataGridView
             dgvProcessos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProcessos.MultiSelect = false;
             dgvProcessos.ReadOnly = true;
+            dgvProcessos.AutoGenerateColumns = true;
 
-            // Ajusta nomes das colunas
-            dgvProcessos.Columns["IdProcesso"].HeaderText = "ID";
-            dgvProcessos.Columns["DataAdocao"].HeaderText = "Data da Adoção";
-            dgvProcessos.Columns["Tutor"].Visible = false;
-            dgvProcessos.Columns["Animal"].Visible = false;
+            // Ajusta os nomes das colunas
+            if (dgvProcessos.Columns.Contains("IdProcesso"))
+                dgvProcessos.Columns["IdProcesso"].HeaderText = "ID";
+
+            if (dgvProcessos.Columns.Contains("NomeTutor"))
+                dgvProcessos.Columns["NomeTutor"].HeaderText = "Nome do Tutor";
+
+            if (dgvProcessos.Columns.Contains("NomeAnimal"))
+                dgvProcessos.Columns["NomeAnimal"].HeaderText = "Nome do Animal";
+
+            if (dgvProcessos.Columns.Contains("DataAdocao"))
+                dgvProcessos.Columns["DataAdocao"].HeaderText = "Data da Adoção";
+
+            if (dgvProcessos.Columns.Contains("agendamentoVisita"))
+                dgvProcessos.Columns["DataAgendamento"].HeaderText = "Visita Agendada:";
         }
+
 
         private void rbNomeTutor_CheckedChanged(object sender, EventArgs e)
         {
@@ -79,7 +107,13 @@ namespace SavingPets
         {
             if (dgvProcessos.SelectedRows.Count > 0)
             {
-                var processo = dgvProcessos.SelectedRows[0].DataBoundItem as ProcessoAdotivo;
+                // Pega o objeto anônimo da linha selecionada
+                var linha = dgvProcessos.SelectedRows[0].DataBoundItem;
+
+                // Recupera a propriedade ProcessoObj
+                var processo = (ProcessoAdotivo)linha.GetType()
+                                .GetProperty("ProcessoObj")
+                                .GetValue(linha);
 
                 if (processo != null)
                 {
@@ -101,7 +135,7 @@ namespace SavingPets
         {
             if (processoSelecionado != null)
             {
-                MessageBox.Show($"Selecionado processo ID={processoSelecionado.IdProcesso}", "DEBUG");
+                MessageBox.Show($"Selecionado processo ID={processoSelecionado.IdProcesso}", "Confirmação");
 
                 this.Tag = processoSelecionado;
                 this.DialogResult = DialogResult.OK;

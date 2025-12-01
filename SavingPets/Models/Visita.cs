@@ -24,5 +24,7 @@ namespace SavingPets.Models
 
         // Observações detalhadas (tabela ObservacoesVisita)
         public ObservacoesVisita ObservacoesDetalhadas { get; set; } = new ObservacoesVisita();
+
+        
     }
 }

@@ -172,32 +172,41 @@ namespace SavingPets.DAL
                             DataAgendada = dr.IsDBNull(dr.GetOrdinal("agendamento")) ? DateTime.MinValue : dr.GetDateTime("agendamento"),
                             Conclusao = dr.IsDBNull(dr.GetOrdinal("conclusao")) ? "" : dr.GetString("conclusao"),
                             Orientacoes = dr.IsDBNull(dr.GetOrdinal("orientacoes")) ? "" : dr.GetString("orientacoes"),
-                            ObservacoesDetalhadas = new ObservacoesVisita()
+                            ObservacoesDetalhadas = null, // será preenchido abaixo se existir
+                            Observacoes = new List<string>()
                         };
 
                         // preencher objeto ObservacoesVisita se houver
                         if (!dr.IsDBNull(dr.GetOrdinal("idObservacoesVisita")))
                         {
-                            visita.ObservacoesDetalhadas.IdObservacoesVisita = dr.GetInt32("idObservacoesVisita");
-                            visita.ObservacoesDetalhadas.IdVisita = visita.IdVisita;
-                            visita.ObservacoesDetalhadas.CondicaoFisica = dr.IsDBNull(dr.GetOrdinal("condicao_fisica")) ? null : dr.GetString("condicao_fisica");
-                            visita.ObservacoesDetalhadas.Comportamento = dr.IsDBNull(dr.GetOrdinal("comportamento")) ? null : dr.GetString("comportamento");
-                            visita.ObservacoesDetalhadas.AparenciaSaudavel = dr.IsDBNull(dr.GetOrdinal("aparencia_saudavel")) ? null : dr.GetString("aparencia_saudavel");
-                            visita.ObservacoesDetalhadas.CondicoesHigiene = dr.IsDBNull(dr.GetOrdinal("condicoes_higiene")) ? null : dr.GetString("condicoes_higiene");
-                            visita.ObservacoesDetalhadas.Vacinado = dr.IsDBNull(dr.GetOrdinal("vacinado")) ? null : dr.GetString("vacinado");
-                            visita.ObservacoesDetalhadas.Acompanhamento = dr.IsDBNull(dr.GetOrdinal("acompanhamento")) ? null : dr.GetString("acompanhamento");
-                            visita.ObservacoesDetalhadas.CondicoesAmbiente = dr.IsDBNull(dr.GetOrdinal("condicoes_ambiente")) ? null : dr.GetString("condicoes_ambiente");
-                            visita.ObservacoesDetalhadas.IndicioMaustratos = dr.IsDBNull(dr.GetOrdinal("indicio_maustratos")) ? null : dr.GetString("indicio_maustratos");
-                            visita.ObservacoesDetalhadas.Adaptacao = dr.IsDBNull(dr.GetOrdinal("adaptacao")) ? null : dr.GetString("adaptacao");
-                            visita.ObservacoesDetalhadas.RelacaoTutor = dr.IsDBNull(dr.GetOrdinal("relacao_tutor")) ? null : dr.GetString("relacao_tutor");
-                            visita.ObservacoesDetalhadas.Alteracoes = dr.IsDBNull(dr.GetOrdinal("alteracoes")) ? null : dr.GetString("alteracoes");
-                            visita.ObservacoesDetalhadas.ObservacoesLivres = dr.IsDBNull(dr.GetOrdinal("observacoes_livres")) ? null : dr.GetString("observacoes_livres");
-
-                            // se houver observacoesLivres, também popular Visita.Observacoes (lista simples) — split por " | "
-                            if (!string.IsNullOrWhiteSpace(visita.ObservacoesDetalhadas.ObservacoesLivres))
+                            var obs = new ObservacoesVisita
                             {
-                                visita.Observacoes = new List<string>(visita.ObservacoesDetalhadas.ObservacoesLivres.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries));
-                            }
+                                IdObservacoesVisita = dr.GetInt32("idObservacoesVisita"),
+                                IdVisita = visita.IdVisita,
+                                CondicaoFisica = dr.IsDBNull(dr.GetOrdinal("condicao_fisica")) ? null : dr.GetString("condicao_fisica"),
+                                Comportamento = dr.IsDBNull(dr.GetOrdinal("comportamento")) ? null : dr.GetString("comportamento"),
+                                AparenciaSaudavel = dr.IsDBNull(dr.GetOrdinal("aparencia_saudavel")) ? null : dr.GetString("aparencia_saudavel"),
+                                CondicoesHigiene = dr.IsDBNull(dr.GetOrdinal("condicoes_higiene")) ? null : dr.GetString("condicoes_higiene"),
+                                Vacinado = dr.IsDBNull(dr.GetOrdinal("vacinado")) ? null : dr.GetString("vacinado"),
+                                Acompanhamento = dr.IsDBNull(dr.GetOrdinal("acompanhamento")) ? null : dr.GetString("acompanhamento"),
+                                CondicoesAmbiente = dr.IsDBNull(dr.GetOrdinal("condicoes_ambiente")) ? null : dr.GetString("condicoes_ambiente"),
+                                IndicioMaustratos = dr.IsDBNull(dr.GetOrdinal("indicio_maustratos")) ? null : dr.GetString("indicio_maustratos"),
+                                Adaptacao = dr.IsDBNull(dr.GetOrdinal("adaptacao")) ? null : dr.GetString("adaptacao"),
+                                RelacaoTutor = dr.IsDBNull(dr.GetOrdinal("relacao_tutor")) ? null : dr.GetString("relacao_tutor"),
+                                Alteracoes = dr.IsDBNull(dr.GetOrdinal("alteracoes")) ? null : dr.GetString("alteracoes"),
+                                ObservacoesLivres = dr.IsDBNull(dr.GetOrdinal("observacoes_livres")) ? null : dr.GetString("observacoes_livres")
+                            };
+
+                            visita.ObservacoesDetalhadas = obs;
+
+                            // monta a lista de observacoes (itens descritivos + observacoes livres)
+                            visita.Observacoes = MontarObservacoes(obs);
+                        }
+                        else
+                        {
+                            // garante lista vazia (evita null no UI)
+                            visita.Observacoes = new List<string>();
+                            visita.ObservacoesDetalhadas = new ObservacoesVisita(); // opcional, evita null ao acessar propriedades
                         }
 
                         lista.Add(visita);
@@ -264,6 +273,10 @@ namespace SavingPets.DAL
                             {
                                 visita.ObservacoesDetalhadas.ObservacoesLivres = dr.GetString("observacoes_livres");
                                 visita.Observacoes = new List<string>(visita.ObservacoesDetalhadas.ObservacoesLivres.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries));
+                            }
+                            else
+                            {
+                                visita.Observacoes = new List<string>();
                             }
 
                             lista.Add(visita);
@@ -397,6 +410,42 @@ namespace SavingPets.DAL
                     return false;
                 }
             }
+        }
+
+        // monta uma lista de observações a partir do objeto ObservacoesVisita
+        private List<string> MontarObservacoes(ObservacoesVisita od)
+        {
+            var lista = new List<string>();
+            if (od == null) return lista;
+
+            void AddIfNotEmpty(string titulo, string valor)
+            {
+                if (!string.IsNullOrWhiteSpace(valor))
+                    lista.Add($"{titulo}: {valor}");
+            }
+
+            AddIfNotEmpty("Condição Física", od.CondicaoFisica);
+            AddIfNotEmpty("Comportamento", od.Comportamento);
+            AddIfNotEmpty("Aparência Saudável", od.AparenciaSaudavel);
+            AddIfNotEmpty("Condições de Higiene", od.CondicoesHigiene);
+            AddIfNotEmpty("Vacinado", od.Vacinado);
+            AddIfNotEmpty("Acompanhamento", od.Acompanhamento);
+            AddIfNotEmpty("Condições do Ambiente", od.CondicoesAmbiente);
+            AddIfNotEmpty("Indício de Maus Tratos", od.IndicioMaustratos);
+            AddIfNotEmpty("Adaptação", od.Adaptacao);
+            AddIfNotEmpty("Relação com Tutor", od.RelacaoTutor);
+            AddIfNotEmpty("Alterações", od.Alteracoes);
+
+            // adiciona observações livres (se houver), separadas por " | "
+            if (!string.IsNullOrWhiteSpace(od.ObservacoesLivres))
+            {
+                var partes = od.ObservacoesLivres.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var p in partes)
+                    if (!string.IsNullOrWhiteSpace(p))
+                        lista.Add(p.Trim());
+            }
+
+            return lista;
         }
 
         // LISTAR APENAS O CAMPO 'observacoes' COMO LISTA (útil para UI)

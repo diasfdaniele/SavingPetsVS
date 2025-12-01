@@ -7,6 +7,14 @@ public class VisitaController
 {
     private readonly BancoDadosVisita _repository = new BancoDadosVisita();
 
+    public Visita DependenciaVisita
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     //CADASTRAR VISITA – versão antiga (para compatibilidade)
     public bool CadastrarVisita(
         int idAdocao,

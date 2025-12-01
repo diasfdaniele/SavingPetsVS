@@ -71,10 +71,14 @@ namespace SavingPets
                 Visita visita = new Visita
                 {
                     IdAdocao = processoSelecionado.IdProcesso,
-                    DataVisita = dataVisita.Value.Date,
-                    Responsavel = txtResponsavel.Text.Trim(),
+                    IdVoluntario = 1, // exemplo: pegar do usuário logado
+                    DataVisita = dataVisita.Value,
                     Situacao = cbxStatusVisita.Text.Trim(),
-                    Observacoes = listaObservacoes.List.Cast<string>().ToList()
+                    DataAgendada = dataAdocao.Value, // ou outro campo de agendamento
+                    Conclusao = "Acompanhamento Periódico", // valor padrão
+                    Orientacoes = txtOrientacao.Text.Trim(), // se tiver campo no form
+                    Observacoes = listaObservacoes.List.Cast<string>().ToList(),
+                    ObservacoesDetalhadas = new ObservacoesVisita()
                 };
 
                 //ENVIA AO CONTROLLER
@@ -116,7 +120,10 @@ namespace SavingPets
         //VOLTAR PARA O MENU
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            Close();
+            FrmMenu janela = new FrmMenu();
+            Hide();
+            janela.ShowDialog();
+            Show();
         }
 
         //CONFIRMAÇÃO AO FECHAR

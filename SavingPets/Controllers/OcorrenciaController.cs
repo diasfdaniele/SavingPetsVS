@@ -11,6 +11,14 @@ namespace SavingPets.Controllers
     {
         private BancoDadosOcorrencia dal = new BancoDadosOcorrencia();
 
+        public Ocorrencia DependenciaOcorrencia
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void Validar(Ocorrencia ocorrencia)
         {
             if (ocorrencia == null) throw new ArgumentNullException(nameof(ocorrencia));

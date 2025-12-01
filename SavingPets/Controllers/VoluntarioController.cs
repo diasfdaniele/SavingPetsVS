@@ -13,6 +13,14 @@ namespace SavingPets.Controllers
             dal = new BancoDeDadosVoluntario();
         }
 
+        public Voluntario DependenciaVoluntario
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void Cadastrar(Voluntario voluntario)
         {
             // Validações básicas (igual ao anterior)

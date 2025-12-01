@@ -295,7 +295,7 @@
             // 
             // txtResponsavel
             // 
-            this.txtResponsavel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtResponsavel.BackColor = System.Drawing.Color.White;
             this.txtResponsavel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResponsavel.Location = new System.Drawing.Point(286, 62);
             this.txtResponsavel.Name = "txtResponsavel";
@@ -465,7 +465,7 @@
             // 
             this.rbDuvida.AutoSize = true;
             this.rbDuvida.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbDuvida.Location = new System.Drawing.Point(327, 15);
+            this.rbDuvida.Location = new System.Drawing.Point(327, 28);
             this.rbDuvida.Name = "rbDuvida";
             this.rbDuvida.Size = new System.Drawing.Size(104, 24);
             this.rbDuvida.TabIndex = 2;
@@ -477,7 +477,7 @@
             // 
             this.rbNao.AutoSize = true;
             this.rbNao.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNao.Location = new System.Drawing.Point(194, 15);
+            this.rbNao.Location = new System.Drawing.Point(194, 28);
             this.rbNao.Name = "rbNao";
             this.rbNao.Size = new System.Drawing.Size(58, 24);
             this.rbNao.TabIndex = 1;
@@ -489,7 +489,7 @@
             // 
             this.rbSim.AutoSize = true;
             this.rbSim.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSim.Location = new System.Drawing.Point(69, 15);
+            this.rbSim.Location = new System.Drawing.Point(69, 28);
             this.rbSim.Name = "rbSim";
             this.rbSim.Size = new System.Drawing.Size(50, 24);
             this.rbSim.TabIndex = 0;

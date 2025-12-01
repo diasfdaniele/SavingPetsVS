@@ -27,5 +27,7 @@ namespace SavingPets.Models
 
 
         public List<Animal> Animais { get; set; } = new List<Animal>();
+
+        
     }
 }

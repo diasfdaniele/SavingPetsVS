@@ -8,6 +8,14 @@ namespace SavingPets.Controllers
     {
         private BancoDadosRelatorio dal = new BancoDadosRelatorio();
 
+        public BancoDadosRelatorio BancoDadosRelatorio
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public DataTable ConsultarPadrao(int tipoIndex, DateTime inicio, DateTime fim)
         {
             if (tipoIndex < 0) throw new Exception("Selecione um tipo de relatório.");

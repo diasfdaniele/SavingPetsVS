@@ -13,6 +13,14 @@ namespace SavingPets.Controllers
         // Instância da classe de Banco de Dados
         BancoDeDadosTutor tutorDados = new BancoDeDadosTutor();
 
+        public Tutor DependenciaTutor
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // Cadastrar tutor (Agora chama o Banco)
         public void CadastrarTutor(Tutor novoTutor)
         {

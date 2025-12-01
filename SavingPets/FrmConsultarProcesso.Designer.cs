@@ -218,7 +218,7 @@
             this.dgvProcessos.Name = "dgvProcessos";
             this.dgvProcessos.RowHeadersWidth = 51;
             this.dgvProcessos.RowTemplate.Height = 24;
-            this.dgvProcessos.Size = new System.Drawing.Size(700, 147);
+            this.dgvProcessos.Size = new System.Drawing.Size(613, 147);
             this.dgvProcessos.TabIndex = 42;
             this.dgvProcessos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcessos_CellDoubleClick);
             this.dgvProcessos.SelectionChanged += new System.EventHandler(this.dgvProcessos_SelectionChanged);

@@ -12,6 +12,22 @@ namespace SavingPets.Controllers
     {
         private BancoDadosLogAlteracoes logDados = new BancoDadosLogAlteracoes();
 
+        public BancoDadosLogAlteracoes BancoDadosLogAlteracoes
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public LogAlteracao DependenciaLog
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public List<LogAlteracao> Listar()
         {
             return logDados.ListarLogs();

@@ -32,5 +32,7 @@ namespace SavingPets.Models
 
         // Propriedade para definir se será Tutor também
         public bool EhTutor { get; set; }
+
+       
     }
 }

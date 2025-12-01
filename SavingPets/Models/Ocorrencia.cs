@@ -29,5 +29,7 @@ namespace SavingPets.Models
 
         // objeto opcional com mais dados do processo
         public ProcessoAdotivo Processo { get; set; }
+
+        
     }
 }

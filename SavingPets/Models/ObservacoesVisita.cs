@@ -20,5 +20,7 @@ namespace SavingPets.Models
         public string RelacaoTutor { get; set; }          // relacao_tutor
         public string Alteracoes { get; set; }            // alteracoes
         public string ObservacoesLivres { get; set; }     // observacoes (campo texto)
+
+        
     }
 }

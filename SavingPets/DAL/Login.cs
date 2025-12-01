@@ -13,6 +13,14 @@ namespace SavingPets.DAL
         //cria a conexão, usando a Classe Conexão
         Conexao Conect = new Conexao();
 
+        public Controllers.LogAlteracaoController LoginPodeGerar
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public bool Logar(string Login, string Senha)
         {
             using (MySqlConnection Con = Conect.GetConnection())

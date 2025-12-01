@@ -11,6 +11,14 @@ namespace SavingPets.Controllers
         // Conexão com o DAL
         private BancoDadosProcessoAdotivo processoDados = new BancoDadosProcessoAdotivo();
 
+        public ProcessoAdotivo DependenciaProcessoAdotivo
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void Cadastrar(ProcessoAdotivo processo)
         {
             ValidarProcesso(processo);

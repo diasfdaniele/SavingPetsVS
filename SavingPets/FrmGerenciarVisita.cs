@@ -30,7 +30,7 @@ namespace SavingPets
                 dgvVisita.DataSource = null;
                 dgvVisita.DataSource = listaVisitas;
 
-                // Ajusta as colunas de forma segura
+                // Ajusta as colunas do grid para mostrar apenas o que queremos
                 AjustarColunas();
 
                 // Se a lista estiver vazia, avisa o usuário
@@ -47,17 +47,15 @@ namespace SavingPets
             }
         }
 
-        // AJUSTA COLUNAS DO DATA GRID DE FORMA SEGURA
+        // AJUSTA COLUNAS DO DATA GRID 
         private void AjustarColunas()
         {
             if (dgvVisita.Columns.Count == 0)
                 return;
 
+            // Colunas que queremos exibir
             if (dgvVisita.Columns.Contains("IdVisita"))
                 dgvVisita.Columns["IdVisita"].HeaderText = "Código";
-
-            if (dgvVisita.Columns.Contains("IdAdocao"))
-                dgvVisita.Columns["IdAdocao"].HeaderText = "ID Adoção";
 
             if (dgvVisita.Columns.Contains("DataVisita"))
                 dgvVisita.Columns["DataVisita"].HeaderText = "Data da Visita";
@@ -68,8 +66,24 @@ namespace SavingPets
             if (dgvVisita.Columns.Contains("Situacao"))
                 dgvVisita.Columns["Situacao"].HeaderText = "Situação";
 
-            if (dgvVisita.Columns.Contains("Observacoes"))
-                dgvVisita.Columns["Observacoes"].Visible = false;
+            if (dgvVisita.Columns.Contains("DataAgendada"))
+                dgvVisita.Columns["DataAgendada"].HeaderText = "Data Agendada";
+
+            if (dgvVisita.Columns.Contains("Conclusao"))
+                dgvVisita.Columns["Conclusao"].HeaderText = "Conclusão";
+
+            // Oculta todas as colunas extras
+            string[] colunasParaOcultar = { "IdAdocao", "IdProcessoAdotivo", "IdVoluntario", "Orientacoes", "Observacoes" };
+            foreach (var col in colunasParaOcultar)
+            {
+                if (dgvVisita.Columns.Contains(col))
+                    dgvVisita.Columns[col].Visible = false;
+            }
+
+            // Deixa o grid somente leitura e com seleção de linha completa
+            dgvVisita.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvVisita.MultiSelect = false;
+            dgvVisita.ReadOnly = true;
         }
 
         // BOTÃO BUSCAR

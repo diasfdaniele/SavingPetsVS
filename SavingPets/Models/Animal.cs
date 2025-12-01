@@ -21,5 +21,7 @@ namespace SavingPets.Models
         public bool Castrado { get; set; }            // true = Sim, false = Não
 
         public string HistoricoDoencas { get; set; }  // histórico de saúde
+
+        
     }
 }

@@ -14,6 +14,14 @@ namespace SavingPets.Controllers
     {
         private static BancoDadosAnimal animalDados = new BancoDadosAnimal();
 
+        public Animal DependenciaAnimal
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void CadastrarAnimal(Animal novoAnimal)
         {
 
