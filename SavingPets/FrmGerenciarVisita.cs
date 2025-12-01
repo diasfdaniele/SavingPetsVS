@@ -181,7 +181,10 @@ namespace SavingPets
         // BOTÃO VOLTAR
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            Close();
+            FrmMenu janela = new FrmMenu();
+            Hide();
+            janela.ShowDialog();
+            Show();
         }
 
         // CONFIRMAÇÃO QUANDO FECHA A JANELA
