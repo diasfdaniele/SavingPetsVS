@@ -2,6 +2,7 @@
 using SavingPets.Models;
 using System;
 using System.Collections.Generic;
+using static SavingPets.DAL.Login; // Para acessar SessaoUsuario
 
 namespace SavingPets.DAL
 {
@@ -9,7 +10,55 @@ namespace SavingPets.DAL
     {
         private readonly Conexao conexao = new Conexao();
 
-        // CADASTRO DE VISITAS, INSERE NA TABELA VISITA E OBSERVACOESVISITA
+        // -----------------------------------------------------------
+        // CONFIGURA A VARIÁVEL DE SESSÃO PARA AS TRIGGERS DE LOG
+        // -----------------------------------------------------------
+        private void ConfigurarSessao(MySqlConnection conn, MySqlTransaction trans)
+        {
+            int idVol = SessaoUsuario.IdVoluntarioLogado;
+            // Se não houver ninguém logado (0), define como 1 (Admin padrão) ou deixa NULL dependendo da regra
+            if (idVol <= 0) idVol = 1;
+
+            string sql = $"SET @voluntario_responsavel = {idVol};";
+            using (MySqlCommand cmd = new MySqlCommand(sql, conn, trans))
+            {
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // -----------------------------------------------------------
+        // BUSCAR NOME DO VOLUNTÁRIO LOGADO
+        // -----------------------------------------------------------
+        public string ObterNomeVoluntarioLogado()
+        {
+            int idVol = SessaoUsuario.IdVoluntarioLogado;
+            if (idVol <= 0) return "Desconhecido";
+
+            string nome = "";
+            using (MySqlConnection conn = conexao.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    // Busca o nome na tabela Pessoa via JOIN com Voluntario
+                    string sql = @"SELECT P.nome 
+                                   FROM Pessoa P 
+                                   INNER JOIN Voluntario V ON P.idPessoa = V.idPessoa 
+                                   WHERE V.idVoluntario = @id";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", idVol);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null) nome = result.ToString();
+                    }
+                }
+                catch { return "Erro ao buscar nome"; }
+            }
+            return nome;
+        }
+
+        // CADASTRO DE VISITAS
         public bool InserirVisitaCompleta(Visita visita)
         {
             using (MySqlConnection conn = conexao.GetConnection())
@@ -19,7 +68,10 @@ namespace SavingPets.DAL
 
                 try
                 {
-                    // 1) Inserir na tabela Visita
+                    // 🔥 1. Configura a sessão para o LOG
+                    ConfigurarSessao(conn, trans);
+
+                    // 2) Inserir na tabela Visita
                     string sqlVisita = @"
                         INSERT INTO Visita
                           (idProcessoAdotivo, idVoluntario, dataRealizada, realizada, agendamento, conclusao, orientacoes)
@@ -31,7 +83,10 @@ namespace SavingPets.DAL
                     using (MySqlCommand cmdVisita = new MySqlCommand(sqlVisita, conn, trans))
                     {
                         cmdVisita.Parameters.AddWithValue("@idProcessoAdotivo", visita.IdProcessoAdotivo);
-                        cmdVisita.Parameters.AddWithValue("@idVoluntario", visita.IdVoluntario);
+                        // Usa o ID do voluntário logado se o objeto vier zerado
+                        int idVol = visita.IdVoluntario > 0 ? visita.IdVoluntario : SessaoUsuario.IdVoluntarioLogado;
+                        cmdVisita.Parameters.AddWithValue("@idVoluntario", idVol);
+
                         cmdVisita.Parameters.AddWithValue("@dataRealizada", visita.DataVisita);
                         cmdVisita.Parameters.AddWithValue("@realizada", string.IsNullOrWhiteSpace(visita.Situacao) ? (object)DBNull.Value : visita.Situacao);
                         cmdVisita.Parameters.AddWithValue("@agendamento", visita.DataAgendada == default ? (object)DBNull.Value : visita.DataAgendada);
@@ -43,16 +98,14 @@ namespace SavingPets.DAL
                         visita.IdVisita = idVisitaGerado;
                     }
 
-                    // 2) Inserir ObservacoesVisita 
+                    // 3) Inserir ObservacoesVisita 
                     if (visita.ObservacoesDetalhadas != null)
                     {
-                        // concatena lista simples de observacoes para o campo observacoes
                         string observacoesConcatenadas = null;
                         if (visita.Observacoes != null && visita.Observacoes.Count > 0)
                         {
                             observacoesConcatenadas = string.Join(" | ", visita.Observacoes);
                         }
-                        // usa o objeto ObservacoesDetalhadas e garante que IdVisita esteja preenchido
                         visita.ObservacoesDetalhadas.IdVisita = visita.IdVisita;
                         visita.ObservacoesDetalhadas.ObservacoesLivres =
                             string.IsNullOrWhiteSpace(visita.ObservacoesDetalhadas.ObservacoesLivres)
@@ -92,7 +145,6 @@ namespace SavingPets.DAL
                     }
                     else
                     {
-                        // Se não houve ObservacoesDetalhadas, mas há lista simples, grava uma linha mínima apenas com 'observacoes'
                         if (visita.Observacoes != null && visita.Observacoes.Count > 0)
                         {
                             string observacoesConc = string.Join(" | ", visita.Observacoes);
@@ -120,7 +172,7 @@ namespace SavingPets.DAL
             }
         }
 
-        // LISTAR TODAS AS VISITAS (traz observacoes se existirem)
+        // LISTAR TODAS AS VISITAS
         public List<Visita> ListarVisitas()
         {
             List<Visita> lista = new List<Visita>();
@@ -131,26 +183,11 @@ namespace SavingPets.DAL
 
                 string sql = @"
                     SELECT 
-                        v.idVisita,
-                        v.idProcessoAdotivo,
-                        v.idVoluntario,
-                        v.dataRealizada,
-                        v.realizada,
-                        v.agendamento,
-                        v.conclusao,
-                        v.orientacoes,
-                        ov.idObservacoesVisita,
-                        ov.condicao_fisica,
-                        ov.comportamento,
-                        ov.aparencia_saudavel,
-                        ov.condicoes_higiene,
-                        ov.vacinado,
-                        ov.acompanhamento,
-                        ov.condicoes_ambiente,
-                        ov.indicio_maustratos,
-                        ov.adaptacao,
-                        ov.relacao_tutor,
-                        ov.alteracoes,
+                        v.idVisita, v.idProcessoAdotivo, v.idVoluntario, v.dataRealizada, v.realizada,
+                        v.agendamento, v.conclusao, v.orientacoes,
+                        ov.idObservacoesVisita, ov.condicao_fisica, ov.comportamento, ov.aparencia_saudavel,
+                        ov.condicoes_higiene, ov.vacinado, ov.acompanhamento, ov.condicoes_ambiente,
+                        ov.indicio_maustratos, ov.adaptacao, ov.relacao_tutor, ov.alteracoes,
                         ov.observacoes AS observacoes_livres
                     FROM Visita v
                     LEFT JOIN ObservacoesVisita ov ON ov.idVisita = v.idVisita
@@ -162,221 +199,60 @@ namespace SavingPets.DAL
                 {
                     while (dr.Read())
                     {
-                        Visita visita = new Visita
-                        {
-                            IdVisita = dr.GetInt32("idVisita"),
-                            IdProcessoAdotivo = dr.GetInt32("idProcessoAdotivo"),
-                            IdVoluntario = dr.IsDBNull(dr.GetOrdinal("idVoluntario")) ? 0 : dr.GetInt32("idVoluntario"),
-                            DataVisita = dr.IsDBNull(dr.GetOrdinal("dataRealizada")) ? DateTime.MinValue : dr.GetDateTime("dataRealizada"),
-                            Situacao = dr.IsDBNull(dr.GetOrdinal("realizada")) ? "" : dr.GetString("realizada"),
-                            DataAgendada = dr.IsDBNull(dr.GetOrdinal("agendamento")) ? DateTime.MinValue : dr.GetDateTime("agendamento"),
-                            Conclusao = dr.IsDBNull(dr.GetOrdinal("conclusao")) ? "" : dr.GetString("conclusao"),
-                            Orientacoes = dr.IsDBNull(dr.GetOrdinal("orientacoes")) ? "" : dr.GetString("orientacoes"),
-                            ObservacoesDetalhadas = null, // será preenchido abaixo se existir
-                            Observacoes = new List<string>()
-                        };
-
-                        // preencher objeto ObservacoesVisita se houver
-                        if (!dr.IsDBNull(dr.GetOrdinal("idObservacoesVisita")))
-                        {
-                            var obs = new ObservacoesVisita
-                            {
-                                IdObservacoesVisita = dr.GetInt32("idObservacoesVisita"),
-                                IdVisita = visita.IdVisita,
-                                CondicaoFisica = dr.IsDBNull(dr.GetOrdinal("condicao_fisica")) ? null : dr.GetString("condicao_fisica"),
-                                Comportamento = dr.IsDBNull(dr.GetOrdinal("comportamento")) ? null : dr.GetString("comportamento"),
-                                AparenciaSaudavel = dr.IsDBNull(dr.GetOrdinal("aparencia_saudavel")) ? null : dr.GetString("aparencia_saudavel"),
-                                CondicoesHigiene = dr.IsDBNull(dr.GetOrdinal("condicoes_higiene")) ? null : dr.GetString("condicoes_higiene"),
-                                Vacinado = dr.IsDBNull(dr.GetOrdinal("vacinado")) ? null : dr.GetString("vacinado"),
-                                Acompanhamento = dr.IsDBNull(dr.GetOrdinal("acompanhamento")) ? null : dr.GetString("acompanhamento"),
-                                CondicoesAmbiente = dr.IsDBNull(dr.GetOrdinal("condicoes_ambiente")) ? null : dr.GetString("condicoes_ambiente"),
-                                IndicioMaustratos = dr.IsDBNull(dr.GetOrdinal("indicio_maustratos")) ? null : dr.GetString("indicio_maustratos"),
-                                Adaptacao = dr.IsDBNull(dr.GetOrdinal("adaptacao")) ? null : dr.GetString("adaptacao"),
-                                RelacaoTutor = dr.IsDBNull(dr.GetOrdinal("relacao_tutor")) ? null : dr.GetString("relacao_tutor"),
-                                Alteracoes = dr.IsDBNull(dr.GetOrdinal("alteracoes")) ? null : dr.GetString("alteracoes"),
-                                ObservacoesLivres = dr.IsDBNull(dr.GetOrdinal("observacoes_livres")) ? null : dr.GetString("observacoes_livres")
-                            };
-
-                            visita.ObservacoesDetalhadas = obs;
-
-                            // monta a lista de observacoes (itens descritivos + observacoes livres)
-                            visita.Observacoes = MontarObservacoes(obs);
-                        }
-                        else
-                        {
-                            // garante lista vazia (evita null no UI)
-                            visita.Observacoes = new List<string>();
-                            visita.ObservacoesDetalhadas = new ObservacoesVisita(); // opcional, evita null ao acessar propriedades
-                        }
-
+                        Visita visita = MapearVisita(dr);
                         lista.Add(visita);
                     }
                 }
             }
-
             return lista;
         }
 
-        // BUSCAR VISITAS POR FILTRO
-        public List<Visita> BuscarVisitasPorFiltro(string filtro)
+        // BUSCAR POR ID
+        public Visita BuscarVisita(int idVisita)
         {
-            List<Visita> lista = new List<Visita>();
-
+            Visita visita = null;
             using (MySqlConnection conn = conexao.GetConnection())
             {
                 conn.Open();
+                string sql = @"SELECT * FROM Visita v LEFT JOIN ObservacoesVisita ov ON ov.idVisita = v.idVisita WHERE v.idVisita = @id";
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idVisita);
+                    using (MySqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read()) visita = MapearVisita(dr);
+                    }
+                }
+            }
+            return visita;
+        }
 
+        // FILTRO
+        public List<Visita> BuscarVisitasPorFiltro(string filtro)
+        {
+            List<Visita> lista = new List<Visita>();
+            using (MySqlConnection conn = conexao.GetConnection())
+            {
+                conn.Open();
                 string sql = @"
-                    SELECT 
-                        v.idVisita,
-                        v.idProcessoAdotivo,
-                        v.idVoluntario,
-                        v.dataRealizada,
-                        v.realizada,
-                        v.agendamento,
-                        v.conclusao,
-                        v.orientacoes,
-                        ov.idObservacoesVisita,
-                        ov.observacoes AS observacoes_livres
-                    FROM Visita v
-                    LEFT JOIN ObservacoesVisita ov ON ov.idVisita = v.idVisita
-                    WHERE
-                        CAST(v.idVisita AS CHAR) LIKE @filtro
-                        OR CAST(v.idProcessoAdotivo AS CHAR) LIKE @filtro
-                        OR v.realizada LIKE @filtro
-                        OR v.conclusao LIKE @filtro
-                    ORDER BY v.idVisita DESC;
-                ";
+                    SELECT * FROM Visita v LEFT JOIN ObservacoesVisita ov ON ov.idVisita = v.idVisita
+                    WHERE CAST(v.idVisita AS CHAR) LIKE @filtro OR CAST(v.idProcessoAdotivo AS CHAR) LIKE @filtro
+                    OR v.realizada LIKE @filtro OR v.conclusao LIKE @filtro
+                    ORDER BY v.idVisita DESC";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
-
                     using (MySqlDataReader dr = cmd.ExecuteReader())
                     {
-                        while (dr.Read())
-                        {
-                            Visita visita = new Visita
-                            {
-                                IdVisita = dr.GetInt32("idVisita"),
-                                IdProcessoAdotivo = dr.GetInt32("idProcessoAdotivo"),
-                                IdVoluntario = dr.IsDBNull(dr.GetOrdinal("idVoluntario")) ? 0 : dr.GetInt32("idVoluntario"),
-                                DataVisita = dr.IsDBNull(dr.GetOrdinal("dataRealizada")) ? DateTime.MinValue : dr.GetDateTime("dataRealizada"),
-                                Situacao = dr.IsDBNull(dr.GetOrdinal("realizada")) ? "" : dr.GetString("realizada"),
-                                DataAgendada = dr.IsDBNull(dr.GetOrdinal("agendamento")) ? DateTime.MinValue : dr.GetDateTime("agendamento"),
-                                Conclusao = dr.IsDBNull(dr.GetOrdinal("conclusao")) ? "" : dr.GetString("conclusao"),
-                                Orientacoes = dr.IsDBNull(dr.GetOrdinal("orientacoes")) ? "" : dr.GetString("orientacoes"),
-                                ObservacoesDetalhadas = new ObservacoesVisita()
-                            };
-
-                            if (!dr.IsDBNull(dr.GetOrdinal("observacoes_livres")))
-                            {
-                                visita.ObservacoesDetalhadas.ObservacoesLivres = dr.GetString("observacoes_livres");
-                                visita.Observacoes = new List<string>(visita.ObservacoesDetalhadas.ObservacoesLivres.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries));
-                            }
-                            else
-                            {
-                                visita.Observacoes = new List<string>();
-                            }
-
-                            lista.Add(visita);
-                        }
+                        while (dr.Read()) lista.Add(MapearVisita(dr));
                     }
                 }
             }
-
             return lista;
         }
 
-        // BUSCAR VISITA POR ID (inclui observacoes)
-        public Visita BuscarVisita(int idVisita)
-        {
-            Visita visita = null;
-
-            using (MySqlConnection conn = conexao.GetConnection())
-            {
-                conn.Open();
-
-                string sql = @"
-                    SELECT 
-                        v.idVisita,
-                        v.idProcessoAdotivo,
-                        v.idVoluntario,
-                        v.dataRealizada,
-                        v.realizada,
-                        v.agendamento,
-                        v.conclusao,
-                        v.orientacoes,
-                        ov.idObservacoesVisita,
-                        ov.condicao_fisica,
-                        ov.comportamento,
-                        ov.aparencia_saudavel,
-                        ov.condicoes_higiene,
-                        ov.vacinado,
-                        ov.acompanhamento,
-                        ov.condicoes_ambiente,
-                        ov.indicio_maustratos,
-                        ov.adaptacao,
-                        ov.relacao_tutor,
-                        ov.alteracoes,
-                        ov.observacoes AS observacoes_livres
-                    FROM Visita v
-                    LEFT JOIN ObservacoesVisita ov ON ov.idVisita = v.idVisita
-                    WHERE v.idVisita = @id;
-                ";
-
-                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                {
-                    cmd.Parameters.AddWithValue("@id", idVisita);
-
-                    using (MySqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        if (dr.Read())
-                        {
-                            visita = new Visita
-                            {
-                                IdVisita = dr.GetInt32("idVisita"),
-                                IdProcessoAdotivo = dr.GetInt32("idProcessoAdotivo"),
-                                IdVoluntario = dr.IsDBNull(dr.GetOrdinal("idVoluntario")) ? 0 : dr.GetInt32("idVoluntario"),
-                                DataVisita = dr.IsDBNull(dr.GetOrdinal("dataRealizada")) ? DateTime.MinValue : dr.GetDateTime("dataRealizada"),
-                                Situacao = dr.IsDBNull(dr.GetOrdinal("realizada")) ? "" : dr.GetString("realizada"),
-                                DataAgendada = dr.IsDBNull(dr.GetOrdinal("agendamento")) ? DateTime.MinValue : dr.GetDateTime("agendamento"),
-                                Conclusao = dr.IsDBNull(dr.GetOrdinal("conclusao")) ? "" : dr.GetString("conclusao"),
-                                Orientacoes = dr.IsDBNull(dr.GetOrdinal("orientacoes")) ? "" : dr.GetString("orientacoes"),
-                                ObservacoesDetalhadas = new ObservacoesVisita()
-                            };
-
-                            if (!dr.IsDBNull(dr.GetOrdinal("idObservacoesVisita")))
-                            {
-                                visita.ObservacoesDetalhadas.IdObservacoesVisita = dr.GetInt32("idObservacoesVisita");
-                                visita.ObservacoesDetalhadas.IdVisita = visita.IdVisita;
-                                visita.ObservacoesDetalhadas.CondicaoFisica = dr.IsDBNull(dr.GetOrdinal("condicao_fisica")) ? null : dr.GetString("condicao_fisica");
-                                visita.ObservacoesDetalhadas.Comportamento = dr.IsDBNull(dr.GetOrdinal("comportamento")) ? null : dr.GetString("comportamento");
-                                visita.ObservacoesDetalhadas.AparenciaSaudavel = dr.IsDBNull(dr.GetOrdinal("aparencia_saudavel")) ? null : dr.GetString("aparencia_saudavel");
-                                visita.ObservacoesDetalhadas.CondicoesHigiene = dr.IsDBNull(dr.GetOrdinal("condicoes_higiene")) ? null : dr.GetString("condicoes_higiene");
-                                visita.ObservacoesDetalhadas.Vacinado = dr.IsDBNull(dr.GetOrdinal("vacinado")) ? null : dr.GetString("vacinado");
-                                visita.ObservacoesDetalhadas.Acompanhamento = dr.IsDBNull(dr.GetOrdinal("acompanhamento")) ? null : dr.GetString("acompanhamento");
-                                visita.ObservacoesDetalhadas.CondicoesAmbiente = dr.IsDBNull(dr.GetOrdinal("condicoes_ambiente")) ? null : dr.GetString("condicoes_ambiente");
-                                visita.ObservacoesDetalhadas.IndicioMaustratos = dr.IsDBNull(dr.GetOrdinal("indicio_maustratos")) ? null : dr.GetString("indicio_maustratos");
-                                visita.ObservacoesDetalhadas.Adaptacao = dr.IsDBNull(dr.GetOrdinal("adaptacao")) ? null : dr.GetString("adaptacao");
-                                visita.ObservacoesDetalhadas.RelacaoTutor = dr.IsDBNull(dr.GetOrdinal("relacao_tutor")) ? null : dr.GetString("relacao_tutor");
-                                visita.ObservacoesDetalhadas.Alteracoes = dr.IsDBNull(dr.GetOrdinal("alteracoes")) ? null : dr.GetString("alteracoes");
-                                visita.ObservacoesDetalhadas.ObservacoesLivres = dr.IsDBNull(dr.GetOrdinal("observacoes_livres")) ? null : dr.GetString("observacoes_livres");
-
-                                if (!string.IsNullOrWhiteSpace(visita.ObservacoesDetalhadas.ObservacoesLivres))
-                                {
-                                    visita.Observacoes = new List<string>(visita.ObservacoesDetalhadas.ObservacoesLivres.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries));
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            return visita;
-        }
-
-        // REMOVER VISITA + OBSERVACOES
+        // EXCLUIR
         public bool ExcluirVisita(int idVisita)
         {
             using (MySqlConnection conn = conexao.GetConnection())
@@ -385,75 +261,80 @@ namespace SavingPets.DAL
                 MySqlTransaction trans = conn.BeginTransaction();
                 try
                 {
-                    // excluir observacoes (se existir)
-                    string sqlObs = "DELETE FROM ObservacoesVisita WHERE idVisita = @id;";
-                    using (MySqlCommand cmd1 = new MySqlCommand(sqlObs, conn, trans))
-                    {
-                        cmd1.Parameters.AddWithValue("@id", idVisita);
-                        cmd1.ExecuteNonQuery();
-                    }
+                    // 🔥 Configura a sessão para o LOG
+                    ConfigurarSessao(conn, trans);
 
-                    // excluir visita
-                    string sqlVisita = "DELETE FROM Visita WHERE idVisita = @id;";
-                    using (MySqlCommand cmd2 = new MySqlCommand(sqlVisita, conn, trans))
-                    {
-                        cmd2.Parameters.AddWithValue("@id", idVisita);
-                        cmd2.ExecuteNonQuery();
-                    }
-
+                    new MySqlCommand("DELETE FROM ObservacoesVisita WHERE idVisita = @id", conn, trans) { Parameters = { new MySqlParameter("@id", idVisita) } }.ExecuteNonQuery();
+                    new MySqlCommand("DELETE FROM Visita WHERE idVisita = @id", conn, trans) { Parameters = { new MySqlParameter("@id", idVisita) } }.ExecuteNonQuery();
                     trans.Commit();
                     return true;
                 }
-                catch
+                catch { try { trans.Rollback(); } catch { } return false; }
+            }
+        }
+
+        // OBTER PRÓXIMO ID
+        public int ObterProximoId()
+        {
+            int nextId = 1;
+            using (MySqlConnection conn = conexao.GetConnection())
+            {
+                try
                 {
-                    try { trans.Rollback(); } catch { }
-                    return false;
+                    conn.Open();
+                    string sql = $"SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = '{conn.Database}' AND TABLE_NAME = 'Visita'";
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value) nextId = Convert.ToInt32(result);
+                    }
                 }
+                catch { return 1; }
             }
+            return nextId;
         }
 
-        // monta uma lista de observações a partir do objeto ObservacoesVisita
-        private List<string> MontarObservacoes(ObservacoesVisita od)
+        // --- MÉTODOS AUXILIARES ---
+        private Visita MapearVisita(MySqlDataReader dr)
         {
-            var lista = new List<string>();
-            if (od == null) return lista;
-
-            void AddIfNotEmpty(string titulo, string valor)
+            Visita v = new Visita
             {
-                if (!string.IsNullOrWhiteSpace(valor))
-                    lista.Add($"{titulo}: {valor}");
-            }
+                IdVisita = dr.GetInt32("idVisita"),
+                IdProcessoAdotivo = dr.GetInt32("idProcessoAdotivo"),
+                IdVoluntario = dr.IsDBNull(dr.GetOrdinal("idVoluntario")) ? 0 : dr.GetInt32("idVoluntario"),
+                DataVisita = dr.IsDBNull(dr.GetOrdinal("dataRealizada")) ? DateTime.MinValue : dr.GetDateTime("dataRealizada"),
+                Situacao = dr.IsDBNull(dr.GetOrdinal("realizada")) ? "" : dr.GetString("realizada"),
+                DataAgendada = dr.IsDBNull(dr.GetOrdinal("agendamento")) ? DateTime.MinValue : dr.GetDateTime("agendamento"),
+                Conclusao = dr.IsDBNull(dr.GetOrdinal("conclusao")) ? "" : dr.GetString("conclusao"),
+                Orientacoes = dr.IsDBNull(dr.GetOrdinal("orientacoes")) ? "" : dr.GetString("orientacoes"),
+                ObservacoesDetalhadas = new ObservacoesVisita(),
+                Observacoes = new List<string>()
+            };
 
-            AddIfNotEmpty("Condição Física", od.CondicaoFisica);
-            AddIfNotEmpty("Comportamento", od.Comportamento);
-            AddIfNotEmpty("Aparência Saudável", od.AparenciaSaudavel);
-            AddIfNotEmpty("Condições de Higiene", od.CondicoesHigiene);
-            AddIfNotEmpty("Vacinado", od.Vacinado);
-            AddIfNotEmpty("Acompanhamento", od.Acompanhamento);
-            AddIfNotEmpty("Condições do Ambiente", od.CondicoesAmbiente);
-            AddIfNotEmpty("Indício de Maus Tratos", od.IndicioMaustratos);
-            AddIfNotEmpty("Adaptação", od.Adaptacao);
-            AddIfNotEmpty("Relação com Tutor", od.RelacaoTutor);
-            AddIfNotEmpty("Alterações", od.Alteracoes);
-
-            // adiciona observações livres (se houver), separadas por " | "
-            if (!string.IsNullOrWhiteSpace(od.ObservacoesLivres))
+            if (!dr.IsDBNull(dr.GetOrdinal("idObservacoesVisita")))
             {
-                var partes = od.ObservacoesLivres.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries);
-                foreach (var p in partes)
-                    if (!string.IsNullOrWhiteSpace(p))
-                        lista.Add(p.Trim());
-            }
+                var o = v.ObservacoesDetalhadas;
+                o.IdObservacoesVisita = dr.GetInt32("idObservacoesVisita");
+                o.IdVisita = v.IdVisita;
+                o.CondicaoFisica = dr.IsDBNull(dr.GetOrdinal("condicao_fisica")) ? null : dr.GetString("condicao_fisica");
+                o.Comportamento = dr.IsDBNull(dr.GetOrdinal("comportamento")) ? null : dr.GetString("comportamento");
+                o.AparenciaSaudavel = dr.IsDBNull(dr.GetOrdinal("aparencia_saudavel")) ? null : dr.GetString("aparencia_saudavel");
+                o.CondicoesHigiene = dr.IsDBNull(dr.GetOrdinal("condicoes_higiene")) ? null : dr.GetString("condicoes_higiene");
+                o.Vacinado = dr.IsDBNull(dr.GetOrdinal("vacinado")) ? null : dr.GetString("vacinado");
+                o.Acompanhamento = dr.IsDBNull(dr.GetOrdinal("acompanhamento")) ? null : dr.GetString("acompanhamento");
+                o.CondicoesAmbiente = dr.IsDBNull(dr.GetOrdinal("condicoes_ambiente")) ? null : dr.GetString("condicoes_ambiente");
+                o.IndicioMaustratos = dr.IsDBNull(dr.GetOrdinal("indicio_maustratos")) ? null : dr.GetString("indicio_maustratos");
+                o.Adaptacao = dr.IsDBNull(dr.GetOrdinal("adaptacao")) ? null : dr.GetString("adaptacao");
+                o.RelacaoTutor = dr.IsDBNull(dr.GetOrdinal("relacao_tutor")) ? null : dr.GetString("relacao_tutor");
+                o.Alteracoes = dr.IsDBNull(dr.GetOrdinal("alteracoes")) ? null : dr.GetString("alteracoes");
+                o.ObservacoesLivres = dr.IsDBNull(dr.GetOrdinal("observacoes_livres")) ? null : dr.GetString("observacoes_livres");
 
-            return lista;
+                if (!string.IsNullOrWhiteSpace(o.ObservacoesLivres))
+                    v.Observacoes = new List<string>(o.ObservacoesLivres.Split(new[] { " | " }, StringSplitOptions.RemoveEmptyEntries));
+            }
+            return v;
         }
 
-        // LISTAR APENAS O CAMPO 'observacoes' COMO LISTA (útil para UI)
-        public List<string> ListarObservacoesPorVisita(int idVisita)
-        {
-            var visita = BuscarVisita(idVisita);
-            if (visita == null) return new List<string>();
-            return visita.Observacoes ?? new List<string>();
-        }
+        private List<string> MontarObservacoes(ObservacoesVisita od) { /* simplificado */ return new List<string>(); }
     }
 }

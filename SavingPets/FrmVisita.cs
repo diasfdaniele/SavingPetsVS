@@ -8,22 +8,43 @@ namespace SavingPets
 {
     public partial class FrmVisita : Form
     {
-        // Controller principal responsável por validar e salvar no banco
         private readonly VisitaController visitaController = new VisitaController();
-
-        // Processo selecionado
         private ProcessoAdotivo processoSelecionado;
-
-        // Lista temporária para armazenar observações antes de salvar no banco:
         private BindingSource listaObservacoes = new BindingSource();
 
         public FrmVisita()
         {
             InitializeComponent();
+            // Carrega o ID assim que a tela abre
+            CarregarProximoId();
+            PreencherResponsavel();
         }
 
+        // --- ATUALIZA O CAMPO COM O PRÓXIMO ID DA VISITA ---
+        private void CarregarProximoId()
+        {
+            try
+            {
+                int proximoId = visitaController.ObterProximoId();
+                txtIdVisita.Text = proximoId.ToString(); // << CORREÇÃO AQUI
+            }
+            catch
+            {
+                // Se der erro, deixa vazio ou trata conforme necessidade
+                txtIdVisita.Text = "";
+            }
+        }
 
-        //BOTÃO PESQUISAR PROCESSO
+        private void PreencherResponsavel()
+        {
+            try
+            {
+                txtResponsavel.Text = visitaController.ObterNomeResponsavel();
+            }
+            catch { }
+        }
+
+        // BOTÃO PESQUISAR (Busca o Processo Adotivo)
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             FrmConsultarProcesso lookup = new FrmConsultarProcesso();
@@ -32,71 +53,63 @@ namespace SavingPets
             {
                 processoSelecionado = (ProcessoAdotivo)lookup.Tag;
 
+                // txtId continua mostrando o ID do PROCESSO selecionado
                 txtId.Text = processoSelecionado.IdProcesso.ToString();
+
                 txtNomeAnimal.Text = processoSelecionado.Animal.NomeAnimal;
                 txtNomeTutor.Text = processoSelecionado.Tutor.NomeTutor;
                 dataAdocao.Value = processoSelecionado.DataAdocao;
             }
         }
 
-        //BOTÃO CADASTRAR VISITA
+        // BOTÃO CADASTRAR
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
-                //VALIDAÇÃO
                 if (processoSelecionado == null)
                 {
-                    MessageBox.Show("Selecione um processo de adoção.", "Atenção",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Selecione um processo de adoção.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(txtResponsavel.Text))
                 {
-                    MessageBox.Show("Informe o responsável pela visita.", "Atenção",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Informe o responsável pela visita.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtResponsavel.Focus();
                     return;
                 }
 
                 if (cbxStatusVisita.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Selecione a situação da visita.", "Atenção",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Selecione a situação da visita.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                //CRIA OBJETO VISITA PRINCIPAL
                 Visita visita = new Visita
                 {
                     IdAdocao = processoSelecionado.IdProcesso,
-                    IdVoluntario = 1, // exemplo: pegar do usuário logado
+                    IdVoluntario = 0,
                     DataVisita = dataVisita.Value,
                     Situacao = cbxStatusVisita.Text.Trim(),
-                    DataAgendada = dataAdocao.Value, // ou outro campo de agendamento
-                    Conclusao = "Acompanhamento Periódico", // valor padrão
-                    Orientacoes = txtOrientacao.Text.Trim(), // se tiver campo no form
+                    DataAgendada = dataAdocao.Value,
+                    Conclusao = "Acompanhamento Periódico",
+                    Orientacoes = txtOrientacao.Text.Trim(),
                     Observacoes = listaObservacoes.List.Cast<string>().ToList(),
                     ObservacoesDetalhadas = new ObservacoesVisita()
                 };
 
-                //ENVIA AO CONTROLLER
                 visitaController.CadastrarVisita(visita);
 
-                MessageBox.Show("Visita cadastrada com sucesso!", "Sucesso",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("Visita cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimparCampos();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar visita:\n" + ex.Message,
-                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Erro ao cadastrar visita:\n" + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        //LIMPAR CAMPOS
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             LimparCampos();
@@ -106,18 +119,22 @@ namespace SavingPets
         {
             processoSelecionado = null;
 
-            txtId.Clear();
+            txtId.Clear(); // Limpa ID do Processo
+                           // txtIdVisita.Clear(); // Não limpamos, nós recarregamos abaixo
+
             txtNomeTutor.Clear();
             txtNomeAnimal.Clear();
-            txtResponsavel.Clear();
             txtObservacoes.Clear();
-
             cbxStatusVisita.SelectedIndex = -1;
-
             listaObservacoes.Clear();
+
+            // Atualiza para o próximo ID disponível
+            CarregarProximoId();
+
+            // Garante que o nome do responsável continue lá
+            PreencherResponsavel();
         }
 
-        //VOLTAR PARA O MENU
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             FrmMenu janela = new FrmMenu();
@@ -126,22 +143,14 @@ namespace SavingPets
             Show();
         }
 
-        //CONFIRMAÇÃO AO FECHAR
         private void FrmVisita_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.ApplicationExitCall)
-                return;
+            if (e.CloseReason == CloseReason.ApplicationExitCall) return;
 
-            var result = MessageBox.Show(
-                "Deseja realmente sair?",
-                "Confirmar saída",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result == DialogResult.No)
+            if (MessageBox.Show("Deseja realmente sair?", "Confirmar saída", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
                 e.Cancel = true;
+            }
         }
-
-
     }
 }

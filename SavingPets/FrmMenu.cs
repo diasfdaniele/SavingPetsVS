@@ -9,7 +9,7 @@ namespace SavingPets
     public partial class FrmMenu : Form
     {
         // Variável de controle da animação do menu
-        bool sidebarExpand = true; // Começa expandido (true) ou recolhido (false), ajuste conforme seu design inicial
+        
 
         public FrmMenu()
         {
@@ -23,7 +23,7 @@ namespace SavingPets
             // Exemplo: Esconde o botão de Log de Alterações se não for admin
             if (!IsAdministradorLogado)
             {
-                btnAlteracoes.Visible = false;
+                fSideBar.Visible = false;
                 // fSideBar.Hide(); // CUIDADO: Isso esconde o menu todo! Só descomente se for a intenção.
             }
         }

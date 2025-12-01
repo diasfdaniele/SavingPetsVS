@@ -169,5 +169,13 @@ namespace SavingPets
             menu.ShowDialog();
             this.Show();
         }
+
+        private void btnVoltar_Click_1(object sender, EventArgs e)
+        {
+            FrmMenu janela = new FrmMenu();
+            Hide();
+            janela.ShowDialog();
+            Show();
+        }
     }
 }
