@@ -37,7 +37,7 @@ namespace SavingPets.DAL
                     // SQL 1: Verifica login por email e senha, e busca o idVoluntario.
                     string ComandoSql = "SELECT V.idVoluntario " +
                                         "FROM Pessoa AS P INNER JOIN Voluntario AS V ON V.idPessoa = P.idPessoa " +
-                                        "WHERE P.login=@email AND P.senha=@senha"; // Assumindo que o campo é 'login' ou 'email'
+                                        "WHERE P.email=@email AND P.senha=@senha"; // Assumindo que o campo é 'login' ou 'email'
 
                     MySqlCommand Command = new MySqlCommand(ComandoSql, Con);
 
